@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    usercenter: './src/js/entry.js'
+    ucRczp: './src/js/rczpEntry.js'
   },
   output: {
     path: __dirname + '/dist/',
@@ -43,7 +43,7 @@ module.exports = {
   },
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin('js/common.js'),
-    new ExtractTextPlugin('css/[name].css')
+    new ExtractTextPlugin('css/usercenter.css')
   ],
   cssnext: {
     compress: true,
