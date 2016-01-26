@@ -3,5 +3,7 @@
 */bin/
 */favicon.ico
 */web.config
+*/DHW.config
+*/Global.asax
 Thumbs.db
 npm-debug.log
