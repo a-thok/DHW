@@ -1,0 +1,7 @@
+/node_modules/
+*/dist/
+*/bin/
+*/favicon.ico
+*/web.config
+Thumbs.db
+npm-debug.log
