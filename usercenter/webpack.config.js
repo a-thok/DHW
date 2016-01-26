@@ -24,7 +24,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!cssnext')
+        loader: ExtractTextPlugin.extract('style', 'css!cssnext')
       },
       {
         test: /\.js$/,
@@ -47,6 +47,7 @@ module.exports = {
   ],
   cssnext: {
     compress: true,
+    sourcemap: true,
     features: {
       // rem: false,
       // pseudoElements: false,
