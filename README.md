@@ -1,5 +1,6 @@
 # DHW
 
 # members
+* Victor
 * zhuangdize
-* hewei
+* AllenHee
