@@ -1,0 +1,66 @@
+.gsServe_wrap {
+  background: #f1f2f5;
+}
+.gsServe {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.gsServe_top {
+  background: #fff;
+  padding: 15px 0 20px 15px;
+  margin-bottom: 20px;
+}
+.gsServe h3 {
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.gsServe_choose {
+  list-style-type: none;
+}
+.gsServe_choose li {
+  float: left;
+  padding-top: 10px;
+  margin-right: 10px;
+}
+.gsServe_choose li a {
+  display: block;
+  border: 1px solid #e5e5e5;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #333;
+}
+.gsServe_choose li .current {
+  background: #e91615;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.gsServe_main_wrap {
+  width: 1200px;
+  overflow: hidden;
+}
+.gsServe_main {
+  width: 1220px;
+}
+.gsServe_main_txt {
+  background: #fff;
+  line-height: 20px;
+  padding: 10px 15px;
+  font-size: 12px;
+}
+.gsServe_main_txt_money {
+  font-size: 14px;
+  color: #e91615;
+}
+.gsServe_main li {
+  float: left;
+  border: 1px solid #e9e9e9;
+  margin: 0 20px 20px 0;
+}
+.gsServe_main li img {
+  width: 282px;
+  height: 282px;
+}

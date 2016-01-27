@@ -1,0 +1,15 @@
+.contbg {
+  background-color: #f2f3f6;
+}
+.cont {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.cont_show_items {
+  float: left;
+  margin-right: 20px;
+  width: 285px;
+}
+.cont_show_items-last {
+  margin-right: 0;
+}

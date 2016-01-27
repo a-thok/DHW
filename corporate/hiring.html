@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+  *陈树阳
+  *2015.12.30
+-->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 招聘</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/cmpy.css">
+  <script type="text/html" id="jobList">
+   {{each data as job}}
+       <tr>
+            <td><a href="http://localhost:8081/jobs/detail/{{job.djiid}}" target="_blank">{{job.zpgw}}</a></td>
+            <td>{{job.gzdd}}</td>
+            <td>{{job.ssbm}}</td>
+            <td>{{job.date}}</td>
+        </tr>
+    {{/each}}
+  </script>
+  <script>
+    var companyid = 51;
+  </script>
+</head>
+<body>
+  <!--头部 开始-->
+  <div class="header">
+    <div class="header_t clearfix">
+      <div class="header_l">
+        <a class="header_logo" href=""><img src="images/com_logo.jpg" alt=""></a>
+        <div class="header_ttl">
+          <h2>创企科技<i></i></h2>
+          <a class="sc" href="#">收藏</a>
+          <a class="share" href="#">分享</a>
+          <span class="xy">
+            信用：<i></i><i></i><i></i><i></i><i></i>
+            <a class="more" href=""><span></span></a>
+          </span> 
+        </div>            
+      </div>
+      <div class="header_r">
+        <input class="emColorBorder" type="text">
+        <a class="emColorBG" href="#"><i></i></a>
+      </div>
+    </div>
+    <!--导航-->
+    <div class="nav_wrap emColorBG">
+      <ul class="nav clearfix">
+        <li class="current"><span></span><em>首页</em></li>
+        <li><span></span><em>案例展示</em></li>
+        <li><span></span><em>服务中心</em></li>
+        <li><span></span><em>公司动态</em></li>
+        <li><span></span><em>公司招聘</em></li>
+        <li><span></span><em>联系我们</em></li>
+        <li><span></span><em>关于我们</em></li>
+      </ul>
+    </div>
+  </div>
+  <!--头部 结束-->
+  <div class="banner">
+    <img src="images/hr_banner.png" alt="">  
+  </div>
+  <!--内容 开始-->
+  <div class="gsJob_wrap">
+    <div class="gsJob">
+      <!--<ul class="gsJob_ttl clearfix">
+        <li><a class="current" href="#">社会招聘</a></li>
+        <li><a href="#">校园招聘</a></li>
+      </ul>-->
+      <!--<div class="clearfix">
+        <div class="gsJob_company">
+          <input type="text" value="所属公司：">
+        </div>
+        <div class="gsJob_address">
+          <input type="text" value="工作地点：">
+        </div>
+        <div class="gsJob_search">
+          <input type="text" value="关键字：">
+          <a href=""></a>
+        </div>
+      </div>-->
+      <table class="gsJob_table">
+        <thead>
+          <tr>
+            <th>招聘岗位</th>
+            <!--<th>招聘人数</th>-->
+            <th>工作地点</th>
+            <th>所属部门</th>
+            <th>日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>php工程师</td>
+            <td>1</td>
+            <td>石狮</td>
+            <td>创企信息科技有限公司</td>
+            <td>2015-11-11-1015-11-11</td>
+          </tr>
+          <tr>
+            <td>php工程师</td>
+            <td>1</td>
+            <td>石狮</td>
+            <td>创企信息科技有限公司</td>
+            <td>2015-11-11-1015-11-11</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination"></div>
+    </div>
+  </div>
+  <!--内容 结束-->
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script>
+    var para={
+      
+      companyid : 51,
+      pageIndex : 1,
+      pageSize :10
+    }
+    loadData('/CompanyHome/ZhaopinList',para,'jobList',".gsJob_table tbody");
+   
+  </script>
+</body>
+</html>

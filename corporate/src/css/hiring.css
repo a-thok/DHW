@@ -1,0 +1,95 @@
+.gsJob_wrap {
+  width: 100%;
+  background: #f1f2f5;
+}
+.gsJob {
+  width: 1160px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+}
+.gsJob_ttl li {
+  float: left;
+  margin-bottom: 30px;
+}
+.gsJob_ttl li a {
+  display: block;
+  padding: 10px 40px;
+  color: #888;
+  background: #ececec;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.gsJob_ttl .current {
+  background: #e91615;
+  color: #fff;
+}
+.gsJob_company,
+.gsJob_address {
+  float: left;
+}
+.gsJob_search {
+  float: right;
+  position: relative;
+  margin-bottom: 20px;
+}
+.gsJob input,
+select {
+  height: 32px;
+  border: 1px solid #aaa;
+}
+.gsJob_company input,
+.gsJob_address input {
+  width: 230px;
+  padding-left: 10px;
+}
+.gsJob_company input {
+  margin-right: 5px;
+}
+.gsJob_search input {
+  width: 437px;
+  padding-left: 10px;
+}
+.gsJob_search a {
+  display: block;
+  width: 34px;
+  height: 34px;
+  background: url(../img/gs_search.png) no-repeat 8px 9px;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+}
+.gsJob_table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.gsJob_table thead th {
+  border: 1px solid #d8d8d8;
+  background: #727272;
+  color: #fff;
+  height: 50px;
+}
+.gsJob_table tbody td {
+  border: 1px solid #d8d8d8;
+  height: 50px;
+  text-align: center;
+}
+.gsJob_table tbody td a{
+  color :#333;
+}
+.page_wrap {
+  height: 50px;
+  background: #f9f9f9;
+}
+.bdshare-button-style0-16:after {
+  display: none !important;
+}
+.bds_more {
+  float: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  color: #ea1515 !important;
+  background: none !important;
+}

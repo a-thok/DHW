@@ -1,0 +1,195 @@
+.aboutUs_wrap {
+  width: 100%;
+  background: #f1f2f5;
+}
+.aboutUs {
+  width: 1160px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 40px 20px;
+}
+.au_top {
+  margin-bottom: 50px;
+}
+.au_logo {
+  float: left;
+  margin-right: 25px;
+}
+.au_top_intro_ttl {
+  margin-bottom: 10px;
+}
+.au_top_intro h2 {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+}
+.au_top_intro a {
+  color: #51a0e1;
+  font-size: 14px;
+  margin-left: 5px;
+}
+.au_top_intro .rz {
+  display: inline-block;
+  width: 64px;
+  height: 14px;
+  background: url("../img/com_rz.png") no-repeat;
+  margin-left: 5px;
+}
+.au_top_intro p {
+  display: inline-block;
+  width: 200px;
+  font-size: 12px;
+  line-height: 23px;
+  color: #555;
+}
+.au_top_intro p span {
+  font-weight: bold;
+}
+.au_top_intro .long {
+  width: 80%;
+}
+.au_left {
+  float: left;
+  width: 860px;
+  padding-right: 20px;
+  border-right: 2px solid #e9ecef;
+}
+.au_right {
+  float: right;
+  width: 258px;
+  padding-left: 20px;
+}
+.au_ttl {
+  font-size: 15px;
+  border-left: 3px solid #e91615;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+.au_xx,
+.au_fzlc,
+.au_xc {
+  margin-bottom: 30px;
+}
+.au_xx p {
+  text-indent: 2em;
+  font-size: 12px;
+  color: #555;
+  line-height: 25px;
+}
+.au_xx a {
+  color: #51a0e1;
+}
+.au_fzlc .year {
+  float: left;
+  height: 335px;
+  margin-right: 25px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0 15px;
+  border-right: 3px solid #ededed;
+}
+.au_fzlc_r {
+  float: left;
+}
+.au_fzlc_r li {
+  padding-bottom: 30px;
+  font-size: 12px;
+  color: #888;
+}
+.au_fzlc_r span {
+  font-weight: bold;
+}
+.au_job li {
+  line-height: 30px;
+  padding-left: 15px;
+  font-size: 12px;
+}
+.au_job li a {
+  color: #333;
+  padding: 7px 0;
+}
+.au_job li i {
+  display: inline-block;
+  height: 3px;
+  width: 3px;
+  background: #ea1515;
+  vertical-align: 3px;
+  margin-right: 7px;
+}
+/*轮播*/
+.slide-xc .slide {
+  width: 250px;
+  height: 170px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slide-xc .slide-wrap {
+  width: 1250px;
+  top: 0;
+  left: 0;
+  height: 170px;
+}
+.slide-xc .slide-wrap li {
+  display: block;
+  float: left;
+}
+.slide-xc .slide-wrap li img {
+  height: 170px;
+  width: 250px;
+}
+.slide-xc .s-prev,
+.slide-xc .s-next {
+  position: absolute;
+  top: 50%;
+  width: 13px;
+  height: 22px;
+  margin-top: -9px;
+  cursor: pointer;
+}
+.slide-xc .s-prev {
+  left: 50%;
+  margin-left: -112px;
+  background: url(../img/arrow_pn.png) no-repeat;
+}
+.slide-xc .s-next {
+  right: 50%;
+  margin-right: -112px;
+  background: url(../img/arrow_pn.png) no-repeat 0 -71px;
+}
+.slide-xc .s-prev-bg,
+.slide-xc .s-next-bg {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  background-color: #000;
+  opacity: 0.6;
+}
+.slide-xc .s-prev-bg {
+  left: 50%;
+  margin-left: -120px;
+}
+.slide-xc .s-next-bg {
+  right: 50%;
+  margin-right: -120px;
+}
+.slide-xc .slider {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -35px;
+  height: 10px;
+  overflow: hidden;
+}
+.slide-xc .slider_items {
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  background: url(../img/dot.png) no-repeat;
+  cursor: pointer;
+}
+.slide-xc .slider_items.current {
+  background: url(../img/dot.png) no-repeat 0 -10px;
+}
