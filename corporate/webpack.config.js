@@ -3,8 +3,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: './src/js/index.js',
-    services: './src/js/services.js',
+    index: [ __dirname + '/src/js/index.js'],
+    service: [ __dirname + '/src/js/service.js']
     // cases: './src/js/cases.js',
     // hiring: './src/js/hiring.js',
     // news: './src/js/news.js',
@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist/',
     filename: 'js/[name].js',
-    publicPath: '/dist/'
+    publicPath: '/'
   },
   resolve: {
     extensions: ['', '.js', '.json', '.css']
@@ -22,10 +22,10 @@ module.exports = {
   externals: [
     {
       'jquery': 'window.jQuery',
-      'angular': 'window.angular',
-      'art-template': 'window.template',
+      'angular': 'window.angular'
     }
   ],
+  devtool: 'source-map',
   module: {
     //加载器配置
     loaders: [
@@ -50,6 +50,7 @@ module.exports = {
   },
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin('js/common.js'),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
