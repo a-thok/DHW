@@ -3,8 +3,10 @@ var webpackDevMiddleware = require("webpack-dev-middleware");
 var WebpackDevServer = require('webpack-dev-server');
 var config = require("./webpack.config.js");
 
-config.entry.ucRczp.unshift("webpack-dev-server/client?http://localhost:8080");  // 将执行替换的js内联进去
-config.entry.ucRczp.unshift("webpack/hot/dev-server");
+for (var prop in config.entry) {
+  config.entry[prop].unshift("webpack/hot/dev-server")
+  config.entry[prop].unshift("webpack-dev-server/client?http://localhost:8080")
+}
 var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
   hot: true,
