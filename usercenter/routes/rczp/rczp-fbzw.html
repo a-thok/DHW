@@ -1,0 +1,99 @@
+<form name="fbzwForm">
+  <div select-simple
+    data-this="fbzw"
+    data-name="dtmc"
+    data-label="行业名称"
+    data-pattern="/.+/"
+    data-options="item.text for item in fbzw.trade"
+  ></div>
+  <div input-text
+    data-this="fbzw"
+    data-form="fbzwForm"
+    data-name="department"
+    data-label="所属部门"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-error="所属部门必须在2-10个字符之间"
+  ></div>
+  <div input-text-required
+    data-this="fbzw"
+    data-form="fbzwForm"
+    data-name="position"
+    data-label="职位名称"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div select-simple
+    data-this="fbzw"
+    data-name="gzxz"
+    data-label="工作性质"
+    data-pattern="/.+/"
+    data-options="item for item in fbzw.jobCategory"
+  ></div>
+  <div select-simple
+    data-this="fbzw"
+    data-name="money"
+    data-label="薪资范围"
+    data-pattern="/.+/"
+    data-options="item for item in fbzw.salary"
+  ></div>
+  <div select-simple
+    data-this="fbzw"
+    data-name="req_gznx"
+    data-label="工作经验"
+    data-pattern="/.+/"
+    data-options="item for item in fbzw.exprience"
+  ></div>
+  <div select-simple
+    data-this="fbzw"
+    data-name="req_xueli"
+    data-label="学历要求"
+    data-pattern="/.+/"
+    data-options="item for item in fbzw.education"
+  ></div>
+  <!--<div input-text-required
+    data-this="fbzw"
+    data-form="fbzwForm"
+    data-name="tag"
+    data-label="职位诱惑"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div ng-textarea
+    data-this="fbzw"
+    data-form="fbzwForm"
+    data-name="position"
+    data-label="职位描述"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请输入此职位的名称'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>-->
+</form>
+
+
+<!--<div class="formGourp clearfix">
+  <div class="formGourp_wrap">
+    <label class="formLabel" for="${attrs.name}"><span class="formRequired">*</span>${attrs.label}</label>
+    <select class="formSelect formSelect--area" id="${attrs.name}" name="${attrs.name}"
+      ng-model="${attrs.this}.${attrs.name}"
+      ng-pattern="${attrs.pattern}"
+      ng-options="${attrs.options}"
+    required>
+      <option value="">请选择</option>
+    </select>
+    <select class="formSelect formSelect--area" id="${attrs.name}" name="${attrs.name}"
+      ng-model="${attrs.this}.${attrs.name}"
+      ng-pattern="${attrs.pattern}"
+      ng-options="${attrs.options}"
+    required>
+      <option value="">请选择</option>
+    </select>
+    <select class="formSelect formSelect--area" id="${attrs.name}" name="${attrs.name}"
+      ng-model="${attrs.this}.${attrs.name}"
+      ng-pattern="${attrs.pattern}"
+      ng-options="${attrs.options}"
+    required>
+      <option value="">请选择</option>
+    </select>
+  </div>
+</div>-->

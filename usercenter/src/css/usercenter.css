@@ -1,0 +1,332 @@
+@import 'normalize.css';
+@import 'font-awesome';
+
+/* 重置 */
+* {
+  font-family: 'Microsoft Yahei', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+
+/* angular闪烁 */
+[ng-cloak] {
+  display: none !important;
+}
+
+/*
+ * 整体
+ */
+ 
+:root {
+  --bodyColor: #eff2f9;
+  --emColor: #027cff;
+  --emColor-dark: #0065d1;
+  --emColor-light: #C3DAF3;
+  --borderColor: #e8e8e8;
+}
+
+body {
+  background-color: var(--bodyColor);
+}
+
+.ucNav_wrap,
+.ucMain {
+  width: 1220px;
+  margin: 0 auto;
+}
+
+/* 
+ * 个人中心导航栏
+ */
+ 
+.ucNav {
+  background-color: var(--emColor);
+}
+.ucNav_logo,
+.ucNav_list {
+  float: left;
+}
+.ucNav_search {
+  float: right;
+}
+
+/* logo */
+.ucNav_logo {
+  padding: 0 10px;
+  margin: 10px 10px 0 0;
+}
+
+/* 列表 */
+.ucNav_list {
+  position: relative;
+}
+.ucNav_list_item {
+  position: relative;
+  z-index: 0;
+  float: left;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+}
+.ucNav_list_item--slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 28px;
+  background-color: var(--emColor-dark);
+}
+
+.ucNav_list_item--all {
+  position: relative;
+  cursor: pointer;
+}
+.ucNav_list_item--all_text {
+  height: 100%;
+}
+.ucNav_list_item--all_arrow {
+  display: inline-block;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #fff transparent transparent;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.ucNav_list_item--all_list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 270px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px #aaa;
+}
+.ucNav_list_item--all_list_item {
+  float: left;
+  width: 60px;
+  margin: 30px 30px 0 0;
+  line-height: 1;
+  text-align: center;
+}
+.ucNav_list_item--all_list_item a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+.ucNav_list_item--all_list_item a:hover {
+  opacity: 0.8;
+}
+.ucNav_list_item--all_list_item_text {
+  
+  line-height: 1.5;
+}
+
+/* 搜索 */
+.ucNav_search {
+  position: relative;
+  margin-top: 8px;
+}
+.ucNav_search_select,
+.ucNav_search_input {
+  float: left;
+}
+.ucNav_search_select {
+  width: 50px;
+  height: 34px;
+  border-radius: 3px 0 0 3px;
+  margin-right: 1px;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 34px;
+  text-align: center;
+}
+.ucNav_search_input {
+  width: 160px;
+  height: 34px;
+  padding: 0 35px 0 5px;
+  border: 0;
+  border-radius: 0 3px 3px 0;
+  font-size: 14px;
+}
+.ucNav_search_btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 23px;
+  background: url(../img/ucNav_search_btn.png);
+  cursor: pointer;
+}
+
+
+/*
+ * 个人中心主内容
+ */
+.ucMain {
+  margin-top: 10px;
+}
+.ucSidebar,
+.ucContent {
+  background-color: #fff;
+}
+ 
+/* * 侧边栏 * */
+.ucSidebar {
+  float: left;
+  width: 168px;
+  border: 1px solid var(--borderColor);
+  margin-right: 15px;
+}
+.ucSidebar_menu_title,
+.ucSidebar_menu_list_item {
+  padding-left: 25px;
+}
+.ucSidebar_menu_title {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+}
+.ucSidebar_menu_list_item {
+  display: block;
+  height: 40px;
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 40px;
+  text-decoration: none;
+}
+.ucSidebar_menu_list_item:hover {
+  background-color: var(--emColor-light);
+}
+.ucSidebar_menu_list_item--active {
+  background-color: var(--emColor) !important;
+  color: #fff;
+}
+
+/* 内容 */
+.ucContent {
+  min-height: 600px;
+  overflow: hidden;
+}
+
+
+/*
+ * 表单组件
+ */
+
+.formGourp {
+  margin: 20px 0;
+}
+.formGourp_wrap {
+  float: left;
+  margin-right: 10px;
+}
+.formLabel,
+.formInput,
+.formSelect,
+.formTextarea {
+  float: left;
+}
+/* label */
+.formLabel {
+  width: 250px;
+  height: 36px;
+  margin-right: 25px;
+  font-size: 15px;
+  color: #999;
+  line-height: 36px;
+  text-align: right;
+}
+/* required */
+.formRequired {
+  margin-right: 15px;
+  color: var(--emColor);
+}
+/* common */
+.formInput,
+.formSelect,
+.formTextarea {
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  outline: 0;
+  font-size: 14px;
+  line-height: 34px;
+}
+.formInput,
+.formTextarea {
+  padding: 0 5px;
+  box-shadow: rgba(0,0,0,.075) 0px 1px 1px inset;
+}
+/* input text */
+.formInput {
+  width: 280px;
+  height: 34px;
+}
+/* select */
+.formSelect {
+  width: 292px;
+  height: 36px;
+  padding: 5px;
+}
+.formSelect--area {
+  width: auto;
+}
+/* textarea */
+.formTextarea {
+  width: 450px;
+  height: 120px;
+  line-height: 24px;
+}
+/* tip & error */
+.formTip {
+  display: table;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  font-size: 12px;
+  color: #666;
+}
+.formTip--error {
+  border-color: #ffbdbe;
+  background-color: #ffebeb;
+  color: #f00;
+}
+.formTip_text {
+  display: table-cell;
+  max-width: 300px;
+  vertical-align: middle;
+}
+/* 效果 */
+.formInput:focus,
+.formSelect:focus {
+  border-color: #39c;
+}
+.formInput.ng-dirty.ng-valid,
+.formSelect.ng-dirty.ng-valid {
+  border-color: #7abd54;
+}
+.formInput.ng-dirty.ng-invalid,
+.formSelect.ng-dirty.ng-invalid {
+  border-color: #ea544a;
+  box-shadow: 0 0 8px rgba(247,122,111,.6);
+}
