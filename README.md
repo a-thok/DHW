@@ -4,6 +4,7 @@
 * Victor
 * zhuangdize
 * AllenHee
+* jixu
 
 # 静态资源
 <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>

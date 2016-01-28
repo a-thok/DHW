@@ -1,0 +1,73 @@
+.gsdetail_wrap {
+  width: 100%;
+  background: #f1f2f5;
+}
+.gsdetail {
+  width: 1060px;
+  background: #fff;
+  margin: 30px auto 30px;
+  padding: 50px 70px;
+}
+.gsdetail h2 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 20px;
+}
+.gsd_ll {
+  text-align: center;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 15px;
+  color: #888;
+  font-size: 12px;
+}
+.gsd_ll i {
+  display: inline-block;
+  height: 14px;
+  width: 16px;
+  background: url(../img/ts.jpg) no-repeat;
+  vertical-align: -2px;
+}
+.gsd_txt {
+  line-height: 27px;
+  text-indent: 2em;
+  padding: 20px 0;
+  font-size: 13px;  
+  color: #666;
+}
+.gsd_xz {
+  font-size: 12px;
+  padding: 30px 0 50px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 25px;
+}
+.gsd_b {
+  float: left;
+  font-size: 12px;
+  line-height: 25px;
+}
+.gsd_b a {
+  color: #333;
+}
+.return {
+  float: right;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+.return i {
+  display: inline-block;
+  height: 14px;
+  width: 16px;
+  background: url(../img/ts.jpg) no-repeat;
+  vertical-align: -3px;
+  margin-right: 5px;
+}
+.pagination .current {
+  color: #ea1515;
+}
+.pagination a:hover {
+  color: #ea1515;
+}

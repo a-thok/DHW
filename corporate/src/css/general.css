@@ -1,0 +1,54 @@
+/*
+*重置
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei", sans-serif;
+}
+a img {
+  border: 0;
+}
+/*
+*清除浮动
+*/
+.clearfix:before,
+.clearfix:after {  
+  content: "";  
+  display: table;  
+}  
+.clearfix:after {  
+  clear: both;  
+  overflow: hidden;  
+}  
+.clearfix {  
+  *zoom: 1;  
+}
+/*
+* placeholder
+*/
+.placeholder {
+  color: #aaa;
+}
+
+/* 防止angular加载时出现代码闪烁 */
+[ng-cloak] {
+  display: none !important;
+}
+
+
+/*
+*全站宽度
+*/
+.sitenav-wrap,
+.footer-wrap {
+  width: 1150px;
+  margin: 0 auto;
+}
+.header-main,
+.header-nav-wrap,
+.content {
+  width: 1024px;
+  margin: 0 auto;
+}
