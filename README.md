@@ -11,6 +11,6 @@
 <script src="//cdn.dreamhiway.com/static/lib/jquery.Jcrop.min.js"></script>
 <script src="//cdn.dreamhiway.com/static/lib/jquery.paging.min.js"></script>
 
-<script src="//cdn.dreamhiway.com/static/lib/angular/angular.min.js"></script>
+<script src="//cdn.dreamhiway.com/static/lib/angular.min.js"></script>
 <script src="//cdn.dreamhiway.com/static/lib/angular-ui-router.min.js"></script>
 <script src="//cdn.dreamhiway.com/static/lib/angular-animate.min.js"></script>
