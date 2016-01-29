@@ -1,6 +1,7 @@
+@import './rootvar.css';
 @import 'normalize.css';
 @import 'font-awesome';
-
+@import './formList.css';
 /* 重置 */
 * {
   font-family: 'Microsoft Yahei', sans-serif;
@@ -30,14 +31,6 @@ ul {
 /*
  * 整体
  */
- 
-:root {
-  --bodyColor: #eff2f9;
-  --emColor: #027cff;
-  --emColor-dark: #0065d1;
-  --emColor-light: #C3DAF3;
-  --borderColor: #e8e8e8;
-}
 
 body {
   background-color: var(--bodyColor);
