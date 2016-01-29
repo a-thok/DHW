@@ -1,5 +1,8 @@
 @import 'normalize.css';
-@import 'font-awesome';
+@import 'rootvar.css';
+@import 'pagination.css';
+@import 'calender.css';
+@import 'webuploader.css';
 
 /* 重置 */
 * {
@@ -30,15 +33,6 @@ ul {
 /*
  * 整体
  */
- 
-:root {
-  --bodyColor: #eff2f9;
-  --emColor: #027cff;
-  --emColor-dark: #0065d1;
-  --emColor-light: #C3DAF3;
-  --borderColor: #e8e8e8;
-}
-
 body {
   background-color: var(--bodyColor);
 }
@@ -116,7 +110,7 @@ body {
   width: 270px;
   padding-left: 30px;
   padding-bottom: 30px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--formBorderColor);
   background-color: #fff;
   box-shadow: 1px 1px 5px #aaa;
 }
@@ -234,7 +228,7 @@ body {
  */
 
 .formGourp {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 .formGourp_wrap {
   float: left;
@@ -265,7 +259,7 @@ body {
 .formInput,
 .formSelect,
 .formTextarea {
-  border: 1px solid #ccc;
+  border: 1px solid var(--formBorderColor);
   border-radius: 1px;
   outline: 0;
   font-size: 14px;
@@ -301,7 +295,7 @@ body {
   display: table;
   height: 34px;
   padding: 0 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--formBorderColor);
   background-color: #f7f7f7;
   font-size: 12px;
   color: #666;
@@ -329,4 +323,31 @@ body {
 .formSelect.ng-dirty.ng-invalid {
   border-color: #ea544a;
   box-shadow: 0 0 8px rgba(247,122,111,.6);
+}
+
+/* 图片上传 */
+.formUploadImg {
+  float: left;
+}
+.formUploadImg_preview {
+  display: none;
+  position: relative;
+  width: 100px;
+  padding: 4px;
+  border: 1px solid var(--borderColor);
+  margin-bottom: 10px;
+}
+.formUploadImg_result {
+  display: none;
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 100px;
+  background-color: #999;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+.filePicker {
+  margin-left: 8px;
 }
