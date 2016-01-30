@@ -3,11 +3,13 @@ import angular from 'angular';
 
 // 依赖模块
 import formComponents from '../directives/formComponents.js';
+import pagination from '../directives/pagination.js'
+
 // 控制器
 import MainController from './controllers/MainController.js';
 import FbzwController from './controllers/FbzwController.js';
 
-let app = angular.module('userCenter', ['ui.router', 'formComponents']);
+let app = angular.module('userCenter', ['ui.router', 'formComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

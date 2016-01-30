@@ -51,31 +51,38 @@ export function getTrade($http, cb) {
 }
 
 // 翻页相关设置和方法
-export function pagination(ctrl, $http) {
-  ctrl.currentPage = 1;
-  ctrl.totalItems = 0;
-  ctrl.page =  {
-    pageSize: 10,
-    pageIndex: 1
-  }
+export function pagination(p) {
+  p.ctrl.currentPage = 1;
+  p.ctrl.totalItems = 0;
   var loadList = function() {
-    $http.post('/HRTdjl/List', ctrl.page).success((res) => {
-      ctrl.totalItems = res.result.total;
+    p.$http.post(p.api, p.ctrl.page).success((res) => {
+      p.ctrl.totalItems = res.result.total;
+      p.cb(res.result.data);
     });
   };
   
   loadList();
   
-  ctrl.pageChanged = function() {
-    ctrl.page.pageIndex = ctrl.currentPage;
+  p.ctrl.pageChanged = function() {
+    p.ctrl.params.pageIndex = p.ctrl.currentPage;
     loadList();
   };
 }
 
-// 控制器里调用翻页设置和方法
-// pagination(this, $http);
+// 在控制器里这样调用
+// this.params = {
+//  pageIndex: 1,
+//  pageSize: 10
+// }
+// pagination({
+//   ctrl: this,
+//   $http: $http,
+//   api: '',
+//   params: this.params
+//   cb: () => {}
+// });
 
-// 翻页控件HTML示例
+// 在HTML里这样写
 // <div class="paginationWrap">
 //   <div uib-pagination
 //     ng-model="fbzw.currentPage"

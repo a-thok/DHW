@@ -1,11 +1,33 @@
 /*日期选择*/
 .clndr {
+  position: absolute;
+  top: 38px;
+  left: 165px;
+  z-index: 1;
   width: 510px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 2px;
+  background-color: #fff;
   font-size: 14px;
 }
+.clndr_close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ddd;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.clndr_close:hover {
+  color: var(--emColor);
+}
 .clndr_y {
-  padding: 10px 0;
+  padding-top: 10px;
   text-align: center;
   font-size: 20px;
 }
@@ -18,7 +40,7 @@
   font-weight: 700;
   font-size: 26px;
   line-height: 20px;
-  color: #027cff;
+  color: var(--emColor);
   cursor: pointer;
 }
 .clndr_body {
@@ -60,7 +82,11 @@
 }
 .clndr_m_item.current,
 .clndr_d_item.current {
-  background-color: #027cff;
+  background-color: var(--emColor-light);
+}
+.clndr_m_item.active,
+.clndr_d_item.active {
+  background-color: var(--emColor);
   color: #fff;
 }
 .clndr_m_item.disabled {
