@@ -315,15 +315,18 @@ body {
 }
 /* 效果 */
 .formInput:focus,
-.formSelect:focus {
+.formSelect:focus,
+.formTextarea:focus {
   border-color: #39c;
 }
 .formInput.ng-dirty.ng-valid,
-.formSelect.ng-dirty.ng-valid {
+.formSelect.ng-dirty.ng-valid,
+.formTextarea.ng-dirty.ng-valid  {
   border-color: #7abd54;
 }
 .formInput.ng-dirty.ng-invalid,
-.formSelect.ng-dirty.ng-invalid {
+.formSelect.ng-dirty.ng-invalid,
+.formTextarea.ng-dirty.ng-invalid {
   border-color: #ea544a;
   box-shadow: 0 0 8px rgba(247,122,111,.6);
 }
