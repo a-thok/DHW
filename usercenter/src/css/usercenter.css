@@ -89,6 +89,7 @@ body {
 
 .ucNav_list_item--all {
   position: relative;
+  z-index: 2;
   cursor: pointer;
 }
 .ucNav_list_item--all_text {
@@ -228,6 +229,7 @@ body {
  */
 
 .formGourp {
+  position: relative;
   margin: 25px 0;
 }
 .formGourp_wrap {
