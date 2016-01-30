@@ -1,0 +1,33 @@
+:root {
+  --pageColor: #337ab7;
+}
+
+.paginationWrap {
+  margin-top: 50px;
+  text-align: center;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination > li {
+  float: left;
+}
+.pagination > li > a {
+  display: block;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+  background-color: #fff;
+  font-size: 14px;
+  color: var(--pageColor);
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.pagination-page.active a {
+  border-color: var(--pageColor);
+  background-color: var(--pageColor);
+  color: #fff;
+  cursor: default;
+}
