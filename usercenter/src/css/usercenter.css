@@ -112,7 +112,7 @@ body {
   width: 270px;
   padding-left: 30px;
   padding-bottom: 30px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   background-color: #fff;
   box-shadow: 1px 1px 5px #aaa;
 }
@@ -189,7 +189,7 @@ body {
 .ucSidebar {
   float: left;
   width: 168px;
-  border: 1px solid var(--borderColor);
+  border: 1px solid var(--sideBorderColor);
   margin-right: 15px;
 }
 .ucSidebar_menu_title,
@@ -199,7 +199,7 @@ body {
 .ucSidebar_menu_title {
   height: 50px;
   line-height: 50px;
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--sideBorderColor);
 }
 .ucSidebar_menu_list_item {
   display: block;
@@ -262,7 +262,7 @@ body {
 .formInput,
 .formSelect,
 .formTextarea {
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   border-radius: 1px;
   outline: 0;
   font-size: 14px;
@@ -298,7 +298,7 @@ body {
   display: table;
   height: 34px;
   padding: 0 10px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   background-color: #f7f7f7;
   font-size: 12px;
   color: #666;

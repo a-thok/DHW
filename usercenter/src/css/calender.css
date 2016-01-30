@@ -5,7 +5,7 @@
   left: 165px;
   z-index: 1;
   width: 510px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   border-radius: 2px;
   background-color: #fff;
   font-size: 14px;
