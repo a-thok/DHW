@@ -42,7 +42,7 @@ app
             <div class="formGourp_wrap">
               <label class="formLabel" for="${attrs.name}">${attrs.label}</label>
               <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="text"
-                ng-model="${attrs.this}.${attrs.name}"
+                ng-model="${attrs.this}.${attrs.name}" 
                 ng-pattern="${attrs.pattern}"
               >
             </div>
@@ -101,6 +101,32 @@ app
         `
       },
       replace: true
+    }
+  })
+  .directive('selectAge',function() {
+    return {
+      template :function(ele, attrs) {
+        return  `
+          <div class="formGourp clearfix">
+            <div class="formGourp_wrap">
+              <label class="formLabel" for="${attrs.name}">${attrs.label}</label>
+              <input class="formInput" id="${attrs.minage}" name="${attrs.minage}" type="text"
+                ng-model="${attrs.this}.${attrs.minage}"
+                ng-pattern="${attrs.pattern}"
+              >
+              <input class="formInput" id="${attrs.maxage}" name="${attrs.maxage}" type="text"
+                ng-model="${attrs.this}.${attrs.maxage}" 
+                ng-pattern="${attrs.pattern}"
+              >
+            </div>
+            <label class="formTip formTip--error"
+              ng-show="${attrs.form}.${attrs.minage}.$dirty  && ${attrs.form}.${attrs.maxage}.$dirty && (${attrs.this}.${attrs.minage}) > (${attrs.this}.${attrs.maxage})"
+            >
+              <span class="formTip_text">${attrs.error}</span>
+            </label>
+          </div>
+        `
+      }
     }
   })
   .directive('selectArea', function() {
