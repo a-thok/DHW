@@ -1,7 +1,8 @@
-@import './rootvar.css';
+@import 'rootvar.css';
 @import 'normalize.css';
+@import 'pagination.css';
 @import 'font-awesome';
-@import './formList.css';
+@import 'formList.css';
 /* 重置 */
 * {
   font-family: 'Microsoft Yahei', sans-serif;
