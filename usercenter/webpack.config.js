@@ -16,7 +16,8 @@ module.exports = {
   externals: [
     {
       'jquery': 'window.jQuery',
-      'angular': 'window.angular'
+      'angular': 'window.angular',
+      'web-uploader': 'window.WebUploader'
     }
   ],
   devtool: 'source-map',
