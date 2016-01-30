@@ -1,5 +1,6 @@
-@import 'normalize.css';
+/*@import 'normalize.css';*/
 @import 'rootvar.css';
+@import 'formList.css';
 @import 'pagination.css';
 @import 'calender.css';
 @import 'webuploader.css';
@@ -89,6 +90,7 @@ body {
 
 .ucNav_list_item--all {
   position: relative;
+  z-index: 2;
   cursor: pointer;
 }
 .ucNav_list_item--all_text {
@@ -110,7 +112,7 @@ body {
   width: 270px;
   padding-left: 30px;
   padding-bottom: 30px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   background-color: #fff;
   box-shadow: 1px 1px 5px #aaa;
 }
@@ -187,7 +189,7 @@ body {
 .ucSidebar {
   float: left;
   width: 168px;
-  border: 1px solid var(--borderColor);
+  border: 1px solid var(--sideBorderColor);
   margin-right: 15px;
 }
 .ucSidebar_menu_title,
@@ -197,7 +199,7 @@ body {
 .ucSidebar_menu_title {
   height: 50px;
   line-height: 50px;
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 1px solid var(--sideBorderColor);
 }
 .ucSidebar_menu_list_item {
   display: block;
@@ -228,6 +230,7 @@ body {
  */
 
 .formGourp {
+  position: relative;
   margin: 25px 0;
 }
 .formGourp_wrap {
@@ -259,7 +262,7 @@ body {
 .formInput,
 .formSelect,
 .formTextarea {
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   border-radius: 1px;
   outline: 0;
   font-size: 14px;
@@ -295,7 +298,7 @@ body {
   display: table;
   height: 34px;
   padding: 0 10px;
-  border: 1px solid var(--formBorderColor);
+  border: 1px solid var(--borderColor);
   background-color: #f7f7f7;
   font-size: 12px;
   color: #666;
@@ -312,15 +315,18 @@ body {
 }
 /* 效果 */
 .formInput:focus,
-.formSelect:focus {
+.formSelect:focus,
+.formTextarea:focus {
   border-color: #39c;
 }
 .formInput.ng-dirty.ng-valid,
-.formSelect.ng-dirty.ng-valid {
+.formSelect.ng-dirty.ng-valid,
+.formTextarea.ng-dirty.ng-valid  {
   border-color: #7abd54;
 }
 .formInput.ng-dirty.ng-invalid,
-.formSelect.ng-dirty.ng-invalid {
+.formSelect.ng-dirty.ng-invalid,
+.formTextarea.ng-dirty.ng-invalid {
   border-color: #ea544a;
   box-shadow: 0 0 8px rgba(247,122,111,.6);
 }

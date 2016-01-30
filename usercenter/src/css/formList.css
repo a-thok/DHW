@@ -1,0 +1,21 @@
+@import './rootvar.css';
+
+.formList {
+  width: 995px;
+  margin: 0 20px;
+  line-height: 30px;
+  text-align: center;
+}
+.listThead {
+  /*display: block;*/
+  /*width: 985px;*/
+  /*margin-left: 25px;
+  line-height: 30px;*/
+  color: #666;
+  background-color: #C3DAF3;
+}
+.listThead th {
+  width: auto;
+  padding: 0 10px;
+  font-weight: normal;
+}
