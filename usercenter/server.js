@@ -23,7 +23,7 @@ var server = new WebpackDevServer(compiler, {
       secure: false,
       bypass: function (req, res, proxyOptions) {
         if (req.headers.accept.indexOf('html') !== -1) {
-          if (req.path.indexOf('login') === -1) {
+          if (req.path !== '/login') {
             return req.path;
           }
         }
