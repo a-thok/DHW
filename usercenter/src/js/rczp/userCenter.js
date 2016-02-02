@@ -57,10 +57,7 @@ app
   .controller('MainCtrl', [MainCtrl])
   .controller('zplb', [ZplbCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
-<<<<<<< HEAD
-  .controller('YtjlCtrl',['$http',YtjlCtrl]);
-=======
+  .controller('YtjlCtrl',['$http',YtjlCtrl])
   .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
->>>>>>> f7aaed177a45f453c075aa79034b00f34b365ff4
 export default app;
