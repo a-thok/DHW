@@ -6,6 +6,8 @@
 @import 'webuploader.css';
 @import 'richText.css';
 
+@import 'resume.css';
+
 /* 重置 */
 * {
   margin: 0;
