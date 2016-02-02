@@ -1,0 +1,23 @@
+.titleTabs {
+  height: 29px;
+  border-bottom: 1px solid #c2c2c2;
+  margin-top: 20px;
+  margin-bottom: -1px;
+}
+.titleTab {
+  float: left;
+  width: 95px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #c2c2c2;
+  border-radius: 3px 3px 0 0;
+  margin-right: 6px;
+  background: url(../img/tabOffBg.png) repeat-x;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+.titleTab.active {
+  border-bottom-color: #fff;
+  background: url(../img/tabOnBg.png) repeat-x;
+}

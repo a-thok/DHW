@@ -4,7 +4,7 @@ import angular from 'angular';
 // 依赖模块
 import formComponents from '../directives/formComponents.js';
 import pagination from '../directives/pagination.js';
-import listComponents  from '../directives/listComponents.js' //已投简历引入写好的列表指令
+import listComponents  from '../directives/listComponents.js';
 
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
