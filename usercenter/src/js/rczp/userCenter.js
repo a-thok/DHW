@@ -10,8 +10,8 @@ import listComponents  from '../directives/listComponents.js';
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
-import YtjlCtrl from './controllers/YtjlCtrl.js'
-import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
+import YtjlCtrl from './controllers/YtjlCtrl.js';
+// import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
 let app = angular.module('userCenter', ['ui.router', 'formComponents', 'listComponents','ui.bootstrap.pagination']);
 app
@@ -35,7 +35,7 @@ app
       .state('jlbj', {
         url: '/jlbj',
         templateUrl: '/partials/rczp/partial-jlbj.html',
-        controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
+        // controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
       })
       .state('jlyl', {
         url: '/jlyl',
@@ -55,6 +55,6 @@ app
   .controller('zplb', [ZplbCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   .controller('YtjlCtrl',['$http',YtjlCtrl])
-  .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
+  // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
 export default app;
