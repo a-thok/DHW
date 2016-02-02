@@ -1,21 +1,42 @@
 @import './rootvar.css';
 
-.formList {
+/*.formList {
   width: 995px;
   margin: 0 20px;
   line-height: 30px;
   text-align: center;
+}*/
+.listTable {
+  width: 985px;
+  margin: 0 auto;
+  background-color: transparent;
+  /*border-color: grey;*/
+  border-collapse: collapse;
+  border:solid #ddd; 
+  border-width:0 0 1px 0;
+  color: #555;
+  font-size: 15px;
 }
-.listThead {
-  /*display: block;*/
-  /*width: 985px;*/
-  /*margin-left: 25px;
-  line-height: 30px;*/
-  color: #666;
-  background-color: #C3DAF3;
-}
+
 .listThead th {
   width: auto;
-  padding: 0 10px;
-  font-weight: normal;
+  padding: 20px 3px;
+  /*font-weight: blod;*/
+  border-bottom:2px solid #ddd;
+}
+
+.listTbody td {
+  width: auto;
+  max-width: 160px;
+  height: 25px;
+  padding: 8px;
+  text-align: center;
+  border:solid #ddd; 
+  border-width:0px 0px 1px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.listTbody tr:hover {
+  background: #f5f5f5;
 }
