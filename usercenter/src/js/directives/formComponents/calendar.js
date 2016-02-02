@@ -1,5 +1,7 @@
 export default function calendar() {
   return {
+    replace: true,
+    scope: true,
     template: function (elem, attrs) {
       return `
         <div class="formGourp clearfix">
@@ -7,40 +9,40 @@ export default function calendar() {
             <label class="formLabel" for="${attrs.name}">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
-            <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="text"
-              ng-model="${attrs.this}.${attrs.name}"
-              ng-focus="ctrl.show()"
+            <input class="formInput formInput--readonly" id="${attrs.name}" name="${attrs.name}" type="text"
+              ng-model="${attrs.vm}.data.${attrs.name}"
+              ng-focus="vm.show()"
               ng-required="${attrs.required}"
             readonly>
           </div>
-          <div class="clndr" ng-show="ctrl.isShow">
-            <div class="clndr_close" ng-click="ctrl.hide()">X</div>
+          <div class="clndr" ng-show="vm.isShow">
+            <div class="clndr_close" ng-click="vm.hide()">X</div>
             <div class="clndr_y">
-              <button class="clndr_y_btn" type="button" ng-click="ctrl.prevYear()">-</button>
-              <span>{{ctrl.year}}</span>
-              <button class="clndr_y_btn" type="button" ng-click="ctrl.nextYear()">+</button>
+              <button class="clndr_y_btn" type="button" ng-click="vm.prevYear()">-</button>
+              <span>{{vm.year}}</span>
+              <button class="clndr_y_btn" type="button" ng-click="vm.nextYear()">+</button>
             </div>
             <div class="clndr_body clearfix">
               <ul class="clndr_m">
                 <li class="clndr_m_item"
-                  ng-repeat="month in ctrl.months"
+                  ng-repeat="month in vm.months"
                   ng-class="{
-                    current:ctrl.isCurrentMonth(month),
-                    disabled:ctrl.isLessThanMonth(month),
-                    active: ctrl.isSelectedMonth(month)
+                    current:vm.isCurrentMonth(month),
+                    disabled:vm.isLessThanMonth(month),
+                    active: vm.isSelectedMonth(month)
                   }"
-                  ng-click="ctrl.selectMonth($event, month)"
+                  ng-click="vm.selectMonth($event, month)"
                 >{{month}}月</li>
               </ul>
               <ul class="clndr_d">
                 <li class="clndr_d_item"
-                  ng-repeat="date in ctrl.dates"
+                  ng-repeat="date in vm.dates"
                   ng-class="{
-                    current:ctrl.isCurrentDate(date),
-                    disabled:ctrl.isEarlierDate(date),
-                    active: ctrl.isSelectedDate(date)
+                    current:vm.isCurrentDate(date),
+                    disabled:vm.isEarlierDate(date),
+                    active: vm.isSelectedDate(date)
                   }"
-                  ng-click="ctrl.selectDate($event, date);${attrs.this}.${attrs.name}=ctrl.result"
+                  ng-click="vm.selectDate($event, date);${attrs.vm}.data.${attrs.name}=vm.result"
                 >{{date}}</li>
               </ul>
             </div>
@@ -49,110 +51,111 @@ export default function calendar() {
       `;
     },
     controller: function () {
+      let vm = this;
         
       // 日历显示切换
-      this.isShow = false;
-      this.show = () => {
-        this.isShow = true;
+      vm.isShow = false;
+      vm.show = () => {
+        vm.isShow = true;
       }
-      this.hide = () => {
-        this.isShow = false;
+      vm.hide = () => {
+        vm.isShow = false;
       }
         
       // 日历数据
-      this.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-      this.dates = []; // 动态赋值
+      vm.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+      vm.dates = []; // 动态赋值
         
       // 当天
       const today = new Date();
-      this._year = today.getFullYear();
-      this._month = today.getMonth();
-      this._date = today.getDate();
+      vm._year = today.getFullYear();
+      vm._month = today.getMonth();
+      vm._date = today.getDate();
         
       /* * 年 * */
-      this.year = this._year;
+      vm.year = vm._year;
       // 上一年
-      this.prevYear = () => {
-        if (this.year > this._year) {
-          this.year--;
-          this.setDates(this.month);
+      vm.prevYear = () => {
+        if (vm.year > vm._year) {
+          vm.year--;
+          vm.setDates(vm.month);
         }
       };
       // 下一年
-      this.nextYear = () => {
-        this.year++;
-        this.setDates(this.month);
+      vm.nextYear = () => {
+        vm.year++;
+        vm.setDates(vm.month);
       };
         
       /* * 月 * */
-      this.month = this.months[this._month];
+      vm.month = vm.months[vm._month];
       // 是否当前月
-      this.isCurrentMonth = (month) => {
-        if (this.year === this._year && +month - 1 === this._month) {
+      vm.isCurrentMonth = (month) => {
+        if (vm.year === vm._year && +month - 1 === vm._month) {
           return true;
         }
       };
       // 是否是选中月
-      this.isSelectedMonth = (month) => {
-        if (this.year === this.selectedYear && month === this.month) {
+      vm.isSelectedMonth = (month) => {
+        if (vm.year === vm.selectedYear && month === vm.month) {
           return true;
         }
       }
       // 是否小于当前月
-      this.isLessThanMonth = (month) => {
-        if (this.year <= this._year && (month - 1) < this._month) {
+      vm.isLessThanMonth = (month) => {
+        if (vm.year <= vm._year && (month - 1) < vm._month) {
           return true;
         }
       };
       // 选择月
-      this.selectMonth = (e, month) => {
+      vm.selectMonth = (e, month) => {
         if (e.target.className.indexOf('disabled') === -1) {
-          this.selectedYear = this.year;
-          this.month = month;
-          this.setDates(month);
+          vm.selectedYear = vm.year;
+          vm.month = month;
+          vm.setDates(month);
         }
       }
         
       /* * 日 * */
-      this.date = (this._date < 10) ? '0' + this._date : this._date + '';
+      vm.date = (vm._date < 10) ? '0' + vm._date : vm._date + '';
       // 是否当前日
-      this.isCurrentDate = (date) => {
-        if (this.year === this._year && +this.month - 1 === this._month && +date === this._date) {
+      vm.isCurrentDate = (date) => {
+        if (vm.year === vm._year && +vm.month - 1 === vm._month && +date === vm._date) {
           return true;
         }
       };
       // 是否是选中日
-      this.isSelectedDate = (date) => {
-        if (this.year === this.selectedYear && this.month === this.selectedMonth && date === this.date) {
+      vm.isSelectedDate = (date) => {
+        if (vm.year === vm.selectedYear && vm.month === vm.selectedMonth && date === vm.date) {
           return true;
         }
       }
       // 是否小于当前日
-      this.isEarlierDate = (date) => {
-        if (this.year === this._year && +this.month - 1 === this._month && +date < this._date) {
+      vm.isEarlierDate = (date) => {
+        if (vm.year === vm._year && +vm.month - 1 === vm._month && +date < vm._date) {
           return true;
         }
       };
       // 选择日
-      this.selectDate = (e, date) => {
+      vm.selectDate = (e, date) => {
         if (e.target.className.indexOf('disabled') === -1) {
-          this.selectedYear = this.year;
-          this.selectedMonth = this.month;
-          this.date = date;
-          this.result = this.year + '-' + this.month + '-' + this.date;
-          this.hide();
+          vm.selectedYear = vm.year;
+          vm.selectedMonth = vm.month;
+          vm.date = date;
+          vm.result = vm.year + '-' + vm.month + '-' + vm.date;
+          vm.hide();
         }
       }
       // 计算不同月的合法日期
-      this.setDates = (month) => {
+      vm.setDates = (month) => {
 
-        let calDates = function (last) {
+        function calDates(last) {
           let arr = [];
           for (let i = 1; i <= last; i++) {
             arr.push((i < 10) ? '0' + i : i + '');
           }
-          this.dates = arr;
-        }.bind(this)
+          vm.dates = arr;
+        }
 
         switch (month) {
           // 大月
@@ -175,7 +178,7 @@ export default function calendar() {
           // 2月
           case '02':
             // 是否是闰年
-            if (0 == this.year % 4 && ((this.year % 100 != 0) || (this.year % 400 == 0))) {
+            if (0 == vm.year % 4 && ((vm.year % 100 != 0) || (vm.year % 400 == 0))) {
               calDates(29);
             } else {
               calDates(28);
@@ -184,8 +187,8 @@ export default function calendar() {
         }
       };
 
-      this.setDates(this.month);
+      vm.setDates(vm.month);
     },
-    controllerAs: 'ctrl'
+    controllerAs: 'vm'
   };
 }

@@ -1,5 +1,7 @@
 export default function inputText() {
   return {
+    replace: true,
+    scope: true,
     template: function (elem, attrs) {
       return `
         <div class="formGourp clearfix">
@@ -8,7 +10,7 @@ export default function inputText() {
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
             <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="text"
-              ng-model="${attrs.this}.${attrs.name}"
+              ng-model="${attrs.vm}.data.${attrs.name}"
               ng-pattern="${attrs.pattern}"
               ng-required="${attrs.required}"
             >
@@ -25,8 +27,6 @@ export default function inputText() {
           </label>
         </div>
       `;
-    },
-    replace: true,
-    scope: true
-  }
+    }
+  };
 }

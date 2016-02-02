@@ -12,8 +12,11 @@
 	cursor: pointer;
 	/*background: #00b7ee;*/
 	background: var(--emColor);
-	padding: 10px 15px;
+  height: 36px;
+	padding: 0 10px;
+  font-size: 14px;
 	color: #fff;
+  line-height: 36px;
 	text-align: center;
 	border-radius: 3px;
 	overflow: hidden;

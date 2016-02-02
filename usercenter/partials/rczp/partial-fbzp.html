@@ -1,0 +1,109 @@
+<form name="fbzpForm" ng-submit="fbzpVm.submit()">
+  <div calendar
+    data-vm="fbzpVm"
+    data-label="日期"
+    data-required="true"
+    data-name="dataa"
+  ></div>
+  
+  <div select-simple
+    data-vm="fbzpVm"
+    data-name="dtmc"
+    data-label="行业名称"
+    data-pattern="/.+/"
+    data-options="item.text for item in fbzpVm.trade"
+    data-required="true"
+  ></div>
+  
+  <div select-simple
+    data-vm="fbzpVm"
+    data-name="req_xueli"
+    data-label="学历要求"
+    data-pattern="/.+/"
+    data-options="item for item in fbzpVm.education"
+    data-required="false"
+  ></div>
+  
+  <div input-text
+    data-vm="fbzpVm"
+    data-form="fbzpForm"
+    data-name="tag"
+    data-label="职位诱惑"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+    data-required="true"
+  ></div>
+  
+  <div input-text
+    data-vm="fbzpVm"
+    data-form="fbzpForm"
+    data-name="tagad"
+    data-label="职位诱惑"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+    data-required="false"
+  ></div>
+  
+  <div text-area
+    data-vm="fbzpVm"
+    data-form="fbzpForm"
+    data-name="position"
+    data-label="职位描述"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请输入此职位的名称'
+    data-error="职位名称必须在2-10个字符之间"
+    data-required="true"
+  ></div>
+  
+  <div text-area
+    data-vm="fbzpVm"
+    data-form="fbzpForm"
+    data-name="posidfadsftion"
+    data-label="职位描述"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请输入此职位的名称'
+    data-error="职位名称必须在2-10个字符之间"
+    data-required="false"
+  ></div>
+  
+  <div web-uploader
+    data-vm="fbzpVm"
+    data-label="图片上传"
+    data-name="abc"
+    data-key="cpzc"
+    data-size="100x100"
+    data-required="true"
+    ng-model="fbzpVm.data.abc"
+  ></div>
+  
+  <div select-area
+    data-vm="fbzpVm"
+    data-name="area"
+    data-required="true"
+    data-label="省市"
+  ></div>
+  
+  <div select-double-numbers
+    data-label="年龄"
+    data-required="true"
+    data-first="a"
+    data-second="b"
+  ></div>
+  <div rich-text
+    data-label="富文本"
+    data-vm="fbzpVm"
+    data-name="rich"
+    data-required="true"
+    ng-model="fbzpVm.data.rich"
+  >
+  </div>
+
+  <div btn-submit
+    data-form="fbzpForm"
+  ></div>
+
+</form>
+
+

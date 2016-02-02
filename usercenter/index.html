@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" ng-app="userCenter" ng-controller="MainController as main">
+<html lang="zh" ng-app="userCenter" ng-controller="MainCtrl as mainVm">
 <head>
   <meta charset="UTF-8">
   <title>用户中心 - 梦高速</title>
@@ -110,18 +110,18 @@
   <!--个人中心导航栏 结束-->
   
   <!--个人中心主内容 开始-->
-  <div class="ucMain">
+  <div class="ucMain" ng-cloak>
     <!--侧边栏 开始-->
     <div class="ucSidebar">
       <dl class="ucSidebar_menu">
         <dt class="ucSidebar_menu_title">
-          我的简历
+          {{ mainVm.routes.title }}
         </dt>
         <dd class="ucSidebar_menu_list" ng-cloak>
-          <a ng-repeat="route in main.routes" 
+          <a ng-repeat="route in mainVm.routes.items" 
              class="ucSidebar_menu_list_item"
              ng-class="{'ucSidebar_menu_list_item--active': route.active}"
-             ng-click="main.changeRoute($index)"
+             ng-click="mainVm.changeRoute($index)"
              ui-sref="{{route.url}}"
           >{{route.text}}</a>
         </dd>

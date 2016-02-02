@@ -4,6 +4,8 @@ import { dhw } from '../../data/data.js';
 export default function webUploader() {
   return {
     require: 'ngModel',
+    replace: true,
+    scope: true,
     template: function (elem, attrs) {
       return `
         <div class="formGourp clearfix">
@@ -12,7 +14,7 @@ export default function webUploader() {
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
             <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="hidden"
-              ng-model="${attrs.this}.${attrs.name}"
+              ng-model="${attrs.vm}.data.${attrs.name}"
               ng-required="${attrs.required}"
             >
             <div class="formUploadImg clearfix">
@@ -26,14 +28,13 @@ export default function webUploader() {
         </div>
       `;
     },
-    replace: true,
     link: function (scope, elem, attrs, ngModel) {
 
-      var $pick = elem.find('.filePicker');
-      var $img = elem.find('img');
-      var $result = elem.find('.formUploadImg_result');
+      let $pick = elem.find('.filePicker');
+      let $img = elem.find('img');
+      let $result = elem.find('.formUploadImg_result');
 
-      var uploader = WebUploader.create({
+      let uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
         server: dhw.imguploadurl + '?key=' + attrs.key + '&t=' + attrs.size,
@@ -71,5 +72,5 @@ export default function webUploader() {
       });
 
     }
-  }
+  };
 }
