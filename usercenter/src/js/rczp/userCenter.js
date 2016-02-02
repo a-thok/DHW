@@ -9,6 +9,7 @@ import pagination from '../directives/pagination.js'
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
+import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
 let app = angular.module('userCenter', ['ui.router', 'formComponents', 'ui.bootstrap.pagination']);
 app
@@ -31,7 +32,8 @@ app
       })
       .state('jlbj', {
         url: '/jlbj',
-        templateUrl: '/partials/rczp/partial-jlbj.html'
+        templateUrl: '/partials/rczp/partial-jlbj.html',
+        controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
       })
       .state('jlyl', {
         url: '/jlyl',
@@ -48,6 +50,7 @@ app
   }])
   .controller('MainCtrl', [MainCtrl])
   .controller('zplb', [ZplbCtrl])
-  .controller('FbzpCtrl', ['$http', FbzpCtrl]);
+  .controller('FbzpCtrl', ['$http', FbzpCtrl])
+  .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
 export default app;
