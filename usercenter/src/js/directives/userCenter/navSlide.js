@@ -12,16 +12,16 @@ export default function navSlide() {
       });
 
       elem.find('.ucNav_list_item').hover(function () {
-        let hoverWidth = $(this).width() + 'px';
-        let hoverLeft = $(this).position().left + 'px';
-        slider.stop(false, false).
-          animate({
+        let hoverWidth = this.offsetWidth - 40 + 'px';
+        let hoverLeft = this.offsetLeft + 'px';
+        slider.stop(false, false)
+          .animate({
             width: hoverWidth,
             left: hoverLeft
           }, 200);
       }, function () {
-        slider.stop(false, false).
-          animate({
+        slider.stop(false, false)
+          .animate({
             width: activeWidth,
             left: activeLeft
           }, 200);
