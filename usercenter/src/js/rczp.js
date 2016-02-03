@@ -16,8 +16,4 @@ import '../img/ucNav_icon_cqbh.png';
 import '../img/ucNav_icon_zxsj.png';
 import '../img/ucNav_icon_gsss.png';
 
-// js
-import common from './common.js';
-common();
-
 import userCenter from './rczp/userCenter.js';
