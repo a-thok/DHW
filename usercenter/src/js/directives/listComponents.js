@@ -1,5 +1,4 @@
 import angular from 'angular';
-
 let app = angular.module('listComponents', []);
 app
   .directive('listHeader', function () {
@@ -111,6 +110,7 @@ app
       controllerAs: 'vm'
     }
   });
+   
   
   export default app;
   

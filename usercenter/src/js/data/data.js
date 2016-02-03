@@ -42,7 +42,7 @@ export const jobCategory = ['不限', '全职', '兼职', '实习'];
 export const salary = ['2k以下', '2k-5k', '5k-10k', '10k-15k', '15k-25k', '25k-50k', '50k以上'];
 export const exprience = ['不限', '应届毕业生', '一年以下', '1-3年', '3-5年', '5-10年', '10年以上'];
 export const education = ['不限', '大专', '本科', '硕士', '博士'];
-
+export const ytjlListTitle  = ['职位','薪资','公司名称','工作地点','投递状态','企业是否查看'];       //已投简历列表头部字段信息
 // 获取行业
 export function getTrade($http, cb) {
   $http.post('/HRZpxxFb/Tradeinfo').success((res) =>
