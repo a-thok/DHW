@@ -6,6 +6,8 @@
 @import 'webuploader.css';
 @import 'richText.css';
 @import 'popup.css';
+@import 'titleList.css';
+@import 'resume.css';
 
 /* 重置 */
 * {

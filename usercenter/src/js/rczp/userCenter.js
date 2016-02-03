@@ -11,7 +11,7 @@ import popComponents from '../directives/popComponents.js'   //表单信息提�
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
-import YtjlCtrl from './controllers/YtjlCtrl.js';
+// import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
 let app = angular.module('userCenter', ['ui.router', 'formComponents', 'listComponents','ui.bootstrap.pagination']);
@@ -23,6 +23,16 @@ app
         url: '/zplb',
         templateUrl: '/partials/rczp/partial-zplb.html',
         controller: 'ZplbCtrl as zplbVm'
+      })
+      .state('zplb.published', {
+        url: '/published',
+        templateUrl: '/partials/rczp/partial-zplb-published.html',
+        controller: 'ZplbPublishedCtrl as ZplbPublishedVm'
+      })
+      .state('zplb.offline', {
+        url: '/offline',
+        templateUrl: '/partials/rczp/partial-zplb-offline.html',
+        controller: 'ZplbOfflineCtrl as ZplbOfflineVm'
       })
       .state('fbzp', {
         url: '/fbzp',
@@ -45,7 +55,7 @@ app
       .state('ytjl', {
         url: '/ytjl',
         templateUrl: '/partials/rczp/partial-ytjl.html',
-        controller:  'YtjlCtrl as ytjlVm'                  //庄狄泽 已投简历的控制器
+        // controller:  'YtjlCtrl as ytjlVm'                  //已投简历的控制器
       })
       .state('zwsc', {
         url: '/zwsc',
@@ -55,7 +65,7 @@ app
   .controller('MainCtrl', [MainCtrl])
   .controller('zplb', [ZplbCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
-  .controller('YtjlCtrl',['$http',YtjlCtrl])
+  // .controller('YtjlCtrl',['$http',YtjlCtrl])
   // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
 export default app;
