@@ -1,5 +1,7 @@
 export default function selectDoubleNumbers() {
   return {
+    replace: true,
+    scope: true,
     template: function (elem, attrs) {
       return `
         <div class="formGourp clearfix">
