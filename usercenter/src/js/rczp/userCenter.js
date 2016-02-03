@@ -11,6 +11,8 @@ import popComponents from '../directives/popComponents.js'   //表单信息提�
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
+import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js'
+import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js'
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
@@ -63,7 +65,7 @@ app
       });
   }])
   .controller('MainCtrl', [MainCtrl])
-  .controller('zplb', [ZplbCtrl])
+  .controller('ZplbCtrl', [ZplbCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   // .controller('YtjlCtrl',['$http',YtjlCtrl])
   // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
