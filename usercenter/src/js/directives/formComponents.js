@@ -9,7 +9,6 @@ import webUploader from  './formComponents/webUploader.js'
 import calendar from  './formComponents/calendar.js'
 import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
-import titleList from './formComponents/titleList.js'
 
 let app = angular.module('formComponents', []);
 app
@@ -30,9 +29,7 @@ app
   // 富文本
   .directive('richText', richText)
   // 提交按钮
-  .directive('btnSubmit', btnSubmit)
-  // 头部列表
-  .directive('titleList', titleList);
+  .directive('btnSubmit', btnSubmit);
   
 export default app;
 

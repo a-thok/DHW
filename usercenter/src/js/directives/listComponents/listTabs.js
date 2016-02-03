@@ -1,4 +1,4 @@
-export default function titleList() {
+export default function listTabs() {
   return {
     replace: true,
     scope: true,
