@@ -6,11 +6,11 @@ export default function ucList() {
             <table class="listTable">
               <thead>
                 <tr>
-                  <th ng-repeat="${attrs.repeat}" width="{{item.width}}">{{item.name}}</th>
+                  <th ng-repeat="${attrs.repeat}" style="width:{{item.width}}">{{item.name}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="item in vm.data" zplb></tr>
+                <tr ng-repeat="item in vm.data" ${attrs.listName}></tr>
               </tbody>
             </table>
 

@@ -7,7 +7,7 @@ import zplb from './listComponents/zplb.js';
 let app = angular.module('listComponents', []);
 app
   // 头部列表
-  .directive('titleList', listTabs)
+  .directive('listTabs', listTabs)
   .directive('ucList', ucList)
   .directive('zplb', zplb);
 

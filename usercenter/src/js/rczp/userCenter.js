@@ -7,6 +7,10 @@ import pagination from '../directives/pagination.js';
 import listComponents  from '../directives/listComponents.js'
 import popComponents from '../directives/popComponents.js'   //表单信息提示弹框 庄
 
+// 指令
+import showAllModules from '../directives/userCenter/showAllModules.js';
+import navSlide from '../directives/userCenter/navSlide.js';
+
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
@@ -16,7 +20,8 @@ import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js'
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
-let app = angular.module('userCenter', ['ui.router', 'formComponents', 'listComponents','ui.bootstrap.pagination']);
+
+let app = angular.module('userCenter', ['ui.router', 'formComponents', 'listComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -64,10 +69,12 @@ app
         templateUrl: '/partials/rczp/partial-zwsc.html',
       });
   }])
+  .directive('showAllModules', showAllModules)
+  .directive('navSlide', navSlide)
   .controller('MainCtrl', [MainCtrl])
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
-  // .controller('YtjlCtrl',['$http',YtjlCtrl])
-  // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
+// .controller('YtjlCtrl',['$http',YtjlCtrl])
+// .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
 export default app;
