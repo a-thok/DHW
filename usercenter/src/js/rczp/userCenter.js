@@ -23,6 +23,16 @@ app
         templateUrl: '/partials/rczp/partial-zplb.html',
         controller: 'ZplbCtrl as zplbVm'
       })
+      .state('zplb.published', {
+        url: '/published',
+        templateUrl: '/partials/rczp/partial-zplb-published.html',
+        controller: 'ZplbPublishedCtrl as ZplbPublishedVm'
+      })
+      .state('zplb.offline', {
+        url: '/offline',
+        templateUrl: '/partials/rczp/partial-zplb-offline.html',
+        controller: 'ZplbOfflineCtrl as ZplbOfflineVm'
+      })
       .state('fbzp', {
         url: '/fbzp',
         templateUrl: '/partials/rczp/partial-fbzp.html',
