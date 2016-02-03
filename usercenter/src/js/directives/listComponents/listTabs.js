@@ -5,10 +5,12 @@ export default function listTabs() {
     template: function(elem, attrs) {
       return `
         <ul class="titleTabs clearfix">
-          <li class="titleTab" 
+          <a  ng-repeat="${attrs.repeat}" ui-sref="{{item.url}}">
+            <li class="titleTab" 
             ng-class="{ active: vm.isActive($index) }"
             ng-click="vm.tabChanged($index)"
-            ng-repeat="${attrs.repeat}">{{item}}</li>
+             >{{item.name}}</li>
+          </a>
         </ul>
       `
     },
@@ -19,8 +21,16 @@ export default function listTabs() {
       // 用$index判断每个标签是不是当前标签
       vm.isActive = index => index === vm.currentTab;
       // 点击标签时，根据当前标签的$index改变currentTab的值
-      vm.tabChanged = index => vm.currentTab = index;
+      vm.tabChanged = index => vm.currentTab = index; 
     },
     controllerAs: 'vm'
   }
 }
+/**zhuang  
+ * 使用示例
+ * <div list-tabs
+ *      data-repeat='item in zplbVm.listtitle'
+ * ></div>
+ * listtititle = [{'name': '首页','url':'.index'},{'name':'第二页','.second'}]
+ * '.index'  : 为路由嵌套
+ */

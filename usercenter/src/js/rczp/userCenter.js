@@ -25,6 +25,9 @@ let app = angular.module('userCenter', ['ui.router', 'formComponents', 'listComp
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
+    
+    $urlRouterProvider.when('/zplb', '/zplb/published');
+    
     $stateProvider
       .state('zplb', {
         url: '/zplb',
@@ -73,6 +76,8 @@ app
   .directive('navSlide', navSlide)
   .controller('MainCtrl', [MainCtrl])
   .controller('ZplbCtrl', [ZplbCtrl])
+  .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
+  .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
 // .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
