@@ -13,3 +13,6 @@
 .cont_show_items-last {
   margin-right: 0;
 }
+ul {
+  list-style-type: none;
+}
