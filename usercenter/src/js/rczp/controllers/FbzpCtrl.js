@@ -29,7 +29,20 @@ export default function FbzpCrtl($http) {
     {name: '查看状态', width: '15%'}
   ];
   
+  vm.showModal = false;
+  
   this.submit = () => {
-    $http.post('/SrdzFb/srfb', vm.data);
+    $http.post('/SrdzFb/srfb', vm.data).success(res => {
+      if (res.successs) {
+        vm.isSubmitSuccess = true;
+      } else {
+        vm.isSubmitSuccess = false;
+        vm.errorMsg = res.msg;
+      }
+      vm.showModal = true;
+    }).error(() => {
+      vm.isSubmitSuccess = false;
+      vm.showModal = true;
+    });
   };
 }
