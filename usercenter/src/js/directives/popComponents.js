@@ -1,5 +1,5 @@
 import angular from 'angular';
-import poPup   from './popup.js';
+import poPup   from './popComponents/popup.js';
 
 let app = angular.module('popComponents', []);
 app
