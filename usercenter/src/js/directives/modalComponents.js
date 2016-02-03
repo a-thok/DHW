@@ -1,7 +1,7 @@
 import angular from 'angular';
-import modal from './popComponents/modal.js';
+import modal from './modalComponents/modal.js';
 
-let app = angular.module('popComponents', []);
+let app = angular.module('modalComponents', []);
 app
    .directive('modal',modal);   //表单信息提示弹出框 
  
