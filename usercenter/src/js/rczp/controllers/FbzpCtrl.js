@@ -19,6 +19,16 @@ export default function FbzpCrtl($http) {
     vm.trade = res.result
   );
   
+  // 临时
+  vm.list = [
+    {name: '职位', width: '20%'},
+    {name: '公司', width: '25%'},
+    {name: '薪资', width: '15%'},
+    {name: '投递时间', width: '15%'},
+    {name: '投递状态', width: '10%'},
+    {name: '查看状态', width: '15%'}
+  ];
+  
   this.submit = () => {
     $http.post('/SrdzFb/srfb', vm.data);
   };
