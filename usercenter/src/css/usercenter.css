@@ -1,12 +1,15 @@
 /*@import 'normalize.css';*/
 @import 'rootvar.css';
-@import 'formList.css';
-@import 'pagination.css';
+/* 表单页控件 */
 @import 'calender.css';
 @import 'webuploader.css';
 @import 'richText.css';
 @import 'popup.css';
-@import 'titleList.css';
+/* 列表页 */
+@import 'listTabs.css';
+@import 'listTable.css';
+@import 'pagination.css';
+/* 简历 */
 @import 'resume.css';
 
 /* 重置 */
