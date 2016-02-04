@@ -3,7 +3,7 @@ import modal from './modalComponents/modal.js';
 
 let app = angular.module('modalComponents', []);
 app
-   .directive('modal',modal);   //表单信息提示弹出框 
+   .directive('modal', modal);   //表单信息提示弹出框 
  
  
 export default app;
