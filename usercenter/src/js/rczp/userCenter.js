@@ -21,7 +21,7 @@ import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
 
-let app = angular.module('userCenter', ['ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
+let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
