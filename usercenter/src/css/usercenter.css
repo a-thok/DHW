@@ -1,13 +1,14 @@
 /*@import 'normalize.css';*/
 @import 'rootvar.css';
 /* 表单页控件 */
+@import 'form.css';
 @import 'calender.css';
 @import 'webuploader.css';
 @import 'richText.css';
 @import 'modal.css';
 /* 列表页 */
 @import 'listTabs.css';
-@import 'listTable.css';
+@import 'list.css';
 @import 'pagination.css';
 /* 简历 */
 @import 'resume.css';
@@ -240,170 +241,12 @@ body {
   min-height: 600px;
   overflow: hidden;
 }
-
-
-/*
- * 表单组件
- */
-
-.formGourp {
-  position: relative;
-  margin: 25px 0;
+.ucContent.ng-enter {
+  animation: scaleUp .7s;
 }
-.formGourp--submit {
-  text-align: center;
-}
-.formGourp_wrap {
-  float: left;
-  margin-right: 10px;
-}
-.formLabel,
-.formInput,
-.formSelect,
-.formSelectDiv,
-.formTextarea {
-  float: left;
-}
-/* label */
-.formLabel {
-  width: 250px;
-  height: 36px;
-  margin-right: 25px;
-  font-size: 15px;
-  color: #999;
-  line-height: 36px;
-  text-align: right;
-}
-/* required */
-.formRequired {
-  margin-right: 15px;
-  color: var(--emColor);
-}
-/* common */
-.formInput,
-.formSelect,
-.formTextarea {
-  border: 1px solid var(--borderColor);
-  border-radius: 1px;
-  outline: 0;
-  font-size: 14px;
-  line-height: 34px;
-}
-.formInput,
-.formTextarea {
-  padding: 0 5px;
-  box-shadow: rgba(0,0,0,.075) 0px 1px 1px inset;
-}
-/* input text */
-.formInput {
-  width: 280px;
-  height: 34px;
-}
-/* select */
-.formSelect {
-  width: 292px;
-  height: 36px;
-  padding: 5px;
-}
-.formSelect--multiple {
-  width: auto;
-  min-width: 80px;
-  margin-right: 5px;
-}
-.formSelectDiv {
-  margin-right: 5px;
-  line-height: 36px;
-}
-/* textarea */
-.formTextarea {
-  width: 450px;
-  height: 120px;
-  line-height: 24px;
-}
-/* button */
-.formBtn {
-  min-width: 40px;
-  height: 36px;
-  padding: 0 15px;
-  border: 0;
-  border-radius: 3px;
-  background-color: var(--emColor);
-  font-size: 14px;
-  color: #fff;
-}
-.formBtn:hover {
-  opacity: 0.8;
-}
-.formBtn--submit {
-  width: 100px;
-}
-.formBtn--submit[disabled] {
-  background-color: #ccc;
-}
-.formBtn--submit[disabled]:hover {
-  opacity: 1;
-}
-/* tip & error */
-.formTip {
-  display: table;
-  height: 34px;
-  padding: 0 10px;
-  border: 1px solid var(--borderColor);
-  background-color: #f7f7f7;
-  font-size: 12px;
-  color: #666;
-}
-.formTip--error {
-  border-color: #ffbdbe;
-  background-color: #ffebeb;
-  color: #f00;
-}
-.formTip_text {
-  display: table-cell;
-  max-width: 300px;
-  vertical-align: middle;
-}
-/* 效果 */
-.formInput:focus,
-.formSelect:focus,
-.formTextarea:focus {
-  border-color: #39c;
-}
-.formInput.ng-dirty.ng-valid,
-.formInput--readonly.ng-valid,
-.formSelect.ng-dirty.ng-valid,
-.formTextarea.ng-dirty.ng-valid  {
-  border-color: #7abd54;
-}
-.formInput.ng-dirty.ng-invalid,
-.formSelect.ng-dirty.ng-invalid,
-.formTextarea.ng-dirty.ng-invalid {
-  border-color: #ea544a;
-  box-shadow: 0 0 8px rgba(247,122,111,.6);
-}
-
-/* 图片上传 */
-.formUploadImg {
-  float: left;
-}
-.formUploadImg_preview {
-  display: none;
-  position: relative;
-  width: 100px;
-  padding: 4px;
-  border: 1px solid var(--borderColor);
-  margin-bottom: 10px;
-}
-.formUploadImg_result {
-  display: none;
-  position: absolute;
-  left: 4px;
-  bottom: 4px;
-  width: 100px;
-  background-color: #aaa;
-  opacity: 0.9;
-  font-size: 14px;
-  color: #fff;
-  line-height: 20px;
-  text-align: center;
+@keyframes scaleUp {
+  from {
+    opacity: 0.3;
+    /*transform: scale(0.8);*/
+  }
 }
