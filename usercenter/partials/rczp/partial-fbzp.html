@@ -1,5 +1,5 @@
 <form name="fbzpForm" ng-submit="fbzpVm.submit()">
-  <div calendar
+  <!--<div calendar
     data-vm="fbzpVm"
     data-label="日期"
     data-required="true"
@@ -90,7 +90,7 @@
     data-required="true"
     data-first="a"
     data-second="b"
-  ></div>
+  ></div>-->
   <div rich-text
     data-label="富文本"
     data-vm="fbzpVm"
@@ -101,20 +101,23 @@
   </div>
 
   <div btn-submit
+    data-vm="fbzpVm"
     data-form="fbzpForm"
+    data-api="/SrdzFb/srfb"
   ></div>
 
 </form>
 
-<!--<div uc-list
-  data-repeat="item in fbzpVm.list"
+<div list
+  data-vm="fbzpVm"
   data-api="/HRTdjl/List"
-  data-listName="zplb"
-></div>-->
+  data-datekey="licgsj"
+  data-operate="true"
+  data-operation="删除"
+  data-func="save(item.userid)"
+></div>
 
 <div modal
-     data-show="fbzpVm.showModal"
-     data-error="fbzpVm.errorMsg"
-     data-success="fbzpVm.isSubmitSuccess"
+     data-vm = "fbzpVm"
      data-url="/zplb"
 ></div>

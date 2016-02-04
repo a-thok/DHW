@@ -26,11 +26,3 @@ export default function listTabs() {
     controllerAs: 'vm'
   }
 }
-/**zhuang  
- * 使用示例
- * <div list-tabs
- *      data-repeat='item in zplbVm.listtitle'
- * ></div>
- * listtititle = [{'name': '首页','url':'.index'},{'name':'第二页','.second'}]
- * '.index'  : 为路由嵌套
- */
