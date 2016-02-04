@@ -16,7 +16,7 @@ export default function calendar() {
             readonly>
           </div>
           <div class="clndr" ng-show="vm.isShow">
-            <div class="clndr_close" ng-click="vm.hide()">X</div>
+            <div class="clndr_close" ng-click="vm.hide()">×</div>
             <div class="clndr_y">
               <button class="clndr_y_btn" type="button" ng-click="vm.prevYear()">-</button>
               <span>{{vm.year}}</span>
