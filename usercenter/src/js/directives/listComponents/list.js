@@ -1,0 +1,65 @@
+export default function list() {
+  return {
+    replace: true,
+    scope: true,
+    template: function (elem, attrs) {
+      return `
+          <div class="listWrap">
+            <ul class="titleList clearfix">
+              <li class="titleList_item" ng-repeat="item in ${attrs.vm}.list" style="width:{{item.width}}">{{item.name}}</li>
+              <li ng-if="${attrs.operate}" class="titleList_item" style="width:10%">操作</li>
+            </ul>
+            <ul class="list">
+              <li class="list_item"
+                ng-repeat="item in vm.data"
+                data-vm="${attrs.vm}"
+                data-datekey="${attrs.datekey}"
+                data-operate="${attrs.operate}"
+                data-operation="${attrs.operation}"
+                data-func="${attrs.func}"
+              list-item>
+              </li>
+            </ul>
+
+            <div class="paginationWrap">
+              <div class="pagination" uib-pagination
+                boundary-links="true"
+                total-items="vm.total"
+                items-per-page="5"
+                max-size="10"
+                force-ellipses="true"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;"
+                ng-model="vm.currentPage"
+                ng-change="vm.pageChanged()"
+              ></div>
+            </div>
+          </div>
+        `;
+    },
+    controller: ['$http', '$attrs', '$window', function ($http, $attrs, $window) {
+      let vm = this;
+
+      let getData = (pageIndex) => {
+        $http.post($attrs.api, {
+          pageIndex: pageIndex,
+          pageSize: 5
+        }).success(res => {
+          vm.total = res.result.total;
+          vm.data = res.result.data;
+        });
+      };
+
+      getData(1);
+
+      vm.pageChanged = () => {
+        getData(vm.currentPage);
+        $window.scrollTo(0, 0);
+      };
+
+    }],
+    controllerAs: 'vm'
+  };
+}

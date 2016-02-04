@@ -1,0 +1,101 @@
+.modal_mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  margin-top: -85px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-color: #ccc;
+  border-color: rgba(0,0,0,.2);
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  z-index: 101;
+}
+.modal.ng-enter {
+  animation: bounce-in .5s;
+}
+.modal.ng-leave {
+  animation: bounce-out .5s;
+}
+
+.modal_header,
+.modal_body,
+.modal_footer {
+  padding: 15px;
+}
+
+.modal_header {
+  position: relative;
+  border: 1px solid #e5e5e5;
+}
+.modal_title {
+  font-size: 18px;
+  font-weight: 400;
+}
+.modal_close {
+ float: right;
+ padding: 0;
+ border: 0;
+ background: 0 0;
+ opacity: .2;
+ font-size: 21px;
+ font-weight: 700;
+ text-shadow: 0 1px 0 #fff;
+ line-height: 1;
+ cursor: pointer;
+}
+.modal_close:hover {
+  opacity: .5;
+}
+
+.modal_body_text {
+  font-size: 16px;
+}
+
+.modal_footer {
+  border-top: 1px solid #e5e5e5;
+  text-align: right;
+}
+.modal_confirm {
+  padding: 6px 16px;
+  border: 1px solid var(--emColor-dark);
+  border-radius: 3px;
+  background-color: var(--emColor);
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}

@@ -26,7 +26,7 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!cssnext')
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
       },
       {
         test: /\.js$/,
@@ -53,13 +53,16 @@ module.exports = {
     }),
     new ExtractTextPlugin('css/usercenter.css')
   ],
-  cssnext: {
-    compress: true,
-    sourcemap: true,
-    features: {
-      // rem: false,
-      // pseudoElements: false,
-      // colorRgba: false
-    }
+  postcss: function(webpack) {
+    return [
+      require('postcss-import')({
+        addDependencyTo: webpack
+      }),
+      require('postcss-opacity'),
+      require('postcss-cssnext')({
+        compress: true,
+        sourcemap: true
+      })
+    ]
   }
 };
