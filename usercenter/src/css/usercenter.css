@@ -34,12 +34,12 @@ a img {
 }
 
 /* 清除浮动 */
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
   content: "";
   display: table;
 }
-.clearfix:after {
+.clearfix::after {
   clear: both;
   overflow: hidden;
 }
@@ -79,8 +79,9 @@ body {
 
 /* logo */
 .ucNav_logo {
-  padding: 0 10px;
-  margin: 10px 10px 0 0;
+  width: 170px;
+  height: 50px;
+  background: url(../img/uc_logo.png) no-repeat 50% 50%;
 }
 
 /* 列表 */
@@ -148,6 +149,39 @@ body {
 }
 .ucNav_list_item--all_list_item a:hover {
   opacity: 0.8;
+}
+.ucNav_list_item--all_list_item_icon {
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+  background: url(../img/uc_module_logos.png) 0 0 no-repeat;
+  &.kjfw {
+    background-position: 0 -156px;
+  }
+  &.rczp {
+    background-position: 0 -208px;
+  }
+  &.zchou {
+    background-position: 0 -416px;
+  }
+  &.zckj {
+    background-position: 0 -468px;
+  }
+  &.cysj {
+    background-position: 0 -102px;
+  }
+  &.srdz {
+    background-position: 0 -312px;
+  }
+  &.zbao {
+    background-position: 0 -364px;
+  }
+  &.cqbh {
+    background-position: 0 -52px;
+  }
+  &.gsss {
+    background-position: 0 -260px;
+  }
 }
 .ucNav_list_item--all_list_item_text {
   
