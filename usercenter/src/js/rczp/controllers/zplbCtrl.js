@@ -1,8 +1,8 @@
 export default function ZplbCtrl(){
   var vm = this;
-  vm.listtitle = [{'url':'.published',
-                    'name' : '首页'},     
+  vm.listTabs = [{'url':'.published',
+                    'name' : '已发布的招聘'},     
                    {'url':'.offline',
-                    'name' : '副业'
-                   }];
+                    'name' : '已下线的招聘'
+       }];
 }

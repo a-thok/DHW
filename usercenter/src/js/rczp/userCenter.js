@@ -17,6 +17,7 @@ import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
+import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
@@ -27,7 +28,7 @@ app
     $urlRouterProvider.otherwise('/');
     
     $urlRouterProvider.when('/zplb', '/zplb/published');
-    
+    $urlRouterProvider.when('/jllb', '/jllb/filter');
     $stateProvider
       .state('zplb', {
         url: '/zplb',
@@ -51,7 +52,28 @@ app
       })
       .state('jllb', {
         url: '/jllb',
-        templateUrl: '/partials/rczp/partial-jllb.html'
+        templateUrl: '/partials/rczp/partial-jllb.html',
+        controller : 'JllbCtrl as jllbVm'
+      })
+      .state('jllb.filter',{
+        url : '/filter',
+        templateUrl : '/partials/rczp/partial-jllb-filter.html'
+      })
+      .state('jllb.view',{
+        url : '/view',
+        templateUrl : '/partials/rczp/partial-jllb-view.html'
+      })
+      .state('jllb.communicate',{
+        url : '/communicate',
+        templateUrl : '/partials/rczp/partial-jllb-communicate.html'
+      })
+      .state('jllb.interview',{
+        url : '/interview',
+        templateUrl : '/partials/rczp/partial-jllb-interview.html'
+      })
+      .state('jllb.notsuitable',{
+        url : '/notsuitable',
+        templateUrl : '/partials/rczp/partial-jllb-notsuitable.html'
       })
       .state('jlbj', {
         url: '/jlbj',
@@ -79,6 +101,7 @@ app
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
+  .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
 // .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 

@@ -4,9 +4,9 @@ export default function listItem() {
     template: function(elem, attrs) {
       return `
         <li>
-          <div class="list_item_date">{{item.${attrs.datekey}}}</div>
+          <div class="list_item_date">{{item.${attrs.datekey}}} <i ng-if="${attrs.operate}" ng-click="vm.delItem(${attrs.delkey})">删除</i></div>
           <ul class="list_item_boxes clearfix">
-            <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" style="width:{{box.width}}">
+            <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
               <a ng-if="box.link" href="{{ box.link }}{{ item[box.linkkey] }}">{{ item[box.key] }}</a>
               <img ng-if="box.img" ng-src="{{item.key}}">
               <span ng-if="!box.link && !box.img">{{ item[box.key] }}</span>
