@@ -184,18 +184,20 @@
   margin: 0 auto;
 }
 .ban_btns {
-  width: 296px;
+  /*width: 296px;*/
   position: absolute;
   left: 50%;
   top: -20px;
   margin-left: -148px;
 }
 .ban_btns a {
-  display: inline-block;
+  float: left;
+  padding: 13px 45px;
+  margin-right: 4px;
   font-size: 14px;
   background: #353535;
   color: #fff;
-  padding: 13px 45px;
+  text-decoration: none;
 }
 .ban_btns a:hover {
   text-decoration: none;

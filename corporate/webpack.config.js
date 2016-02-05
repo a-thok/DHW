@@ -5,11 +5,11 @@ module.exports = {
   entry: {
     index: [ __dirname + '/src/js/index.js'],
     service: [ __dirname + '/src/js/service.js'],
-    case: [ __dirname + './src/js/cases.js'],
-    // hiring: './src/js/hiring.js',
+    case: [ __dirname + '/src/js/case.js'],
+    hiring: [ __dirname + '/src/js/hiring.js'],
     // news: './src/js/news.js',
-    // info: './src/js/info.js',
-    // about: './src/js/about.js'
+    info: [ __dirname + '/src/js/info.js'],
+    about: [ __dirname + '/src/js/about.js'],
   },
   output: {
     path: __dirname + '/dist/',
