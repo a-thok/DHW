@@ -20,7 +20,8 @@ module.exports = {
       'web-uploader': 'window.WebUploader'
     }
   ],
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
+  // devtool: 'source-map',
   module: {
     //加载器配置
     loaders: [
@@ -39,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'file?name=img/[name].[ext]?[hash]'
+        loader: 'url?limit=8192&name=img/[name].[ext]?[hash]'
       },
       {
         test: require.resolve('angular'),
