@@ -34,8 +34,8 @@ export default function selectDoubleNumbers() {
                 ng-required="${attrs.required}"
               >
               </select>
-              <a class="formSwitch" href="javascript:;" ng-show="!${attrs.switch}" ng-click="vm.save()">保存</a>
-              <a class="formSwitch" href="javascript:;" ng-show="!${attrs.switch}" ng-click="vm.cancle()">取消</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
           </div>
         </div>
