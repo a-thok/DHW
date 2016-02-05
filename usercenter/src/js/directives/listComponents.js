@@ -46,6 +46,7 @@ export default app;
 // 若需要操作，传递data-operate为true，并传递data-operation为操作名称、data-func为操作方法
 // data-delapi : 传删除操作的 api
 // data-delkey : 要删除项的id
+// data-del : true  :表示是否显示删除按钮 true:显示
 // <div list
 //   data-vm="fbzpVm"
 //   data-api="/HRTdjl/List"
@@ -54,5 +55,6 @@ export default app;
 //   data-operation="删除"
 //   data-func="save(item.userid)"
 //   data-delapi = "/HRZpcx/Del"
-//   data-delkey = "item.id"   
+//   data-delkey = "item.id"
+//   data-del = "true"   
 // ></div>

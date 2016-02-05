@@ -18,6 +18,7 @@ import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
+import ZwscCtrl from './controllers/ZwscCtrl.js'
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
@@ -92,7 +93,12 @@ app
       .state('zwsc', {
         url: '/zwsc',
         templateUrl: '/partials/rczp/partial-zwsc.html',
-      });
+        controller : 'ZwscCtrl as ZwscVm'
+      })
+      .state('edit',{                                  //测试路由
+        url : '/edit/:id',
+        template : '我成功跳转啦',
+      })                           
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -102,6 +108,7 @@ app
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
+  .controller('ZwscCtrl',[ZwscCtrl])
 // .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 

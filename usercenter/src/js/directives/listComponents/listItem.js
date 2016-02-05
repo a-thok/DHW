@@ -15,7 +15,7 @@ export default function listItem() {
               <span ng-if="!box.link && !box.img">{{ item[box.key] }}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%}}">
-              <a href="javascript:;" ng-click="${attrs.vm}.${attrs.func}">${attrs.operation}</a>
+              <a href='${attrs.editurl}{{item.${attrs.editid}}}'>${attrs.operation}</a>
             </li>
           </ul>
         </li>

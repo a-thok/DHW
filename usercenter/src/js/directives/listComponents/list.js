@@ -18,6 +18,9 @@ export default function list() {
                 data-operation="${attrs.operation}"
                 data-func="${attrs.func}"
                 data-delkey="${attrs.delkey}"
+                data-del="${attrs.del}"
+                data-editid="${attrs.editid}"
+                data-editUrl="${attrs.editurl}"
               list-item>
               </li>
             </ul>
