@@ -2,6 +2,7 @@ import WebUploader from 'web-uploader';
 import { dhw } from '../../data/data.js';
 
 export default function webUploader() {
+  // 模板中的图片地址需要修改！
   return {
     require: 'ngModel',
     replace: true,
@@ -19,7 +20,7 @@ export default function webUploader() {
             >
             <div class="formUploadImg clearfix">
               <div class="formUploadImg_preview">
-                <img>
+                <img ng-src="{{dhw.imguploadurl + ${attrs.vm}.data.${attrs.name}}}">
                 <span class="formUploadImg_result"></span>
               </div>
               <div class="filePicker" id="filePicker">选择图片</div>
