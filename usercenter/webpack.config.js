@@ -60,7 +60,6 @@ module.exports = {
       }),
       require('postcss-opacity'),
       require('postcss-cssnext')({
-        compress: true,
         sourcemap: true
       })
     ]
