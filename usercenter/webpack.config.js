@@ -3,6 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
+    angular: ['angular', 'angular-ui-router', 'angular-animate'],
     'uc.rczp': [__dirname + '/src/js/rczp.js']
   },
   output: {
@@ -16,7 +17,6 @@ module.exports = {
   externals: [
     {
       'jquery': 'window.jQuery',
-      'angular': 'window.angular',
       'web-uploader': 'window.WebUploader'
     }
   ],
@@ -40,7 +40,11 @@ module.exports = {
       {
         test: /\.(png|jpg|gif)$/,
         loader: 'file?name=img/[name].[ext]?[hash]'
-      }
+      },
+      {
+        test: require.resolve('angular'),
+        loader: 'expose?angular'
+      },
     ]
   },
   plugins: [

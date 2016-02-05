@@ -15,7 +15,8 @@ var server = new WebpackDevServer(compiler, {
   stats: {
     colors: true
   },
-  noinfo: true,
+  noInfo: true,
+  publicPath: '/',
   proxy: {
     // 转发api数据
     "*": {
