@@ -1,3 +1,5 @@
+import partialController from './partialController.js';
+
 export default function selectArea() {
   return {
     replace: true,
@@ -9,34 +11,49 @@ export default function selectArea() {
             <label class="formLabel" for="${attrs.name}.province">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
-            <select class="formSelect formSelect--multiple" id="${attrs.name}.province" name="${attrs.name}.province"
-              ng-model="${attrs.vm}.data.${attrs.name}.province"
-              ng-options="item.name for item in vm.provinces"
-              ng-change="vm.getCities(${attrs.vm}.data.${attrs.name}.province);${attrs.vm}.data.${attrs.name}.city='';${attrs.vm}.data.${attrs.name}.district=''"
-              ng-required="${attrs.required}"
-            >
-            </select>
-            <select class="formSelect formSelect--multiple" id="${attrs.name}.city" name="${attrs.name}.city"
-              ng-model="${attrs.vm}.data.${attrs.name}.city"
-              ng-options="item.name for item in vm.cities"
-              ng-change="vm.getDistricts(${attrs.vm}.data.${attrs.name}.city);${attrs.vm}.data.${attrs.name}.district=''"
-              ng-required="${attrs.required}"
-              ng-show="vm.isShowCities"
-            >
-            </select>
-            <select class="formSelect formSelect--multiple" id="${attrs.name}.district" name="${attrs.name}.district"
-              ng-model="${attrs.vm}.data.${attrs.name}.district"
-              ng-options="item.name for item in vm.districts"
-              ng-required="${attrs.required}"
-              ng-show="vm.isShowDistricts"
-            >
-            </select>
+            
+            <div class="formGroup_display" ng-show="vm.isPlain">
+              {{${attrs.vm}.data.${attrs.name}.province.name}}
+              -
+              {{${attrs.vm}.data.${attrs.name}.city.name}}
+              -
+              {{${attrs.vm}.data.${attrs.name}.district.name}}
+              <a class="formSwitch" href="javascript:;" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</a>
+            </div>
+            
+            <div class="formGroup_edit"  ng-show="!vm.isPlain">
+              <select class="formSelect formSelect--multiple" id="${attrs.name}.province" name="${attrs.name}.province"
+                ng-model="${attrs.vm}.data.${attrs.name}.province"
+                ng-options="item.name for item in vm.provinces"
+                ng-change="vm.getCities(${attrs.vm}.data.${attrs.name}.province);${attrs.vm}.data.${attrs.name}.city='';${attrs.vm}.data.${attrs.name}.district=''"
+                ng-required="${attrs.required}"
+              >
+              </select>
+              <select class="formSelect formSelect--multiple" id="${attrs.name}.city" name="${attrs.name}.city"
+                ng-model="${attrs.vm}.data.${attrs.name}.city"
+                ng-options="item.name for item in vm.cities"
+                ng-change="vm.getDistricts(${attrs.vm}.data.${attrs.name}.city);${attrs.vm}.data.${attrs.name}.district=''"
+                ng-required="${attrs.required}"
+                ng-show="vm.isShowCities"
+              >
+              </select>
+              <select class="formSelect formSelect--multiple" id="${attrs.name}.district" name="${attrs.name}.district"
+                ng-model="${attrs.vm}.data.${attrs.name}.district"
+                ng-options="item.name for item in vm.districts"
+                ng-required="${attrs.required}"
+                ng-show="vm.isShowDistricts"
+              >
+              </select>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
+            </div>
           </div>
         </div>
       `;
     },
-    controller: ['$http', function($http) {
+    controller: ['$scope', '$http', '$attrs', function($scope, $http, $attrs) {
       let vm = this;
+      partialController($scope, $attrs, vm);
       
       // 市、县显示切换
       vm.isShowCities = false;
