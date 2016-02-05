@@ -31,4 +31,6 @@ export default function FbzpCrtl($http) {
     {name: '投递状态', key: 'lizt', width: '10%'},
     {name: '查看状态', key: 'qysfck', width: '15%'},
   ];
+  
+  $http.post('/HRZpcx/Detail', {id: '5'}).success(res => vm.data = res.result)
 }
