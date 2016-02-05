@@ -70,7 +70,20 @@
   padding-left: 10px;
   font-size: 12px;
 }
-.emColorBG {
+.header_r a {
+  float: right;
+  height: 38px;
+  width: 50px;
+  background: #ea1515;
+}
+.header_r a i {
+  display: block;
+  height: 19px;
+  width: 19px;
+  background: #ea1515 url(../img/icoserch.png);
+  margin: 10px 0 0 15px;
+}
+/*.emColorBG {
   float: right;
   height: 38px;
   width: 50px;
@@ -82,7 +95,7 @@
   width: 19px;
   background: #ea1515 url(../img/icoserch.png);
   margin: 10px 0 0 15px;
-}
+}*/
 .nav_wrap {
   width: 100%;
   background: #ea1515;
