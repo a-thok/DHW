@@ -6,7 +6,7 @@ export default function list() {
       return `
           <div class="listWrap">
             <ul class="titleList clearfix">
-              <li class="titleList_item" ng-repeat="item in ${attrs.vm}.list" style="width:{{item.width}}">{{item.name}}</li>
+              <li class="titleList_item" ng-repeat="item in ${attrs.vm}.list" ng-style="{width: item.width}">{{item.name}}</li>
               <li ng-if="${attrs.operate}" class="titleList_item" style="width:10%">操作</li>
             </ul>
             <ul class="list">
@@ -17,6 +17,7 @@ export default function list() {
                 data-operate="${attrs.operate}"
                 data-operation="${attrs.operation}"
                 data-func="${attrs.func}"
+                data-delkey="${attrs.delkey}"
               list-item>
               </li>
             </ul>
@@ -41,12 +42,27 @@ export default function list() {
     },
     controller: ['$http', '$attrs', '$window', function ($http, $attrs, $window) {
       let vm = this;
-
+      
+      // vm.delItem = (key,delapi) => {
+      //   $http.post(delapi).success(res => {
+      //     // vm.total = res.result.total;
+      //     // vm.data = res.result.data;
+      //      getData(1)
+      //   })
+      // }
+      
+      
+      let  params;
+      if(!$attrs.params) {
+        params = {};
+      } else {
+         params = JSON.parse($attrs.params);
+      }
       let getData = (pageIndex) => {
-        $http.post($attrs.api, {
-          pageIndex: pageIndex,
+        $http.post($attrs.api, Object.assign({}, {
+          pageIndex: 1,
           pageSize: 5
-        }).success(res => {
+        }, params)).success(res => {
           vm.total = res.result.total;
           vm.data = res.result.data;
         });
@@ -58,7 +74,19 @@ export default function list() {
         getData(vm.currentPage);
         $window.scrollTo(0, 0);
       };
-
+      
+       vm.delItem = (key) => {
+         
+         $http.post($attrs.delapi,{id : key}).success(res => {
+           getData(1)
+         })
+        
+        // $http.post(delapi,{id : }).success(res => {
+        //   // vm.total = res.result.total;
+        //   // vm.data = res.result.data;
+        //    getData(1)
+        // })
+      }
     }],
     controllerAs: 'vm'
   };

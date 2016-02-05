@@ -1,3 +1,4 @@
+import $ from 'jquery';
 export default function ucList() {
   return {
     template: function (elem, attrs) {
@@ -34,12 +35,16 @@ export default function ucList() {
     },
     controller: ['$http', '$attrs', function ($http, $attrs) {
       let vm = this;
-
+      let  params;
+      if(!$attrs.params) {
+        return;
+      } else {
+         params = JSON.parse($attrs.params);
+      }
+      //let params = JSON.parse($attrs.params);
       let getData = (pageIndex) => {
-        $http.post($attrs.api, {
-          pageIndex: pageIndex,
-          pageSize: 5
-        }).success(res => {
+        $http.post($attrs.api, $.extend({},{pageIndex: 1,
+        pageSize:5},params)).success(res => {
           vm.total = res.result.total;
           vm.data = res.result.data;
         });
