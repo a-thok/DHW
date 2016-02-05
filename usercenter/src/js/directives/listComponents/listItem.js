@@ -6,7 +6,7 @@ export default function listItem() {
         <li>
           <div class="list_item_date">
             <i class="list_item_del" ng-if="${attrs.operate}" ng-click="vm.delItem(${attrs.delkey})"></i>
-            <span>{{item.${attrs.datekey}}}<span>
+            <span>{{item.${attrs.datekey}}}</span>
           </div>
           <ul class="list_item_boxes clearfix">
             <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
