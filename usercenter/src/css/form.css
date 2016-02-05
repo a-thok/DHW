@@ -13,11 +13,17 @@
   float: left;
   margin-right: 10px;
 }
+.formGroup_display,
+.formGroup_edit {
+  font-size: 14px;
+}
 .formLabel,
 .formInput,
 .formSelect,
 .formSelectDiv,
-.formTextarea {
+.formTextarea,
+.formGroup_display,
+.formGroup_edit {
   float: left;
 }
 /* label */
@@ -118,6 +124,14 @@
   display: table-cell;
   max-width: 300px;
   vertical-align: middle;
+}
+/* 切换详情和编辑状态 */
+.formSwitch {
+  margin-left: 10px;
+  font-size: 13px;
+  color: var(--emColor);
+  line-height: 36px;
+  text-decoration: none;
 }
 /* 效果 */
 .formInput:focus,

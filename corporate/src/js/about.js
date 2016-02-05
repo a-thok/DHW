@@ -1,5 +1,4 @@
 // 样式表
-import '../css/cmpy.css';
 
 
 // 图片
