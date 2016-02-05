@@ -18,6 +18,11 @@ import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
+import DdsxCtrl from './controllers/DdsxCtrl.js';
+import YckCtrl from './controllers/YckCtrl.js';  
+import DgtjlCtrl from './controllers/DgtjlCtrl.js';  
+import YtgmsCtrl from './controllers/YtgmsCtrl.js';  
+import BhsCtrl from './controllers/BhsCtrl.js';  
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
@@ -57,23 +62,28 @@ app
       })
       .state('jllb.filter',{
         url : '/filter',
-        templateUrl : '/partials/rczp/partial-jllb-filter.html'
+        templateUrl : '/partials/rczp/partial-jllb-filter.html',
+        controller : 'DdsxCtrl as ddsxVm'
       })
       .state('jllb.view',{
         url : '/view',
-        templateUrl : '/partials/rczp/partial-jllb-view.html'
+        templateUrl : '/partials/rczp/partial-jllb-view.html',
+        controller : 'YckCtrl as yckVm'
       })
       .state('jllb.communicate',{
         url : '/communicate',
-        templateUrl : '/partials/rczp/partial-jllb-communicate.html'
+        templateUrl : '/partials/rczp/partial-jllb-communicate.html',
+        controller : 'DgtjlCtrl as dgtjlVm'
       })
       .state('jllb.interview',{
         url : '/interview',
-        templateUrl : '/partials/rczp/partial-jllb-interview.html'
+        templateUrl : '/partials/rczp/partial-jllb-interview.html',
+        controller : 'YtgmsCtrl as ytgmsVm'
       })
       .state('jllb.notsuitable',{
         url : '/notsuitable',
-        templateUrl : '/partials/rczp/partial-jllb-notsuitable.html'
+        templateUrl : '/partials/rczp/partial-jllb-notsuitable.html',
+        controller : 'BhsCtrl as bhsVm'
       })
       .state('jlbj', {
         url: '/jlbj',
@@ -102,6 +112,11 @@ app
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
+  .controller('DdsxCtrl',[DdsxCtrl])
+  .controller('YckCtrl',[YckCtrl])
+  .controller('DgtjlCtrl',[DgtjlCtrl])
+  .controller('YtgmsCtrl',[YtgmsCtrl])
+  .controller('BhsCtrl',[BhsCtrl])
 // .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
