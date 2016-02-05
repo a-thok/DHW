@@ -35,113 +35,106 @@ export default app;
 
 
 
-// 每个指令对应的调用方法
-// 请特别注意，有些指令要求ng-model，必须写成“控制器别名.data.model名”的模式，如fbzwVm.data.img
+// 指令的调用方法
+/*
+  <form name="fbzpForm" ng-submit="fbzpVm.submit()">
+    
+    <div calendar
+      data-switch="false"
+      data-vm="fbzpVm"
+      data-label="日期"
+      data-name="dataa"
+      data-required="true"
+    ></div>
+    
+    <div select-simple
+      data-switch="true"
+      data-vm="fbzpVm"
+      data-label="行业名称"
+      data-name="dtmc"
+      data-options="item.text for item in fbzpVm.trade"
+      data-part="text"
+      data-required="true"
+    ></div>
+    
+    <div select-simple
+      data-switch="false"
+      data-vm="fbzpVm"
+      data-label="学历要求"
+      data-name="xl"
+      data-options="item for item in fbzpVm.education"
+      data-required="false"
+    ></div>
+    
+    <div input-text
+      data-switch="true"
+      data-vm="fbzpVm"
+      data-label="职位诱惑"
+      data-name="tag"
+      data-required="true"
+      data-form="fbzpForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+      data-tip='请填写此职位'
+      data-error="职位名称必须在2-10个字符之间"
+    ></div>
+    
+    <div text-area
+      data-switch="true"
+      data-vm="fbzpVm"
+      data-label="职位描述"
+      data-name="position"
+      data-required="true"
+      data-form="fbzpForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+      data-tip='请输入此职位的名称'
+      data-error="职位名称必须在2-10个字符之间"
+    ></div>
+    
+    <div web-uploader
+      data-vm="fbzpVm"
+      data-label="图片上传"
+      data-name="abc"
+      data-required="true"
+      data-key="cpzc"
+      data-size="100x100"
+      ng-model="fbzpVm.data.abc"
+    ></div>
+    
+    <div select-area
+      data-switch="true"
+      data-vm="fbzpVm"
+      data-label="省市"
+      data-name="area"
+      data-required="true"
+    ></div>
+    
+    <div select-double-numbers
+      data-switch="false"
+      data-vm="fbzpVm"
+      data-label="年龄"
+      data-first="a"
+      data-second="b"
+      data-required="true"
+    ></div>
+    
+    <div rich-text
+      data-vm="fbzpVm"
+      data-label="富文本"
+      data-name="rich"
+      data-required="true"
+      ng-model="fbzpVm.data.rich"
+    ></div>
 
-// <form name="fbzwVmForm" ng-submit="fbzwVm.submit()">
-//   <div calendar
-//     data-vm="fbzwVm"
-//     data-label="日期"
-//     data-required="true"
-//     data-name="dataa"
-//   ></div>
-  
-//   <div select-simple
-//     data-vm="fbzwVm"
-//     data-name="dtmc"
-//     data-label="行业名称"
-//     data-pattern="/.+/"
-//     data-options="item.text for item in fbzwVm.trade"
-//     data-required="true"
-//   ></div>
-  
-//   <div select-simple
-//     data-vm="fbzwVm"
-//     data-name="req_xueli"
-//     data-label="学历要求"
-//     data-pattern="/.+/"
-//     data-options="item for item in fbzwVm.education"
-//     data-required="false"
-//   ></div>
-  
-//   <div input-text
-//     data-vm="fbzwVm"
-//     data-form="fbzwVmForm"
-//     data-name="tag"
-//     data-label="职位诱惑"
-//     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-//     data-tip='请填写此职位'
-//     data-error="职位名称必须在2-10个字符之间"
-//     data-required="true"
-//   ></div>
-  
-//   <div input-text
-//     data-vm="fbzwVm"
-//     data-form="fbzwVmForm"
-//     data-name="tagad"
-//     data-label="职位诱惑"
-//     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-//     data-tip='请填写此职位'
-//     data-error="职位名称必须在2-10个字符之间"
-//     data-required="false"
-//   ></div>
-  
-//   <div text-area
-//     data-vm="fbzwVm"
-//     data-form="fbzwVmForm"
-//     data-name="position"
-//     data-label="职位描述"
-//     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-//     data-tip='请输入此职位的名称'
-//     data-error="职位名称必须在2-10个字符之间"
-//     data-required="true"
-//   ></div>
-  
-//   <div text-area
-//     data-vm="fbzwVm"
-//     data-form="fbzwVmForm"
-//     data-name="posidfadsftion"
-//     data-label="职位描述"
-//     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-//     data-tip='请输入此职位的名称'
-//     data-error="职位名称必须在2-10个字符之间"
-//     data-required="false"
-//   ></div>
-  
-//   <div web-uploader
-//     data-vm="fbzwVm"
-//     data-label="图片上传"
-//     data-name="abc"
-//     data-key="cpzc"
-//     data-size="100x100"
-//     data-required="true"
-//     ng-model="fbzwVm.data.abc"
-//   ></div>
-  
-//   <div select-area
-//     data-vm="fbzwVm"
-//     data-name="area"
-//     data-required="true"
-//     data-label="省市"
-//   ></div>
-  
-//   <div select-double-numbers
-//     data-label="年龄"
-//     data-required="true"
-//     data-first="a"
-//     data-second="b"
-//   ></div>
-//   <div rich-text
-//     data-label="富文本"
-//     data-vm="fbzwVm"
-//     data-name="rich"
-//     data-required="true"
-//     ng-model="fbzwVm.data.rich"
-//   >
-//   </div>
+    <div btn-submit
+      data-vm="fbzpVm"
+      data-form="fbzpForm"
+      data-api="/SrdzFb/srfb"
+    ></div>
 
-//   <div btn-submit
-//     data-form="fbzwVmForm"
-//   ></div>
+  </form>
 
-// </form>
+  <div modal
+    data-vm = "fbzpVm"
+    data-url="/zplb"
+  ></div>
+*/
