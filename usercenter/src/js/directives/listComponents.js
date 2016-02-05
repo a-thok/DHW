@@ -42,8 +42,10 @@ export default app;
 //   {name: '查看状态', key: 'qysfck', width: '15%'},
 // ];
 
-// 若该列表无需操作时，调用指令只需传递data-vm和data-apih和data-datekey，data-datekey为日期字段，若没有可不传
+// 若该列表无需操作时，调用指令只需传递data-vm和data-api和data-datekey，data-datekey为日期字段，若没有可不传
 // 若需要操作，传递data-operate为true，并传递data-operation为操作名称、data-func为操作方法
+// data-delapi : 传删除操作的 api
+// data-delkey : 要删除项的id
 // <div list
 //   data-vm="fbzpVm"
 //   data-api="/HRTdjl/List"
@@ -51,4 +53,6 @@ export default app;
 //   data-operate="true"
 //   data-operation="删除"
 //   data-func="save(item.userid)"
+//   data-delapi = "/HRZpcx/Del"
+//   data-delkey = "item.id"   
 // ></div>
