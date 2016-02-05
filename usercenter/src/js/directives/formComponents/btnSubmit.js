@@ -27,8 +27,10 @@ export default function btnSubmit() {
         vm.submitText = '提交中';
         vm.isDisabled = true;
 
-        $http.post($attrs.api, $scope[$attrs.vm].data).success(res => {
-          if (res.successs) {
+        $http.post($attrs.api, {
+          model: $scope[$attrs.vm].data
+        }).success(res => {
+          if (res.success) {
             $scope[$attrs.vm].isSubmitSuccess = true;
           } else {
             $scope[$attrs.vm].errorMsg = res.msg;
