@@ -57,6 +57,14 @@
   background-color: #f6f7f8;
   line-height: 40px;
 }
+.list_item_del {
+  float:right;
+  width: 17px;
+  height: 20px;
+  margin-right: 65px;
+  margin-top: 10px;
+  background: url(../img/del_button.png) no-repeat 0 -70px;
+}
 .list_item_box {
   padding: 20px 10px;
   overflow: hidden;
