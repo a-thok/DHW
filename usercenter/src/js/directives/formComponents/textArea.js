@@ -23,8 +23,8 @@ export default function textArea() {
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
               ></textarea>
-              <a class="formSwitch" href="javascript:;" ng-show="!${attrs.switch}" ng-click="vm.save()">保存</a>
-              <a class="formSwitch" href="javascript:;" ng-show="!${attrs.switch}" ng-click="vm.cancle()">取消</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
           </div>
           <label class="formTip formTip--error"
