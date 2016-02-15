@@ -18,22 +18,12 @@ import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
-<<<<<<< HEAD
 import ZwscCtrl from './controllers/ZwscCtrl.js'
-=======
-
-import ZwscCtrl from './controllers/ZwscCtrl.js'
-
->>>>>>> 2c6844bd963467b9d20cf27d12de5a5d9fab3e57
 import DdsxCtrl from './controllers/DdsxCtrl.js';
 import YckCtrl from './controllers/YckCtrl.js';  
 import DgtjlCtrl from './controllers/DgtjlCtrl.js';  
 import YtgmsCtrl from './controllers/YtgmsCtrl.js';  
 import BhsCtrl from './controllers/BhsCtrl.js';  
-<<<<<<< HEAD
-=======
-
->>>>>>> 2c6844bd963467b9d20cf27d12de5a5d9fab3e57
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
