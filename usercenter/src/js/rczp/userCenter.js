@@ -18,15 +18,12 @@ import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
-<<<<<<< HEAD
 import ZwscCtrl from './controllers/ZwscCtrl.js'
-=======
 import DdsxCtrl from './controllers/DdsxCtrl.js';
 import YckCtrl from './controllers/YckCtrl.js';  
 import DgtjlCtrl from './controllers/DgtjlCtrl.js';  
 import YtgmsCtrl from './controllers/YtgmsCtrl.js';  
 import BhsCtrl from './controllers/BhsCtrl.js';  
->>>>>>> 19416805ce63399d078c06c5cd11e437140fc1b4
 // import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
@@ -121,15 +118,12 @@ app
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
-<<<<<<< HEAD
   .controller('ZwscCtrl',[ZwscCtrl])
-=======
   .controller('DdsxCtrl',[DdsxCtrl])
   .controller('YckCtrl',[YckCtrl])
   .controller('DgtjlCtrl',[DgtjlCtrl])
   .controller('YtgmsCtrl',[YtgmsCtrl])
   .controller('BhsCtrl',[BhsCtrl])
->>>>>>> 19416805ce63399d078c06c5cd11e437140fc1b4
 // .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
