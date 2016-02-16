@@ -26,14 +26,14 @@ import YtgmsCtrl from './controllers/JllbControllers/YtgmsCtrl.js';
 import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
 import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄  
 import YtjlCtrl from './controllers/YtjlCtrl.js'
-<<<<<<< HEAD
+
 import TdpreviewdetailCtrl from './controllers/TdpreviewdetailCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
-=======
+
 import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
 
->>>>>>> 7f75d55c1f2a61791b8c6642608443b23efe0639
+
 
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
