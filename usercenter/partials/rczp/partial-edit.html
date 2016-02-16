@@ -1,0 +1,133 @@
+<!--发布简历详情编辑-->
+<form name="editForm" ng-submit="editVm.submit()">
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="行业名称"
+    data-name="dtmc"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="所属部门"
+    data-name="department"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="职位名称"
+    data-name="position"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div select-simple
+    data-switch="true"
+    data-vm="editVm"
+    data-label="工作性质"
+    data-name="gzxz"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.jobCategory"
+  ></div>
+  <div select-simple
+    data-switch="true"
+    data-vm="editVm"
+    data-label="薪资范围"
+    data-name="money"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.salary"
+  ></div>
+  <div select-simple
+    data-switch="true"
+    data-vm="editVm"
+    data-label="工作经验"
+    data-name="gznx"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.exprience"
+  ></div>
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="学历要求"
+    data-name="xl"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.exprience"
+  ></div>
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="职位诱惑"
+    data-name="tag"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位的诱惑'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div text-area
+    data-switch="true"
+    data-vm="editVm"
+    data-label="职位描述"
+    data-name="desc"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,100}$/"
+    data-tip='请填写此职位的描述'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="工作地址"
+    data-name="gzdz"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位的工作地址'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+   <div input-text
+    data-switch="true"
+    data-vm="editVm"
+    data-label="语言要求"
+    data-name="yy"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位的语言要求'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+  <div select-double-numbers
+    data-switch="true"
+    data-vm="editVm"
+    data-label="年龄"
+    data-first="min"
+    data-second="max"
+    data-required="true"
+  ></div>
+  <div btn-submit
+    data-vm="editVm"
+    data-form="editForm"
+    
+  ></div>
+  <div modal
+  data-vm = "editVm"
+  data-url="/zplb"
+></div>
+</form>  

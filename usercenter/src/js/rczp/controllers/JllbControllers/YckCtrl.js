@@ -1,4 +1,4 @@
-//等待筛选控制器 
+//已查看控制器 
 export default function YckCtrl() {
   var vm = this;
   vm.list=[

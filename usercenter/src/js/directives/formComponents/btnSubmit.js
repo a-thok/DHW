@@ -15,7 +15,7 @@ export default function btnSubmit() {
       let vm = this;
       vm.submitText = '提交';
       vm.isDisabled = false;
-      
+      //console.log($scope[$attrs.vm]);
       function fail() {
         $scope[$attrs.vm].isSubmitSuccess = false;
         vm.submitText = '提交';
@@ -27,22 +27,23 @@ export default function btnSubmit() {
         vm.submitText = '提交中';
         vm.isDisabled = true;
 
-        $http.post($attrs.api, {
-          model: $scope[$attrs.vm].data
-        }).success(res => {
-          if (res.success) {
-            $scope[$attrs.vm].isSubmitSuccess = true;
-          } else {
-            $scope[$attrs.vm].errorMsg = res.msg;
-            fail();
-          }
-          $scope[$attrs.vm].showModal = true;
-        }).error(() => {
-          fail();
-          $scope[$attrs.vm].showModal = true;
-        });
-
+      //   $http.post($attrs.api, {
+      //     model: $scope[$attrs.vm].data
+      //   }).success(res => {
+      //     if (res.success) {
+      //       $scope[$attrs.vm].isSubmitSuccess = true;
+      //     } else {
+      //       $scope[$attrs.vm].errorMsg = res.msg;
+      //       fail();
+      //     }
+      //     $scope[$attrs.vm].showModal = true;
+      //   }).error(() => {
+      //     fail();
+      //     $scope[$attrs.vm].showModal = true;
+      //   });
+      console.log($scope[$attrs.vm].data)
       };
+     
     }],
     controllerAs: 'vm'
   };

@@ -15,26 +15,27 @@ import navSlide from '../directives/userCenter/navSlide.js';
 import MainCtrl from './controllers/MainCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
-import ZplbPublishedCtrl from './controllers/ZplbPublishedCtrl.js';
-import ZplbOfflineCtrl from './controllers/ZplbOfflineCtrl.js';
+import ZplbPublishedCtrl from './controllers/ZplbControllers/ZplbPublishedCtrl.js';
+import ZplbOfflineCtrl from './controllers/ZplbControllers/ZplbOfflineCtrl.js';
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
-import ZwscCtrl from './controllers/ZwscCtrl.js'
-import DdsxCtrl from './controllers/DdsxCtrl.js';
-import YckCtrl from './controllers/YckCtrl.js';  
-import DgtjlCtrl from './controllers/DgtjlCtrl.js';  
-import YtgmsCtrl from './controllers/YtgmsCtrl.js';  
-import BhsCtrl from './controllers/BhsCtrl.js';  
-// import YtjlCtrl from './controllers/YtjlCtrl.js'
+import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js'
+import DdsxCtrl from './controllers/JllbControllers/DdsxCtrl.js';
+import YckCtrl from './controllers/JllbControllers/YckCtrl.js';  
+import DgtjlCtrl from './controllers/JllbControllers/DgtjlCtrl.js';  
+import YtgmsCtrl from './controllers/JllbControllers/YtgmsCtrl.js';  
+import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
+import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄  
+import YtjlCtrl from './controllers/YtjlCtrl.js'
 // import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
 
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/jlbj');
     
-    $urlRouterProvider.when('/zplb', '/zplb/published');
-    $urlRouterProvider.when('/jllb', '/jllb/filter');
+    $urlRouterProvider.when('/zplb', '/zplb/published')
+    $urlRouterProvider.when('/jllb', '/jllb/filter')
     $stateProvider
       .state('zplb', {
         url: '/zplb',
@@ -98,7 +99,7 @@ app
       .state('ytjl', {
         url: '/ytjl',
         templateUrl: '/partials/rczp/partial-ytjl.html',
-        // controller:  'YtjlCtrl as ytjlVm'                  //已投简历的控制器
+        controller:  'YtjlCtrl as ytjlVm'                  //已投简历的控制器
       })
       .state('zwsc', {
         url: '/zwsc',
@@ -107,7 +108,8 @@ app
       })
       .state('edit',{                                  //测试路由
         url : '/edit/:id',
-        template : '我成功跳转啦',
+        templateUrl : '/partials/rczp/partial-edit.html',
+        controller : 'EditCtrl as editVm'
       })                           
   }])
   .directive('showAllModules', showAllModules)
@@ -124,7 +126,8 @@ app
   .controller('DgtjlCtrl',[DgtjlCtrl])
   .controller('YtgmsCtrl',[YtgmsCtrl])
   .controller('BhsCtrl',[BhsCtrl])
-// .controller('YtjlCtrl',['$http',YtjlCtrl])
+  .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
+  .controller('YtjlCtrl',['$http',YtjlCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
 export default app;

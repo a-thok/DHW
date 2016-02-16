@@ -21,6 +21,8 @@ export default function list() {
                 data-del="${attrs.del}"
                 data-editid="${attrs.editid}"
                 data-editUrl="${attrs.editurl}"
+                data-datekey="${attrs.datekey}"
+                data-datekeytxt="${attrs.datekeytxt}"
               list-item>
               </li>
             </ul>

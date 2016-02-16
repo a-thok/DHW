@@ -61,6 +61,7 @@ export default function selectDoubleNumbers() {
       vm.getSecondNumbers = (firtNumber) => {
         vm.secondNumbers = cal(firtNumber);
       };
+
       
     }],
     controllerAs: 'vm'
