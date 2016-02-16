@@ -26,7 +26,9 @@ import YtgmsCtrl from './controllers/JllbControllers/YtgmsCtrl.js';
 import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
 import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄  
 import YtjlCtrl from './controllers/YtjlCtrl.js'
-// import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
+import JlbjCtrl from './controllers/JlbjCtrl.js'; // 卢铭怀 引入控制器函数
+import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
+
 
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
@@ -90,11 +92,12 @@ app
       .state('jlbj', {
         url: '/jlbj',
         templateUrl: '/partials/rczp/partial-jlbj.html',
-        // controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
+        controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
       })
       .state('jlyl', {
         url: '/jlyl',
         templateUrl: '/partials/rczp/partial-jlyl.html',
+        controller : 'JlylCtrl as JlylVm'
       })
       .state('ytjl', {
         url: '/ytjl',
@@ -110,7 +113,7 @@ app
         url : '/edit/:id',
         templateUrl : '/partials/rczp/partial-edit.html',
         controller : 'EditCtrl as editVm'
-      })                           
+      })                       
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -128,6 +131,6 @@ app
   .controller('BhsCtrl',[BhsCtrl])
   .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
   .controller('YtjlCtrl',['$http',YtjlCtrl])
-// .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
-
+  .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]) // 卢铭怀 定义控制器
+  .controller('JlylCtrl', ['$scope', '$http', '$location', JlylCtrl]);  
 export default app;

@@ -535,8 +535,8 @@ export default function JlbjCtrl(s, h, $location) {
 
   /** 性别选择 **/
   s.selectGerder = function (event) {
-    elem = ($(event.target).is('i')) ? $(event.target).parent() : $(event.target);
-    var gender = $(elem).text();
+    event = ($(event.target).is('i')) ? $(event.target).parent() : $(event.target);
+    var gender = $(event).text();
     $('.formInfo_gender').val(gender);
     s.infoTemp.gender = gender;
   };
