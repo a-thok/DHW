@@ -32,7 +32,13 @@ export default app;
 // 在控制器里定义如下格式的数组，数组名必须叫list！
 // 若该字段展示时需要链接，则添加link和linkkey
 // 若该字段展示时显示为图片，则添加img
-
+/**若该字段展示时需让企业查看收到的简历的详细信息 则添加链接如下
+ * 简历预览链接 : resumlink:'#/td-preview-detail'
+ * 职位 Id(JobID为传到后台的字段名称)  : jobid:'JobID'
+ * 简历状态 : statemc:'statemc'
+ * 用户id  ： tdUserID : 'tdUserID'
+ *  */
+ 
 // vm.list = [
 //   {name: '职位', key: 'position', width: '15%', link: 'http://adsfadsf/', linkkey: 'userid'},
 //   {name: '公司', key: 'company', width: '20%', img: 'ture'},

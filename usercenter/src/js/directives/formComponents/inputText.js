@@ -23,7 +23,7 @@ export default function inputText() {
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
               >
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" datang-click="vm.save()">保存</a>
               <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
             
@@ -41,9 +41,9 @@ export default function inputText() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', function($scope, $attrs) {
+    controller: ['$scope', '$attrs','$http','$stateParams',function($scope, $attrs,$http,$stateParams) {
       let vm = this;
-      partialController($scope, $attrs, vm);
+      partialController($scope, $attrs,$http,$stateParams, vm);
     }],
     controllerAs: 'vm'
   };

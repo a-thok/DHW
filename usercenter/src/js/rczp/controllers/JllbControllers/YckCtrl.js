@@ -2,7 +2,7 @@
 export default function YckCtrl() {
   var vm = this;
   vm.list=[
-    {name: '姓名',key : 'name', width: '30%'},
+    {name: '姓名',key : 'name', width: '30%',resumlink:'#/td-preview-detail',jobid:'JobID',statemc:'statemc',tdUserID : 'tdUserID'},
     {name: '应聘职位',key : 'post', width: '30%'},
     {name: '基本信息',key : 'degree', width: '30%'},
   ]

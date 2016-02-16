@@ -41,9 +41,9 @@ export default function selectDoubleNumbers() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', function($scope, $attrs) {
+    controller: ['$scope', '$attrs', '$http','$stateParams',function($scope, $attrs,$http,$stateParams) {
       let vm = this;
-      partialController($scope, $attrs, vm);
+      partialController($scope, $attrs,$http,$stateParams, vm);
       
       // 计算一组数字
       let cal = (start) => {

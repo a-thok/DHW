@@ -40,9 +40,9 @@ export default function textArea() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', function($scope, $attrs) {
+    controller: ['$scope', '$attrs', '$http','$stateParams',function($scope, $attrs,$http,$stateParams) {
       let vm = this;
-      partialController($scope, $attrs, vm);
+      partialController($scope, $attrs,$http,$stateParams, vm);
     }],
     controllerAs: 'vm'
   };
