@@ -274,7 +274,8 @@ body {
 /* 内容 */
 .ucContent {
   min-height: 600px;
-  overflow: hidden;
+  display: table-cell;
+  width: 9999px;
 }
 .ucContent.ng-enter {
   animation: scaleUp .7s;
