@@ -14,20 +14,25 @@ import sideBar from '../directives/userCenter/sideBar.js';
 
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
-import ZplbCtrl from './controllers/ZplbCtrl.js';
 import FbzpCtrl from './controllers/FbzpCtrl.js';
+//招聘列表
+import ZplbCtrl from './controllers/ZplbCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbControllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbControllers/ZplbOfflineCtrl.js';
+import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄 
+//简历列表
 import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
-import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js'
 import DdsxCtrl from './controllers/JllbControllers/DdsxCtrl.js';
 import YckCtrl from './controllers/JllbControllers/YckCtrl.js';  
 import DgtjlCtrl from './controllers/JllbControllers/DgtjlCtrl.js';  
 import YtgmsCtrl from './controllers/JllbControllers/YtgmsCtrl.js';  
 import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
-import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄  
-import YtjlCtrl from './controllers/YtjlCtrl.js'
 import TdpreviewdetailCtrl from './controllers/TdpreviewdetailCtrl.js'
+//职位收藏
+import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js'
+//已投简历 
+import YtjlCtrl from './controllers/YtjlCtrl.js'
+//简历编辑与简历预览
 import JlbjCtrl from './controllers/JlbjCtrl.js';
 import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
 
@@ -127,20 +132,24 @@ app
   .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
   .controller('MainCtrl', ['$location', MainCtrl])
+  //招聘列表
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
+  .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
+  //简历列表
   .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
-  .controller('ZwscCtrl',[ZwscCtrl])
   .controller('DdsxCtrl',[DdsxCtrl])
   .controller('YckCtrl',[YckCtrl])
   .controller('DgtjlCtrl',[DgtjlCtrl])
   .controller('YtgmsCtrl',[YtgmsCtrl])
   .controller('BhsCtrl',[BhsCtrl])
-  .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
+  .controller('ZwscCtrl',[ZwscCtrl])
+  //已投简历
   .controller('YtjlCtrl',['$http',YtjlCtrl])
   .controller('TdpreviewdetailCtrl',['$http','$scope','$location',TdpreviewdetailCtrl])
+  //简历列表-简历预览
   .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl])
   .controller('JlylCtrl', ['$scope', '$http', '$location', JlylCtrl]);  
 
