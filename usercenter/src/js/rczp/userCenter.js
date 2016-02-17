@@ -118,16 +118,12 @@ app
         url : '/edit/:id',
         templateUrl : '/partials/rczp/partial-edit.html',
         controller : 'EditCtrl as editVm'
-<<<<<<< HEAD
       })
       .state('td-preview-detail',{
         url : '/td-preview-detail',
         templateUrl : '/partials/rczp/partial-preview-detail.html',
         controller : 'TdpreviewdetailCtrl as tdpreviewdetailVm'
       })                        
-=======
-      })                       
->>>>>>> 7f75d55c1f2a61791b8c6642608443b23efe0639
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -145,12 +141,10 @@ app
   .controller('BhsCtrl',[BhsCtrl])
   .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
   .controller('YtjlCtrl',['$http',YtjlCtrl])
-<<<<<<< HEAD
   .controller('TdpreviewdetailCtrl',['$http','$scope','$location',TdpreviewdetailCtrl])
 // .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]); // 卢铭怀 定义控制器
 
-=======
   .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl]) // 卢铭怀 定义控制器
   .controller('JlylCtrl', ['$scope', '$http', '$location', JlylCtrl]);  
->>>>>>> 7f75d55c1f2a61791b8c6642608443b23efe0639
+
 export default app;
