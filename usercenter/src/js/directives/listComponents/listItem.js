@@ -16,7 +16,7 @@ export default function listItem() {
               <span ng-if="!box.link && !box.img && !box.resumlink">{{ item[box.key] }}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%}}">
-              <a href='${attrs.editurl}'>${attrs.operation}</a>
+              <a href='${attrs.editurl}' ng-click="vm.edit(item.jobid,item.type)">${attrs.operation}</a>
             </li>
           </ul>
         </li>

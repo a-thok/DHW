@@ -84,8 +84,10 @@ export default function list() {
          $http.post($attrs.delapi,{id : key}).success(res => {
            getData(1)
          })
-       
-       
+      }
+      vm.edit = function (jobid, type) {
+          $http.post('/HRSczw/Qxsc', { jobid: jobid, type: type });
+          getData(1);
       }
       
     }],
