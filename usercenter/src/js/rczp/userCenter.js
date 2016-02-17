@@ -127,7 +127,7 @@ app
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
-  .controller('MainCtrl', [MainCtrl])
+  .controller('MainCtrl', ['$location', MainCtrl])
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])

@@ -64,7 +64,7 @@ export default function list() {
       }
       let getData = (pageIndex) => {
         $http.post($attrs.api, Object.assign({}, {
-          pageIndex: 1,
+          pageIndex: pageIndex,
           pageSize: 5
         }, params)).success(res => {
           vm.total = res.result.total;
