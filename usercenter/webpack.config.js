@@ -21,8 +21,8 @@ module.exports = {
       'web-uploader': 'window.WebUploader'
     }
   ],
-  devtool: 'eval-source-map',
-  // devtool: 'source-map',
+  // devtool: 'eval-source-map',
+  devtool: 'source-map',
   module: {
     //加载器配置
     loaders: [
