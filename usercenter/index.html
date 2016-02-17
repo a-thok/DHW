@@ -123,21 +123,7 @@
   <!--个人中心主内容 开始-->
   <div class="ucMain" ng-cloak>
     <!--侧边栏 开始-->
-    <div class="ucSidebar">
-      <dl class="ucSidebar_menu">
-        <dt class="ucSidebar_menu_title">
-          {{ mainVm.routes.title }}
-        </dt>
-        <dd class="ucSidebar_menu_list" ng-cloak>
-          <a ng-repeat="route in mainVm.routes.items" 
-             class="ucSidebar_menu_list_item"
-             ng-class="{'ucSidebar_menu_list_item--active': route.active}"
-             ng-click="mainVm.changeRoute($index)"
-             ui-sref="{{route.url}}"
-          >{{route.text}}</a>
-        </dd>
-      </dl>
-    </div>
+    <div side-bar></div>
     <!--侧边栏 结束-->
     
     <!--内容 开始-->

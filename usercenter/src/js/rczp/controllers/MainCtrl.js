@@ -43,44 +43,9 @@ export default function MainCtrl($location) {
       active: false
     }
   ];
-  
+  vm.a = 123;
   vm.routes = {
     title: '人才招聘',
     items: routes_p.concat(routes_c)
   };
-  
-  // 点击侧边栏时，改变高亮
-  vm.changeRoute = (index) => {
-    vm.routes.items.forEach((route, i) => {
-      if (i === index) {
-        route.active = true;
-      } else {
-        route.active = false;
-      }
-    });
-  };
-  
-  // 首次进入时，判断当前路由，应用改变高亮的方法
-  (function() {
-    let index;
-    
-    let currentPath;
-    var lastIndex = $location.path().lastIndexOf('/');
-    if (lastIndex !== 0) {
-      currentPath = $location.path().substring(1, lastIndex);
-    } else {
-      currentPath = $location.path().substring(1);
-    }
-    
-    vm.routes.items.forEach((route, i) => {
-      if (route.url.indexOf('.') !== -1 && route.url.slice(0, route.url.indexOf('.')) === currentPath ) {
-        index = i;
-      } else if (route.url.slice(0) === currentPath) {
-        index = i;
-      }
-    });
-    
-    vm.changeRoute(index);
-  })();
-  
 }

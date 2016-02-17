@@ -10,6 +10,7 @@ import modalComponents from '../directives/modalComponents.js'   //表单信息�
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
+import sideBar from '../directives/userCenter/sideBar.js';
 
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
@@ -127,6 +128,7 @@ app
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
+  .directive('sideBar', sideBar)
   .controller('MainCtrl', ['$location', MainCtrl])
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
