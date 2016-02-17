@@ -23,7 +23,7 @@ export default function inputText() {
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
               >
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" datang-click="vm.save()">保存</a>
+              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
               <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
             
