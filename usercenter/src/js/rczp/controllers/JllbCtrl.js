@@ -1,6 +1,6 @@
 export default function JllbCtrl(){
   var vm = this;
-  vm.listtitle = [
+  vm.listTabs = [
     {
       name : '等待筛选简历',
       url : '.filter '

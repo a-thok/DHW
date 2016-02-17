@@ -19,7 +19,7 @@ export default function listTabs() {
       let vm = this;
       // 当前选中标签，默认第一个
       let currentTab = 0;
-      let arr = $scope.$parent[$attrs.vm].listtitle
+      let arr = $scope.$parent[$attrs.vm].listTabs
       let path = $location.path().lastIndexOf('/')
       let url = '.' + $location.path().substring(path + 1);
       arr.forEach(function(currentValue, index) {
