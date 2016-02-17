@@ -65,6 +65,13 @@
       };
       //加载数据
       loaddata();
+     // 1 : 已查看
+     $scope.yck = function () {
+          if(statemc < 1) {
+              $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 1, tdUserID: tdUserID });
+          }
+      }
+     
      // 2:待沟通
       $scope.dgt = function () {
           $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 2, tdUserID: tdUserID });

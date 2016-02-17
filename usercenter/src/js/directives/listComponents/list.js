@@ -19,7 +19,6 @@ export default function list() {
                 data-func="${attrs.func}"
                 data-delkey="${attrs.delkey}"
                 data-del="${attrs.del}"
-                data-editid="${attrs.editid}"
                 data-editUrl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
                 data-datekeytxt="${attrs.datekeytxt}"
@@ -85,13 +84,10 @@ export default function list() {
          $http.post($attrs.delapi,{id : key}).success(res => {
            getData(1)
          })
-        
-        // $http.post(delapi,{id : }).success(res => {
-        //   // vm.total = res.result.total;
-        //   // vm.data = res.result.data;
-        //    getData(1)
-        // })
+       
+       
       }
+      
     }],
     controllerAs: 'vm'
   };

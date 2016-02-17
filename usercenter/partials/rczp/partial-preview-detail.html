@@ -242,6 +242,13 @@
         <!--<div class="return_btn" ng-if="table!=0">
             <a href="#/">返回</a> <a href="#/tdjl-list" ng-click="tzcg()">投递</a>
         </div>-->
+        <div class="return_btn" ng-if="statemc==0">
+          <a href='#/jllb/filter'>返回</a>
+          <a href="#/jllb/view" ng-click="yck()">标记为已查看</a>
+          <a href="#/jllb/notsuitable" ng-click="bhs()">不合适</a>
+          <a href="#/jllb/interview" ng-click="tzms()">通知面试</a>
+          <a href="#/jllb/communicate" ng-click="dgt()">待沟通</a>
+        </div>
         <div class="return_btn" ng-if="statemc==1">
           <a href='#/jllb/view'>返回</a>
           <a href="#/jllb/notsuitable" ng-click="bhs()">不合适</a>
