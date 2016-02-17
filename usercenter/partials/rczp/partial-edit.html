@@ -1,16 +1,5 @@
 <!--发布简历详情编辑-->
 <form name="editForm" ng-submit="editVm.submit()">
-  <!--<div input-text
-    data-switch="true"
-    data-vm="editVm"
-    data-label="行业名称"
-    data-name="dtmc"
-    data-required="true"
-    data-form="editForm"
-    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-    data-tip='请填写此职位'
-    data-error="职位名称必须在2-10个字符之间"
-  ></div>-->
   <div input-text
     data-switch="true"
     data-vm="editVm"
@@ -65,7 +54,7 @@
     data-options="item for item in editVm.exprience"
     data-editapi="/HRZpxxFb/Edit"
   ></div>
-  <div input-text
+  <div select-simple
     data-switch="true"
     data-vm="editVm"
     data-label="学历要求"
