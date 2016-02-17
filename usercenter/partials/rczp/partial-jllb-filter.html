@@ -1,13 +1,12 @@
 <!--我是待筛选简历-->
 <div list 
      data-vm="ddsxVm"
-     data-operate="true"
      data-api="/HRDelivery/DeliveryList/"
      data-params='{"state":0,"total":0}'
-     data-operation="编辑"
-     data-func="edit()"
-     data-editurl="#/edit/"
      data-datekey="createtime"
      data-datekeytxt="创建时间"
+     data-operate="true"
+     data-operation="查看"
+     data-editUrl="#/td-preview-detail?JobID={{item.JobID}}&statemc={{item.statemc}}&tdUserID={{item.tdUserID}}"
      >
 </div>

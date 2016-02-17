@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default function MainCtrl() {
+export default function MainCtrl($location) {
   var vm = this;
   
   const routes_p = [
@@ -33,12 +33,12 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'zplb',
+      url: 'zplb.published',
       text: '招聘列表',
       active: false
     },
     {
-      url: 'jllb',
+      url: 'jllb.filter',
       text: '简历列表',
       active: false
     }
@@ -49,6 +49,7 @@ export default function MainCtrl() {
     items: routes_p.concat(routes_c)
   };
   
+  // 点击侧边栏时，改变高亮
   vm.changeRoute = (index) => {
     vm.routes.items.forEach((route, i) => {
       if (i === index) {
@@ -58,4 +59,28 @@ export default function MainCtrl() {
       }
     });
   };
+  
+  // 首次进入时，判断当前路由，应用改变高亮的方法
+  (function() {
+    let index;
+    
+    let currentPath;
+    var lastIndex = $location.path().lastIndexOf('/');
+    if (lastIndex !== 0) {
+      currentPath = $location.path().substring(1, lastIndex);
+    } else {
+      currentPath = $location.path().substring(1);
+    }
+    
+    vm.routes.items.forEach((route, i) => {
+      if (route.url.indexOf('.') !== -1 && route.url.slice(0, route.url.indexOf('.')) === currentPath ) {
+        index = i;
+      } else if (route.url.slice(0) === currentPath) {
+        index = i;
+      }
+    });
+    
+    vm.changeRoute(index);
+  })();
+  
 }
