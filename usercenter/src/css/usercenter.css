@@ -1,5 +1,7 @@
 /*@import 'normalize.css';*/
 @import 'rootvar.css';
+/*通用底部*/
+@import 'footer.css';
 /* 表单页控件 */
 @import 'form.css';
 @import 'calender.css';
