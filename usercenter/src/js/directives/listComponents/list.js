@@ -26,7 +26,7 @@ export default function list() {
               </li>
             </ul>
 
-            <div class="paginationWrap">
+            <div class="paginationWrap" ng-if="vm.total > 5">
               <div class="pagination" uib-pagination
                 boundary-links="true"
                 total-items="vm.total"
