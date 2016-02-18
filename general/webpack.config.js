@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist/',
     filename: 'js/[name].js',
-    publicPath: '/'
+    publicPath: '//cdn.dreamhiway.com/static/'
   },
   resolve: {
     extensions: ['', '.js', '.json', '.css']

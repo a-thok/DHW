@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url?limit=8192&name=img/[name].[ext]?[hash]'
+        loader: 'url?limit=8192&name=img/uc/[name].[ext]?[hash]'
       },
       {
         test: require.resolve('angular'),
