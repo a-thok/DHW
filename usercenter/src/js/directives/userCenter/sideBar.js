@@ -5,24 +5,24 @@ export default function sideBar() {
     template: function (elem, attrs) {
       return `
       <div class="ucSidebar">
-      <dl class="ucSidebar_menu">
-        <dt class="ucSidebar_menu_title">
-          {{ mainVm.routes.title }}
-        </dt>
-        <dd class="ucSidebar_menu_list" ng-cloak>
-          <a ng-repeat="route in mainVm.routes.items"
-             class="ucSidebar_menu_list_item"
-             ng-class="{'ucSidebar_menu_list_item--active': route.active}"
-             ng-click="vm.changeRoute($index)"
-             ui-sref="{{route.url}}"
-          >{{route.text}}</a>
-        </dd>
-      </dl>
-    </div>
+        <dl class="ucSidebar_menu">
+          <dt class="ucSidebar_menu_title">
+            {{ mainVm.routes.title }}
+          </dt>
+          <dd class="ucSidebar_menu_list" ng-cloak>
+            <a ng-repeat="route in mainVm.routes.items"
+              class="ucSidebar_menu_list_item"
+              ng-class="{'ucSidebar_menu_list_item--active': route.active}"
+              ng-click="vm.changeRoute($index)"
+              ui-sref="{{route.url}}"
+            >{{route.text}}</a>
+          </dd>
+        </dl>
+      </div>
       `
     },
     controller: ['$scope', '$location', function ($scope, $location) {
-      var vm = this;
+      let vm = this;
 
       vm.changeRoute = (index) => {
         $scope.$parent.mainVm.routes.items.forEach((route, i) => {
