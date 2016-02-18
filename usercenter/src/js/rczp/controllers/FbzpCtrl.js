@@ -2,9 +2,7 @@ import {
   jobCategory,
   salary,
   exprience,
-  education,
-  getTrade,
-  pagination
+  education
 } from '../../data/data.js';
 
 export default function FbzpCrtl($http) {
@@ -14,8 +12,4 @@ export default function FbzpCrtl($http) {
   vm.salary = salary;
   vm.exprience = exprience;
   vm.education = education;
-
-  getTrade($http, (res) => 
-    vm.trade = res.result
-  );
 }
