@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: './src/js/index.js'
+    general: './src/js/index.js'
   },
   output: {
     path: __dirname + '/dist/',
@@ -15,8 +15,7 @@ module.exports = {
   },
   externals: [
     {
-      'jquery': 'window.jQuery',
-      'angular': 'window.angular'
+      'jquery': 'window.jQuery'
     }
   ],
   module: {
@@ -24,11 +23,11 @@ module.exports = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css!cssnext')
+        loader: ExtractTextPlugin.extract('style', 'css!postcss')
       },
       {
         test: /\.js$/,
-        loader: 'babel?presets=es2015',
+        loader: 'babel',
         exclude: '/node_modules/'
       },
       {
@@ -37,12 +36,17 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'file?name=img/[name].[ext]?[hash]'
-      }
+        loader: 'url?limit=8192&name=img/[name].[ext]?[hash]'
+      },
+      {
+        test: require.resolve('angular'),
+        loader: 'expose?angular'
+      },
     ]
   },
   plugins: [
     // new webpack.optimize.CommonsChunkPlugin('js/common.js'),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -50,13 +54,13 @@ module.exports = {
     }),
     new ExtractTextPlugin('css/[name].css')
   ],
-  cssnext: {
-    compress: true,
-    sourcemap: true,
-    features: {
-      // rem: false,
-      // pseudoElements: false,
-      // colorRgba: false
-    }
+  postcss: function(webpack) {
+    return [
+      require('postcss-import')({
+        addDependencyTo: webpack
+      }),
+      require('postcss-opacity'),
+      require('postcss-cssnext')()
+    ]
   }
 };

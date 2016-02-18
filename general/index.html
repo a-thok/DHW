@@ -1,107 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
-   
-   <div class="nav">
-     <div class="nav_wrap">
-       <div class="nav_wrap_left">
-          <ul>
-              <li class="nav_wrap_left_list">
-                <a href="#" class="nav_wrap_left_text">
-                  <i class="fa fa-home nav_wrap_left_iconfont"></i>
-                  梦高速首页
-                </a>
-               </li>
-              <li class="nav_wrap_left_list">
-                <a href="#" class="nav_wrap_left_text">
-                  <i class="fa fa-mobile nav_wrap_left_iconfont"></i>
-                  手机梦高速
-                </a>
+  <!--全站导航栏 开始-->
+  <div class="nav">
+    <div class="nav_wrap">
+      <!--左侧 开始-->
+      <div class="nav_left">
+        <a href="#"><i class="fa fa-home"></i> 梦高速首页</a>
+        <a href="#"><i class="fa fa-mobile"></i> 手机梦高速</a>
+      </div>
+      <!--左侧 结束-->
+      <!--右侧 开始-->
+      <div class="nav_right">
+        <ul class="nav_right_list">
+          <li class="nav_right_list_item">
+            您好，请<a class="nav_right_list_item_login" href="#">登录</a> <a href="#">免费注册</a>
+          </li>
+          <li class="nav_right_list_item nav_right_list_item--help">
+            <a href="#">帮助中心</a>
+          </li>
+          <!--导航菜单 开始-->
+          <li class="nav_right_list_item nav_right_list_item--navigation">
+            <a href="javascript:;" class="nav_site_navigation_drop">网站导航<i class="fa fa-angle-down"></i></a>
+            <ul class="nav_navigation">
+              <li class="nav_navigation_item">
+                <a href="#" class="">会记服务</a>
               </li>
-           </ul>
-        </div>
-      <div class="nav_wrap_right">
-          <ul>
-              <li class="nav_wrap_right_list nav_wrap_right_list_login">
-                您好，请
-                <a href="#">登录</a>
-                <a href="#">免费注册</a>
+              <li class="nav_navigation_item">
+                <a href="#" class="">人才招聘</a>
               </li>
-              <li class="nav_wrap_right_list">
-                 <a href="#">帮助中心</a>
+              <li class="nav_navigation_item">
+                <a href="#" class="">创意设计</a>
               </li>
-              <li class="nav_wrap_right_list nav_wrap_site_navigation">
-                 <a href="#" class="nav_wrap_site_navigation_drop">
-                   网站导航
-                   <i class="fa fa-angle-down"></i>
-                 </a>
-                 <div class="nav_wrap_site_navigation_down nav_wrap_site_navigation_menu">
-                    <ul>
-                      <li>
-                        <a href="#" class="">会记服务</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">人才招聘</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">创意设计</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">众创空间</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">众筹</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">众包</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">产权保护</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">私人定制</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">创意工厂</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">转型升级</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">公司上市</a>
-                      </li>
-                      <li>
-                        <a href="#" class="">社区论坛</a>
-                      </li>
-                    </ul>
-                 </div>
+              <li class="nav_navigation_item">
+                <a href="#" class="">众创空间</a>
               </li>
-              <li class="nav_wrap_right_list nav_wrap_site_weixin">
-                <a href="#"  class="nav_wrap_site_navigation_drop iconfont">
-                  <i class="fa fa-weixin"></i>
-                </a>
-                 <div class="nav_wrap_site_navigation_down nav_wrap_site_weixin_logo">
-                   <img src="src/image/weixin_temp.png" alt="">
-                 </div>
+              <li class="nav_navigation_item">
+                <a href="#" class="">众筹</a>
               </li>
-              <li class="nav_wrap_right_list nav_wrap_site_weibo">
-                <a href="#"  class="nav_wrap_site_navigation_drop iconfont">
-                  <i class="fa fa-weibo"></i>
-                </a>
-                <div class="nav_wrap_site_navigation_down nav_wrap_site_weibo_logo">
-                   <img src="src/image/erweima.jpg" alt="">
-                </div>
+              <li class="nav_navigation_item">
+                <a href="#" class="">众包</a>
               </li>
-          </ul>
-       </div>
-     </div>
-   </div>
-   <script src="//cdn.dreamhiway.com/scripts//jquery-1.11.3.min.js"></script>
-   <script src="/js/index.js"></script>
+              <li class="nav_navigation_item">
+                <a href="#" class="">产权保护</a>
+              </li>
+              <li class="nav_navigation_item">
+                <a href="#" class="">私人定制</a>
+              </li>
+              <li class="nav_navigation_item">
+                <a href="#" class="">创意工厂</a>
+              </li>
+              <li class="nav_navigation_item">
+                <a href="#" class="">转型升级</a>
+              </li>
+              <li class="nav_navigation_item">
+                <a href="#" class="">公司上市</a>
+              </li>
+              <li class="nav_navigation_item">
+                <a href="#" class="">社区论坛</a>
+              </li>
+            </ul>
+          </li>
+          <!--导航菜单 结束-->
+          <!--社交按钮 开始-->
+          <li class="nav_right_list_item">
+            <div class="nav_social nav_social--weixin">
+              <a href="javascript:;"><i class="fa fa-weixin"></i></a>
+              <div class="nav_social_code">
+                <img src="src/image/weixin_temp.png" alt="">
+              </div>
+            </div>
+            <div class="nav_social nav_social--weibo">
+              <a href="javascript:"><i class="fa fa-weibo"></i></a>
+              <div class="nav_social_code">
+                <img src="src/image/erweima.jpg" alt="">
+              </div>
+            </div>
+          </li>
+          <!--社交按钮 结束-->
+        </ul>
+      </div>
+      <!--右侧 结束-->
+    </div>
+  </div>
+  <!--全站导航栏 结束-->
 </body>
+
 </html>

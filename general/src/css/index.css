@@ -1,145 +1,155 @@
-@import 'normalize.css';
-@import 'font-awesome';
-/*默认样式重置*/
+/*
+ * 默认样式重置
+ */
 * {
   margin:0;
   padding:0;
 }
-body {
-  font-size:10px;
-}
-a {
-  text-decoration: none;
+body,
+input,
+select,
+button,
+textarea {
+  font: menu;
+  font-size: 16px;
 }
 ul, ol, dl {
   list-style: none;
 }
-/* 导航条样式 */
+a img {
+  border: 0;
+}
+
+/*
+ * 清除浮动
+ */
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+  overflow: hidden;
+}
+
+/* 
+ * 全站导航条
+ */
 .nav {
   height: 30px;
+  background: url(../image/nav_bg.gif) repeat-x;
+  font-size: 12px;
   line-height: 30px;
-  font-size:1.2em;
-  background :transparent url(../image/nav_bg.gif) repeat-x;
 }
 .nav_wrap {
-  width:1150px;
+  width: 1220px;
   margin: 0 auto;
 }
-/*导航条左部分*/
-.nav_wrap_left {
+.nav a {
+  color: #a5a5a5;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.nav a:hover {
+  color: #666;
+}
+.nav .fa {
+  font-size:14px;
+}
+
+/* 左侧 */
+.nav_left {
   float: left
 }
-.nav_wrap_right {
+.nav_left a {
+  margin-right: 15px;
+}
+
+/* 右侧 */
+.nav_right {
   float: right
 }
-.nav_wrap_left_list{
-  float: left;
-  margin-right:20px;
-}
-.nav_wrap_left_text {
-  font-family:"simsun", serif;
-  color:#A5A5A5;
-}
-.nav_wrap_left_iconfont {
-  font-size:16px;
-}
-/*导航条右半部分*/
-.nav_wrap_right_list {
+.nav_right_list_item {
   float: left;
 }
-.nav_wrap_right_list a {
+.nav_right_list_item > a {
   padding: 0 10px;
-  font-size: 12px;
-  color:#A5A5A5;
-  border-left:1px solid #ccc;
+  border-right: 1px solid #ccc;
 }
-.nav_wrap_right_list_login a{
+.nav_right_list_item--navigation > a {
+  border-left: 1px solid #ccc;
+}
+.nav_right_list_item--help > a {
+  border: 0;
+}
+.nav_right_list_item .nav_right_list_item_login {
   padding: 0;
   border: 0;
-  margin-right: 10px;
 }
-.nav_wrap_right_text {
-  padding:0 10px;
-  border-right:1px solid #ccc;
-  font-family:"simsun", serif;
-  color:#A5A5A5;
-}
-.nav_wrap_site_navigation {
+.nav_right_list_item--navigation {
   position: relative;
-  width: 92px;
-  height: 30px;
 }
-.nav_wrap_site_navigation a{
-  border-right:1px solid #ccc;
+.nav_right_list_item--navigation:hover a {
+  display: inline-block;
+  position: relative;
+  background: #fff;
+  z-index: 1;
 }
-.nav_wrap_site_navigation_down {
+.nav_right_list_item--navigation .fa {
+  display: inline;
+  margin-left: 5px;
+}
+.nav_navigation {
   display: none;
   position: absolute;
+  top: 100%;
   right: 0;
-  top: 31px;
-  z-index: 100;
-  padding: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  text-align: center;
-  line-height: 1.4em;
-  overflow: hidden;
-}
-.nav_wrap_site_navigation_menu {
-  right: 8px;
   width: 160px;
-}
-.nav_wrap_site_navigation_menu li{
-  float: left;
-  width: 70px;
-  padding: 5px;
-  text-align: center;
-  line-height: 1.8em;
-}
-.nav_wrap_site_navigation_menu li a {
-  border:0;
-}
-.nav_wrap_site_navigation_logo {
-  position: absolute;
-  right: 0;
-  top: 31px;
-  z-index: 100;
   padding: 5px;
   border: 1px solid #ccc;
-  background-color: #fff;
+  margin-top: -1px;
+  background: #fff;
+}
+.nav_right_list_item--navigation:hover .nav_navigation {
+  display: block;
+}
+.nav_navigation_item {
+  float: left;
+}
+.nav_navigation_item a {
+  display: block;
+  width: 70px;
+  padding: 0 5px;
   text-align: center;
-  line-height: 1.4em;
-  overflow: hidden;
 }
-/*微信微博logo样式*/
-.nav_wrap_site_weixin,
-.nav_wrap_site_weibo
-{
+/* 社交按钮 */
+.nav_social {
+  float: left;
   position: relative;
+  margin-left: 5px;
 }
-.nav_wrap_site_weixin a,
-.nav_wrap_site_weibo a {
-  padding :0 5px; 
+.nav_social a {
+  position: relative;
+  padding: 0 5px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  z-index: 1;
 }
-.nav_wrap_site_weixin {
-  width: 28px;
-  height: 30px;
+.nav_social:hover a {
+  display: block;
+  border-color: #ccc;
+  background: #fff;
 }
-.nav_wrap_site_weibo {
-  width: 28px;
-  height: 30px;
+.nav_social_code {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 5px 5px 0;
+  border: 1px solid #ccc;
+  margin-top: -1px;
 }
-.nav_wrap_site_weixin a ,
-.nav_wrap_site_weibo a {
-  border-left: 0px;
-}
-.nav_wrap_site_weixin a ,
-.nav_wrap_site_weibo a {
-  border-left: 0px;
-}
-.nav_wrap_site_weixin_logo {
-  right:2px;
-}
-.nav_wrap_site_weibo_logo {
-  right:4px;
+.nav_social:hover .nav_social_code {
+  display: block;
 }
