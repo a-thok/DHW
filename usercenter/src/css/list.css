@@ -51,6 +51,12 @@
   border: 1px solid #ebeef1;
   margin-bottom: 20px;
 }
+.list_item_none {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+}
 .list_item_date {
   height: 40px;
   padding-left: 15px;
