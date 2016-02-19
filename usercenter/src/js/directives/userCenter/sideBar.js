@@ -30,12 +30,12 @@ export default function sideBar() {
         });
       };
   
-      // 首次进入时，判断当前路由，应用改变高亮的方法
+      // 刷新页面时，判断当前路由，更改菜单高亮项
       (function () {
         let index;
 
         let currentPath;
-        var lastIndex = $location.path().lastIndexOf('/');
+        let lastIndex = $location.path().lastIndexOf('/');
         if (lastIndex !== 0) {
           currentPath = $location.path().substring(1, lastIndex);
         } else {
@@ -49,8 +49,7 @@ export default function sideBar() {
             index = i;
           }
         });
-
-        vm.changeRoute(index);
+        vm.changeRoute(index === undefined ? 0 : index);
       })();
     }],
     controllerAs: 'vm'
