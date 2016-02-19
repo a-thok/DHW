@@ -26,11 +26,7 @@ export default function sideBar() {
 
       vm.changeRoute = (index) => {
         $scope.$parent.mainVm.routes.items.forEach((route, i) => {
-          if (i === index) {
-            route.active = true;
-          } else {
-            route.active = false;
-          }
+          route.active = i === index ? true : false;
         });
       };
   
