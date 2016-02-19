@@ -7,7 +7,7 @@ export default function MainCtrl($location) {
     {
       url: 'jlbj',
       text: '简历编辑',
-      active: true
+      active: false
     },
     {
       url: 'jlyl',
@@ -30,7 +30,7 @@ export default function MainCtrl($location) {
     {
       url: 'fbzp',
       text: '发布招聘',
-      active: true
+      active: false
     },
     {
       url: 'zplb.published',
@@ -44,9 +44,16 @@ export default function MainCtrl($location) {
     }
   ];
   
+  let cookies = document.cookie.split('; ');
+  cookies.forEach((cookie) => {
+    if (cookie.indexOf('logintype') !== -1) {
+      vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+    }
+  });
+  
   vm.routes = {
     title: '人才招聘',
-    items: dhwtempvar.isCoporate ? vm.routes_c : vm.routes_p
+    items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
   };
   
 }
