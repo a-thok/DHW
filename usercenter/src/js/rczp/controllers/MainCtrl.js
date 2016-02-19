@@ -3,7 +3,7 @@ import $ from 'jquery';
 export default function MainCtrl($location) {
   var vm = this;
   
-  const routes_p = [
+  vm.routes_p = [
     {
       url: 'jlbj',
       text: '简历编辑',
@@ -26,11 +26,11 @@ export default function MainCtrl($location) {
     }
   ];
   
-  const routes_c = [
+  vm.routes_c = [
     {
       url: 'fbzp',
       text: '发布招聘',
-      active: false
+      active: true
     },
     {
       url: 'zplb.published',
@@ -43,9 +43,10 @@ export default function MainCtrl($location) {
       active: false
     }
   ];
-  vm.a = 123;
+  
   vm.routes = {
     title: '人才招聘',
-    items: routes_p.concat(routes_c)
+    items: dhwtempvar.isCoporate ? vm.routes_c : vm.routes_p
   };
+  
 }

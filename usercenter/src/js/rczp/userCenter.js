@@ -11,6 +11,7 @@ import modalComponents from '../directives/modalComponents.js'   //表单信息�
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
 import sideBar from '../directives/userCenter/sideBar.js';
+import switchType from '../directives/userCenter/switchType.js';
 
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
@@ -42,7 +43,7 @@ import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/jlbj');
+    $urlRouterProvider.otherwise(dhwtempvar.isCoporate ? '/fbzp' : '/jlbj');
     
     $urlRouterProvider.when('/zplb', '/zplb/published')
     $urlRouterProvider.when('/jllb', '/jllb/filter')
@@ -131,6 +132,7 @@ app
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
+  .directive('switchType', switchType)
   .controller('MainCtrl', ['$location', MainCtrl])
   //招聘列表
   .controller('ZplbCtrl', [ZplbCtrl])

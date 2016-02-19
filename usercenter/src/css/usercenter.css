@@ -208,6 +208,17 @@ body {
 .ucContent {
   background-color: #fff;
 }
+
+/* * 切换账户类型 * */
+.switchType {
+  float: right;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
  
 /* * 侧边栏 * */
 .ucSidebar {
