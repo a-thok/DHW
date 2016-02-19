@@ -26,7 +26,7 @@ export default function list() {
               </li>
             </ul>
             <div class="list_item_none" ng-if="vm.total === 0">
-              当前无数据
+              暂无相关数据
             </div>
             <div class="paginationWrap" ng-if="vm.total > 5">
               <div class="pagination" uib-pagination

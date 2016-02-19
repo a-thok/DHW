@@ -147,7 +147,7 @@ app
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
-  .controller('EditCtrl',['$http','$stateParams',EditCtrl])
+  .controller('EditCtrl',['$http','$stateParams', '$location', EditCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   //简历列表
   .controller('JllbCtrl',[JllbCtrl])
@@ -159,7 +159,7 @@ app
   .controller('ZwscCtrl',[ZwscCtrl])
   //已投简历
   .controller('YtjlCtrl',['$http',YtjlCtrl])
-  .controller('TdpreviewdetailCtrl',['$http','$scope','$location',TdpreviewdetailCtrl])
+  .controller('TdpreviewdetailCtrl',['$http', '$scope', '$location',TdpreviewdetailCtrl])
   //简历列表-简历预览
   .controller('JlbjCtrl', ['$scope', '$http', '$location', JlbjCtrl])
   .controller('JlylCtrl', ['$scope', '$http', '$location', JlylCtrl]);  

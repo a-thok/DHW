@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export default function MainCtrl($location) {
   var vm = this;
   
