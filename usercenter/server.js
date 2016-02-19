@@ -20,7 +20,7 @@ var server = new WebpackDevServer(compiler, {
   proxy: {
     // 转发api数据
     "*": {
-      target: "http://192.168.2.145:8085",
+      target: "http://192.168.2.2:8085",
       secure: false,
       bypass: function (req, res, proxyOptions) {
         if (req.headers.accept.indexOf('html') !== -1) {
