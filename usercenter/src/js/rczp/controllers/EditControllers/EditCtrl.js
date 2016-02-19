@@ -3,8 +3,10 @@ import {
   salary,
   exprience,
 } from '../../../data/data.js'
-export default function EditCtrl($http,$stateParams) {
+export default function EditCtrl($http, $stateParams, $location) {
    var vm = this;
+   vm.statemc = $location.search().statemc;
+   
    vm.jobCategory = jobCategory;
    vm.salary = salary;
    vm.exprience = exprience;

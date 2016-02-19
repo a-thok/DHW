@@ -130,4 +130,8 @@
   data-vm = "editVm"
   data-url="/zplb"
 ></div>-->
-</form>  
+</form>
+<div class="return_btn">
+  <a ng-if="editVm.statemc==0" href="#/zplb/published">返回</a>
+  <a ng-if="editVm.statemc==1" href="#/zplb/offline">返回</a>
+</div>
