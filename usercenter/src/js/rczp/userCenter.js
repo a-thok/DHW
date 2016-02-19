@@ -4,8 +4,8 @@ import angular from 'angular';
 // 依赖模块
 import formComponents from '../directives/formComponents.js';
 import pagination from '../directives/pagination.js';
-import listComponents  from '../directives/listComponents.js'
-import modalComponents from '../directives/modalComponents.js'   //表单信息提示弹框 庄
+import listComponents  from '../directives/listComponents.js';
+import modalComponents from '../directives/modalComponents.js';
 
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
@@ -20,22 +20,22 @@ import FbzpCtrl from './controllers/FbzpCtrl.js';
 import ZplbCtrl from './controllers/ZplbCtrl.js';
 import ZplbPublishedCtrl from './controllers/ZplbControllers/ZplbPublishedCtrl.js';
 import ZplbOfflineCtrl from './controllers/ZplbControllers/ZplbOfflineCtrl.js';
-import EditCtrl from './controllers/EditControllers/EditCtrl.js'  //引入发布简历详情编辑控制器 庄 
+import EditCtrl from './controllers/EditControllers/EditCtrl.js';
 //简历列表
-import JllbCtrl from './controllers/JllbCtrl.js';   //简历列表控制器 庄
+import JllbCtrl from './controllers/JllbCtrl.js';
 import DdsxCtrl from './controllers/JllbControllers/DdsxCtrl.js';
 import YckCtrl from './controllers/JllbControllers/YckCtrl.js';  
 import DgtjlCtrl from './controllers/JllbControllers/DgtjlCtrl.js';  
 import YtgmsCtrl from './controllers/JllbControllers/YtgmsCtrl.js';  
 import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
-import TdpreviewdetailCtrl from './controllers/TdpreviewdetailCtrl.js'
+import TdpreviewdetailCtrl from './controllers/TdpreviewdetailCtrl.js';
 //职位收藏
-import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js'
+import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js';
 //已投简历 
-import YtjlCtrl from './controllers/YtjlCtrl.js'
+import YtjlCtrl from './controllers/YtjlCtrl.js';
 //简历编辑与简历预览
 import JlbjCtrl from './controllers/JlbjCtrl.js';
-import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
+import JlylCtrl from './controllers/JlylCtrl.js';
 
 
 
@@ -43,7 +43,16 @@ import JlylCtrl from './controllers/JlylCtrl.js'    // 简历预览控制器 何
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise(dhwtempvar.isCoporate ? '/fbzp' : '/jlbj');
+    // 从cookie获取当前个人中心类型（企业或个人）
+    let logintype;
+    let cookies = document.cookie.split('; ');
+    cookies.forEach((cookie) => {
+      if (cookie.indexOf('logintype') !== -1) {
+        logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+      }
+    });
+    // 根据个人中心类型，判断默认加载哪个路由
+    $urlRouterProvider.otherwise(logintype === 1 ? '/jlbj' : '/fbzp');
     
     $urlRouterProvider.when('/zplb', '/zplb/published')
     $urlRouterProvider.when('/jllb', '/jllb/filter')
@@ -101,7 +110,7 @@ app
       .state('jlbj', {
         url: '/jlbj',
         templateUrl: '/partials/rczp/partial-jlbj.html',
-        controller: 'JlbjCtrl as jlbjVm' // 卢铭怀 添加路由子控制器
+        controller: 'JlbjCtrl as jlbjVm'
       })
       .state('jlyl', {
         url: '/jlyl',
@@ -111,14 +120,14 @@ app
       .state('ytjl', {
         url: '/ytjl',
         templateUrl: '/partials/rczp/partial-ytjl.html',
-        controller:  'YtjlCtrl as ytjlVm'                  //已投简历的控制器
+        controller:  'YtjlCtrl as ytjlVm'
       })
       .state('zwsc', {
         url: '/zwsc',
         templateUrl: '/partials/rczp/partial-zwsc.html',
         controller : 'ZwscCtrl as ZwscVm'
       })
-      .state('edit',{                                  //测试路由
+      .state('edit',{
         url : '/edit/:id',
         templateUrl : '/partials/rczp/partial-edit.html',
         controller : 'EditCtrl as editVm'
@@ -138,10 +147,10 @@ app
   .controller('ZplbCtrl', [ZplbCtrl])
   .controller('ZplbPublishedCtrl', [ZplbPublishedCtrl])
   .controller('ZplbOfflineCtrl', [ZplbOfflineCtrl])
-  .controller('EditCtrl',['$http','$stateParams',EditCtrl])  //招聘列表编辑详情的控制器 庄
+  .controller('EditCtrl',['$http','$stateParams',EditCtrl])
   .controller('FbzpCtrl', ['$http', FbzpCtrl])
   //简历列表
-  .controller('JllbCtrl',[JllbCtrl])     //定义简历列表控制器 庄
+  .controller('JllbCtrl',[JllbCtrl])
   .controller('DdsxCtrl',[DdsxCtrl])
   .controller('YckCtrl',[YckCtrl])
   .controller('DgtjlCtrl',[DgtjlCtrl])
