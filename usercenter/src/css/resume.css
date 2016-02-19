@@ -943,19 +943,3 @@ a.rsmS_jd_t_r:hover {
   text-align: center;
   line-height: 46px;
 }
-
-.return_btn {
-  margin-top: 25px;
-  text-align: center;
-}
-.return_btn a {
-  display: inline-block;
-  height: 35px;
-  padding: 0 25px;
-  border-radius: 3px;
-  background: #3d9ccc;
-  font-size: 14px;
-  line-height: 35px;
-  color: #fff;
-  text-decoration: none;
-}

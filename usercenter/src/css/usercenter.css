@@ -267,3 +267,20 @@ body {
     /*transform: scale(0.8);*/
   }
 }
+
+/* 底部操作按钮 */
+.return_btn {
+  margin-top: 25px;
+  text-align: center;
+}
+.return_btn a {
+  display: inline-block;
+  height: 35px;
+  padding: 0 25px;
+  border-radius: 3px;
+  background: var(--emColor);
+  font-size: 14px;
+  line-height: 35px;
+  color: #fff;
+  text-decoration: none;
+}
