@@ -16,7 +16,7 @@ export default function selectDoubleNumbers() {
               {{${attrs.vm}.data.${attrs.first}.${attrs.part} || ${attrs.vm}.data.${attrs.first}}}
               -
               {{${attrs.vm}.data.${attrs.second}.${attrs.part} || ${attrs.vm}.data.${attrs.second}}}
-              <a class="formSwitch" href="javascript:;" ng-click="vm.edit(${attrs.vm}.data.${attrs.first}, ${attrs.vm}.data.${attrs.second})">修改</a>
+              <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
             </div>
             
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
@@ -34,8 +34,8 @@ export default function selectDoubleNumbers() {
                 ng-required="${attrs.required}"
               >
               </select>
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
           </div>
         </div>

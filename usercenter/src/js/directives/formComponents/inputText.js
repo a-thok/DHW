@@ -14,7 +14,7 @@ export default function inputText() {
             
             <div class="formGroup_display" ng-show="vm.isPlain">
               {{${attrs.vm}.data.${attrs.name}}}
-              <a class="formSwitch" href="javascript:;" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</a>
+              <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
             </div>
             
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
@@ -23,8 +23,8 @@ export default function inputText() {
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
               >
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
             
           </div>

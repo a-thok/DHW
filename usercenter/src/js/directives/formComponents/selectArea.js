@@ -18,7 +18,7 @@ export default function selectArea() {
               {{${attrs.vm}.data.${attrs.name}.city.name}}
               -
               {{${attrs.vm}.data.${attrs.name}.district.name}}
-              <a class="formSwitch" href="javascript:;" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</a>
+              <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
             </div>
             
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
@@ -44,8 +44,8 @@ export default function selectArea() {
                 ng-show="vm.isShowDistricts"
               >
               </select>
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>
-              <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
+              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
           </div>
         </div>

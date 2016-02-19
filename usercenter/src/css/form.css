@@ -127,11 +127,15 @@
 }
 /* 切换详情和编辑状态 */
 .formSwitch {
+  border: 0;
   margin-left: 10px;
+  background: transparent;
   font-size: 13px;
   color: var(--emColor);
   line-height: 36px;
-  text-decoration: none;
+}
+.formSwitch[disabled] {
+  color: #999;
 }
 /* 效果 */
 .formInput:focus,
