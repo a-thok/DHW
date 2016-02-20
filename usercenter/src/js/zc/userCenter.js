@@ -10,18 +10,35 @@ import sideBar from '../directives/userCenter/sideBar.js';
 
 //控制器
 import MainCtrl from './controllers/MainCtrl.js';
+import FbCtrl from './controllers/FbCtrl.js'
 
 let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','ui.bootstrap.pagination']);
 
 app
   .config(['$stateProvider','$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/fb');
+    $urlRouterProvider.otherwise('/fb/basic');
     $stateProvider
-           .state('fb',{
+           .state('ProjectLaunch',{
              url: '/fb',
-             templateUrl:'/partials/zc/partial-fb.html'
-             
+             templateUrl:'/partials/zc/partial-fb.html',
+             controller: 'FbCtrl as fbVm'
+           })
+           .state('ProjectLaunch.basic',{
+             url: '/basic',
+             templateUrl: '/partials/zc/partial-fb-basic.html'
+           })
+           .state('ProjectLaunch.project',{
+             url: '/project',
+             templateUrl: '/partials/zc/partial-fb-project.html'
+           })
+           .state('ProjectLaunch.detail',{
+             url: '/detail',
+             templateUrl: '/partials/zc/partial-fb-detail.html'
+           })
+           .state('ProjectLaunch.payback',{
+             url: '/payback',
+             templateUrl: '/partials/zc/partial-fb-payback.html'
            })
             .state('hasfb',{
              url: '/hasfb',
@@ -51,5 +68,5 @@ app
   }])
   .directive('sideBar', sideBar)
   .controller('MainCtrl',[MainCtrl]) //主控制器
-  
+  .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
 export default app;

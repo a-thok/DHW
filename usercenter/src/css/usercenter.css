@@ -14,7 +14,8 @@
 @import 'pagination.css';
 /* 简历 */
 @import 'resume.css';
-
+/*发布众筹样式*/
+@import 'zcForm.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
