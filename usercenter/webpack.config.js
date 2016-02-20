@@ -4,7 +4,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
     // angular: ['angular/angular.js', 'angular-ui-router', 'angular-animate'],
-    //'uc.rczp': [__dirname + '/src/js/rczp.js'],
+    'uc.rczp': [__dirname + '/src/js/rczp.js'],
     'uc.zc' : [__dirname + '/src/js/zc.js']
   },
   output: {

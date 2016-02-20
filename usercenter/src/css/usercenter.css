@@ -16,6 +16,7 @@
 @import 'resume.css';
 /*发布众筹样式*/
 @import 'zcForm.css';
+@import 'zhongchou.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
@@ -26,6 +27,7 @@
  */
 body {
   background-color: var(--bodyColor);
+  font-size:10px;
 }
 
 .ucNav_wrap,

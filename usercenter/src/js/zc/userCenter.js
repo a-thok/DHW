@@ -10,7 +10,14 @@ import sideBar from '../directives/userCenter/sideBar.js';
 
 //控制器
 import MainCtrl from './controllers/MainCtrl.js';
-import FbCtrl from './controllers/FbCtrl.js'
+import FbCtrl from './controllers/FbCtrl.js';
+import BaseCtrl from './controllers/BaseCtrl.js';
+import DetailCtrl from './controllers/DetailCtrl.js';
+import PayBackCtrl from './controllers/PayBackCtrl.js';
+import ProjectCtrl from './controllers/ProjectCtrl.js';
+import PreviewCtrl from './controllers/PreviewCtrl.js';
+
+
 
 let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','ui.bootstrap.pagination']);
 
@@ -26,20 +33,29 @@ app
            })
            .state('ProjectLaunch.basic',{
              url: '/basic',
-             templateUrl: '/partials/zc/partial-fb-basic.html'
+             templateUrl: '/partials/zc/partial-fb-basic.html',
+             controller: 'BaseCtrl as baseVm'
            })
            .state('ProjectLaunch.project',{
              url: '/project',
-             templateUrl: '/partials/zc/partial-fb-project.html'
+             templateUrl: '/partials/zc/partial-fb-project.html',
+             controller: 'ProjectCtrl as projectVm'
            })
            .state('ProjectLaunch.detail',{
              url: '/detail',
-             templateUrl: '/partials/zc/partial-fb-detail.html'
+             templateUrl: '/partials/zc/partial-fb-detail.html',
+             controller: 'DetailCtrl as detailVm'
            })
            .state('ProjectLaunch.payback',{
              url: '/payback',
-             templateUrl: '/partials/zc/partial-fb-payback.html'
+             templateUrl: '/partials/zc/partial-fb-payback.html',
+             controller: 'PayBackCtrl as paybackVm'
            })
+           .state('ProjectLaunch.preview', {
+             url: '/preview',
+             templateUrl: '/partials/zc/partial-fb-preview.html',
+             controller: 'PreviewCtrl as previewVm',
+            })
             .state('hasfb',{
              url: '/hasfb',
              templateUrl:'/partials/zc/partial-hasfb.html'
@@ -69,4 +85,9 @@ app
   .directive('sideBar', sideBar)
   .controller('MainCtrl',[MainCtrl]) //主控制器
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
+  .controller('BaseCtrl',['$scope','$http',BaseCtrl])
+  .controller('ProjectCtrl',['$scope','$http',ProjectCtrl])
+  .controller('DetailCtrl',['$scope','$http',DetailCtrl])
+  .controller('PayBackCtrl',['$scope','$http',PayBackCtrl])
+  .controller('PreviewCtrl',['$scope','$http','$location',PreviewCtrl])
 export default app;

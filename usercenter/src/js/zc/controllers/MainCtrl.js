@@ -3,7 +3,7 @@ export default function MainCtrl() {
   
   vm.routes_p = [
     {
-      url: 'fb',
+      url: 'ProjectLaunch.basic',
       text: '发布项目',
       active: false
     },

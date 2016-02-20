@@ -51,7 +51,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
         $.extend($scope.isValid, data.result.content);
       });
     };
-    // 提交草稿和验证
+    // 保存草稿功能-提交草稿和验证
     $scope.saveDraft = function (currentName, direction, isManual) {
       var mainmark = $location.search().id;
       // 如果上一个标签不是预览，就提交相关数据
@@ -132,6 +132,16 @@ export default function FbCtrl($scope,$http,$state,$location) {
     };
     // 省市选择 默认省市
     // $scope.provs = _areaselect_data.p;
+    $scope.provs;
+     $scope.provinces = (() => {
+        $http.post('/Dict/city').success((res) => {
+          $scope.areaData = res.result;
+          //console.log($scope.areaData);
+          $scope.provs = $scope.areaData.filter((item) => {
+            return item.type === 'province';
+          });
+        });
+      })();
   
     // 字数统计方法
     $scope.wordCount = function (elem) {
