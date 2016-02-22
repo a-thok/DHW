@@ -4,7 +4,7 @@ import angular from 'angular';
 //依赖模块
 import pagination from '../directives/pagination.js';
 import listComponents  from '../directives/listComponents.js';
-
+import formComponents from '../directives/formComponents';
 // 指令
 import sideBar from '../directives/userCenter/sideBar.js';
 
@@ -19,7 +19,7 @@ import PreviewCtrl from './controllers/PreviewCtrl.js';
 
 
 
-let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','ui.bootstrap.pagination']);
+let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','formComponents','ui.bootstrap.pagination']);
 
 app
   .config(['$stateProvider','$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {

@@ -103,7 +103,7 @@
             <label class="formSet_label">上传照片 :</label>
             <div class="formSet_inputWrap">
               <img style="margin-right:5px;" ng-src="{{payback.img ? (dhw.imgurl + payback.img + '_68x68' + '.jpg') : ''}}" ng-show="payback.img">
-              <a class="btn-imgUpload" id="{{'browseHB' + $index}}" ng-model="payback.img"  data-keyname="cpzc" data-size="68x68" bindimg></a>
+              <a class="btn-imgUpload" id="{{'browseHB' + $index}}" ng-model="payback.img"  data-keyname="cpzc" data-size="68x68" bind-img></a>
               <span class="text-imgUpload">支持jpg、jpeg、png、gif格式，图片大小不要超过500KB！</span>
             </div>
           </div>

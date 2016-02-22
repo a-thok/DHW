@@ -22,11 +22,20 @@ export default function ProjectCtrl(s,$http) {
   
     /*** 行为 ***/
     // 根据省选择市
-    s.getCitys = function (event) {
-      s.data.province = $.trim($(event.target).text());
-      s.citys = _areaselect_data.c[s.data.province];
-      s.data.city = _areaselect_data.c[s.data.province][0];
-    };
+    // s.getCitys = function (event) {
+    //   s.data.province = $.trim($(event.target).text());
+    //   s.citys = _areaselect_data.c[s.data.province];
+    //   s.data.city = _areaselect_data.c[s.data.province][0];
+    // };
+    s.getCitys = (province) => {
+       
+        s.citys = s.$parent.areaData.filter((item) => { 
+          return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2); 
+        });
+        //当选中省份的时候把选中的值赋值到model上面
+        s.data.city = s.citys[0].name
+        s.data.province = province.name
+     };
     // 取得省市信息
     s.setCity = function (event) {
       s.data.city = $.trim($(event.target).text());

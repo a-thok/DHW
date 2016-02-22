@@ -43,13 +43,23 @@ export default function BaseCtrl(s,$http) {
   
     /*** 行为 ***/
     // 根据省选择市
-    s.getCitys = function (event) {
-      s.prov = $.trim($(event.target).text());
-      s.citys = _areaselect_data.c[s.prov];
-      s.city = _areaselect_data.c[s.prov][0];
-    };
+    // s.getCitys = function (event) {
+    //   s.prov = $.trim($(event.target).text());
+    //   s.citys = _areaselect_data.c[s.prov];
+    //   s.city = _areaselect_data.c[s.prov][0];
+    // };
+    s.getCitys = (province) => {
+        s.citys = s.$parent.areaData.filter((item) => { 
+          return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2); 
+        });
+        //初始化选中城市的选择
+        s.city = s.citys[0].name;
+        s.prov = province.name
+        s.dataP.city = s.prov + "," + s.city;
+     };
+  
     // 取得省市信息
-    s.setCity = function (event) {
+     s.setCity = function (event) {
       s.city = $.trim($(event.target).text());
       s.dataP.city = s.prov + "," + s.city;
     };
