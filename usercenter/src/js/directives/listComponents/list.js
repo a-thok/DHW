@@ -90,8 +90,7 @@ export default function list() {
       vm.edit = function (jobid, type) {
           $http.post('/HRSczw/Qxsc', { jobid: jobid, type: type });
           getData(1);
-      }
-      
+      } 
     }],
     controllerAs: 'vm'
   };
