@@ -55,6 +55,16 @@ export default function BaseCtrl(s,$http) {
         //初始化选中城市的选择
         s.city = s.citys[0].name;
         s.prov = province.name
+        /**
+         * s.code = province.code
+         * s.dataP.area = '福建，2300,泉州,2303,惠安,2304'
+         * s.getXian = function(city) {
+         *   s.xian = s.$parent.areaData.filter((item) => {
+         *     return item.type === '' && item.code.slice(0,2) === city.code.slice(0,2)
+         *  })
+         * 
+         * }
+         */
         s.dataP.city = s.prov + "," + s.city;
      };
   
