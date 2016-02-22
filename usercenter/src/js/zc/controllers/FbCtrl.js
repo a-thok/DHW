@@ -59,6 +59,9 @@ export default function FbCtrl($scope,$http,$state,$location) {
         var current = currentName.split('.')[1];
         var content = $scope.draft[current]();
         $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: mainmark, minor: current, content: content }).success(function () {
+          console.log("我是被提交的数据"+ content);
+          console.log("aa"+$scope.draft)
+          console.log(current)
           if (isManual) {
             $('.saveTip-' + current).text('保存成功');
           }
@@ -142,7 +145,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
           });
         });
       })();
-  
+ 
     // 字数统计方法
     $scope.wordCount = function (elem) {
       var count = elem.val().length;

@@ -13,7 +13,7 @@
       <div class="formSet formSet-imgUpload">
         <label class="formSet_label">设置封面 :</label>
         <input type="hidden" ng-model="data.frontpic" required>
-        <a class="btn-imgUpload" id="browseFM" type="button" ng-model="data.frontpic" data-keyname="cpzc" data-size="280x280_260x260_534x534" bindimg></a>
+        <a class="btn-imgUpload" id="browseFM" type="button" ng-model="data.frontpic" data-keyname="cpzc" data-size="280x280_260x260_534x534" bind-img></a>
         <span class="text-imgUpload">建议尺寸大小640*480，图片大小不要超过5M！</span>
       </div>
       <div class="formSet count">
@@ -38,13 +38,13 @@
           <div class="SelectWrap SelectWrap-first">
             <input class="formSet_input" type="text" ng-model="data.province" ng-click="showSelectCont($event)" placeholder="省份" readonly required>
             <ul class="selectCont">
-              <li ng-repeat="prov in provs" ng-click="getCitys($event)">{{prov}}</li>
+              <li ng-repeat="prov in provs" ng-click="getCitys(prov)">{{prov.name}}</li>
             </ul>
           </div>
           <div class="SelectWrap">
             <input class="formSet_input" type="text" ng-model="data.city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
             <ul class="selectCont">
-              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city}}</li>
+              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city.name}}</li>
             </ul>
           </div>
         </div>

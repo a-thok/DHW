@@ -9,6 +9,7 @@ import webUploader from  './formComponents/webUploader.js'
 import calendar from  './formComponents/calendar.js'
 import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
+import bindImg from './formComponents/bindImg.js'
 
 let app = angular.module('formComponents', []);
 app
@@ -29,7 +30,9 @@ app
   // 富文本
   .directive('richText', richText)
   // 提交按钮
-  .directive('btnSubmit', btnSubmit);
+  .directive('btnSubmit', btnSubmit)
+  //发布众筹图片上传
+  .directive('bindImg', bindImg)
   
 export default app;
 
