@@ -30,7 +30,12 @@ export default function ProjectCtrl(s,$http) {
         s.data.citym = s.citys[0].name
         s.data.province = province.name
         s.data.country = '';
-        s.pro
+        s.province = {code : province.code,name: s.data.province};
+        s.city = {code: s.citys[0].code ,name: s.data.citym};
+        s.district = {code: '', name: ''};
+        // s.data.area = {
+          
+        // }
      };
      
     // 取得市信息
