@@ -20,8 +20,8 @@ import TzlistCtrl from './controllers/TzlistCtrl.js';
 import PgzlistCtrl from './controllers/PgzlistCtrl.js';
 //个人支持列表
 import PzclistCtrl from './controllers/PzclistCtrl.js';
-//
-import FbdetailCtrl from './controllers/FbdetailCtrl.js';
+//已发布列表预览
+import ListdetailCtrl from './controllers/ListdetailCtrl.js';
 
 import FbCtrl from './controllers/FbCtrl.js';
 import BaseCtrl from './controllers/BaseCtrl.js';
@@ -29,6 +29,7 @@ import DetailCtrl from './controllers/DetailCtrl.js';
 import PayBackCtrl from './controllers/PayBackCtrl.js';
 import ProjectCtrl from './controllers/ProjectCtrl.js';
 import PreviewCtrl from './controllers/PreviewCtrl.js';
+
 
 
 
@@ -96,11 +97,10 @@ app
              templateUrl:'/partials/zc/partial-pzclist.html',
              controller: 'PzclistCtrl as pzclistVm'
            })
-           
-             .state('fbdetail',{
-             url: '/fbdetail',
-             templateUrl:'/partials/zc/partial-fbdetail.html',
-             controller: 'FbdetailCtrl as fbdetailVm'
+            .state('listdetail',{
+             url: '/listdetail',
+             templateUrl:'/partials/zc/partial-listdetail.html',
+             controller: 'ListdetailCtrl as listdetailVm'
            })
            
   }])
@@ -111,11 +111,11 @@ app
   .controller('TzlistCtrl',[TzlistCtrl]) //支持列表控制器
   .controller('PgzlistCtrl',[PgzlistCtrl]) //个人关注列表控制器
   .controller('PzclistCtrl',[PzclistCtrl]) //个人支持列表控制器
-  .controller('FbdetailCtrl',[FbdetailCtrl]) 
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
   .controller('BaseCtrl',['$scope','$http',BaseCtrl])
   .controller('ProjectCtrl',['$scope','$http',ProjectCtrl])
   .controller('DetailCtrl',['$scope','$http',DetailCtrl])
   .controller('PayBackCtrl',['$scope','$http',PayBackCtrl])
   .controller('PreviewCtrl',['$scope','$http','$location',PreviewCtrl])
+  .controller('ListdetailCtrl',['$scope','$http','$location',ListdetailCtrl]) //已发布列表预览控制器
 export default app;
