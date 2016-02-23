@@ -20,6 +20,8 @@ export default function PreviewCtrl(s,h,$location) {
       }).success(function (data) {
         $(data.result).each(function () {
           var minor = $(this)[0].minor;
+          console.log($(this));
+          //console.log(minor)
           $.extend(s[minor], $(this)[0].content);
 
           switch (minor) {

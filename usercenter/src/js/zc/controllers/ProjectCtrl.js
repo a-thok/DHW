@@ -27,31 +27,49 @@ export default function ProjectCtrl(s,$http) {
           return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2); 
         });
         //当选中省份的时候把选中的值赋值到model上面
-        s.data.citym = s.citys[0].name
+        s.data.city = s.citys[0].name
         s.data.province = province.name
         s.data.country = '';
         s.province = {code : province.code,name: s.data.province};
-        s.city = {code: s.citys[0].code ,name: s.data.citym};
+        s.city = {code: s.citys[0].code ,name: s.data.city};
         s.district = {code: '', name: ''};
-        // s.data.area = {
-          
-        // }
+        s.data.area = {
+          province: s.province,
+          city: s.city,
+          district:s.district
+        }
      };
      
     // 取得市信息
-    s.setCity = function (city) {
-      console.log(city);
+    s.setCity = function (citys) {
+      console.log(citys);
       // s.data.city = $.trim($(event.target).text());
       s.countrys = s.$parent.areaData.filter((item) => {
-        return item.type === 'district' && item.code.slice(0,2) === city.code.slice(0,2);
+        return item.type === 'district' && item.code.slice(0,5) === citys.code.slice(0,5);
       });
-      
+      //设置区县的ng-model
       s.data.country = s.countrys[0].name;
-      s.data.city = city.name
+      s.data.city = citys.name
+      
+      s.city = {code: citys.code, name:citys.name};
+      s.district = {code: s.countrys[0].code, name: s.data.country}
+      
+      s.data.area = {
+          province: s.province,
+          city: s.city,
+          district:s.district
+        }
     };
     //点击区县的时候赋值model
-    s.setCountry = function(event) {
-      s.data.country = $.trim($(event.target).text());
+    s.setCountry = function(countrys) {
+      s.data.country = countrys.name
+      
+      s.district = {code : countrys.code, name:s.data.country}
+      s.data.area = {
+        province: s.province,
+        city: s.city,
+        district:s.district
+      }
     }
   
     // 推荐标签

@@ -42,9 +42,9 @@
             </ul>
           </div>
           <div class="SelectWrap SelectWrap-second">
-            <input class="formSet_input" type="text" ng-model="data.citym" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <input class="formSet_input" type="text" ng-model="data.city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
             <ul class="selectCont">
-              <li ng-repeat="citym in citys" ng-click="setCity(citym)">{{city.name}}</li>
+              <li ng-repeat="citym in citys" ng-click="setCity(citym)">{{citym.name}}</li>
             </ul>
           </div>
           <!--这里的东西ng-model也需要更改-->
