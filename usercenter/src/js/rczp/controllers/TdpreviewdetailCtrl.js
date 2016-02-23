@@ -21,7 +21,7 @@
           $http.post('/HRDelivery/DeliveryDetail', { tdUserID: tdUserID, JobID: JobID }).success(function (d) {
               if (d.success) {
                   $scope.data = d.result.content.root.resume;
-                  
+                  $scope.photo = d.result.photo;
                   for (var i = 0; i < $scope.data.length; i++) {
                       switch ($scope.data[i].TypeID) {
                           case "1":
