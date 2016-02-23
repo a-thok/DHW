@@ -21,25 +21,33 @@ export default function ProjectCtrl(s,$http) {
     }
   
     /*** 行为 ***/
-    // 根据省选择市
-    // s.getCitys = function (event) {
-    //   s.data.province = $.trim($(event.target).text());
-    //   s.citys = _areaselect_data.c[s.data.province];
-    //   s.data.city = _areaselect_data.c[s.data.province][0];
-    // };
+    //取得城市的数据
     s.getCitys = (province) => {
-       
         s.citys = s.$parent.areaData.filter((item) => { 
           return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2); 
         });
         //当选中省份的时候把选中的值赋值到model上面
-        s.data.city = s.citys[0].name
+        s.data.citym = s.citys[0].name
         s.data.province = province.name
+        s.data.country = '';
+        s.pro
      };
-    // 取得省市信息
-    s.setCity = function (event) {
-      s.data.city = $.trim($(event.target).text());
+     
+    // 取得市信息
+    s.setCity = function (city) {
+      console.log(city);
+      // s.data.city = $.trim($(event.target).text());
+      s.countrys = s.$parent.areaData.filter((item) => {
+        return item.type === 'district' && item.code.slice(0,2) === city.code.slice(0,2);
+      });
+      
+      s.data.country = s.countrys[0].name;
+      s.data.city = city.name
     };
+    //点击区县的时候赋值model
+    s.setCountry = function(event) {
+      s.data.country = $.trim($(event.target).text());
+    }
   
     // 推荐标签
     s.rectagNames = [

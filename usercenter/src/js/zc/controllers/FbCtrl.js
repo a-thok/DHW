@@ -138,14 +138,14 @@ export default function FbCtrl($scope,$http,$state,$location) {
     $scope.provs;
      $scope.provinces = (() => {
         $http.post('/Dict/city').success((res) => {
-          $scope.areaData = res.result;
-          //console.log($scope.areaData);
+           $scope.areaData = res.result;
+          // console.log("我是从后台拿取得数据" + $scope.areaData);
           $scope.provs = $scope.areaData.filter((item) => {
             return item.type === 'province';
           });
         });
       })();
- 
+    
     // 字数统计方法
     $scope.wordCount = function (elem) {
       var count = elem.val().length;

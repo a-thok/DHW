@@ -26,9 +26,12 @@ export default function BaseCtrl(s,$http) {
     // 载入草稿和验证
     s.$parent.getDraft('basic', function (draft) {
       $.extend(s, draft);
-      if (s.dataP.city) {
-        s.prov = s.dataP.city.split(',')[0];
-        s.city = s.dataP.city.split(',')[1];
+      if (s.dataP.area) {
+        s.dataP.area = angular.fromJson(s.dataP.area);
+        console.log(s.dataP.area);
+        s.prov = s.dataP.area.province.name;
+        s.citym = s.dataP.area.city.name;
+        s.country = s.dataP.area.district.name;
       }
     });
 
@@ -41,39 +44,57 @@ export default function BaseCtrl(s,$http) {
       return angular.toJson(draft);
     };
   
-    /*** 行为 ***/
-    // 根据省选择市
-    // s.getCitys = function (event) {
-    //   s.prov = $.trim($(event.target).text());
-    //   s.citys = _areaselect_data.c[s.prov];
-    //   s.city = _areaselect_data.c[s.prov][0];
-    // };
-    s.getCitys = (province) => {
+    //取得城市的数据
+    s.getCitys = (provinces) => {
         s.citys = s.$parent.areaData.filter((item) => { 
-          return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2); 
+          return item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2); 
         });
-        //初始化选中城市的选择
-        s.city = s.citys[0].name;
-        s.prov = province.name
-        /**
-         * s.code = province.code
-         * s.dataP.area = '福建，2300,泉州,2303,惠安,2304'
-         * s.getXian = function(city) {
-         *   s.xian = s.$parent.areaData.filter((item) => {
-         *     return item.type === '' && item.code.slice(0,2) === city.code.slice(0,2)
-         *  })
-         * 
-         * }
-         */
-        s.dataP.city = s.prov + "," + s.city;
+        //初始化城市的第一个数据选择
+        s.citym = s.citys[0].name;
+        s.prov = provinces.name;
+        //清空县区的数据
+        s.country = '';
+        //此操作为用户只进行选择省份的操作
+        s.province = {code : provinces.code, name:provinces.name} ;
+        s.city = {code: s.citys[0].code, name: s.citym };
+        s.district = {code : '' ,name: ''};
+        s.dataP.area = {
+          province: s.province,
+          city: s.city,
+          district:s.district
+        }
      };
-  
-    // 取得省市信息
-     s.setCity = function (event) {
-      s.city = $.trim($(event.target).text());
-      s.dataP.city = s.prov + "," + s.city;
+    // 取得县区的信息
+     s.setCity = function (citys) {
+      s.countrys = s.$parent.areaData.filter((item) => {
+        return item.type === 'district' && item.code.slice(0,5) === citys.code.slice(0,5);
+      });
+      console.log(s.countrys);
+      s.country = s.countrys[0].name;
+      s.citym = citys.name;
+      
+      s.city = {code : citys.code, name:citys.name}
+      s.district = {code : s.countrys[0].code, name:s.country}
+      
+      s.dataP.area = {
+        province: s.province,
+        city: s.city,
+        district:s.district
+      }
     };
-  
+    //设置县 区的model值
+    s.setCountry = function(countrys) {
+    
+      s.country = countrys.name
+      
+      s.district = {code : countrys.code, name:s.country}
+      s.dataP.area = {
+        province: s.province,
+        city: s.city,
+        district:s.district
+      }
+    }
+    
     // 项目类型
     s.zctypes = [
       { 'name': '公益', 'id': 3 },

@@ -1040,8 +1040,11 @@
 .SelectWrap-first {
   margin-right: 20px;
 }
+.SelectWrap-second {
+  margin-right: 23px;
+}
 .SelectWrap input {
-  width: 137px;
+  width: 123px;
 }
 .selectCont {
   display: none;
@@ -1057,7 +1060,7 @@
   box-shadow: 1px 1px 2px #ccc;
 }
 .selectCont li {
-  width: 123px;
+  width: 116px;
   height: 30px;
   padding: 0 10px;
   font-size: 14px;;

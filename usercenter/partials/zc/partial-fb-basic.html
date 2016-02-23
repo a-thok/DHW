@@ -42,16 +42,16 @@
             </ul>
           </div>
           <div class="SelectWrap SelectWrap-second">
-            <input class="formSet_input" type="text" ng-model="city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <input class="formSet_input" type="text" ng-model="citym" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
             <ul class="selectCont">
-              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city.name}}</li>
+              <li ng-repeat="citym in citys" ng-click="setCity(citym)">{{citym.name}}</li>
             </ul>
           </div>
           <!--这里的模板绑定需要更改 -->
           <div class="SelectWrap">
-            <input class="formSet_input" type="text" ng-model="city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <input class="formSet_input" type="text" ng-model="country" ng-click="showSelectCont($event)" placeholder="区/县" readonly required>
             <ul class="selectCont">
-              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city.name}}</li>
+              <li ng-repeat="country in countrys" ng-click="setCountry(country)">{{country.name}}</li>
             </ul>
           </div>
           <!--这里的模板绑定需要更改 结束-->
