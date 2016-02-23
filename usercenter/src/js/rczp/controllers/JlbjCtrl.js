@@ -1,4 +1,6 @@
 export default function JlbjCtrl(s, h, $location) {
+  s.dhw = window.dhw;
+  
   $(function() {
   /** 表单取消删除 **/
   $(".rsmM_box").on("click", ".delCancel", function() {
@@ -111,6 +113,7 @@ export default function JlbjCtrl(s, h, $location) {
   h.post('/HRFbjl/GetDetail').success(function (data) {
     // 取得简历ID
     s.resumeID = data.result.ent.resumeID;
+    s.photo = data.result.ent.photo;
     // 取得主表信息
     s.intentTemp.situation = data.result.ent.situation;
 

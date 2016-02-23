@@ -1,4 +1,5 @@
 export default function JlylCtrl(s, h, $location) {
+  s.dhw = window.dhw;
   s.intentTemp = {};
   s.evaluations = [];
   s.show = {};
@@ -9,9 +10,10 @@ export default function JlylCtrl(s, h, $location) {
     h.post('/HRFbjl/GetDetail').success(function (data) {
       // 取得简历ID
       s.resumeID = data.result.ent.resumeID;
+      s.photo = data.result.ent.photo;
       // 取得主表信息
       s.intentTemp.situation = data.result.ent.situation;
-
+      
       var obj_names = [
         'infoTemp',
         'educations',

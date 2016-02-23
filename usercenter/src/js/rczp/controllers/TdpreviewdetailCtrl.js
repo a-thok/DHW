@@ -1,5 +1,6 @@
    export default function TdpreviewdetailCtrl($http,$scope,$location){
-   $scope.show = {};
+     $scope.dhw = window.dhw;
+     $scope.show = {};
     //   var obj_names = [
     //   'infoTemp',
     //   'educations',
@@ -20,6 +21,7 @@
           $http.post('/HRDelivery/DeliveryDetail', { tdUserID: tdUserID, JobID: JobID }).success(function (d) {
               if (d.success) {
                   $scope.data = d.result.content.root.resume;
+                  
                   for (var i = 0; i < $scope.data.length; i++) {
                       switch ($scope.data[i].TypeID) {
                           case "1":

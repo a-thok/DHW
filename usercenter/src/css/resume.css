@@ -75,6 +75,10 @@ div.rsm_form-header {
   margin-left: -59px;
   overflow: hidden;
 }
+.rsm_avatar  img {
+  width:118px;
+  height: 118px;
+}
 /*.avatarUploadBtn {
   position: absolute;
   left: 50%;
