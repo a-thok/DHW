@@ -32,12 +32,9 @@ import PreviewCtrl from './controllers/PreviewCtrl.js';
 
 
 
-<<<<<<< HEAD
 
-let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','ui.bootstrap.pagination']);
-=======
 let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents','formComponents','ui.bootstrap.pagination']);
->>>>>>> 8cc7224316119e1691bf66b713a52710b803694c
+
 
 app
   .config(['$stateProvider','$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {

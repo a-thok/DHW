@@ -41,12 +41,20 @@
               <li ng-repeat="prov in provs" ng-click="getCitys(prov)">{{prov.name}}</li>
             </ul>
           </div>
+          <div class="SelectWrap SelectWrap-second">
+            <input class="formSet_input" type="text" ng-model="city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city.name}}</li>
+            </ul>
+          </div>
+          <!--这里的模板绑定需要更改 -->
           <div class="SelectWrap">
             <input class="formSet_input" type="text" ng-model="city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
             <ul class="selectCont">
               <li ng-repeat="city in citys" ng-click="setCity($event)">{{city.name}}</li>
             </ul>
           </div>
+          <!--这里的模板绑定需要更改 结束-->
         </div>
       </div> 
       <div class="formSet">
@@ -69,19 +77,19 @@
           <span class="materialItem_label">个人身份证-正面</span>
           <input type="hidden" ng-model="dataP.idcardF" required>
           <div class="materialItem_img"><img ng-show="!!dataP.idcardF" ng-src='{{(!dataP.idcardF) ? "" : (dhw.imgurl + dataP.idcardF + "_64x64" + ".jpg")}}'></div>
-          <div class="materialItem_btn"><a class="btnNormal" id="browseIDZ" type="button" ng-model="dataP.idcardF" data-keyname="cpzc" data-size="64x64" bind-img>上传</a></div>
+          <div class="materialItem_btn"><div  id="browseIDZ" ng-model="dataP.idcardF" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
         </div>
         <div class="materialItem clearfix">
           <span class="materialItem_label">个人身份证-反面</span>
           <input type="hidden" ng-model="dataP.idcardB" required>
           <div class="materialItem_img"><img ng-show="!!dataP.idcardB" ng-src='{{(!dataP.idcardB) ? "" : dhw.imgurl + dataP.idcardB + "_64x64" + ".jpg"}}'></div>
-          <div class="materialItem_btn"><form><a class="btnNormal" id="browseIDF" type="button" ng-model="dataP.idcardB" data-keyname="cpzc" data-size="64x64" bind-img>上传</a></form></div>
+          <div class="materialItem_btn"><form><div  id="browseIDF"  ng-model="dataP.idcardB" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></form></div>
         </div>
         <div class="materialItem clearfix">
           <span class="materialItem_label">产品图片</span>
           <input type="hidden" ng-model="dataP.product" required>
           <div class="materialItem_img"><img ng-show="!!dataP.product" ng-src='{{(!dataP.product) ? "" : dhw.imgurl + dataP.product + "_64x64" + ".jpg"}}'></div>
-          <div class="materialItem_btn"><a class="btnNormal" id="browseCPTP" type="button" ng-model="dataP.product" data-keyname="cpzc" data-size="64x64" bind-img>上传</a></div>
+          <div class="materialItem_btn"><div  id="browseCPTP"  ng-model="dataP.product" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
         </div>
       </div>
     </div>
