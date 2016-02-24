@@ -47,17 +47,7 @@ export default function list() {
         `;
     },
     controller: ['$http', '$attrs', '$window', function ($http, $attrs, $window) {
-      let vm = this;
-      
-      // vm.delItem = (key,delapi) => {
-      //   $http.post(delapi).success(res => {
-      //     // vm.total = res.result.total;
-      //     // vm.data = res.result.data;
-      //      getData(1)
-      //   })
-      // }
-      
-      
+      let vm = this;    
       let  params;
       if(!$attrs.params) {
         params = {};

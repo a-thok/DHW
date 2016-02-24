@@ -1,11 +1,27 @@
-<!--关注列表-->
+<!--企业账号关注列表-->
 <div list
   data-vm="gzlistVm"
   data-api="/CpzcGzList/List"
-  data-params='{"total":0}'
   data-datekey="attentiontime"
   data-datekeytxt="关注时间"
   data-operate="true"
   data-operation="取消关注"
   data-editUrl="javascript:;"
+  data-func='edit(item.fpid)'
 ></div>
+<!--
+  
+  data-vm='gzlistVm'   : 操作这个视图的控制器
+  data-api='/CpzcGzList/List'   :获取列表数据的api
+  data-datekey='attentiontime' :关注项目或者发布项目的时间
+  data-datekeytxt='关注时间'  ：对应前面要显示的文字
+  data-operate="true"     ：是否要显示操作按钮
+  data-operation="取消关注"  ：操作按钮的名称
+  data-editUrl="javascript:;"  ：如果操作为跳转链接则这里直接写链接如：data-editUrl="#/edit/{{item.id}}?statemc=1" 如果为功能操作按钮则填写这个
+  data-func='edit()'  : 这个是有功能性操作的函数,比如取消关注的操作
+  data-delkey='item.id'  :这里传要删除的id  形式为 'item' + id  id为删除时要传给后台的字段名称，根据实际情况而定
+  data-delapi='/HRZpcx/Del' : 这里传删除功能的 api  
+  data-params='{"state":255,"total":0}' :这里是额外传给后台的参数，如果有的话
+ 
+  
+-->

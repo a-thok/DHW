@@ -107,7 +107,7 @@ app
   .directive('sideBar', sideBar)
   .controller('MainCtrl',[MainCtrl]) //主控制器
   .controller('HasfbCtrl',[HasfbCtrl])  //已发布项目列表控制器
-  .controller('GzlistCtrl',[GzlistCtrl]) //关注列表控制器
+  .controller('GzlistCtrl',['$http',GzlistCtrl]) //关注列表控制器
   .controller('TzlistCtrl',[TzlistCtrl]) //支持列表控制器
   .controller('PgzlistCtrl',[PgzlistCtrl]) //个人关注列表控制器
   .controller('PzclistCtrl',[PzclistCtrl]) //个人支持列表控制器
