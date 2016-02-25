@@ -1,3 +1,4 @@
+// 公司账号关注控制器
 export default function GzlistCtrl($http) {
   var vm = this;
   vm.list=[
@@ -9,19 +10,19 @@ export default function GzlistCtrl($http) {
         {zid:'目标 :',
          zikey:'moneys'
         },
-        { zid:'进度',
+        { zid:'进度 :',
           zikey:'progress',
           zikeyfh:'%'
         },
        ],width:'20%',
      },
-   
   ]
  //所需要的操作函数--取消关注
  vm.edit = function(cancelId) {
    $http.post('/CpzcGzList/DelAttention',{id:cancelId}).success( res => {
       if(res.success) {
         console.log("取消关注成功")
+        location.href= '#/gzlist';
       }
    })
    console.log(cancelId);

@@ -119,7 +119,7 @@ app
   .controller('HasfbCtrl',[HasfbCtrl])  //已发布项目列表控制器
   .controller('GzlistCtrl',['$http',GzlistCtrl]) //关注列表控制器
   .controller('TzlistCtrl',[TzlistCtrl]) //支持列表控制器
-  .controller('PgzlistCtrl',[PgzlistCtrl]) //个人关注列表控制器
+  .controller('PgzlistCtrl',['$http',PgzlistCtrl]) //个人关注列表控制器
   .controller('PzclistCtrl',[PzclistCtrl]) //个人支持列表控制器
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
   .controller('BaseCtrl',['$scope','$http',BaseCtrl])

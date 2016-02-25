@@ -67,7 +67,7 @@ export default function BaseCtrl(s,$http) {
     // 取得县区的信息
      s.setCity = function (citys) {
       s.countrys = s.$parent.areaData.filter((item) => {
-        return item.type === 'district' && item.code.slice(0,5) === citys.code.slice(0,5);
+        return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);
       });
       console.log(s.countrys);
       s.country = s.countrys[0].name;

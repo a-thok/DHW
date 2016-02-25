@@ -45,7 +45,7 @@ export default function ProjectCtrl(s,$http) {
       console.log(citys);
       // s.data.city = $.trim($(event.target).text());
       s.countrys = s.$parent.areaData.filter((item) => {
-        return item.type === 'district' && item.code.slice(0,5) === citys.code.slice(0,5);
+        return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);
       });
       //设置区县的ng-model
       s.data.country = s.countrys[0].name;
