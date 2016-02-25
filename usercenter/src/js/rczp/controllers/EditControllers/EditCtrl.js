@@ -2,6 +2,7 @@ import {
   jobCategory,
   salary,
   exprience,
+  education
 } from '../../../data/data.js'
 export default function EditCtrl($http, $stateParams, $location) {
    var vm = this;
@@ -10,6 +11,7 @@ export default function EditCtrl($http, $stateParams, $location) {
    vm.jobCategory = jobCategory;
    vm.salary = salary;
    vm.exprience = exprience;
+   vm.education = education
    vm.data = {};
    let id = $stateParams.id;
    
