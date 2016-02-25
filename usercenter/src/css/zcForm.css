@@ -184,7 +184,8 @@
   right: 0;
   color: #a3a3a3;
 }
-.formTip { /*黄色背景提示条*/
+/*提示框*/
+.formTip_zc { 
   padding: 7px 10px;
   border: 1px solid #ece6cf;
   border-radius: 3px;

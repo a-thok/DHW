@@ -1,7 +1,7 @@
 export default function MainCtrl() {
   var vm = this;
-  
-  vm.routes_p = [
+  //公司
+  vm.routes_c = [
     {
       url: 'ProjectLaunch.basic',
       text: '发布项目',
@@ -23,8 +23,8 @@ export default function MainCtrl() {
       active: false
     }
   ];
-  
-  vm.routes_c = [
+  //个人账户
+  vm.routes_p = [
     {
       url: 'pgzlist',
       text: '个人关注列表',
@@ -37,12 +37,17 @@ export default function MainCtrl() {
     }
   ];
   
-  // let cookies = document.cookie.split('; ');
-  // cookies.forEach((cookie) => {
-  //   if (cookie.indexOf('logintype') !== -1) {
-  //     vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-  //   }
-  // });
+//  let cookies = document.cookie.split('; ');
+//   cookies.forEach((cookie) => {
+//     if (cookie.indexOf('logintype') !== -1) {
+//       vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+//     }
+//   });
+  
+//   vm.routes = {
+//     title: '常用功能',
+//     items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
+//   };
   
   vm.routes = {
     title: '常用功能',
