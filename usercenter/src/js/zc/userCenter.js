@@ -30,7 +30,8 @@ import PayBackCtrl from './controllers/PayBackCtrl.js';
 import ProjectCtrl from './controllers/ProjectCtrl.js';
 import PreviewCtrl from './controllers/PreviewCtrl.js';
 
-
+//测试省市三级联动的控制器
+import SsCtrl from './controllers/SsCtrl.js';
 
 
 
@@ -112,6 +113,11 @@ app
              templateUrl:'/partials/zc/partial-listdetail.html',
              controller: 'ListdetailCtrl as listdetailVm'
            })
+           .state('ssxz',{
+             url:'/ssxz',
+             templateUrl:'/partials/zc/partial-ssxz.html',
+             controller:'SsCtrl as ssVm'
+           })
            
   }])
   .directive('sideBar', sideBar)
@@ -128,4 +134,5 @@ app
   .controller('PayBackCtrl',['$scope','$http',PayBackCtrl])
   .controller('PreviewCtrl',['$scope','$http','$location',PreviewCtrl])
   .controller('ListdetailCtrl',['$scope','$http','$location',ListdetailCtrl]) //已发布列表预览控制器
+  .controller('SsCtrl',['$scope','$http',SsCtrl]) //省市三级联动测试控制器
 export default app;

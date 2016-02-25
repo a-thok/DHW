@@ -10,7 +10,8 @@ import calendar from  './formComponents/calendar.js'
 import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
 import bindImg from './formComponents/bindImg.js' 
-
+//测试指令省市三级联动
+import sCity from './formComponents/sCity.js'
 let app = angular.module('formComponents', []);
 app
   // input text类型
@@ -33,7 +34,8 @@ app
   .directive('btnSubmit', btnSubmit)
   //众筹上传图片按钮
   .directive('bindImg', bindImg)
-  
+  //省市联动指令
+  .directive('sCity',sCity)
 export default app;
 
 
