@@ -3,7 +3,6 @@ export default function JlylCtrl(s, h, $location) {
   s.intentTemp = {};
   s.evaluations = [];
   s.show = {};
-  h.post('/HRFbjl/GetDetail').success(function (data) {
     /** 数据交互 **/
 
     // 读取数据
@@ -57,7 +56,16 @@ export default function JlylCtrl(s, h, $location) {
       setTimeout(function () {
         $('.rsm_result').show();
       });
-
+      
     });
-  })
+    s.JobID = $location.search().JobID;
+    s.table = $location.search().table;
+    s.tzcg = function () {
+        $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success(function(d){
+          if(d.success){
+            $location.href="#/ytjl";
+            console.log("投递成功")
+          }
+        });
+    }
 }
