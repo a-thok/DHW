@@ -4,7 +4,7 @@ export default function switchType() {
     scope: true,
     template: function (elem, attrs) {
       return `
-      <div class="switchType">
+      <div class="switchType" ng-if="vm.originalType === 2">
         <span ng-show="mainVm.logintype === 2" ng-click="vm.switch(1)">切换到个人版</span>
         <span ng-show="mainVm.logintype === 1" ng-click="vm.switch(2)">切换到企业版</span>
       </div>
@@ -13,6 +13,8 @@ export default function switchType() {
     controller: ['$scope', '$location', function ($scope, $location) {
       let vm = this;
       let mainVm = $scope.$parent.mainVm;
+      
+      vm.originalType = mainVm.logintype;
       
       vm.switch = type => {
         document.cookie = 'logintype=' + type;
