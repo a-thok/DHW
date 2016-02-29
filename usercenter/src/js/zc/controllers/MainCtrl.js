@@ -37,21 +37,21 @@ export default function MainCtrl() {
     }
   ];
   
-//  let cookies = document.cookie.split('; ');
-//   cookies.forEach((cookie) => {
-//     if (cookie.indexOf('logintype') !== -1) {
-//       vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-//     }
-//   });
-  
-//   vm.routes = {
-//     title: '常用功能',
-//     items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
-//   };
+ let cookies = document.cookie.split('; ');
+  cookies.forEach((cookie) => {
+    if (cookie.indexOf('logintype') !== -1) {
+      vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+    }
+  });
   
   vm.routes = {
     title: '常用功能',
-    items: vm.routes_p.concat(vm.routes_c)
+    items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
   };
+  
+  // vm.routes = {
+  //   title: '常用功能',
+  //   items: vm.routes_p.concat(vm.routes_c)
+  // };
   
 }

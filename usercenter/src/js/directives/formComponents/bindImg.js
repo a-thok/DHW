@@ -9,7 +9,7 @@ export default function bindImg() {
       link: function (scope, element, attr, ngModel) {
 
         // let $pick = element;
-        console.log(element[0])
+        // console.log(element[0])
         let uploader = WebUploader.create({
           auto: true,
           swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
@@ -25,7 +25,6 @@ export default function bindImg() {
     uploader.on('fileQueued', function (file) {
       uploader.makeThumb(file, function (error, src) {
         if(error) {
-          console.log("不能预览")
           return;
         }
       },100,100)
@@ -35,6 +34,7 @@ export default function bindImg() {
     uploader.on('uploadSuccess', (file, res) => {
         // $result.text('上传成功');
         scope.$apply(function () {
+   
           ngModel.$setViewValue(res.path + res.name);
         });
       });

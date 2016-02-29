@@ -7,7 +7,7 @@ import listComponents  from '../directives/listComponents.js';
 import formComponents from '../directives/formComponents';
 // 指令
 import sideBar from '../directives/userCenter/sideBar.js';
-
+import switchType from '../directives/userCenter/switchType.js';
 //控制器
 import MainCtrl from './controllers/MainCtrl.js';
 //已发布项目查询列表
@@ -30,8 +30,6 @@ import PayBackCtrl from './controllers/PayBackCtrl.js';
 import ProjectCtrl from './controllers/ProjectCtrl.js';
 import PreviewCtrl from './controllers/PreviewCtrl.js';
 
-//测试省市三级联动的控制器
-import SsCtrl from './controllers/SsCtrl.js';
 
 
 
@@ -40,16 +38,16 @@ let app = angular.module('userCenter',['ngAnimate','ui.router','listComponents',
 
 app
   .config(['$stateProvider','$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
-     // 从cookie获取当前个人中心类型（企业或个人）
-    // let logintype;
-    // let cookies = document.cookie.split('; ');
-    // cookies.forEach((cookie) => {
-    //   if (cookie.indexOf('logintype') !== -1) {
-    //     logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-    //   }
-    // });
-    // 根据个人中心类型，判断默认加载哪个路由
-    // $urlRouterProvider.otherwise(logintype === 1 ? '/pgzlist' : '/fb/basic');
+    // 从cookie获取当前个人中心类型（企业或个人）
+    let logintype;
+    let cookies = document.cookie.split('; ');
+    cookies.forEach((cookie) => {
+      if (cookie.indexOf('logintype') !== -1) {
+        logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+      }
+    });
+    //根据个人中心类型，判断默认加载哪个路由
+    $urlRouterProvider.otherwise(logintype === 1 ? '/pgzlist' : '/fb/basic');
     
     $urlRouterProvider.otherwise('/fb/basic');
     $stateProvider
@@ -121,6 +119,7 @@ app
            
   }])
   .directive('sideBar', sideBar)
+  .directive('switchType', switchType)
   .controller('MainCtrl',[MainCtrl]) //主控制器
   .controller('HasfbCtrl',[HasfbCtrl])  //已发布项目列表控制器
   .controller('GzlistCtrl',['$http',GzlistCtrl]) //关注列表控制器
@@ -134,5 +133,4 @@ app
   .controller('PayBackCtrl',['$scope','$http',PayBackCtrl])
   .controller('PreviewCtrl',['$scope','$http','$location',PreviewCtrl])
   .controller('ListdetailCtrl',['$scope','$http','$location',ListdetailCtrl]) //已发布列表预览控制器
-  .controller('SsCtrl',['$scope','$http',SsCtrl]) //省市三级联动测试控制器
 export default app;

@@ -58,10 +58,11 @@ export default function FbCtrl($scope,$http,$state,$location) {
       if (currentName != 'ProjectLaunch.preview') {
         var current = currentName.split('.')[1];
         var content = $scope.draft[current]();
+        console.log(content)
         $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: mainmark, minor: current, content: content }).success(function () {
-          console.log("我是被提交的数据"+ content);
-          console.log("aa"+$scope.draft)
-          console.log(current)
+          // console.log("我是被提交的数据"+ content);
+          // console.log("aa"+$scope.draft)
+          // console.log(current)
           if (isManual) {
             $('.saveTip-' + current).text('保存成功');
           }
@@ -116,8 +117,12 @@ export default function FbCtrl($scope,$http,$state,$location) {
       var mainmark = $location.search().id;
       $http.post('/CpzcFb/Sumbit', {
         mainmark: mainmark
-      }).success(function () {
-        window.location.href  = '#/tzlist';    //提交成功则假装跳转到这个地方
+      }).success(function (d) {
+        if(d.success) {
+           window.location.href  = '#/tzlist';    //提交成功则假装跳转到这个地方
+        }else{
+          alert("发布失败")
+        }
       });
     };
     
@@ -134,7 +139,6 @@ export default function FbCtrl($scope,$http,$state,$location) {
       $('.selectCont').hide();
     };
     // 省市选择 默认省市
-    // $scope.provs = _areaselect_data.p;
     $scope.provs;
      $scope.provinces = (() => {
         $http.post('/Dict/city').success((res) => {
