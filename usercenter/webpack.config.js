@@ -50,7 +50,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin('js/common.js'),
+    new webpack.optimize.CommonsChunkPlugin('js/common.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
