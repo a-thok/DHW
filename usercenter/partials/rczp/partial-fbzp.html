@@ -24,6 +24,30 @@
     data-error="职位名称必须在2-10个字符之间"
   ></div>
   
+   <div input-text
+    data-switch="false"
+    data-vm="fbzpVm"
+    data-label="工作地点"
+    data-name="addr"
+    data-required="true"
+    data-form="fbzpForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,50}$/"
+    data-tip='请填写此职位的工作地点'
+    data-error="工作地点必须在2-50个字符之间"
+  ></div>
+  
+   <div input-text
+    data-switch="false"
+    data-vm="fbzpVm"
+    data-label="语言要求"
+    data-name="language"
+    data-required="true"
+    data-form="fbzpForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,20}$/"
+    data-tip='请填写此职位的语言要求'
+    data-error="语言要求必须在2-20个字符之间"
+  ></div>
+  
   <div select-simple
     data-switch="false"
     data-vm="fbzpVm"
@@ -99,14 +123,14 @@
   <div btn-submit
     data-vm="fbzpVm"
     data-form="fbzpForm"
-    data-api="HRZpxxFb/InfoFb"
+    data-api="/HRZpxxFb/InfoFb"
   ></div>
 
 </form>
 
 <div modal
   data-vm = "fbzpVm"
-  data-url="/zplb"
+  data-url="/zplb/published"
 ></div>
 
 <!--<div list
