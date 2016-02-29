@@ -119,7 +119,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
         mainmark: mainmark
       }).success(function (d) {
         if(d.success) {
-           window.location.href  = '#/tzlist';    //提交成功则假装跳转到这个地方
+           window.location.href  = '#/hasfb';    //提交成功则假装跳转到这个地方
         }else{
           alert("发布失败")
         }
