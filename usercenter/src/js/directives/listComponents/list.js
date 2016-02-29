@@ -77,18 +77,7 @@ export default function list() {
            getData(1)
          })
       }
-<<<<<<< HEAD
-      // vm.edit = function (jobid, type) {
-      //     $http.post('/HRSczw/Qxsc', { jobid: jobid, type: type });
-      //     getData(1);
-      // }
-      
-=======
-      vm.edit = function (jobid, type) {
-          $http.post('/HRSczw/Qxsc', { jobid: jobid, type: type });
-          getData(1);
-      } 
->>>>>>> zc
+
     }],
     controllerAs: 'vm'
   };

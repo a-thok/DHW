@@ -23,11 +23,11 @@ export default function PgzlistCtrl($http) {
  vm.cancel = function(cancelId) {
    $http.post('/CpzcGzList/DelAttention',{id:cancelId}).success( res => {
       if(res.success) {
-        console.log("取消关注成功")
-        location.href = '#/pgzlist'
+        //console.log("取消关注成功")
+        location.reload();
       }
    })
-   console.log(cancelId);
+  //  console.log(cancelId);
  }
   
   

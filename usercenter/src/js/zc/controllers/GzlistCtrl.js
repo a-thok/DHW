@@ -21,11 +21,10 @@ export default function GzlistCtrl($http) {
  vm.edit = function(cancelId) {
    $http.post('/CpzcGzList/DelAttention',{id:cancelId}).success( res => {
       if(res.success) {
-        console.log("取消关注成功")
-        location.href= '#/gzlist';
+        // console.log("取消关注成功")
+        location.reload();
       }
    })
-   console.log(cancelId);
  }
 }
 // 跳转链接的 link 地址需要更改  linkkey代表的是这个项目的 id

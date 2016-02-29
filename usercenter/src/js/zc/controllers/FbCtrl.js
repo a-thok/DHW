@@ -58,7 +58,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
       if (currentName != 'ProjectLaunch.preview') {
         var current = currentName.split('.')[1];
         var content = $scope.draft[current]();
-        console.log(content)
+        // console.log(content)
         $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: mainmark, minor: current, content: content }).success(function () {
           // console.log("我是被提交的数据"+ content);
           // console.log("aa"+$scope.draft)

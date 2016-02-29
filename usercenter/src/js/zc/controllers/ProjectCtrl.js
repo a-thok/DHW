@@ -42,7 +42,7 @@ export default function ProjectCtrl(s,$http) {
      
     // 取得市信息
     s.setCity = function (citys) {
-      console.log(citys);
+      // console.log(citys);
       // s.data.city = $.trim($(event.target).text());
       s.countrys = s.$parent.areaData.filter((item) => {
         return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);

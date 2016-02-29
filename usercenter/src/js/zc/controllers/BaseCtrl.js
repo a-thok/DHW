@@ -28,7 +28,7 @@ export default function BaseCtrl(s,$http) {
       $.extend(s, draft);
       if (s.dataP.area) {
         s.dataP.area = angular.fromJson(s.dataP.area);
-        console.log(s.dataP.area);
+        // console.log(s.dataP.area);
         s.prov = s.dataP.area.province.name;
         s.citym = s.dataP.area.city.name;
         s.country = s.dataP.area.district.name;
@@ -69,7 +69,7 @@ export default function BaseCtrl(s,$http) {
       s.countrys = s.$parent.areaData.filter((item) => {
         return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);
       });
-      console.log(s.countrys);
+      // console.log(s.countrys);
       s.country = s.countrys[0].name;
       s.citym = citys.name;
       

@@ -58,24 +58,16 @@ export default function JlylCtrl(s, h, $location) {
       });
       
     });
-<<<<<<< HEAD
+
     s.JobID = $location.search().JobID;
     s.table = $location.search().table;
     s.tzcg = function () {
         $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success(function(d){
-          if(d.success){
-            $location.href="#/ytjl";
-            console.log("投递成功")
-          }
+              if(d.success){
+                $location.href="#/ytjl";
+                console.log("投递成功")
+              }
         });
     }
-=======
-  })
-    s.JobID = $location.search().JobID;
-    s.table = $location.search().table;
-    s.tzcg = function () {
-        $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID });
-    }
 
->>>>>>> zc
 }
