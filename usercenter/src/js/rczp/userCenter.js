@@ -156,7 +156,7 @@ app
   .controller('DgtjlCtrl',[DgtjlCtrl])
   .controller('YtgmsCtrl',[YtgmsCtrl])
   .controller('BhsCtrl',[BhsCtrl])
-  .controller('ZwscCtrl',[ZwscCtrl])
+  .controller('ZwscCtrl',['$http',ZwscCtrl])
   //已投简历
   .controller('YtjlCtrl',['$http',YtjlCtrl])
   .controller('TdpreviewdetailCtrl',['$http', '$scope', '$location',TdpreviewdetailCtrl])
