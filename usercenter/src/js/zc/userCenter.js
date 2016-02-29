@@ -6,8 +6,11 @@ import pagination from '../directives/pagination.js';
 import listComponents  from '../directives/listComponents.js';
 import formComponents from '../directives/formComponents';
 // 指令
+import showAllModules from '../directives/userCenter/showAllModules.js';
+import navSlide from '../directives/userCenter/navSlide.js';
 import sideBar from '../directives/userCenter/sideBar.js';
 import switchType from '../directives/userCenter/switchType.js';
+
 //控制器
 import MainCtrl from './controllers/MainCtrl.js';
 //已发布项目查询列表
