@@ -1,5 +1,6 @@
 // 基本信息控制器
 export default function BaseCtrl(s,$http) {
+  s.dhw = window.dhw;
    /*** 数据 ***/
     // 核心数据
     s.dataP = {

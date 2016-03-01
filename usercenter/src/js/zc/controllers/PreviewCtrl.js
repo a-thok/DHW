@@ -1,5 +1,6 @@
 // 项目预览的控制器
 export default function PreviewCtrl(s,h,$location) {
+  s.dhw = window.dhw;
    s.project = {
       // data: {
       //   rectag: [],
@@ -13,9 +14,9 @@ export default function PreviewCtrl(s,h,$location) {
     s.zstype = ['', '', '', '公益', '科技', '工业', '农业', '家电', '设计', '娱乐', '出版', '房产', '其它']
 
     s.loadPreview = function () {
-      var mainmark = $location.search().id;
+      // var mainmark = $location.search().id;
       h.post('/AppDraft/GetSubs', {
-        mainmark: mainmark,
+        mainmark: s.$parent.mainmark,
         type: 'crowdfunding'
       }).success(function (data) {
         $(data.result).each(function () {

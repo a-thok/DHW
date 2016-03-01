@@ -74,7 +74,7 @@
       </div>
       <div class="materialItems">
         <div class="materialItem clearfix">
-          <span class="materialItem_label">个人身份证-正面</span> {{dhw.imgurl}}
+          <span class="materialItem_label">个人身份证-正面</span>
           <input type="hidden" ng-model="dataP.idcardF" required>
           <div class="materialItem_img"><img ng-show="!!dataP.idcardF" ng-src='{{(!dataP.idcardF) ? "" : (dhw.imgurl + dataP.idcardF + "_64x64" + ".jpg")}}'></div>
           <div class="materialItem_btn"><div  id="browseIDZ" ng-model="dataP.idcardF" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>

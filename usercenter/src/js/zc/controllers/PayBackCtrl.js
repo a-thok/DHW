@@ -1,5 +1,6 @@
 // 回报设置控制器
 export default function PayBackCtrl(s,$http) {
+  s.dhw = window.dhw;
     /*** 数据 ***/
     // 核心数据
     s.data = {

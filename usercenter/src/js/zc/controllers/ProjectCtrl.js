@@ -1,5 +1,6 @@
 // 项目信息填写控制器
 export default function ProjectCtrl(s,$http) {
+  s.dhw = window.dhw;
    /*** 数据 ***/
     // 核心数据
     s.data = {

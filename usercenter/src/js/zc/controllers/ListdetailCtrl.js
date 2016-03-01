@@ -1,4 +1,5 @@
 export default function ListdetailCtrl($scope,$http,$location) {
+   $scope.dhw = window.dhw;
     var vm = this;
     var id = $location.search().id;
     var loaddata = () => {
