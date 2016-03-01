@@ -121,6 +121,8 @@ app
            })
            
   }])
+  .directive('showAllModules', showAllModules)
+  .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
   .directive('switchType', switchType)
   .controller('MainCtrl',[MainCtrl]) //主控制器

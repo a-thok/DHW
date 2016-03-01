@@ -24,16 +24,21 @@ export default function BaseCtrl(s,$http) {
     }
     
     // 载入草稿和验证
-    s.$parent.getDraft('basic', function (draft) {
+   s.$parent.$watch('mainmark', function(newValue) {
+     if (newValue) {
+     s.$parent.getDraft('basic', function (draft) {
       $.extend(s, draft);
       if (s.dataP.area) {
         s.dataP.area = angular.fromJson(s.dataP.area);
-        // console.log(s.dataP.area);
         s.prov = s.dataP.area.province.name;
         s.citym = s.dataP.area.city.name;
         s.country = s.dataP.area.district.name;
       }
     });
+     }
+     
+   })
+    
 
     // 保存草稿数据到根作用域
     s.$parent.draft.basic = function () {

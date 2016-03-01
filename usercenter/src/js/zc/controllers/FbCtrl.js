@@ -33,11 +33,12 @@ export default function FbCtrl($scope,$http,$state,$location) {
     // 获取验证
     // 获取草稿和验证
     $scope.getDraft = function (minor, fn) {
-      var mainmark = $location.search().id;
+      //var mainmark = $location.search().id;
+     
       // 获取草稿
       $http.post('/AppDraft/GetSub', {
         type: 'crowdfunding',
-        mainmark: mainmark,
+        mainmark: $scope.mainmark,
         minor: minor
       }).success(function (data) {
         fn(data.result.content);
@@ -45,7 +46,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
       // 获取验证
       $http.post('/AppDraft/GetSub', {
         type: 'crowdfunding',
-        mainmark: mainmark,
+        mainmark: $scope.mainmark,
         minor: 'isvalid'
       }).success(function (data) {
         $.extend($scope.isValid, data.result.content);
@@ -53,16 +54,13 @@ export default function FbCtrl($scope,$http,$state,$location) {
     };
     // 保存草稿功能-提交草稿和验证
     $scope.saveDraft = function (currentName, direction, isManual) {
-      var mainmark = $location.search().id;
+     // var mainmark = $location.search().id;
       // 如果上一个标签不是预览，就提交相关数据
       if (currentName != 'ProjectLaunch.preview') {
         var current = currentName.split('.')[1];
         var content = $scope.draft[current]();
         // console.log(content)
-        $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: mainmark, minor: current, content: content }).success(function () {
-          // console.log("我是被提交的数据"+ content);
-          // console.log("aa"+$scope.draft)
-          // console.log(current)
+        $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(function () {
           if (isManual) {
             $('.saveTip-' + current).text('保存成功');
           }
@@ -72,7 +70,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
         $scope.setValid(current);
         var isValid = $.extend({}, $scope.isValid);
         isValid = angular.toJson(isValid)
-        $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: mainmark, minor: 'isvalid', content: isValid }).success(function () {
+        $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: 'isvalid', content: isValid }).success(function () {
           // 成功
         });
       }
@@ -114,9 +112,9 @@ export default function FbCtrl($scope,$http,$state,$location) {
   
     // 提交审核
     $scope.submit = function () {
-      var mainmark = $location.search().id;
+      //var mainmark = $location.search().id;
       $http.post('/CpzcFb/Sumbit', {
-        mainmark: mainmark
+        mainmark: $scope.mainmark
       }).success(function (d) {
         if(d.success) {
            window.location.href  = '#/hasfb';    //提交成功则假装跳转到这个地方
@@ -170,7 +168,10 @@ export default function FbCtrl($scope,$http,$state,$location) {
         $location.path('/fb/basic').search(para);
     } else {
       $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success(function (data) {
-        $location.path('/fb/basic').search({ id: data.result.mainmark });
+        $scope.mainmark = data.result.mainmark
+        console.log($scope.mainmark)
+        
       });
+     
     }
 }
