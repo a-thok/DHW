@@ -891,6 +891,9 @@
 .yl .btns .numbers-r {
   float: left;
 }
+.yl a{
+  text-decoration: none;
+}
 .yl .btns {
   overflow: hidden;
 }

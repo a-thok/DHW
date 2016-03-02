@@ -17,10 +17,13 @@ export default function ListdetailCtrl($scope,$http,$location) {
                         money:d.result.project.money,
                         province:d.result.project.province,
                         purpose:d.result.project.purpose,
-                        rectag:d.result.project.rectag,
+                        rectag:d.result.project.rectag.split(","),
                         title:d.result.project.title,
                         username:d.result.project.username,
-                        userlogo:d.result.project.userlogo
+                        userlogo:d.result.project.userlogo,
+                        moneySum : d.result.project.moneySum,
+                        progress : d.result.project.progress,
+                        supportnum : d.result.project.supportnum
                         }};
             vm.payback={
                   data:{ hb:d.result.payback}};

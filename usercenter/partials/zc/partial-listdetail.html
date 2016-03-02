@@ -18,20 +18,20 @@
       <div class="zc-d-r">
         <div class="btns">
           <div class="numbers-r">
-            <p class="digital">0</p>
+            <p class="digital">{{listdetailVm.project.data.supportnum}}</p>
             <p>支持数</p>
           </div>
         </div>
         <div class="numbers clearfix">
           <div class="numbers-l">
-            <p class="digital">￥0</p>
+            <p class="digital">￥{{listdetailVm.project.data.moneySum}}</p>
             <p>已筹款</p>
           </div>
           
         </div>
         <div class="progress">
           <div class="bar-wrap">
-            <div class="bar"><div style="width:0%;"></div></div> <i>0%</i>
+            <div class="bar"><div style="width:0%;"></div></div> <i>{{listdetailVm.project.data.progress}}%</i>
           </div>
           <p class="target"><span class="t-eft"><span>剩余</span>{{listdetailVm.project.data.daysum}}</span>天 <span class="t-right"><span>目标筹资</span>￥{{listdetailVm.project.data.money}}</span></p>
         </div>
