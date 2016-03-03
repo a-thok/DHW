@@ -34,6 +34,11 @@ export default function MainCtrl() {
       url: 'pzclist',
       text: '个人支持列表',
       active: false
+    },
+    {
+      url: 'orderlist',
+      text: '订单列表',
+      active: false
     }
   ];
   

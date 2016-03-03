@@ -73,12 +73,18 @@
   background: url(../img/del_button.png) no-repeat 0 -70px;
 }
 .list_item_box {
+  height: 100px;
   padding: 20px 10px;
   overflow: hidden;
+  line-height: 60px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .list_item_box a {
   color: var(--emColor);
   text-decoration: none;
+}
+.list_item_box img {
+  width: 100%;
+  height: 60px;
 }

@@ -8,6 +8,7 @@ export default function list() {
             <ul class="titleList clearfix">
               <li class="titleList_item" ng-repeat="item in ${attrs.vm}.list" ng-style="{width: item.width}">{{item.name}}</li>
               <li ng-if="${attrs.operate}" class="titleList_item" style="width:10%">操作</li>
+              <li ng-if="${attrs.orderstate}" class="titleList_item" style="width:15%">操作</li>
             </ul>
             <ul class="list">
               <li class="list_item"
@@ -22,6 +23,8 @@ export default function list() {
                 data-editUrl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
                 data-datekeytxt="${attrs.datekeytxt}"
+                data-orderstate="${attrs.orderstate}"
+                data-imgurl="${attrs.imgurl}"
               list-item>
               </li>
             </ul>
@@ -47,12 +50,12 @@ export default function list() {
         `;
     },
     controller: ['$http', '$attrs', '$window', function ($http, $attrs, $window) {
-      let vm = this;    
-      let  params;
-      if(!$attrs.params) {
+      let vm = this;
+      let params;
+      if (!$attrs.params) {
         params = {};
       } else {
-         params = JSON.parse($attrs.params);
+        params = JSON.parse($attrs.params);
       }
       let getData = (pageIndex) => {
         $http.post($attrs.api, Object.assign({}, {
@@ -70,13 +73,25 @@ export default function list() {
         getData(vm.currentPage);
         $window.scrollTo(0, 0);
       };
-      
-       vm.delItem = (key) => {
-         
-         $http.post($attrs.delapi,{id : key}).success(res => {
-           getData(1)
-         })
+
+      vm.delItem = (key) => {
+
+        $http.post($attrs.delapi, { id: key }).success(res => {
+          getData(1)
+        })
       }
+      var isArray = (function () {
+        if (Array.isArray) {
+          return Array.isArray;
+        }
+        var objectToStringFn = Object.prototype.toString,
+          arrayToStringResult = objectToStringFn.call([]);
+
+        return function (subject) {
+          return objectToStringFn.call(subject) === arrayToStringResult;
+        };
+      } ());
+
 
     }],
     controllerAs: 'vm'

@@ -25,6 +25,8 @@ import PgzlistCtrl from './controllers/PgzlistCtrl.js';
 import PzclistCtrl from './controllers/PzclistCtrl.js';
 //已发布列表预览
 import ListdetailCtrl from './controllers/ListdetailCtrl.js';
+// 订单列表
+import OrderlistCtrl from './controllers/OrderlistCtrl.js';
 
 import FbCtrl from './controllers/FbCtrl.js';
 import BaseCtrl from './controllers/BaseCtrl.js';
@@ -109,6 +111,11 @@ app
              templateUrl:'/partials/zc/partial-pzclist.html',
              controller: 'PzclistCtrl as pzclistVm'
            })
+           .state('orderlist',{
+             url: '/orderlist',
+             templateUrl:'/partials/zc/partial-orderlist.html',
+             controller: 'OrderlistCtrl as orderlistVm'
+           })
             .state('listdetail',{
              url: '/listdetail',
              templateUrl:'/partials/zc/partial-listdetail.html',
@@ -131,6 +138,7 @@ app
   .controller('TzlistCtrl',[TzlistCtrl]) //支持列表控制器
   .controller('PgzlistCtrl',['$http',PgzlistCtrl]) //个人关注列表控制器
   .controller('PzclistCtrl',[PzclistCtrl]) //个人支持列表控制器
+  .controller('OrderlistCtrl',[OrderlistCtrl]) //订单列表列表控制器
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
   .controller('BaseCtrl',['$scope','$http',BaseCtrl])
   .controller('ProjectCtrl',['$scope','$http',ProjectCtrl])
