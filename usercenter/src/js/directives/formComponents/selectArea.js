@@ -51,9 +51,9 @@ export default function selectArea() {
         </div>
       `;
     },
-    controller: ['$scope', '$http', '$attrs', function($scope, $http, $attrs) {
+    controller: ['$scope', '$attrs','$http','$stateParams', function($scope, $attrs,$http,$stateParams) {
       let vm = this;
-      partialController($scope, $attrs, vm);
+      partialController($scope, $attrs,$http,$stateParams, vm);
       
       // 市、县显示切换
       vm.isShowCities = false;

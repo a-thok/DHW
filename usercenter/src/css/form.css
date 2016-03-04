@@ -168,6 +168,9 @@
   border: 1px solid var(--borderColor);
   margin-bottom: 10px;
 }
+.formUploadImg_preview img{
+  width: 100%;
+}
 .formUploadImg_result {
   display: none;
   position: absolute;
