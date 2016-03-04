@@ -7,7 +7,7 @@ export default function modal() {
           <div class="modal_mask" ng-if="${attrs.vm}.showModal"></div>
           <div class="modal" ng-if="${attrs.vm}.showModal">
             <div class="modal_header">
-            <button class="modal_close" type="button" ng-hide="${attrs.vm}.isSubmitSuccess" ng-click="vm.hideModal()">×</button>
+            <button class="modal_close" type="button" ng-show="${attrs.vm}.isSubmitSuccess" ng-click="vm.hideModal()">×</button>
             <h4 class="modal_title">系统提示</h4>
           </div>
           <div class="modal_body">

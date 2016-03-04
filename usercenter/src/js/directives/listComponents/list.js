@@ -80,7 +80,7 @@ export default function list() {
           getData(1)
         })
       }
-      var isArray = (function () {
+      vm.isArray = (function () {
         if (Array.isArray) {
           return Array.isArray;
         }
