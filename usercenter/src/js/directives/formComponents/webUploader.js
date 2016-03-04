@@ -20,7 +20,7 @@ export default function webUploader() {
             >
             <div class="formUploadImg clearfix">
               <div class="formUploadImg_preview">
-                <img ng-src="{{dhw.imguploadurl + ${attrs.vm}.data.${attrs.name}}}">
+                <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : ''}}">
                 <span class="formUploadImg_result"></span>
               </div>
               <div class="filePicker" id="filePicker">选择图片</div>
@@ -30,7 +30,7 @@ export default function webUploader() {
       `;
     },
     link: function (scope, elem, attrs, ngModel) {
-
+      scope.dhw = dhw;
       let $pick = elem.find('.filePicker');
       let $img = elem.find('img');
       let $result = elem.find('.formUploadImg_result');

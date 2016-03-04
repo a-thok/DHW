@@ -950,7 +950,7 @@
 /*
 * 弹出确认框
 */
-.modalWrap {
+/*.modalWrap {
   display: none;
   position: fixed;
   top: 0;
@@ -976,7 +976,7 @@
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 5px 15px #999;
-}
+}*/
 .modalWrap.show,
 .modal.show {
   display: block;

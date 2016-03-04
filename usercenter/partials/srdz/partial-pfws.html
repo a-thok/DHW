@@ -51,15 +51,19 @@
     data-tip='请填写文本信息'
     data-error="文本信息必须在2-50个字符之间"
   ></div>
-    <div select-area
+  <div select-area
       data-switch="false"
       data-vm="fusVm"
       data-label="公司地址"
       data-name="area"
       data-required="false"
-    ></div>
+  ></div>
       <div class="formGourp formGourp--submit clearfix">
-     <input class="formBtn formBtn--submit" type="submit" value="立即申请"
-      ng-disabled="pfuwusForm.$invalid || pfuwusForm.isDisabled">
+     <input class="formBtn formBtn--submit" type="submit" value="{{fusVm.submitText}}"
+      ng-disabled="pfuwusForm.$invalid || fusVm.isDisabled">
   </div>
 </form>
+<div modal
+  data-vm = "fusVm"
+  data-url="/pfws"
+></div>

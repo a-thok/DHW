@@ -11,7 +11,7 @@ import modalComponents from '../directives/modalComponents.js';
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
 import sideBar from '../directives/userCenter/sideBar.js';
-//import switchType from '../directives/userCenter/switchType.js';
+import switchType from '../directives/userCenter/switchType.js';
 
 // 控制器
 import MainCtrl from './controllers/MainCtrl.js';
@@ -27,16 +27,16 @@ app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     
      // 从cookie获取当前个人中心类型（企业或个人）
-    // let logintype;
-    // let cookies = document.cookie.split('; ');
-    // cookies.forEach((cookie) => {
-    //   if (cookie.indexOf('logintype') !== -1) {
-    //     logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-    //   }
-    // });
+    let logintype;
+    let cookies = document.cookie.split('; ');
+    cookies.forEach((cookie) => {
+      if (cookie.indexOf('logintype') !== -1) {
+        logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+      }
+    });
     // 根据个人中心类型，判断默认加载哪个路由
-    // $urlRouterProvider.otherwise(logintype === 1 ? '/jlbj' : '/fbzp');
-     $urlRouterProvider.otherwise('/pfb');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/cygz' : '/pfb');
+     //$urlRouterProvider.otherwise('/pfb');
     $stateProvider
       .state('pfb', {
         url: '/pfb',
@@ -69,7 +69,7 @@ app
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
-  //.directive('switchType', switchType)
+  .directive('switchType', switchType)
   .controller('MainCtrl', [ MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl])
   .controller('YfbCtrl', [ YfbCtrl])
