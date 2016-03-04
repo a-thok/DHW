@@ -19,6 +19,8 @@
 @import 'zhongchou.css';
 /*sku属性样式*/
 @import 'sku.css';
+/*交易模式选择*/
+@import 'cysj.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
