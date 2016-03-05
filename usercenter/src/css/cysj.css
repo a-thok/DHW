@@ -1,0 +1,13 @@
+.formInputSet_radioWrap {
+    display: inline-block;
+    line-height: 40px;
+    margin-right: 15px;
+    font-size: 14px;
+}
+.formInputSet_radio {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url('../img/radio.png') 0 0 no-repeat;
+    vertical-align: middle;
+}
