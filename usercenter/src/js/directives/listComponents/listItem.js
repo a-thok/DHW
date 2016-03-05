@@ -15,7 +15,7 @@ export default function listItem() {
               <img ng-if="box.img && !vm.isArray(box.key)" ng-src="${attrs.imgurl}{{item[box.key]}}">
               <span ng-if="!box.link && !box.img && !box.resumlink">{{ item[box.key] }}</span>
               <span ng-if="vm.isArray(box.key) && !box.img"> {{box.key[0].zid}}{{ item[box.key[0].zikey] }}<br/>{{ box.key[1].zid }}{{item[box.key[1].zikey]}}{{box.key[1].zikeyfh}}</span>
-              <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="http://upload.dreamhiway.com/img/{{item[box.key[0].zikey]}}_260x260.jpg">{{item[box.key[1].zikey]}}</span>
+              <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="http://upload.dreamhiway.com/img/{{item[box.key[0].zikey]}}_280x280.jpg">{{item[box.key[1].zikey]}}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%">
               <a href='${attrs.editurl}' ng-click="${attrs.vm}.${attrs.func}">${attrs.operation}</a>
