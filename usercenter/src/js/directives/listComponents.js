@@ -53,6 +53,7 @@ export default app;
 // data-delapi : 传删除操作的 api
 // data-delkey : 要删除项的id
 // data-del : true  :表示是否显示删除按钮 true:显示
+// data-projectname='cysj' 如果为创意设计项目查看项目详情操作需要根据项目状态判断是否为可点击，需传项目名称，否则传false
 // <div list
 //   data-vm="fbzpVm"
 //   data-api="/HRTdjl/List"

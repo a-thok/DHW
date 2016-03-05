@@ -51,6 +51,6 @@ export default function CfbCtrl($http) {
   
    // 获取数据
   $http.post("/Zbfb/Get").success(function (data) {
-    vm.data.realnameauth = data.result.realnameauth;
+    vm.realnameauth = data.result.realnameauth;
   });
 }

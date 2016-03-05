@@ -23,8 +23,10 @@ export default function list() {
                 data-editurl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
                 data-datekeytxt="${attrs.datekeytxt}"
+                data-toptxt="true"
                 data-orderstate="${attrs.orderstate}"
                 data-imgurl="${attrs.imgurl}"
+                data-projectname="${attrs.projectname}"
               list-item>
               </li>
             </ul>

@@ -1,6 +1,8 @@
 <!--公司项目发布功能-->
 <form name="cfbForm" ng-submit="cfbVm.submit()">
-  
+  <div ng-show="!cfbVm.realnameauth">您未实名认证，无法发布需求
+      <a href="//www.dreamhiway.com/CenterAuth/Auth">马上验证</a>
+  </div>
  <div select-simple
       data-switch="false"
       data-vm="cfbVm"

@@ -35,7 +35,7 @@ export default function MainCtrl($location) {
   });
   
   vm.routes = {
-    title: '人才招聘',
+    title: '创意设计',
     items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
   };
   // vm.routes = {

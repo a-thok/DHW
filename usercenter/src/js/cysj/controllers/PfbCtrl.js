@@ -47,7 +47,7 @@ export default function PfbCtrl($http) {
   };
   
   // 获取数据
-  // $http.post("/Zbfb/Get").success(function (data) {
-  //   vm.data.realnameauth = data.result.realnameauth;
-  // });
+  $http.post("/Zbfb/Get").success(function (data) {
+    vm.realnameauth = data.result.realnameauth;
+  });
 }
