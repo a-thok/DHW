@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "uc": "webpack --config usercenter/webpack.config.production.js"
+    "uc": "webpack --config usercenter/webpack.config.production.js",
+    "uctest": "webpack --config usercenter/webpack.config.test.js"
   },
   "author": "",
   "license": "ISC",
