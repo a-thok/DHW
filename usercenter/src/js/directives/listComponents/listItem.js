@@ -18,8 +18,7 @@ export default function listItem() {
               <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="http://upload.dreamhiway.com/img/{{item[box.key[0].zikey]}}_280x280.jpg">{{item[box.key[1].zikey]}}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%">
-              <a href='{{item.states === 2 ? "${attrs.editurl}" + item.id  : "javascript:;" }}' ng-if="${attrs.projectname} === srdz ">${attrs.operation}</a>
-              <a href="${attrs.editurl}" ng-click="${attrs.vm}.${attrs.func}" ng-if="${attrs.projectname} === false ">${attrs.operation}</a>  
+              <a  ng-if="${attrs.projectname} === false" href="${attrs.editurl}{{item.id}} " ng-click="${attrs.vm}.${attrs.func}">${attrs.operation}</a>  
             </li>
             <li ng-if="${attrs.orderstate}" class="list_item_box" style="width:15%">
               <a href='/pay2/{{item.number}}' ng-if="item['state']===0">去付款</a>
