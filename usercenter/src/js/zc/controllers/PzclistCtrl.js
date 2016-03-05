@@ -1,4 +1,4 @@
-export default function TzlistCtrl() {
+export default function PzclistCtrl() {
   var vm = this;
   vm.list=[
     {name:'项目标题', key:'title', width:'30%'},

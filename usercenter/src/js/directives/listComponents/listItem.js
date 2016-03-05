@@ -12,7 +12,7 @@ export default function listItem() {
             <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
               <a ng-if="box.link" href="{{ box.link }}{{ item[box.linkkey] }}" target="_blank">{{ item[box.key] }}</a>
               <a ng-if="box.resumlink" href="${attrs.editurl}">{{ item[box.key] }}</a>
-              <img ng-if="box.img" ng-src="${attrs.imgurl}{{item[box.key]}}">
+              <img ng-if="box.img && !vm.isArray(box.key)" ng-src="${attrs.imgurl}{{item[box.key]}}">
               <span ng-if="!box.link && !box.img && !box.resumlink">{{ item[box.key] }}</span>
               <span ng-if="vm.isArray(box.key) && !box.img"> {{box.key[0].zid}}{{ item[box.key[0].zikey] }}<br/>{{ box.key[1].zid }}{{item[box.key[1].zikey]}}{{box.key[1].zikeyfh}}</span>
               <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="http://upload.dreamhiway.com/img/{{item[box.key[0].zikey]}}_260x260.jpg">{{item[box.key[1].zikey]}}</span>
