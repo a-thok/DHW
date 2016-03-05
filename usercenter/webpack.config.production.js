@@ -4,7 +4,9 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
     'uc.rczp': [__dirname + '/src/js/rczp.js'],
-    'uc.zc' : [__dirname + '/src/js/zc.js']
+    'uc.zc' : [__dirname + '/src/js/zc.js'],
+    'uc.srdz':[__dirname + '/src/js/srdz.js'],
+    'uc.cysj':[__dirname + '/src/js/cysj.js'],
   },
   output: {
     path: __dirname + '/dist/',
