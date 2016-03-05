@@ -20,7 +20,7 @@ export default function list() {
                 data-func="${attrs.func}"
                 data-delkey="${attrs.delkey}"
                 data-del="${attrs.del}"
-                data-editUrl="${attrs.editurl}"
+                data-editurl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
                 data-datekeytxt="${attrs.datekeytxt}"
                 data-orderstate="${attrs.orderstate}"

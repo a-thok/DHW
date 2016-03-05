@@ -1,5 +1,5 @@
-// 已发项目查询
-export default function CyfbCtrl() {
+// 个人已发项目查询
+export default function PyfbCtrl() {
   var vm = this;
   vm.list = [
     {name:'项目类型',key:'protype',width:'20%'},
