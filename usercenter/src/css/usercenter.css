@@ -66,6 +66,9 @@ body {
 .ucNav_list {
   position: relative;
 }
+.ucNav_list a {
+  float: left;
+}
 .ucNav_list_item {
   position: relative;
   z-index: 0;
