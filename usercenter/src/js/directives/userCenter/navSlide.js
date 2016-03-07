@@ -1,9 +1,16 @@
 export default function navSlide() {
   return {
     link: function (scope, elem, attrs) {
-      let active = elem.find('.ucNav_list_item--active'),
-        activeWidth = active.width() + 'px',
+      // let active = elem.find('.ucNav_list_item--active'),
+      //   activeWidth = active.width() + 'px',
+      //   activeLeft = active.position().left + 'px';
+        
+      let active, activeWidth, activeLeft;
+      setTimeout(function() {
+        active = elem.find('.ucNav_list_item--active');
+        activeWidth = active.width() + 'px';
         activeLeft = active.position().left + 'px';
+      }, 1000);
 
       let slider = elem.find('.ucNav_list_item--slider');
       slider.css({

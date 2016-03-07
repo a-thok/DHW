@@ -11,6 +11,8 @@ Object.keys(config.entry).forEach(function (name) {
 
 config.output.publicPath = '/'
 
+config.module.loaders[3].loader = 'url'
+
 config.devtool = 'eval-source-map'
 
 config.plugins = (config.plugins || []).concat([
