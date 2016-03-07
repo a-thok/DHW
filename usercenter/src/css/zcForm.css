@@ -34,7 +34,7 @@
   background: #fff;
   line-height: 53px;
   font-weight: 700;
-  /*font-size: 1.6em;*/
+  font-size: 14px;
   text-align: center;
   color: #333;
   cursor: pointer;
@@ -96,7 +96,7 @@
 .formTitle h2 {
   float: left;
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 14px;
   line-height: 40px;
 }
 /*保存草稿按钮*/
@@ -113,7 +113,7 @@
   border: 1px solid #999;
   margin-top: 6px;
   background: #fff;
-  font-size: 0.6em;
+  font-size: 12px;
   line-height: 28px;
   color: #333;
 }
@@ -950,7 +950,7 @@
 /*
 * 弹出确认框
 */
-/*.modalWrap {
+.zc_modalWrap {
   display: none;
   position: fixed;
   top: 0;
@@ -962,7 +962,7 @@
   background: #000;
   filter: Alpha(opacity=10);
 }
-.modal {
+.zc_modal {
   display: none;
   position: fixed;
   left: 50%;
@@ -976,9 +976,9 @@
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 5px 15px #999;
-}*/
-.modalWrap.show,
-.modal.show {
+}
+.zc_modalWrap.show,
+.zc_modal.show {
   display: block;
 }
 .modal_header {
