@@ -27,6 +27,7 @@ export default function list() {
                 data-orderstate="${attrs.orderstate}"
                 data-imgurl="${attrs.imgurl}"
                 data-projectname="${attrs.projectname}"
+                data-operate2="${attrs.operate2}"
               list-item>
               </li>
             </ul>
