@@ -12,6 +12,7 @@ import btnSubmit from  './formComponents/btnSubmit.js'
 import bindImg from './formComponents/bindImg.js' 
 //测试指令省市三级联动
 import sCity from './formComponents/sCity.js'
+import fileUploader from './formComponents/fileUploader.js'
 let app = angular.module('formComponents', []);
 app
   // input text类型
@@ -36,6 +37,7 @@ app
   .directive('bindImg', bindImg)
   //省市联动指令
   .directive('sCity',sCity)
+  .directive('fileUploader',fileUploader)
 export default app;
 
 

@@ -5,6 +5,7 @@
     <div class="zbFormBox">
       <h2 class="zbFormBox_ttl">项目基本信息<i></i></h2>
       <div input-text
+      data-form="zbForm"
       data-vm="fbVm"
       data-label="项目标题"
       data-name="title"
@@ -14,6 +15,7 @@
       data-pattern=""
       ></div>
       <div input-text
+      data-form="zbForm"
       data-vm="fbVm"
       data-label="项目总金额"
       data-name="totalfin"
@@ -24,6 +26,7 @@
       data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
       ></div>
       <div input-text
+      data-form="zbForm"
       data-vm="fbVm"
       data-label="项目周期"
       data-name="procycle"
@@ -44,6 +47,7 @@
       <!--截止日期 结束-->
       <div text-area
       data-vm="fbVm"
+      data-form="zbForm"
       data-label="项目简介"
       data-name="intro"
       data-required="true"
@@ -53,6 +57,7 @@
       ></div>
       <div select-simple
       data-vm="fbVm"
+      data-form="zbForm"
       data-label="项目类型"
       data-name="typeid"
       data-required="true"
@@ -70,6 +75,7 @@
           <h3>任务{{$index+1}}</h3></div>
         <div input-text
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="任务名称"
         data-name="missionna"
         data-required="true"
@@ -80,6 +86,7 @@
         ></div>
         <div text-area
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="任务需求描述"
         data-name="mirequire"
         data-required="true"
@@ -90,6 +97,7 @@
         ></div>
         <div input-text
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="任务单价"
         data-name="unitprice"
         data-required="true"
@@ -100,6 +108,7 @@
         ></div>
         <div input-text
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="技能要求"
         data-name="requireski"
         data-required="true"
@@ -110,6 +119,7 @@
         ></div>
         <div file-uploader
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="附件"
         data-name="requireski"
         data-required="true"
@@ -117,6 +127,7 @@
         ></div>
         <div input-text
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="所需人数"
         data-name="mipnum"
         data-required="true"
@@ -128,6 +139,7 @@
         ></div>
         <div input-text
         data-vm="fbVm"
+        data-form="zbForm"
         data-label="完成时间"
         data-name="miday"
         data-required="true"
@@ -157,6 +169,7 @@
       </div>
       <div input-text
       data-vm="fbVm"
+      data-form="zbForm"
       data-label="姓名"
       data-name="realname"
       data-required="true"
@@ -166,6 +179,7 @@
       ></div>
       <div input-text
       data-vm="fbVm"
+      data-form="zbForm"
       data-label="联系电话"
       data-name="phone"
       data-required="true"
@@ -176,6 +190,7 @@
       ></div>
       <div input-text
       data-vm="fbVm"
+      data-form="zbForm"
       data-label="邮箱"
       data-name="email"
       data-required="true"

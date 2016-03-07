@@ -64,6 +64,13 @@ export const brand =[
   {id:'21',name:'易拉宝品设计'},
   {id:'22',name:'户外广告设计'},
   {id:'23',name:'其它'},
+];
+export const type = [
+  {id: 1, name: '开发众包'},
+  {id: 2, name: '装修众包' },
+  {id: 3, name: '营销众包'},
+  {id: 4, name: '电商众包'},
+  {id: 5, name: '其它'},
 ]
 // 获取行业
 export function getTrade($http, cb) {

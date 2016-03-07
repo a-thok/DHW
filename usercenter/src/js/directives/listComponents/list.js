@@ -28,6 +28,9 @@ export default function list() {
                 data-imgurl="${attrs.imgurl}"
                 data-projectname="${attrs.projectname}"
                 data-operate2="${attrs.operate2}"
+                data-operation2="${attrs.operation2}"
+                data-func2="${attrs.func2}"
+                data-editurl2="${attrs.editurl2}"
               list-item>
               </li>
             </ul>
