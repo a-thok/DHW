@@ -21,6 +21,8 @@
 @import 'sku.css';
 /*交易模式选择*/
 @import 'cysj.css';
+/*众包*/
+@import 'zhongbao.css'
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
