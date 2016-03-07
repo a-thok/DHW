@@ -121,9 +121,11 @@
         data-vm="fbVm"
         data-form="zbForm"
         data-label="附件"
-        data-name="requireski"
+        data-name="attachment_orgin"
+        data-pathname="attachment"
         data-required="true"
         data-repeatitem="mission"
+        data-keyname="zb"
         ></div>
         <div input-text
         data-vm="fbVm"
@@ -158,7 +160,7 @@
       </div>
     </div>
     <div class="formSet clearfix ">
-      <span class="formSet_addMore" ng-click="fbVm.items.push({}) ">+继续添加新的任务</span>
+      <span class="formSet_addMore" ng-click="fbVm.items.push({})">+继续添加新的任务</span>
     </div>
     <!--任务发布 结束-->
     <!--个人信息 开始-->
@@ -216,10 +218,13 @@
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <button class="submitBtn" type="button" ng-disabled="zbForm.$invalid" ng-click="fbVm.submit()">提交</button>
+        <button class="submitBtn" type="button" ng-disabled="zbForm.$invalid || fbVm.isDisabled" ng-click="fbVm.submit()">提交</button>
       </div>
     </div>
-    <div pup-pop data-text="{{popupText}}"></div>
     <!--个人信息 结束-->
 </form>
 </div>
+    <div modal
+      data-vm = "fbVm"
+      data-url="/yfb"
+    ></div>

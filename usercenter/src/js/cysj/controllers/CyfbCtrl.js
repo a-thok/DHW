@@ -6,6 +6,6 @@ export default function CyfbCtrl() {
     {name:'项目名称',key:'title',width:'20%'},
     {name:'悬赏金额',key:'money',width:'20%'},
     {name:'交易模式',key:'transaction',width:'20%'},
-    {name:'状态',key:'type',width:'10%'},
+    {name:'状态',key:'status',width:'10%'},
   ]
 }

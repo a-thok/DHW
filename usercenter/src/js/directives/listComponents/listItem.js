@@ -23,7 +23,9 @@ export default function listItem() {
                  <a ng-if="item.states === 2" href="${attrs.editurl}{{item.id}}">查看详情</a>
                  <a ng-if="item.states !==2" href="javascript:;">审核未通过<br>无法查看</a>
               </span>
-               ${ attrs.operate2 ? '<a href="' + attrs.editurl2 + '" ng-click="' + attrs.vm + '.' + attrs.func2 + '">' + attrs.operation2 + '</a>' : '' }  
+              <span ng-if="${attrs.operate2}">
+                <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</a>
+              </span>
             </li>
             <li ng-if="${attrs.orderstate}" class="list_item_box" style="width:15%">
               <a href='/pay2/{{item.number}}' ng-if="item['state']===0">去付款</a>

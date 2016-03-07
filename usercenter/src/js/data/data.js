@@ -1,6 +1,7 @@
 // export const dhw = {
 //   imgurl: 'http://upload.dreamhiway.com/img/',
 //   imguploadurl: 'http://upload.dreamhiway.com/uploadimg',
+//   fileuploadurl: 'http://upload.dreamhiway.com/uploadfj',
 //   imgcuturl: 'http://upload.dreamhiway.com/imagecut.ashx',
 //   mainurl: '//www.dreamhiway.com/',
 //   staticurl: 'http://cdn.dreamhiway.com',
@@ -21,6 +22,7 @@
 export const dhw = {
   imgurl: 'http://192.168.2.10:82/img/',
   imguploadurl: 'http://192.168.2.10:82/uploadimg',
+  fileuploadurl: 'http://192.168.2.10:82/uploadfj',
   imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
   mainurl: '//localhost:8085/',
   staticurl: 'http://192.168.2.10:81',
