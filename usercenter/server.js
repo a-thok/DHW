@@ -1,22 +1,18 @@
 var webpack = require('webpack');
-var webpackDevMiddleware = require("webpack-dev-middleware");
 var WebpackDevServer = require('webpack-dev-server');
-var config = require("./webpack.config.js");
+var config = require("./webpack.dev.js");
 
-for (var prop in config.entry) {
-  config.entry[prop].unshift("webpack/hot/dev-server")
-  config.entry[prop].unshift("webpack-dev-server/client?http://localhost:8080")
-}
 var compiler = webpack(config);
 var server = new WebpackDevServer(compiler, {
   hot: true,
   inline: true,
   historyApiFallback: false,
   stats: {
+    chunks: false,
     colors: true
   },
   // noInfo: true,
-  publicPath: '/',
+  publicPath: config.output.publicPath,
   proxy: {
     // 转发api数据
     "*": {
