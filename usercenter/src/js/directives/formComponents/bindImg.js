@@ -34,7 +34,6 @@ export default function bindImg() {
     uploader.on('uploadSuccess', (file, res) => {
         // $result.text('上传成功');
         scope.$apply(function () {
-   
           ngModel.$setViewValue(res.path + res.name);
         });
       });
