@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "uc": "webpack --config usercenter/webpack.config.production.js",
-    "uctest": "webpack --config usercenter/webpack.config.test.js"
+    "uctest": "webpack --config usercenter/webpack.config.test.js",
+    "uc-dev": "webpack --config usercenter/webpack.dev.js",
+    "uc-dev-ie": "webpack --config usercenter/webpack.dev.ie.js",
+    "uc-prod": "webpack --config usercenter/webpack.prod.js",
+    "uc-prod-test": "webpack --config usercenter/webpack.prod.test.js"
   },
   "author": "",
   "license": "ISC",
