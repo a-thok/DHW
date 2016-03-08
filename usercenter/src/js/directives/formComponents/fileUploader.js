@@ -59,7 +59,11 @@ export default function fileUpLoader() {
 
       uploader.on('uploadSuccess', function (file, res) {
         elem.find('#' + file.id).find('p.state').text('已上传');
+<<<<<<< HEAD
+        scope.$parent[attrs.vm].data[attrs.name] = res.path + res.name
+=======
         scope.$parent[attrs.vm].data[attrs.pathname] = res.path + res.name
+>>>>>>> 47f13ad8a078f510b68bf5a5b45a364d19a30e02
       });
 
       uploader.on('uploadError', function (file) {
