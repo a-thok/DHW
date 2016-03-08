@@ -52,18 +52,16 @@ export default function MainCtrl($location) {
     let arr = item.split('=')
     cookies[arr[0]] = arr[1]
   })
-  if (cookies.currenttype) {
-    vm.currenttype = cookies.currenttype
+  if (cookies.accountType) {
+    vm.accountType = cookies.accountType
     vm.logintype = cookies.logintype
-  } else {
-    vm.logintype = cookies.logintype
-    vm.currenttype = vm.logintype
   }
   
   vm.routes = {
     title: '常用功能',
-    items: vm.currenttype == 1 ? vm.routes_p :vm.routes_c
+    items: vm.logintype == 1 ? vm.routes_p :vm.routes_c
   };
+  
   // vm.routes = {
   //   title: '人才招聘',
   //   items:  vm.routes_p.concat(vm.routes_c)
