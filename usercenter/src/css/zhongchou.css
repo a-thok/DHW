@@ -710,7 +710,8 @@
 .support-btn {
   display: block;
   width: 296px;
-  background: url(../img/zc-btns.png) no-repeat 0 -164px;
+  /*background: url(../img/zc-btns.png) no-repeat 0 -164px;*/
+  background-color:#337ab7;;
   font-size: 2.0em;
   line-height: 50px;
   text-align: center;

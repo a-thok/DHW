@@ -4,11 +4,12 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     // angular: ['angular/angular.js', 'angular-ui-router', 'angular-animate'],
+    'uc.rczp': [__dirname + '/src/js/rczp.js'],
     'uc.zc' : [__dirname + '/src/js/zc.js'],
     'uc.srdz':[__dirname + '/src/js/srdz.js'],
     'uc.cysj':[__dirname + '/src/js/cysj.js'],
     'uc.zb':[__dirname + '/src/js/zb.js'],
-    'uc.rczp': [__dirname + '/src/js/rczp.js']
+  
   },
   output: {
     path: __dirname + '/dist/',

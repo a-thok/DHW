@@ -42,16 +42,22 @@ export default function MainCtrl() {
     }
   ];
   
- let cookies = document.cookie.split('; ');
-  cookies.forEach((cookie) => {
-    if (cookie.indexOf('logintype') !== -1) {
-      vm.logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-    }
-  });
+ let cookies = {}
+  document.cookie.split('; ').forEach(item => {
+    let arr = item.split('=')
+    cookies[arr[0]] = arr[1]
+  })
+  if (cookies.currenttype) {
+    vm.currenttype = cookies.currenttype
+    vm.logintype = cookies.logintype
+  } else {
+    vm.logintype = cookies.logintype
+    vm.currenttype = vm.logintype
+  }
   
   vm.routes = {
     title: '常用功能',
-    items: vm.logintype === 1 ? vm.routes_p :vm.routes_c
+    items: vm.currenttype == 1 ? vm.routes_p :vm.routes_c
   };
   
   // vm.routes = {

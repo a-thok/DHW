@@ -5,6 +5,7 @@ import angular from 'angular';
 import pagination from '../directives/pagination.js';
 import listComponents  from '../directives/listComponents.js';
 import formComponents from '../directives/formComponents';
+import modalComponents from '../directives/modalComponents.js';
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
@@ -23,7 +24,7 @@ import YfbCtrl from './controllers/YfbCtrl.js'
 
 
 
-let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'ui.bootstrap.pagination']);
+let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

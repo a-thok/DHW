@@ -205,7 +205,7 @@
   padding: 0 20px;
   border: 0;
   border-radius: 3px;
-  background: #ea544a;
+  background: #337ab7;
   font-size: 14px;
   line-height: 28px;
   color: #fff;
@@ -253,7 +253,7 @@
   border: 0;
   border-radius: 3px;
   margin-right: 12px;
-  background-color: #ea544a;
+  background-color: #337ab7;
   /*font-size: 1.6em;*/
   text-align: center;
   line-height: 46px;
@@ -271,7 +271,7 @@
 }
 .switchTabs {
   width: 120px;
-  border: 1px solid #ea544a;
+  border: 1px solid #337ab7;
   border-radius: 3px;
   margin: 36px auto 0 auto;
 }
@@ -282,11 +282,11 @@
   padding: 0 16px;
   font-size: 1.4em;
   line-height: 34px;
-  color: #ea544a;
+  color: #337ab7;
   cursor: pointer;
 }
 .switchTab.active {
-  background-color: #ea544a;
+  background-color: #337ab7;
   color: #fff;
 }
 .formSetWrap {
@@ -310,7 +310,7 @@
 }
 .cateTab.active, 
 .cateTab:hover {
-  border: 3px solid #ea544a;
+  border: 3px solid #337ab7;;
   background: url(../img/form-category.png) no-repeat 69px 0;
 }
 /*材料上传*/
@@ -919,7 +919,7 @@
   padding: 15px 50px;
   border: 0;
   border-radius: 5px;
-  background-color: #ea544a;
+  background-color: #337ab7;
   color: #fff;
   font-size: 2em;
   font-family: "Microsoft Yahei";
@@ -1017,8 +1017,8 @@
   cursor: pointer;
 }
 .modal_btn-confirm {
-  border-color: #e66a61;
-  background-color: #e66a61;
+  border-color: #337ab7;
+  background-color: #337ab7;
   color: #fff;
 }
 .modal_btn-cancel:hover {
