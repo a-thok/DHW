@@ -60,7 +60,6 @@ export default function fileUpLoader() {
 
       uploader.on('uploadSuccess', function (file, res) {
         elem.find('#' + file.id).find('p.state').text('已上传');
-        console.log(res)
         scope.$parent[attrs.vm].data[attrs.name] = res.path + res.name
       });
 
