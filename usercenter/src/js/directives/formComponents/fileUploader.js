@@ -1,5 +1,5 @@
 import WebUploader from 'web-uploader';
-
+import { dhw } from '../../data/data.js';
 export default function fileUpLoader() {
   return {
     replace: true,
@@ -11,11 +11,11 @@ export default function fileUpLoader() {
             <label class="formLabel" for="${attrs.name}">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
-            <div id="uploader" class="wu-example formUploadImg">
+            <div class="wu-example formUploadImg">
               <!--用来存放文件信息-->
-              <div id="thelist" class="uploader-list" ></div>
+              <div class="uploader-list" ></div>
               <div class="btns">
-                  <div id="picker">选择文件</div>
+                  <div class="picker">选择文件</div>
               </div>
             </div>
           </div>
@@ -26,8 +26,8 @@ export default function fileUpLoader() {
       var uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-        server: 'http://192.168.2.10:82/uploadfj?key=zb',
-        pick: '#picker',
+        server: dhw.fileuploadurl + '?key=' + attrs.keyname,
+        pick: elem.find('.picker')[0],
         resize: false
       });
       elem.find('#ctlBtn').click(() => uploader.upload())
@@ -35,7 +35,6 @@ export default function fileUpLoader() {
         scope.$apply(function () {
           scope.$parent[attrs.vm].data[attrs.name] = file.name
         });
-        console.log()
         elem.find('.formUploadImg').append('<div id="' + file.id + '" class="item">' +
           '<h4 class="info">' + file.name + '</h4>' +
           '<p class="state">等待上传...</p>' +
@@ -60,7 +59,11 @@ export default function fileUpLoader() {
 
       uploader.on('uploadSuccess', function (file, res) {
         elem.find('#' + file.id).find('p.state').text('已上传');
+<<<<<<< HEAD
         scope.$parent[attrs.vm].data[attrs.name] = res.path + res.name
+=======
+        scope.$parent[attrs.vm].data[attrs.pathname] = res.path + res.name
+>>>>>>> 47f13ad8a078f510b68bf5a5b45a364d19a30e02
       });
 
       uploader.on('uploadError', function (file) {
