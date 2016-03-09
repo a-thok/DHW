@@ -37,7 +37,8 @@ import s_YshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
 import s_DshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
 import s_DfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
 import s_AllCtrl from './controllers/sellerControllers/s_AllCtrl.js';
-
+// 物流保存
+import WlCtrl from './controllers/WlCtrl.js';
 
 
 import FbCtrl from './controllers/FbCtrl.js';
@@ -122,6 +123,11 @@ app
              url: '/pzclist',
              templateUrl:'/partials/zc/partial-pzclist.html',
              controller: 'PzclistCtrl as pzclistVm'
+           })
+           .state('wl',{
+             url: '/wl',
+             templateUrl:'/partials/zc/partial-wl.html',
+             controller: 'WlCtrl as WlVm'
            })
            .state('orderlist',{
              url: '/orderlist',
@@ -208,6 +214,8 @@ app
   .controller('s_DfhCtrl',['$scope', s_DfhCtrl])
   .controller('s_YshCtrl',['$scope', s_YshCtrl])
   .controller('s_AllCtrl',['$scope', s_AllCtrl])
+  // 物流保存
+  .controller('WlCtrl',['$http', WlCtrl])
   
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
   .controller('BaseCtrl',['$scope','$http',BaseCtrl])
