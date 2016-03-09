@@ -59,7 +59,6 @@ export default function FbCtrl($scope,$http,$state,$location) {
       if (currentName != 'ProjectLaunch.preview') {
         var current = currentName.split('.')[1];
         var content = $scope.draft[current]();
-        // console.log(content)
         $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(function () {
           if (isManual) {
             $('.saveTip-' + current).text('保存成功');
@@ -141,7 +140,6 @@ export default function FbCtrl($scope,$http,$state,$location) {
      $scope.provinces = (() => {
         $http.post('/Dict/city').success((res) => {
            $scope.areaData = res.result;
-          // console.log("我是从后台拿取得数据" + $scope.areaData);
           $scope.provs = $scope.areaData.filter((item) => {
             return item.type === 'province';
           });
@@ -169,7 +167,6 @@ export default function FbCtrl($scope,$http,$state,$location) {
     } else {
       $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success(function (data) {
         $scope.mainmark = data.result.mainmark
-        console.log($scope.mainmark)
         
       });
      

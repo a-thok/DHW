@@ -21,7 +21,6 @@ export default function GzlistCtrl($http) {
  vm.edit = function(cancelId) {
    $http.post('/CpzcGzList/DelAttention',{id:cancelId}).success( res => {
       if(res.success) {
-        // console.log("取消关注成功")
         location.reload();
       }
    })

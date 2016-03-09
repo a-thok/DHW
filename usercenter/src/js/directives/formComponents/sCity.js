@@ -41,7 +41,6 @@ export default function sCity() {
       $.extend(s, draft);
       if (s.dataP.area) {
         s.dataP.area = angular.fromJson(s.dataP.area);
-        console.log(s.dataP.area);
         s.prov = s.dataP.area.province.name;
         s.citym = s.dataP.area.city.name;
         s.country = s.dataP.area.district.name;
@@ -57,7 +56,6 @@ export default function sCity() {
     //取得城市的数据
     s.getCitys = (provinces) => {
      
-      console.log("省份  "+provinces.name);
         s.citys = [{code:'1',name:'泉州'},{code:'2',name:'深圳'}];
          
         //初始化城市的第一个数据选择
@@ -77,7 +75,6 @@ export default function sCity() {
      };
     // 取得县区的信息
      s.setCity = function (citys) {
-        console.log("我选择的城市是" + citys.name);
       s.countrys = [{code:'1',name:'dddd'},{code:'2',name:'lllll'}];
       s.country = s.countrys[0].name;
       s.citym = citys.name;
@@ -93,7 +90,6 @@ export default function sCity() {
     };
     //设置县 区的model值
     s.setCountry = function(countrys) {
-       console.log("我选择的乡村是" + countrys.name);
       s.country = countrys.name
       
       s.district = {code : countrys.code, name:s.country}

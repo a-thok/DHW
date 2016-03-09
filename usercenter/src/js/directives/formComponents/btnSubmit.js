@@ -15,7 +15,6 @@ export default function btnSubmit() {
       let vm = this;
       vm.submitText = '提交';
       vm.isDisabled = false;
-      //console.log($scope[$attrs.vm]);
       function fail() {
         $scope[$attrs.vm].isSubmitSuccess = false;
         vm.submitText = '提交';

@@ -26,7 +26,19 @@ import PzclistCtrl from './controllers/PzclistCtrl.js';
 //已发布列表预览
 import ListdetailCtrl from './controllers/ListdetailCtrl.js';
 // 订单列表
-import OrderlistCtrl from './controllers/OrderlistCtrl.js';
+import Orderlist from './controllers/Orderlist.js';
+import DshCtrl from './controllers/ListControllers/DshCtrl.js';
+import DfkCtrl from './controllers/ListControllers/DfkCtrl.js';
+import DfhCtrl from './controllers/ListControllers/DfhCtrl.js';
+import DpjCtrl from './controllers/ListControllers/DpjCtrl.js';
+// 卖家订单
+import SellerCtrl from './controllers/SellerCtrl.js';
+import s_YshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
+import s_DshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
+import s_DfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
+import s_AllCtrl from './controllers/sellerControllers/s_AllCtrl.js';
+
+
 
 import FbCtrl from './controllers/FbCtrl.js';
 import BaseCtrl from './controllers/BaseCtrl.js';
@@ -114,7 +126,52 @@ app
            .state('orderlist',{
              url: '/orderlist',
              templateUrl:'/partials/zc/partial-orderlist.html',
-             controller: 'OrderlistCtrl as orderlistVm'
+             controller: 'Orderlist as orderlistVm'
+           })
+           .state('orderlist.dfh',{
+             url: '/dfh',
+             templateUrl:'/partials/zc/buyerorder/partial-orderlist-dfh.html',
+             controller: 'DfhCtrl as dfhVm'
+           })
+           .state('orderlist.dfk',{
+             url: '/dfk',
+             templateUrl:'/partials/zc/buyerorder/partial-orderlist-dfk.html',
+             controller: 'DfkCtrl as dfkVm'
+           })
+           .state('orderlist.dsh',{
+             url: '/dsh',
+             templateUrl:'/partials/zc/buyerorder/partial-orderlist-dsh.html',
+             controller: 'DshCtrl as dshVm'
+           })
+           .state('orderlist.dpj',{
+             url: '/dpj',
+             templateUrl:'/partials/zc/buyerorder/partial-orderlist-dpj.html',
+             controller: 'DpjCtrl as dpjVm'
+           })
+           .state('seller',{
+             url: '/seller/:id',
+             templateUrl:'/partials/zc/partial-seller.html',
+             controller: 'SellerCtrl as sellerVm'
+           })
+           .state('seller.all',{
+             url: '/all',
+             templateUrl:'/partials/zc/sellerorder/partial-seller-all.html',
+             controller: 's_AllCtrl as s_AllVm'
+           })
+           .state('seller.dfh',{
+             url: '/dfh',
+             templateUrl:'/partials/zc/sellerorder/partial-seller-dfh.html',
+             controller: 's_DfhCtrl as s_DfhVm'
+           })
+           .state('seller.dsh',{
+             url: '/dsh',
+             templateUrl:'/partials/zc/sellerorder/partial-seller-dsh.html',
+             controller: 's_DshCtrl as s_DshVm'
+           })
+           .state('seller.ysh',{
+             url: '/ysh',
+             templateUrl:'/partials/zc/sellerorder/partial-seller-ysh.html',
+             controller: 's_YshCtrl as s_YshVm'
            })
             .state('listdetail',{
              url: '/listdetail',
@@ -138,7 +195,20 @@ app
   .controller('TzlistCtrl',[TzlistCtrl]) //支持列表控制器
   .controller('PgzlistCtrl',['$http',PgzlistCtrl]) //个人关注列表控制器
   .controller('PzclistCtrl',[PzclistCtrl]) //个人支持列表控制器
-  .controller('OrderlistCtrl',[OrderlistCtrl]) //订单列表列表控制器
+  .controller('Orderlist',[Orderlist]) //订单列表列表控制器
+  
+  // 订单列表
+  .controller('DshCtrl',[DshCtrl])
+  .controller('DfkCtrl',[DfkCtrl])
+  .controller('DfhCtrl',[DfhCtrl])
+  .controller('DpjCtrl',[DpjCtrl])
+  // 卖家订单
+  .controller('SellerCtrl',['$stateParams', SellerCtrl])
+  .controller('s_DshCtrl',['$scope', s_DshCtrl])
+  .controller('s_DfhCtrl',['$scope', s_DfhCtrl])
+  .controller('s_YshCtrl',['$scope', s_YshCtrl])
+  .controller('s_AllCtrl',['$scope', s_AllCtrl])
+  
   .controller('FbCtrl',['$scope','$http','$state','$location',FbCtrl])
   .controller('BaseCtrl',['$scope','$http',BaseCtrl])
   .controller('ProjectCtrl',['$scope','$http',ProjectCtrl])

@@ -30,7 +30,6 @@ export default function FbCtrl($http) {
       if (content[content.length - 1] == ";") {
         content = content.substring(0, content.length - 2);
       }
-      //console.log(vm.skuTemp[i].name)
       para.sku[vm.skuTemp[i].name] = content.split(";");
     }
     para.sku = angular.toJson(para.sku);
