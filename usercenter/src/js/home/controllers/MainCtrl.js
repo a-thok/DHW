@@ -2,7 +2,7 @@
 
 export default function MainCtrl($location) {
   var vm = this;
-  
+  //公司账号
   const routes_c = [
     {
       url: 'zhxx.person',
@@ -30,8 +30,8 @@ export default function MainCtrl($location) {
       active: false
     },
     {
-      url: 'qyzy',
-      text: '企业资源',
+      url: 'qyzz',
+      text: '企业资质',
       active: false
     },
     {

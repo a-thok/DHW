@@ -9,6 +9,7 @@ module.exports = {
     'uc.srdz':[__dirname + '/src/js/srdz.js'],
     'uc.cysj':[__dirname + '/src/js/cysj.js'],
     'uc.zb':[__dirname + '/src/js/zb.js'],
+    'uc.home':[__dirname + '/src/js/home.js'],
   
   },
   output: {

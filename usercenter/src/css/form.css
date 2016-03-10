@@ -161,7 +161,7 @@
   float: left;
 }
 .formUploadImg_preview {
-  display: none;
+  /*display: none;*/
   position: relative;
   width: 100px;
   padding: 4px;

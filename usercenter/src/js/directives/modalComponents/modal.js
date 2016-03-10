@@ -24,11 +24,11 @@ export default function modal() {
     controller: ['$scope', '$attrs', '$location', '$timeout', function($scope, $attrs, $location, $timeout) {
       let vm = this;
       
-      vm.hideModal = () => $scope[$attrs.vm].showModal = false;
+      vm.hideModal = () =>  $scope[$attrs.vm].showModal = false;
       
       $scope.$watch($attrs.vm + '.isSubmitSuccess', function(newValue) {
         if (newValue) {
-          $timeout(() => $location.path($attrs.url), 5000);
+          $timeout(() => $location.path($attrs.url), 3000);
         }
       });
       

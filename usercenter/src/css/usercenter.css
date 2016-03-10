@@ -23,6 +23,8 @@
 @import 'cysj.css';
 /*众包*/
 @import 'zhongbao.css';
+/*个人中心首页*/
+@import 'indexinfo.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;

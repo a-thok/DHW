@@ -10,6 +10,8 @@ import calendar from  './formComponents/calendar.js'
 import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
 import bindImg from './formComponents/bindImg.js' 
+import nodatasArea from './formComponents/nodatasArea.js' 
+import addPhoto from './formComponents/addPhoto.js' 
 //测试指令省市三级联动
 import sCity from './formComponents/sCity.js'
 import fileUploader from './formComponents/fileUploader.js'
@@ -38,6 +40,9 @@ app
   //省市联动指令
   .directive('sCity',sCity)
   .directive('fileUploader',fileUploader)
+  .directive('nodatasArea',nodatasArea)
+  //个人中心企业上传图片指令--有新增功能
+  .directive('addPhoto',addPhoto)
 export default app;
 
 

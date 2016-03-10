@@ -12,9 +12,10 @@ export default function btnSubmit() {
       `
     },
     controller: ['$scope', '$http', '$attrs', function ($scope, $http, $attrs) {
-      let vm = this;
+      var vm = this;
       vm.submitText = '提交';
       vm.isDisabled = false;
+      this.a = 4
       //console.log($scope[$attrs.vm]);
       function fail() {
         $scope[$attrs.vm].isSubmitSuccess = false;
@@ -26,12 +27,18 @@ export default function btnSubmit() {
       $scope[$attrs.vm].submit = () => {
         vm.submitText = '提交中';
         vm.isDisabled = true;
-
-        $http.post($attrs.api, {
-          model: $scope[$attrs.vm].data
-        }).success(res => {
+        var para = {};
+        if($attrs.isfbzp === true) {
+           para.model = $scope[$attrs.vm].data;
+        }else {
+          para = $.extend({},$scope[$attrs.vm].data);
+        }
+           
+        $http.post($attrs.api, para).success(res => {
           if (res.success) {
             $scope[$attrs.vm].isSubmitSuccess = true;
+            vm.isDisabled = false;
+            vm.submitText = '提交';
           } else {
             $scope[$attrs.vm].errorMsg = res.msg;
             fail();

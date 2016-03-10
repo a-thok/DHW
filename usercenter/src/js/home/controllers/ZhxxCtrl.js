@@ -1,4 +1,4 @@
-//账号信息的主控制器
+//企业--账号信息的主控制器
 export default function ZhxxCtrl(){
   var vm = this;
   vm.listTabs = [
