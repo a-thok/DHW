@@ -65,7 +65,6 @@ export default function JlylCtrl(s, h, $location) {
         $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success(function(d){
               if(d.success){
                 $location.href="#/ytjl";
-                console.log("投递成功")
               }
         });
     }

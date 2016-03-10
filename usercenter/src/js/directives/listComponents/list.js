@@ -55,7 +55,7 @@ export default function list() {
           </div>
         `;
     },
-    controller: ['$http', '$attrs', '$window', function ($http, $attrs, $window) {
+    controller: ['$http', '$attrs', '$window', '$scope', function ($http, $attrs, $window, $scope) {
       let vm = this;
       let params;
       if (!$attrs.params) {
@@ -63,10 +63,12 @@ export default function list() {
       } else {
         params = JSON.parse($attrs.params);
       }
+      
       let getData = (pageIndex) => {
         $http.post($attrs.api, Object.assign({}, {
           pageIndex: pageIndex,
-          pageSize: 5
+          pageSize: 5,
+          id: parseInt($scope.$parent[$attrs.vm].id)
         }, params)).success(res => {
           vm.total = res.result.total;
           vm.data = res.result.data;

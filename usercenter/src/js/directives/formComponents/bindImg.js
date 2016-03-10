@@ -9,7 +9,6 @@ export default function bindImg() {
       link: function (scope, element, attr, ngModel) {
 
         // let $pick = element;
-        // console.log(element[0])
         let uploader = WebUploader.create({
           auto: true,
           swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
@@ -41,8 +40,6 @@ export default function bindImg() {
         
       // 上传失败
       uploader.on('uploadError', function (file) {
-        // $result.text('上传出错');
-        console.log("上传出错")
       });
       
   }

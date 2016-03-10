@@ -75,7 +75,6 @@ export default function BaseCtrl(s,$http) {
       s.countrys = s.$parent.areaData.filter((item) => {
         return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);
       });
-      // console.log(s.countrys);
       s.country = s.countrys[0].name;
       s.citym = citys.name;
       

@@ -37,7 +37,6 @@ export default function PfbCtrl($http) {
    
    vm.selectTrans = function (event, transNum) {
     vm.data.transaction = transNum;
-    console.log(vm.data.transaction)
     $(event.target).parents('.formSet').find('.formInputSet_radio').css({
       "background-position": "0 0"
     })

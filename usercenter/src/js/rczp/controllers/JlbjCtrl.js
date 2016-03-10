@@ -78,7 +78,6 @@ export default function JlbjCtrl(s, h, $location) {
   //     if(fixed_top_foot - page_scrollTop > 516) {
   //       $(".rsmS_fixed").css("position", "fixed");
   //     }else {
-  //       console.log(111)
   //       var top = 516 - (fixed_top_foot - page_scrollTop);
   //       $(".rsmS_fixed").css({"position": "fixed", 'top': -top});
   //     }
