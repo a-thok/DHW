@@ -6,17 +6,6 @@ export default function addPhoto() {
     template: function(elem, attrs) {
       return `
         <div class="formGourp clearfix">
-          <div class="formGourp_img">
-            <div>
-              <p>建议图片规格为250*300像素,以获得最佳展示效果</p>
-            </div>
-            <div>
-              <p>建议图片规格为250*170像素,以获得最佳展示效果</p>
-            </div>
-            <div>
-              <p>建议图片规格为1920像素,以获得最佳展示效果</p>
-            </div>
-          </div>
           <div ng-repeat="photo in vm.photos" class="addphoto">
               <div web-uploader 
                    data-vm="${attrs.vm}"

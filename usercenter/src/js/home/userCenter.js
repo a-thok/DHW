@@ -27,6 +27,9 @@ import sideBar from '../directives/userCenter/sideBar.js';
  import QyryCtrl from './controllers/QyryCtrl.js';
  import GzhjCtrl from './controllers/GzhjCtrl.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
+ import QyzyCtrl from './controllers/QyzyCtrl.js';
+ import PzhxxCtrl from './controllers/PzhxxCtrl.js';
+ import PzhpersonCtrl from './controllers/PzhpersonCtrl.js';
  //import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
  //import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
@@ -79,6 +82,31 @@ app
         templateUrl: '/partials/home/partial-zhxx-experience.html',  //公司站好--工作经历
         //controller: 'WorkCtrl as workVm'
       })
+      .state('pzhxx',{
+        url: '/pzhxx',
+        templateUrl: '/partials/home/partial-pzhxx.html',  //个人账号--工作经历
+        controller: 'PzhxxCtrl as pzhxxVm'
+      })
+      .state('pzhxx.person',{
+        url: '/person',
+        templateUrl: '/partials/home/partial-pzhperson.html',  //个人账号--工作经历
+        controller: 'PzhpersonCtrl as pzhpersonVm'
+      })
+      .state('pzhxx.photo',{
+        url: '/photo',
+        templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--工作经历
+       // controller: 'PzhxxCtrl as pzhxxVm'
+      })
+      .state('pzhxx.education',{
+        url: '/education',
+        templateUrl: '/partials/home/partial-pzhxx-education.html',  //个人账号--工作经历
+        //controller: 'PzhxxCtrl as pzhxxVm'
+      })
+      .state('pzhxx.experience',{
+        url: '/experience',
+        templateUrl: '/partials/home/partial-pzhxx-experience.html',  //个人账号--工作经历
+        //controller: 'PzhxxCtrl as pzhxxVm'
+      })
       .state('gsfu',{
         url: '/gsfu',
         templateUrl: '/partials/home/partial-gsfu.html',   //公司服务
@@ -109,22 +137,27 @@ app
         templateUrl:'/partials/home/partial-casesDetail.html',  //公司案例列表详情页
         controller:'CasesDetailCtrl as casesdetailVm'
       })
-      .state('qyzz',{
+      .state('qyzy',{
+        url:'/qyzy',
+        templateUrl:'/partials/home/partial-qyzy.html',  //企业资源
+        controller:'QyzyCtrl as qyzyVm'
+      })
+      .state('qyzy.qyzz',{
         url:'/qyzz',
         templateUrl:'/partials/home/partial-qyzz.html',  //企业资质
         controller:'QyzzCtrl as qyzzVm'
       })
-      .state('qyry',{
+      .state('qyzy.qyry',{
         url:'/qyry',
         templateUrl:'/partials/home/partial-qyry.html',  //企业荣誉
         controller:'QyryCtrl as qyryVm'
       })
-      .state('gzhj',{
+      .state('qyzy.gzhj',{
         url:'/gzhj',
         templateUrl:'/partials/home/partial-gzhj.html',  //工作环境
         controller:'GzhjCtrl as gzhjVm'
       })
-      .state('syztt',{
+      .state('qyzy.syztt',{
         url:'/syztt',
         templateUrl:'/partials/home/partial-syztt.html',  //首页主题图
         controller:'SyzttCtrl as syzttVm'
@@ -148,6 +181,9 @@ app
   .controller('QyryCtrl',QyryCtrl)
   .controller('GzhjCtrl',GzhjCtrl)
   .controller('SyzttCtrl',SyzttCtrl)
+  .controller('QyzyCtrl',QyzyCtrl)
+  .controller('PzhxxCtrl',PzhxxCtrl)
+  .controller('PzhpersonCtrl',PzhpersonCtrl)
   //.controller('EducationCtrl',['$http',EducationCtrl])
  // .controller("WorkCtrl",WorkCtrl)
   .controller("PersonCtrl",['$http',PersonCtrl])

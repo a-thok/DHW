@@ -1,0 +1,87 @@
+<!--公司账号个人信息-->
+<form name="pzhpersonForm" ng-submit="pzhpersonVm.submit()">
+   <div class="formGourp clearfix">
+     <div class="formGourp_wrap">
+       <label  class="formLabel">
+         <span class="formRequired">*</span>姓名
+       </label>
+       <div class="formGroup_display" ng-if="!pzhpersonVm.data.realnameauth">
+         <a href="javascript:;" class="formSwitch">点击进入实名认证</a>
+       </div>
+       <div class="formGroup_display" ng-if="pzhpersonVm.data.realnameauth">
+          <a href="javascript:;" class="formSwitch">{{personVm.data.realname}}</a>
+       </div>
+     </div>
+   </div>
+   <div web-uploader
+      data-vm="pzhpersonVm"
+      data-label="头像"
+      data-name="img"
+      data-required="true"
+      data-key="uc"
+      data-size="100x100"
+      ng-model="personVm.data.img"
+    ></div>
+   <div select-simple
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="性别"
+    data-name="sex"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-options="item.name as item.sex for item in personVm.sex"
+  ></div>
+   <div select-simple
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="学历"
+    data-name="eb"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-options="item for item in personVm.education"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="工作职位"
+    data-name="dpname"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="手机号码"
+    data-name="phone"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+    data-tip='请填写此电话号码'
+    data-error="号码以13,15,17,18,14,01开头"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="电子邮箱"
+    data-name="email"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-pattern=""
+    data-tip='请填写此邮箱'
+    data-error="邮箱格式不正确"
+  ></div>
+  <div btn-submit
+      data-vm="pzhpersonVm"
+      data-form="pzhpersonForm"
+      data-api="/UserAccount/Edit"
+      data-isfbzp="false"
+    ></div>
+</form>  
+
+  <div modal
+    data-vm = "pzhpersonVm"
+    data-url="/pzhxx/person"
+  ></div>

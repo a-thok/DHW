@@ -30,25 +30,10 @@ export default function MainCtrl($location) {
       active: false
     },
     {
-      url: 'qyzz',
+      url: 'qyzy.qyzz',
       text: '企业资质',
       active: false
     },
-    {
-      url: 'qyry',
-      text: '企业荣誉',
-      active: false
-    },
-    {
-      url: 'gzhj',
-      text: '工作环境',
-      active: false
-    },
-    {
-      url: 'syztt',
-      text: '首页主题图',
-      active: false
-    },   
     {
       url: 'yqlj',
       text: '友情链接',
@@ -61,36 +46,15 @@ export default function MainCtrl($location) {
     }
   ];
   
-  // const routes_c = [
-  //   {
-  //     url: 'fbzp',
-  //     text: '发布招聘',
-  //     active: false
-  //   },
-  //   {
-  //     url: 'zplb.published',
-  //     text: '招聘列表',
-  //     active: false
-  //   },
-  //   {
-  //     url: 'jllb.filter',
-  //     text: '简历列表',
-  //     active: false
-  //   },
-    
-    // {
-    //   url: 'zhxx.person',
-    //   text: '个人信息',
-    //   active: false
-    // },
-    //     {
-    //   url: 'zhxx.company',
-    //   text: '公司信息',
-    //   active: false
-    // },
-  // ];
+  const routes_p = [
+    {
+      url: 'pzhxx.person',
+      text:'账号信息',
+      active: false
+    }
+  ]
   vm.routes = {
     title: '常用功能',
-    items: routes_c
+    items: routes_c.concat(routes_p)
   };
 }
