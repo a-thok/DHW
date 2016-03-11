@@ -10,6 +10,7 @@ import calendar from  './formComponents/calendar.js'
 import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
 import bindImg from './formComponents/bindImg.js' 
+import nodatasArea from './formComponents/nodatasArea.js' 
 //测试指令省市三级联动
 import sCity from './formComponents/sCity.js'
 import fileUploader from './formComponents/fileUploader.js'
@@ -38,6 +39,7 @@ app
   //省市联动指令
   .directive('sCity',sCity)
   .directive('fileUploader',fileUploader)
+  .directive('nodatasArea',nodatasArea)
 export default app;
 
 
