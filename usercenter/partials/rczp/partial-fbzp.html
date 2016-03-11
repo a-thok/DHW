@@ -23,17 +23,22 @@
     data-tip='请填写此职位'
     data-error="职位名称必须在2-10个字符之间"
   ></div>
-  
+   <div nodatas-area
+        data-vm="fbzpVm"
+        data-label="所在地"
+        data-required="true"
+        data-name="area"
+   ></div>
    <div input-text
     data-switch="false"
     data-vm="fbzpVm"
-    data-label="工作地点"
+    data-label="详细地址"
     data-name="addr"
     data-required="true"
     data-form="fbzpForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,50}$/"
-    data-tip='请填写此职位的工作地点'
-    data-error="工作地点必须在2-50个字符之间"
+    data-tip='请填写此职位的详细地址'
+    data-error="详细地址必须在2-50个字符之间"
   ></div>
   
    <div input-text
@@ -119,13 +124,11 @@
     data-second="maxage"
     data-required="true"
   ></div>
-
-  <div btn-submit
-    data-vm="fbzpVm"
-    data-form="fbzpForm"
-    data-api="/HRZpxxFb/InfoFb"
-  ></div>
-
+  <div class="formGourp formGourp--submit clearfix">
+          <input class="formBtn formBtn--submit" type="submit" value="{{fbzpVm.submitText}}"
+            ng-disabled="fbzpForm.$invalid || fbzpVm.isDisabled"
+          >
+        </div>
 </form>
 
 <div modal

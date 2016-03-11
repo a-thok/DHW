@@ -11,7 +11,10 @@ import richText from  './formComponents/richText.js'
 import btnSubmit from  './formComponents/btnSubmit.js'
 import bindImg from './formComponents/bindImg.js' 
 import nodatasArea from './formComponents/nodatasArea.js' 
+<<<<<<< HEAD
 import addPhoto from './formComponents/addPhoto.js' 
+=======
+>>>>>>> 791f94ce4d151ba0da68d73afce1b9f9cfdb92ab
 //测试指令省市三级联动
 import sCity from './formComponents/sCity.js'
 import fileUploader from './formComponents/fileUploader.js'
@@ -41,8 +44,11 @@ app
   .directive('sCity',sCity)
   .directive('fileUploader',fileUploader)
   .directive('nodatasArea',nodatasArea)
+<<<<<<< HEAD
   //个人中心企业上传图片指令--有新增功能
   .directive('addPhoto',addPhoto)
+=======
+>>>>>>> 791f94ce4d151ba0da68d73afce1b9f9cfdb92ab
 export default app;
 
 

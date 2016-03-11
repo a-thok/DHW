@@ -52,6 +52,7 @@ export default function nodatasArea() {
           s.prov = draft.province.name;
           s.citym = draft.city.name;
           s.country = draft.district.name;
+          s.area = draft;
         }
       });
       //将数据保存到跟作用域上
@@ -78,7 +79,7 @@ export default function nodatasArea() {
         s.province = { code: provinces.code, name: provinces.name };
         s.city = { code: s.citys[0].code, name: s.citym };
         s.district = { code: '', name: '' };
-        s.data.area = {
+        s.area = {
           province: s.province,
           city: s.city,
           district: s.district
