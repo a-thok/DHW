@@ -84,22 +84,22 @@ app
       })
       .state('pzhxx',{
         url: '/pzhxx',
-        templateUrl: '/partials/home/partial-pzhxx.html',  //个人账号--工作经历
+        templateUrl: '/partials/home/partial-pzhxx.html',  //个人账号
         controller: 'PzhxxCtrl as pzhxxVm'
       })
       .state('pzhxx.person',{
         url: '/person',
-        templateUrl: '/partials/home/partial-pzhperson.html',  //个人账号--工作经历
+        templateUrl: '/partials/home/partial-pzhperson.html',  //个人账号--基本信息
         controller: 'PzhpersonCtrl as pzhpersonVm'
       })
       .state('pzhxx.photo',{
         url: '/photo',
-        templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--工作经历
+        templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--上传头像
        // controller: 'PzhxxCtrl as pzhxxVm'
       })
       .state('pzhxx.education',{
         url: '/education',
-        templateUrl: '/partials/home/partial-pzhxx-education.html',  //个人账号--工作经历
+        templateUrl: '/partials/home/partial-pzhxx-education.html',  //个人账号--教育经历
         //controller: 'PzhxxCtrl as pzhxxVm'
       })
       .state('pzhxx.experience',{
