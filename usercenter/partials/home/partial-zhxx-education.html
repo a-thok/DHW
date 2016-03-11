@@ -1,18 +1,18 @@
 <!--教育经历-->
 <form name="education" ng-submit="educationVm.submit()">
   <!--列表指令-->
-<div home    
+<div eduhome-list    
      data-vm="educationVm"
      data-operate="true"
 ></div>
-<div start-year
+<div startend-year
      data-vm='educationVm'
      data-switch='false'
      data-label='学习日期'
-     data-first='startYear'
-     data-second='startMonth'
-     data-third='endYear'
-     data-fourth='endMonth'
+     data-first='startyear'
+     data-second='startmonth'
+     data-third='endyear'
+     data-fourth='endmonth'
      data-required='true'
 ></div>
 <div input-text
@@ -53,4 +53,10 @@
      data-form="education"
      data-addapi="/UserAccount/EduAdd"
      data-modifyapi="/UserAccount/EduEdit"
+></div>
+</form>
+
+<div modal
+     data-vm="educationVm"
+     data-url="/zhxx/education" 
 ></div>

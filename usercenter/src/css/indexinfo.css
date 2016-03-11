@@ -57,3 +57,28 @@
   background:#337ab7;
   border-radius:3px;
 }
+/*教育经历，工作经历*/
+.accountInfoTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 12px;
+}
+.accountInfoTable thead td {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+.accountInfoTable td {
+    border: 1px solid #ddd;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+/*删除友情链接按钮样式*/
+.dellink_btn {
+  position: absolute;
+  right: 50x;
+  top: 50px;
+  background:#337ab7;
+  border-radius:3px;
+}

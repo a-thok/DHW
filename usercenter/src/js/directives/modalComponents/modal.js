@@ -11,7 +11,7 @@ export default function modal() {
             <h4 class="modal_title">系统提示</h4>
           </div>
           <div class="modal_body">
-            <p class="modal_body_text modal_body_text--success" ng-show="${attrs.vm}.isSubmitSuccess">提交成功，系统正在自动转跳...</p>
+            <p class="modal_body_text modal_body_text--success" ng-show="${attrs.vm}.isSubmitSuccess">提交成功...</p>
             <p class="modal_body_text" ng-show="!${attrs.vm}.isSubmitSuccess && ${attrs.vm}.errorMsg">{{${attrs.vm}.errorMsg}}</p>
             <p class="modal_body_text" ng-show="!${attrs.vm}.isSubmitSuccess && !${attrs.vm}.errorMsg">对不起，系统处理您的提交时出现错误，请稍后重试。</p>
           </div>

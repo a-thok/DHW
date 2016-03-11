@@ -30,10 +30,11 @@ import sideBar from '../directives/userCenter/sideBar.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
  import PzhpersonCtrl from './controllers/PzhpersonCtrl.js';
- //import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
+ import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
  //import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
  import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
+ import YqljCtrl from './controllers/YqljCtrl.js';
 // // import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
 
 
@@ -75,7 +76,7 @@ app
       .state('zhxx.education',{
         url: '/education',
         templateUrl: '/partials/home/partial-zhxx-education.html',  //公司账号--教育经历
-        //controller: 'EducationCtrl as educationVm'
+        controller: 'EducationCtrl as educationVm'
       })
       .state('zhxx.experience',{
         url: '/experience',
@@ -132,6 +133,11 @@ app
         templateUrl: '/partials/home/partial-allb.html',   //公司案例列表
         controller: 'AllbCtrl as allbVm'
       })
+      .state('yqlj',{
+        url: '/yqlj',
+        templateUrl: '/partials/home/partial-yqlj.html',   //友情链接
+        controller: 'YqljCtrl as yqljVm'
+      })
       .state('casesDetail',{
         url:'/casesDetail/:id',
         templateUrl:'/partials/home/partial-casesDetail.html',  //公司案例列表详情页
@@ -184,9 +190,10 @@ app
   .controller('QyzyCtrl',QyzyCtrl)
   .controller('PzhxxCtrl',PzhxxCtrl)
   .controller('PzhpersonCtrl',PzhpersonCtrl)
-  //.controller('EducationCtrl',['$http',EducationCtrl])
+  .controller('EducationCtrl',['$http',EducationCtrl])
  // .controller("WorkCtrl",WorkCtrl)
   .controller("PersonCtrl",['$http',PersonCtrl])
   .controller("CompanyCtrl",['$http',CompanyCtrl])
+  .controller("YqljCtrl",['$http',YqljCtrl])
     
      

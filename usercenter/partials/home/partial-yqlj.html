@@ -1,32 +1,42 @@
 <!--友情链接-->
-<form name="yqljForm">
-  <div ng-repeat="link in yqljVm.links">
+<form name="yqljForm" ng-submit="yqljVm.submit()">
+  <div ng-repeat="link in yqljVm.links" class="addphoto">
     <div input-text
-      data-switch="true"
+      data-switch="false"
       data-vm="yqljVm"
       data-label="链接名称"
       data-name="text"
-      data-required="true"
       data-form="yqljForm"
+      data-repeatitem="link"
       data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
       data-error="请输入正确的链接名称"
       data-editapi="/CompanyHomeEdit/LinkList"
     ></div>
     <div input-text 
-      data-switch="true"
+      data-switch="false"
       data-vm="yqljVm"
       data-label="案例链接"
       data-name="url"
-      data-required="true"
       data-form="yqljForm"
+      data-repeatitem="link"
       data-pattern="/^((https?|ftp|news):\/\/)?([a-z]([a-z0-9\-]*[\.。])+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel)|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&]*)?)?(#[a-z][a-z0-9_]*)?$/"
       data-error="链接地址不合法"
       data-editapi="/CompanyHomeEdit/LinkList"
     ></div>
-    <button class="formSet_input_btn formSet_input_btn-sku formSet_input_btn_marginTop" 
+     <button class="formSet_input_btn dellink_btn" ng-hide="$index===0" ng-click="yqljVm.dellink($index)">删除</button>
+  </div>
+  <button class="formBtn formBtn--submit addphoto_add_btn" 
       type="button"
       ng-click="yqljVm.addlink()"
-   > 添加友情链接
+   > 添加链接
    </button>
-  </div>
+    <!--提交按钮指令需要重写-->
+     <div class="formGourp formGourp--submit clearfix">
+  <input class="formBtn formBtn--submit" type="submit" value="{{yqljVm.submitText}}"
+      ng-disabled="yqljForm.$invalid || yqljVm.isDisabled">
+</div>
 </form>
+<div modal
+  data-vm="yqljVm"
+  data-url=""
+></div>
