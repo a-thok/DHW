@@ -10,7 +10,6 @@ export default function GsfwCtrl($http) {
       var para = $.extend({},vm.data);
      $http.post('/CompanyHomeEdit/ServiceAdd',para).success( d =>{
        if(d.success) {
-         console.log("成功")
        } 
      })
    }

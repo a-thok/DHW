@@ -8,7 +8,6 @@ export default function CasesDetailCtrl($http,$stateParams) {
   })
   vm.submit = function() {
     var para = $.extend({},vm.data);
-    console.log(para);
     $http.post('/CompanyHomeEdit/CaseEdit',para).success(function(d){
       if(d.success){
         

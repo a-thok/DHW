@@ -28,7 +28,7 @@ export default function EditCtrl($http, $stateParams, $location) {
       $http.post('/HRZpxxFb/Detail', { id: id }).success( (d) => {
       if (d.success) {
           vm.data = d.result.model;
-          console.log(d.result.area);
+         
           fn(d.result.area)
          }
      });
@@ -40,7 +40,7 @@ export default function EditCtrl($http, $stateParams, $location) {
      vm.isDisabled = true;
      
      var content = vm.draft.basic();
-     console.log(content);
+    
      para.model = vm.data;
      para.area = $.extend({},content.area);
      $http.post('/HRZpxxFb/Edit',para).success(function(d){

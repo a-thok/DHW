@@ -8,7 +8,7 @@ export default function PzhpersonCtrl($http) {
    vm.education = education;
    vm.data = {};
    
-   $http.post('/UserAccount/Edit').success( (d) => {
+   $http.post('/UserAccount/Detail').success( (d) => {
       if (d.success) {
            vm.data = d.result;
           //  if(d.result.sex == 'male') {

@@ -20,7 +20,7 @@
       data-required="true"
       data-key="uc"
       data-size="100x100"
-      ng-model="personVm.data.img"
+      ng-model="pzhpersonVm.data.img"
     ></div>
    <div select-simple
     data-switch="false"
@@ -29,7 +29,7 @@
     data-name="sex"
     data-required="true"
     data-form="pzhpersonForm"
-    data-options="item.name as item.sex for item in personVm.sex"
+    data-options="item.name as item.sex for item in pzhpersonVm.sex"
   ></div>
    <div select-simple
     data-switch="false"
@@ -38,7 +38,7 @@
     data-name="eb"
     data-required="true"
     data-form="pzhpersonForm"
-    data-options="item for item in personVm.education"
+    data-options="item for item in pzhpersonVm.education"
   ></div>
    <div input-text
     data-switch="false"

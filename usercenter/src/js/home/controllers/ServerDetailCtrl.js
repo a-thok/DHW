@@ -13,7 +13,7 @@ export default function ServerDetailCtrl($http,$stateParams){
   vm.submit = function(){
     $http.post('/CompanyHomeEdit/ServiceEdit',vm.data).success(function(d) {
       if(d.success) {
-        console.log("成功")
+       
       }
     })
   }

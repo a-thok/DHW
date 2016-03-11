@@ -52,9 +52,22 @@ export default function MainCtrl($location) {
       text:'账号信息',
       active: false
     }
-  ]
+    
+  ];
+  
+  let cookies = {}
+  document.cookie.split('; ').forEach(item => {
+    let arr = item.split('=')
+    cookies[arr[0]] = arr[1]
+  })
+  if (cookies.accountType) {
+    vm.accountType = cookies.accountType
+    vm.logintype = cookies.logintype
+  }
+  
+  
   vm.routes = {
     title: '常用功能',
-    items: routes_c.concat(routes_p)
+    items: vm.logintype == 1 ? vm.routes_p :vm.routes_c
   };
 }

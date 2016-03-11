@@ -15,12 +15,8 @@ export default function partialController($scope,$attrs,$http,$stateParams,vm ){
     //个人中心基本信息企业版传递sex名称
     let para = $.extend({},isdata);
     let isid = $stateParams.id;
-    //console.log($scope.$parent[$attrs.vm]);
-    //console.log(isdata);
-    //console.log(isid);
     //这里是提交数据
     $http.post($attrs.editapi,Object.assign({}, { id : isid },para)).success((d) => {
-      console.log(d);
     })
   };
 

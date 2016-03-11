@@ -1,0 +1,65 @@
+<!--个人账号工作经历-->
+<form name="pzhxxworkForm" ng-submit="pzhxxworkVm.submit()">
+  <!--列表指令-->
+<div eduhome-list    
+     data-vm="pzhxxworkVm"
+     data-operate="true"
+     data-postapi="/UserAccount/GzjlList"
+     data-delapi="/UserAccount/GzjlDel"
+     data-editapi="/UserAccount/Gzjl"
+></div>
+<div startend-year
+     data-vm='pzhxxworkVm'
+     data-switch='false'
+     data-label='学习日期'
+     data-first='startyear'
+     data-second='startmonth'
+     data-third='endyear'
+     data-fourth='endmonth'
+     data-required='true'
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="学校名称"
+    data-name="name"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学校名称'
+    data-error="学校名称必须在2-30个字符之间"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="学历"
+    data-name="xl"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学历名称'
+    data-error="学历名称必须在2-30个字符之间"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="专业"
+    data-name="major"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学校名称'
+    data-error="学校名称必须在2-30个字符之间"
+></div>
+<div homebtn-submit
+     data-vm="pzhxxworkVm"
+     data-form="pzhxxworkForm"
+     data-addapi="/UserAccount/GzjlAdd"
+     data-modifyapi="/UserAccount/GzjlEdit"
+></div>
+</form>
+
+<div modal
+     data-vm="pzhxxworkVm"
+     data-url="/pzhxx/experience" 
+></div>

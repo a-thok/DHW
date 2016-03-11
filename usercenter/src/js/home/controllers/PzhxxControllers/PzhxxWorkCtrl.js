@@ -1,5 +1,5 @@
  // 工作经历控制器
-export default function WorkCtrl() {
+export default function PzhxxWorkCtrl() {
   var vm = this;
   vm.listTitle=[
     {name: '公司名称',key : 'name', width: '20%'},

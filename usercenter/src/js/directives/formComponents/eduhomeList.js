@@ -29,13 +29,13 @@ export default function eduhomeList(){
     controller: ['$scope','$http', '$attrs', function($scope, $http, $attrs) {
       var vm = this;
       
-      $http.post('/UserAccount/EduList').success(function(d) {
+      $http.post($attrs.postapi).success(function(d) {
         if(d.success) {
             $scope.$parent[$attrs.vm].listdata = d.result;          
         }
       })
       vm.del = function(id,index) {
-        $http.post('/UserAccount/EduDel',{id: id}).success(function(d) {
+        $http.post($attrs.delapi,{id: id}).success(function(d) {
           if(d.success) {
             $scope.$parent[$attrs.vm].listdata.splice(index,1);
           }
@@ -43,7 +43,7 @@ export default function eduhomeList(){
       }
       vm.edit = function(id,index) {
         $scope.$parent[$attrs.vm].index = index;
-        $http.post('/UserAccount/Eduinfo', {id : id}).success(function(d) {
+        $http.post($attrs.editapi, {id : id}).success(function(d) {
           $scope.$parent[$attrs.vm].data = d.result;
           var beginDate = d.result.begindate.split('-');
           var endDate = d.result.enddate.split('-');

@@ -2,7 +2,6 @@
  import angular from 'angular';
 
 // // 依赖模块
-// // import pagination from '../directives/pagination.js';
  import listComponents  from '../directives/listComponents.js'
  import modalComponents from '../directives/modalComponents.js'   //表单信息提示弹框 庄
  import formComponents from '../directives/formComponents.js';
@@ -11,7 +10,7 @@
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
 import sideBar from '../directives/userCenter/sideBar.js';
-// //import switchType from '../directives/userCenter/switchType.js';
+import switchType from '../directives/userCenter/switchType.js';
 
 //  控制器
  import MainCtrl from './controllers/MainCtrl.js';
@@ -28,31 +27,35 @@ import sideBar from '../directives/userCenter/sideBar.js';
  import GzhjCtrl from './controllers/GzhjCtrl.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
+//个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
- import PzhpersonCtrl from './controllers/PzhpersonCtrl.js';
+ import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
+ import PzhxxEduCtrl from './controllers/PzhxxControllers/PzhxxEduCtrl.js';
+ import PzhxxWorkCtrl from './controllers/PzhxxControllers/PzhxxWorkCtrl.js'; 
+ //企业版
  import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
- //import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
+ import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
  import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
  import YqljCtrl from './controllers/YqljCtrl.js';
-// // import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
+
 
 
  let app = angular.module('userCenter',['ngAnimate', 'ui.router','listComponents','formComponents','modalComponents']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
          // 从cookie获取当前个人中心类型（企业或个人）
-      // let logintype;
-      // let cookies = document.cookie.split('; ');
-      // cookies.forEach((cookie) => {
-      //   if (cookie.indexOf('logintype') !== -1) {
-      //     logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-      //   }
-      // });
+      let logintype;
+      let cookies = document.cookie.split('; ');
+      cookies.forEach((cookie) => {
+        if (cookie.indexOf('logintype') !== -1) {
+          logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
+        }
+      });
     // 根据个人中心类型，判断默认加载哪个路由
-    // $urlRouterProvider.otherwise(logintype === 1 ? '/jlbj' : '/fbzp');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/pzhxx/person' : '/zhxx/person');
     
-    $urlRouterProvider.otherwise('/zhxx' , '/zhxx/person');
+    //$urlRouterProvider.otherwise('/zhxx' , '/zhxx/person');
     $stateProvider
       .state('zhxx',{
         url: '/zhxx',
@@ -80,8 +83,8 @@ app
       })
       .state('zhxx.experience',{
         url: '/experience',
-        templateUrl: '/partials/home/partial-zhxx-experience.html',  //公司站好--工作经历
-        //controller: 'WorkCtrl as workVm'
+        templateUrl: '/partials/home/partial-zhxx-experience.html',  //公司账号--工作经历
+        controller: 'WorkCtrl as workVm'
       })
       .state('pzhxx',{
         url: '/pzhxx',
@@ -96,17 +99,17 @@ app
       .state('pzhxx.photo',{
         url: '/photo',
         templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--上传头像
-       // controller: 'PzhxxCtrl as pzhxxVm'
+        //controller: 'PzhxxCtrl as pzhxxVm'
       })
       .state('pzhxx.education',{
         url: '/education',
         templateUrl: '/partials/home/partial-pzhxx-education.html',  //个人账号--教育经历
-        //controller: 'PzhxxCtrl as pzhxxVm'
+        controller: 'PzhxxEduCtrl as pzhxxeduVm'
       })
       .state('pzhxx.experience',{
         url: '/experience',
         templateUrl: '/partials/home/partial-pzhxx-experience.html',  //个人账号--工作经历
-        //controller: 'PzhxxCtrl as pzhxxVm'
+        controller: 'PzhxxWorkCtrl as pzhxxworkVm'
       })
       .state('gsfu',{
         url: '/gsfu',
@@ -172,10 +175,11 @@ app
   .directive('showAllModules', showAllModules)
   .directive('sideBar', sideBar)
   .directive('navSlide', navSlide)
+  .directive('switchType', switchType)
   
   
   .controller('MainCtrl',['$location',MainCtrl])
-  //企业版基本信息
+  //企业版
   .controller('ZhxxCtrl',ZhxxCtrl)
   .controller('GsfwCtrl',['$http',GsfwCtrl])
   .controller('FwlbCtrl',FwlbCtrl)
@@ -183,15 +187,20 @@ app
   .controller('GsalCtrl',['$http',GsalCtrl])
   .controller('AllbCtrl',AllbCtrl)
   .controller('CasesDetailCtrl',['$http','$stateParams',CasesDetailCtrl])
+  //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)
   .controller('GzhjCtrl',GzhjCtrl)
   .controller('SyzttCtrl',SyzttCtrl)
   .controller('QyzyCtrl',QyzyCtrl)
+  //个人账号
   .controller('PzhxxCtrl',PzhxxCtrl)
   .controller('PzhpersonCtrl',PzhpersonCtrl)
+  .controller('PzhxxEduCtrl',PzhxxEduCtrl)
+  .controller('PzhxxWorkCtrl',PzhxxWorkCtrl)
   .controller('EducationCtrl',['$http',EducationCtrl])
- // .controller("WorkCtrl",WorkCtrl)
+  //公司账号
+  .controller("WorkCtrl",WorkCtrl)
   .controller("PersonCtrl",['$http',PersonCtrl])
   .controller("CompanyCtrl",['$http',CompanyCtrl])
   .controller("YqljCtrl",['$http',YqljCtrl])

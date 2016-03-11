@@ -26,6 +26,7 @@ export default function btnSubmit() {
         vm.submitText = '提交中';
         vm.isDisabled = true;
         var para = {};
+        // 更改指令的通用性判断是否为发布招聘
         if($attrs.isfbzp === true) {
            para.model = $scope[$attrs.vm].data;
         }else {

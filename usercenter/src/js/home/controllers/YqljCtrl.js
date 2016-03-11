@@ -11,7 +11,7 @@ export default function YqljCtrl($http) {
   }
   
     vm.addlink = function () {
-      console.log(1);
+     
       if (vm.links.length < 10) {
         vm.links.push({});
       } else {

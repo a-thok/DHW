@@ -41,7 +41,6 @@ export default function homebtnSubmit() {
 
 
         var para = $.extend({}, $scope[$attrs.vm].data);
-        console.log(para);
         if ($scope[$attrs.vm].index) {
           //修改功能
           $scope[$attrs.vm].listdata[$scope[$attrs.vm].index] = para;
