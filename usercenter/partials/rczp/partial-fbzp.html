@@ -124,13 +124,11 @@
     data-second="maxage"
     data-required="true"
   ></div>
-
-  <div btn-submit
-    data-vm="fbzpVm"
-    data-form="fbzpForm"
-    data-api="/HRZpxxFb/InfoFb"
-  ></div>
-
+  <div class="formGourp formGourp--submit clearfix">
+          <input class="formBtn formBtn--submit" type="submit" value="{{fbzpVm.submitText}}"
+            ng-disabled="fbzpForm.$invalid || fbzpVm.isDisabled"
+          >
+        </div>
 </form>
 
 <div modal

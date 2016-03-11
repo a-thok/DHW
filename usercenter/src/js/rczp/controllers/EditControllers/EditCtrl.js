@@ -5,19 +5,57 @@ import {
   education
 } from '../../../data/data.js'
 export default function EditCtrl($http, $stateParams, $location) {
-   var vm = this;
-   vm.statemc = $location.search().statemc;
-   
-   vm.jobCategory = jobCategory;
-   vm.salary = salary;
-   vm.exprience = exprience;
-   vm.education = education
-   vm.data = {};
-   let id = $stateParams.id;
-   
-   $http.post('/HRZpcx/Detail', { id: id }).success( (d) => {
+  var vm = this;
+  vm.draft = {};
+  vm.data = {};
+  var para = {};
+  vm.statemc = $location.search().statemc;
+  vm.submitText = '提交';
+  vm.isDisabled = false;
+  function fail() {
+        vm.isSubmitSuccess = false;
+        vm.submitText = '提交';
+        vm.isDisabled = false;
+  }
+  vm.jobCategory = jobCategory;
+  vm.salary = salary;
+  vm.exprience = exprience;
+  vm.education = education
+  vm.data = {};
+  let id = $stateParams.id;
+
+  vm.getDraft = function(fn){
+      $http.post('/HRZpxxFb/Detail', { id: id }).success( (d) => {
       if (d.success) {
-           vm.data = d.result;
-     }
-   });
+          vm.data = d.result.model;
+          console.log(d.result.area);
+          fn(d.result.area)
+         }
+     });
+  }
+  
+   vm.showModal = false;
+   vm.submit = function(){
+     vm.submitText = '提交中';
+     vm.isDisabled = true;
+     
+     var content = vm.draft.basic();
+     console.log(content);
+     para.model = vm.data;
+     para.area = $.extend({},content.area);
+     $http.post('/HRZpxxFb/Edit',para).success(function(d){
+      if(d.success){
+        vm.isSubmitSuccess = true;
+      }else {
+        vm.errorMsg = res.msg;
+        fail();
+      }
+      vm.showModal = true;
+    }).error(() => {
+      fail();
+      vm.showModal = true;
+    })
+  }
+   
+  
 }
