@@ -4,6 +4,8 @@
 @import 'footer.css';
 /*取色器插件*/
 @import 'colpick.css';
+/*头像裁剪*/
+@import 'jquery.Jcrop.min.css';
 /* 表单页控件 */
 @import 'form.css';
 @import 'calender.css';

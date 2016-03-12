@@ -82,3 +82,51 @@
   background:#337ab7;
   border-radius:3px;
 }
+/*取色器插件样式*/
+.formGroup_colpick .formInput{
+  width: 0px;
+  height: 0px;
+  border : 16px solid green;
+}
+/*上传头像裁剪样式*/
+.avatarWrap {
+    margin-top: 20px;
+    margin-bottom: -20px;
+    text-align: center;
+}
+.avatarWrap .formSet {
+    margin-top: 30px;
+}
+.avatarUpload {
+    width: 705px;
+    min-height: 200px;
+    margin: 20px auto;
+}
+.avatarPre {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    overflow: hidden;
+    float: left;
+}
+.formSet-avatar {
+    text-align: center;
+}
+.submitBtn {
+    width: 270px;
+    height: 36px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #027cff;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+submitBtn[disabled] {
+    background-color: #ccc;
+}
+.jcrop-holder {
+  float: left;
+}

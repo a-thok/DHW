@@ -1,13 +1,13 @@
 // import $ from 'jquery';
 
-export default function MainCtrl($location) {
+export default function MainCtrl() {
   var vm = this;
   //公司账号
    vm.routes_c = [
     {
-      url: 'zhxx.person',
+      url: 'zhxx',
       text: '账号信息',
-      active: true
+      active: false
     },
     {
       url: 'gsfu',
@@ -48,7 +48,7 @@ export default function MainCtrl($location) {
   
   vm.routes_p = [
     {
-      url: 'pzhxx.person',
+      url: 'pzhxx',
       text:'账号信息',
       active: false
     }

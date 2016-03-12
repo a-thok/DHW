@@ -14,11 +14,37 @@ import nodatasArea from './formComponents/nodatasArea.js'
 import addPhoto from './formComponents/addPhoto.js' 
 import homebtnSubmit from './formComponents/homebtnSubmit.js' 
 import startendYear from './formComponents/startendYear.js' 
-import eduhomeList from './formComponents/eduhomeList.js' 
+import eduhomeList from './formComponents/eduhomeList.js'
+//头像上传裁剪指令
+import avatarDirective from './formComponents/avatarDirective.js'
+//取色器指令 
+import colpickDirective from './formComponents/colpickDirective.js'  
 //测试指令省市三级联动
 import fileUploader from './formComponents/fileUploader.js'
-let app = angular.module('formComponents', []);
+let app = angular.module('formComponents',[]);
 app
+  // .config(function(ngJcropConfigProvider) {
+  //   //   ngJcropConfigProvider.setJcropConfig({
+  //   //     bgColor: 'black',
+  //   //     bgOpacity: .4,
+  //   //     aspectRatio: 1,
+  //   // });
+
+  //   // [optional] To change the css style in the preview image
+  //   ngJcropConfigProvider.setPreviewStyle({
+  //       'width': '100px',
+  //       'height': '100px',
+  //       'overflow': 'hidden',
+  //       'margin-left': '5px'
+  //   });
+     
+  //   ngJcropConfigProvider.setJcropConfig('upload',{
+  //       bgColor: 'black',
+  //       bgOpacity: .4,
+  //       aspectRatio: 16/8,
+
+  //   });
+  // })
   // input text类型
   .directive('inputText', inputText)
   // textarea
@@ -46,9 +72,13 @@ app
   .directive('homebtnSubmit',homebtnSubmit)
   .directive('startendYear',startendYear)
   .directive('eduhomeList',eduhomeList)
+  //取色器指令
+  .directive('colpickDirective',colpickDirective)
 
   //个人中心企业上传图片指令--有新增功能
   .directive('addPhoto',addPhoto)
+  //头像上传裁剪功能
+  .directive('avatarDirective',avatarDirective)
 
 export default app;
 
