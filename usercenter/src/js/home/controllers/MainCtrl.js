@@ -3,7 +3,7 @@
 export default function MainCtrl($location) {
   var vm = this;
   //公司账号
-  const routes_c = [
+   vm.routes_c = [
     {
       url: 'zhxx.person',
       text: '账号信息',
@@ -43,10 +43,10 @@ export default function MainCtrl($location) {
       url: 'ztxg',
       text: '主题修改',
       active: false
-    }
+    },
   ];
   
-  const routes_p = [
+  vm.routes_p = [
     {
       url: 'pzhxx.person',
       text:'账号信息',

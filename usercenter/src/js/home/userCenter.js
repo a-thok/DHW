@@ -27,6 +27,7 @@ import switchType from '../directives/userCenter/switchType.js';
  import GzhjCtrl from './controllers/GzhjCtrl.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
+ import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
  import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
@@ -141,6 +142,11 @@ app
         templateUrl: '/partials/home/partial-yqlj.html',   //友情链接
         controller: 'YqljCtrl as yqljVm'
       })
+      .state('ztxg',{
+        url: '/ztxg',
+        templateUrl: '/partials/home/partial-ztxg.html',   //主题修改
+        controller: 'ZtxgCtrl as ztxgVm'
+      })
       .state('casesDetail',{
         url:'/casesDetail/:id',
         templateUrl:'/partials/home/partial-casesDetail.html',  //公司案例列表详情页
@@ -187,6 +193,7 @@ app
   .controller('GsalCtrl',['$http',GsalCtrl])
   .controller('AllbCtrl',AllbCtrl)
   .controller('CasesDetailCtrl',['$http','$stateParams',CasesDetailCtrl])
+  .controller('ZtxgCtrl',['$scope', '$http', ZtxgCtrl])
   //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)
