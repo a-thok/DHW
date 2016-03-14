@@ -84,8 +84,8 @@
   ></div>
   <!--是否需要显示电话号码-->
   <div class="formSet formSet-agreement clearfix">
-     <div class="formSetWrap">
-        <p class="formGroup_edit">
+     <div>
+        <p class="formSet_isphone">
           <input class="agreement" type="checkbox" ng-model="companyVm.data.phonevisible">
           <label>是否同意在首页显示完整的联系方式</label>
         </p>
@@ -130,3 +130,8 @@
       ng-disabled="companyForm.$invalid">
 </div>
 </form>
+
+<div modal
+     data-vm="companyVm"
+     data-url="/zhxx/company"
+></div>

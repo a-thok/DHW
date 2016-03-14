@@ -28,19 +28,20 @@
 .formSet_input-extrasmall {
     width: 50px;
 }
-.formSet_input_btn-sku {
-    margin-left: 200px;
-}
 .formSet_input_btn {
     height: 38px;
     padding: 0 10px;
     border: 0;
     margin-left: 10px;
     color: #fff;
-    background-color: #027cff;
+    background-color: #337ab7;
     cursor: pointer;
     float: left;
 }
+.formSet_input_btn-sku {
+    margin-left: 200px;
+}
+
 /*企业上传图片样式--企业资质等*/
 .addphoto {
   position: relative;
@@ -96,6 +97,10 @@
 }
 .avatarWrap .formSet {
     margin-top: 30px;
+}
+.avatarWrap_upload_btn {
+    text-align: center;
+    margin-top:30px;
 }
 .avatarUpload {
     width: 705px;

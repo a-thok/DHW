@@ -32,11 +32,11 @@
    </button>
     <!--提交按钮指令需要重写-->
      <div class="formGourp formGourp--submit clearfix">
-  <input class="formBtn formBtn--submit" type="submit" value="{{yqljVm.submitText}}"
-      ng-disabled="yqljForm.$invalid || yqljVm.isDisabled">
+  <input class="formBtn formBtn--submit" type="submit" value="提交"
+      ng-disabled="yqljForm.$invalid">
 </div>
 </form>
 <div modal
   data-vm="yqljVm"
-  data-url=""
+  data-url="/yqlj"
 ></div>

@@ -29,6 +29,8 @@ import switchType from '../directives/userCenter/switchType.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
  import avatarCtrl from './controllers/avatarCtrl.js';  //上传头像
+ import pavatarCtrl from './controllers/pavatarCtrl.js';  //个人账户上传头像
+ 
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
  import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
@@ -102,7 +104,7 @@ app
       .state('pzhxx.photo',{
         url: '/photo',
         templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--上传头像
-        //controller: 'PzhxxCtrl as pzhxxVm'
+        controller: 'pavatarCtrl as pavatarVm'
       })
       .state('pzhxx.education',{
         url: '/education',
@@ -197,6 +199,7 @@ app
   .controller('CasesDetailCtrl',['$http','$stateParams',CasesDetailCtrl])
   .controller('ZtxgCtrl',['$scope', '$http', ZtxgCtrl])
   .controller('avatarCtrl',['$scope', '$http', avatarCtrl])
+  .controller('pavatarCtrl', pavatarCtrl)
   //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)

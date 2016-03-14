@@ -5,7 +5,7 @@ export default function MainCtrl() {
   //公司账号
    vm.routes_c = [
     {
-      url: 'zhxx',
+      url: 'zhxx.person',
       text: '账号信息',
       active: false
     },

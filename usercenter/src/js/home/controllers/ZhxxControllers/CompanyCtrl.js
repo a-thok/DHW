@@ -14,6 +14,12 @@ export default function CompanyCtrl($http) {
   vm.data = {};
   vm.draft = {};
   vm.fuliT = {}
+  function fail() {
+        vm.isSubmitSuccess = false;
+        vm.isDisabled = false;
+    }
+  
+  
   vm.getDraft = function(fn) {
     $http.post('/UserAccount/Company').success(function(data) {
       fn(data.result.area);
@@ -63,7 +69,15 @@ export default function CompanyCtrl($http) {
     }
     $http.post('/UserAccount/CompanyEdit', para).success(function(d) {
       if (d.success) {
+        vm.isSubmitSuccess = true;
+      }else {
+        vm.errorMsg = res.msg;
+        fail();
       }
+      vm.showModal = true;
+    }).error(() => {
+       fail();
+       vm.showModal = true;
     });
   }
 }

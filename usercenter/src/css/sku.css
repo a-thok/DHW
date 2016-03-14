@@ -26,7 +26,7 @@
   float: none;
   margin-left: 200px;
 }
-.formSet_input_btn-sku {
+.skuBtn {
   margin-left: 200px;
 }
 .formSet_input_btn_marginTop {
@@ -38,4 +38,7 @@
 }
 .formSet_input_btn_upload:hover {
   text-decoration: none !important;
+}
+.formSet_isphone {
+  margin-left: 275px;
 }

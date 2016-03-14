@@ -11,7 +11,7 @@ export default function avatarDirective() {
       <div class="avatarWrap">
         <img ng-src="{{avatar ? dhw.imgurl + avatar : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}">
       </div>
-      <div class="formSet clearfix">
+      <div class="avatarWrap_upload_btn">
         <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc" data-size="600x600" bind-img>上传头像</span>
       </div>
       <div ng-show="data.logo">
