@@ -29,18 +29,14 @@ import switchType from '../directives/userCenter/switchType.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
-<<<<<<< HEAD
- 
  //  站内信
  import EmailCtrl from './controllers/EmailCtrl.js';
  import InboxCtrl from './controllers/EmailControllers/InboxCtrl.js';
  import OutboxCtrl from './controllers/EmailControllers/OutboxCtrl.js';
  import WriteCtrl from './controllers/EmailControllers/WriteCtrl.js';
  import EmailDetCtrl from './controllers/EmailControllers/EmailDetCtrl.js';
-=======
  import avatarCtrl from './controllers/avatarCtrl.js';  //上传头像
  import pavatarCtrl from './controllers/pavatarCtrl.js';  //个人账户上传头像
->>>>>>> b914d3331d55a33d4701c010bc64a27f69211688
  
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
