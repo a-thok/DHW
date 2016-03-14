@@ -5,6 +5,7 @@
  import listComponents  from '../directives/listComponents.js'
  import modalComponents from '../directives/modalComponents.js'   //表单信息提示弹框 庄
  import formComponents from '../directives/formComponents.js';
+ 
  // 指令
 
 import showAllModules from '../directives/userCenter/showAllModules.js';
@@ -28,6 +29,14 @@ import switchType from '../directives/userCenter/switchType.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
+ 
+ //  站内信
+ import EmailCtrl from './controllers/EmailCtrl.js';
+ import InboxCtrl from './controllers/EmailControllers/InboxCtrl.js';
+ import OutboxCtrl from './controllers/EmailControllers/OutboxCtrl.js';
+ import WriteCtrl from './controllers/EmailControllers/WriteCtrl.js';
+ import EmailDetCtrl from './controllers/EmailControllers/EmailDetCtrl.js';
+ 
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
  import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
@@ -177,6 +186,31 @@ app
         templateUrl:'/partials/home/partial-syztt.html',  //首页主题图
         controller:'SyzttCtrl as syzttVm'
       })
+      .state('email',{
+        url:'/email',
+        templateUrl:'/partials/home/partial-email.html',  //站内信
+        controller:'EmailCtrl as emailVm'
+      })
+      .state('email.inbox',{
+        url:'/inbox',
+        templateUrl:'/partials/home/email/partial-inbox.html',  //站内信
+        controller:'InboxCtrl as inboxVm'
+      })
+      .state('email.outbox',{
+        url:'/outbox',
+        templateUrl:'/partials/home/email/partial-outbox.html',  //站内信
+        controller:'OutboxCtrl as outboxVm'
+      })
+      .state('email.write',{
+        url:'/write',
+        templateUrl:'/partials/home/email/partial-write.html',  //站内信
+        controller:'WriteCtrl as writeVm'
+      })
+      .state('email.detail',{
+        url:'/detail/:id',
+        templateUrl:'/partials/home/email/partial-emailDetail.html',  //站内信
+        controller:'EmailDetCtrl as emailDetVm'
+      })
   }])
   .directive('showAllModules', showAllModules)
   .directive('sideBar', sideBar)
@@ -211,5 +245,10 @@ app
   .controller("PersonCtrl",['$http',PersonCtrl])
   .controller("CompanyCtrl",['$http',CompanyCtrl])
   .controller("YqljCtrl",['$http',YqljCtrl])
-    
+  // 站内信
+  .controller('EmailCtrl',EmailCtrl)  
+  .controller('OutboxCtrl',OutboxCtrl)  
+  .controller('InboxCtrl',InboxCtrl)  
+  .controller('WriteCtrl',WriteCtrl)  
+  .controller('EmailDetCtrl',EmailDetCtrl)  
      

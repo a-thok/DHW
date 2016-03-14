@@ -85,3 +85,16 @@
   float: left;
   margin-left: 5px;
 }
+.sendBtn {
+  min-width: 40px;
+  height: 36px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #337ab7;
+  font-size: 14px;
+  color: #fff;
+}
+.sendBtn[disabled] {
+  background-color: #ccc;
+}

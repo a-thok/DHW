@@ -27,6 +27,8 @@
 @import 'zhongbao.css';
 /*个人中心首页*/
 @import 'indexinfo.css';
+/*站内信*/
+@import 'email.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;

@@ -44,6 +44,11 @@ export default function MainCtrl($location) {
       text: '主题修改',
       active: false
     },
+    {
+      url: 'email.inbox',
+      text: '站内信',
+      active: false
+    },
   ];
   
   vm.routes_p = [
@@ -51,7 +56,12 @@ export default function MainCtrl($location) {
       url: 'pzhxx.person',
       text:'账号信息',
       active: false
-    }
+    },
+    {
+      url: 'email.inbox',
+      text: '站内信',
+      active: false
+    },
     
   ];
   
