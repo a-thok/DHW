@@ -2,11 +2,11 @@ export default function YqljCtrl($http) {
     var vm = this;
     vm.links = [{}];
     
-  vm.submitText = '提交';
+  // vm.submitText = '提交';
   vm.isDisabled = false;
   function fail() {
         vm.isSubmitSuccess = false;
-        vm.submitText = '提交';
+        // vm.submitText = '提交';
         vm.isDisabled = false;
   }
   
@@ -32,7 +32,7 @@ export default function YqljCtrl($http) {
     
        vm.showModal = false;
    vm.submit = function () {
-     vm.submitText = '提交中';
+    //  vm.submitText = '提交中';
      vm.isDisabled = true;
       var newArr = [];
       for (var i = 0, len = vm.links.length; i < len; i++) {

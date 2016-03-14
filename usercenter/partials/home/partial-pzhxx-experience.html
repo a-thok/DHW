@@ -21,36 +21,46 @@
 <div input-text
     data-switch="false"
     data-vm="pzhxxworkVm"
-    data-label="学校名称"
+    data-label="公司名称"
     data-name="name"
     data-required="true"
     data-form="pzhxxworkForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-    data-tip='请填写学校名称'
-    data-error="学校名称必须在2-30个字符之间"
+    data-tip='请填写公司名称'
+    data-error="公司名称必须在2-30个字符之间"
+></div>
+<div select-simple
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="所属行业"
+    data-name="industry"
+    data-required="true"
+    data-form="workForm"
+    data-options="item.name as item.name for item in pzhxxworkVm.companytrade"
 ></div>
 <div input-text
     data-switch="false"
     data-vm="pzhxxworkVm"
-    data-label="学历"
-    data-name="xl"
+    data-label="任职部门"
+    data-name="department"
     data-required="true"
     data-form="pzhxxworkForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-    data-tip='请填写学历名称'
-    data-error="学历名称必须在2-30个字符之间"
+    data-tip='请填写部门名称'
+    data-error="部门名称必须在2-30个字符之间"
 ></div>
 <div input-text
     data-switch="false"
     data-vm="pzhxxworkVm"
-    data-label="专业"
-    data-name="major"
+    data-label="任职职位"
+    data-name="position"
     data-required="true"
     data-form="pzhxxworkForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-    data-tip='请填写学校名称'
-    data-error="学校名称必须在2-30个字符之间"
+    data-tip='请填写职位名称'
+    data-error="职位名称必须在2-30个字符之间"
 ></div>
+
 <div homebtn-submit
      data-vm="pzhxxworkVm"
      data-form="pzhxxworkForm"

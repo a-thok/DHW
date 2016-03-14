@@ -7,10 +7,10 @@ export default function homebtnSubmit() {
       return `
         <div class="formGourp formGourp--submit clearfix">
           <input class="formBtn formBtn--submit" type="submit" value="保存修改" ng-if="${attrs.vm}.index"
-            ng-disabled="${attrs.form}.$invalid || vm.isDisabled"
+            ng-disabled="${attrs.form}.$invalid"
           >
           <input class="formBtn formBtn--submit" type="submit" value="新增"  ng-if="!${attrs.vm}.index"
-            ng-disabled="${attrs.form}.$invalid || vm.isDisabled"
+            ng-disabled="${attrs.form}.$invalid"
           >
         </div>
       `
@@ -19,11 +19,11 @@ export default function homebtnSubmit() {
       let vm = this;
       vm.index;
       //vm.submitText = '提交';
-      vm.isDisabled = false;
+      // vm.isDisabled = false;
       function fail() {
         $scope[$attrs.vm].isSubmitSuccess = false;
         //vm.submitText = '提交';
-        vm.isDisabled = false;
+        // vm.isDisabled = false;
       }
 
 

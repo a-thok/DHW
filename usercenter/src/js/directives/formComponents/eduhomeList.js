@@ -17,8 +17,8 @@ export default function eduhomeList(){
                       <span ng-if="!vm.isArray(box.key)">{{item[box.key]}}</span>
                    </td>
                    <td>
-                      <span ng-if="${attrs.operate}" ng-click="vm.del(item.id,$index)">删除 | </span>
-                      <span ng-if="${attrs.operate}" ng-click="vm.edit(item.id,$index)">修改</span>
+                      <span ng-if="${attrs.operate}" ng-click="vm.del(item.id,$index)" style="cursor:pointer">删除 | </span>
+                      <span ng-if="${attrs.operate}" ng-click="vm.edit(item.id,$index)" style="cursor:pointer">修改</span>
                    </td>   
                  </tr>
              </tbody>

@@ -29,6 +29,7 @@ import switchType from '../directives/userCenter/switchType.js';
  import SyzttCtrl from './controllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
+<<<<<<< HEAD
  
  //  站内信
  import EmailCtrl from './controllers/EmailCtrl.js';
@@ -36,6 +37,10 @@ import switchType from '../directives/userCenter/switchType.js';
  import OutboxCtrl from './controllers/EmailControllers/OutboxCtrl.js';
  import WriteCtrl from './controllers/EmailControllers/WriteCtrl.js';
  import EmailDetCtrl from './controllers/EmailControllers/EmailDetCtrl.js';
+=======
+ import avatarCtrl from './controllers/avatarCtrl.js';  //上传头像
+ import pavatarCtrl from './controllers/pavatarCtrl.js';  //个人账户上传头像
+>>>>>>> b914d3331d55a33d4701c010bc64a27f69211688
  
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
@@ -84,7 +89,8 @@ app
       })
       .state('zhxx.photo',{
         url: '/photo',
-       // templateUrl: '/partials/home/partial-zhxx-photo.html' //公司账号--上传头像
+        templateUrl: '/partials/home/partial-zhxx-photo.html' ,//公司账号--上传头像
+        controller : 'avatarCtrl as avatarVm'
       })
       .state('zhxx.education',{
         url: '/education',
@@ -109,7 +115,7 @@ app
       .state('pzhxx.photo',{
         url: '/photo',
         templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--上传头像
-        //controller: 'PzhxxCtrl as pzhxxVm'
+        controller: 'pavatarCtrl as pavatarVm'
       })
       .state('pzhxx.education',{
         url: '/education',
@@ -228,6 +234,8 @@ app
   .controller('AllbCtrl',AllbCtrl)
   .controller('CasesDetailCtrl',['$http','$stateParams',CasesDetailCtrl])
   .controller('ZtxgCtrl',['$scope', '$http', ZtxgCtrl])
+  .controller('avatarCtrl',['$scope', '$http', avatarCtrl])
+  .controller('pavatarCtrl', pavatarCtrl)
   //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)

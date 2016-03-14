@@ -4,6 +4,11 @@ export default function ZtxgCtrl($scope,$http){
     vm.data = {
       themes: {}
     };
+    function fail() {
+        vm.isSubmitSuccess = false;
+        vm.isDisabled = false;
+    }
+    
     $http.post('/CompanyHomeEdit/TitleDetail').success( (data) => {
      vm.data = data.result;
       if (vm.data.themes === null) {
@@ -11,31 +16,23 @@ export default function ZtxgCtrl($scope,$http){
       }
       vm.data.themes = JSON.parse(vm.data.themes);
     });
-// 取色器插件
-    $('#picker').colpick({
-
-      layout: 'hex',
-
-      submit: 0,
-
-      colorScheme: 'dark',
-
-      onChange:  (hsb, hex, rgb, el, bySetColor) => {
-
-        $(el).css('border-color', '#' + hex);
-        if (!bySetColor) $(el).val(hex);
-        vm.data.themes.themeColor = '#' + hex;
-        vm.$digest();
-      }
-    }).keyup( () => {
-
-      $(this).colpickSetColor(this.value);
-    });
-
+    vm.showModal = false;
     vm.submit = ()=> {
+      vm.isDisabled = true;
       var para = $.extend(true, {}, vm.data);
       para.themes = angular.toJson(para.themes);
-      $http.post('/CompanyHomeEdit/TitleSave', para).success(() => {
+      console.log(para);
+      $http.post('/CompanyHomeEdit/TitleSave', para).success((d) => {
+        if (d.success) {
+          vm.isSubmitSuccess = true;
+        } else {
+          vm.errorMsg = res.msg;
+          fail();
+        }
+         vm.showModal = true;
+      }).error(() => {
+        fail();
+         vm.showModal = true;
       })
     }
 }
