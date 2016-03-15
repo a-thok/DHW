@@ -53,7 +53,7 @@ export default function MainCtrl() {
   
   vm.routes_p = [
     {
-      url: 'pzhxx',
+      url: 'pzhxx.person',
       text:'账号信息',
       active: false
     },

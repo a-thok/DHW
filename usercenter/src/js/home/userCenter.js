@@ -240,7 +240,7 @@ app
   .controller('QyzyCtrl',QyzyCtrl)
   //个人账号
   .controller('PzhxxCtrl',PzhxxCtrl)
-  .controller('PzhpersonCtrl',PzhpersonCtrl)
+  .controller('PzhpersonCtrl',['$http',PzhpersonCtrl])
   .controller('PzhxxEduCtrl',PzhxxEduCtrl)
   .controller('PzhxxWorkCtrl',PzhxxWorkCtrl)
   .controller('EducationCtrl',['$http',EducationCtrl])
