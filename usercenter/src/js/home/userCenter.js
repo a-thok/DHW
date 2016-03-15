@@ -250,9 +250,9 @@ app
   .controller("CompanyCtrl",['$http',CompanyCtrl])
   .controller("YqljCtrl",['$http',YqljCtrl])
   // 站内信
-  .controller('EmailCtrl',EmailCtrl)  
-  .controller('OutboxCtrl',OutboxCtrl)  
-  .controller('InboxCtrl',InboxCtrl)  
-  .controller('WriteCtrl',WriteCtrl)  
+  .controller('EmailCtrl',['$http', '$stateParams', '$scope', EmailCtrl])
+  .controller('OutboxCtrl',['$http', '$scope', OutboxCtrl])  
+  .controller('InboxCtrl',['$http', InboxCtrl])  
+  .controller('WriteCtrl',['$http', WriteCtrl])  
   .controller('EmailDetCtrl',EmailDetCtrl)  
      
