@@ -25,11 +25,6 @@ export default function richText() {
       let editor = $('#editor');
       
       editor.trumbowyg({
-         btnsDef : {
-          image : {
-            dropdowm :['insertImage','upload'],
-          }
-        },
         btns: [
           'viewHTML',
           '|', 'formatting', 'btnGrp-design', 'foreColor', 'backColor',
@@ -40,16 +35,26 @@ export default function richText() {
           '|', 'removeformat'
         ],
         fullscreenable: false,
-        lang: 'zh_cn'
+        lang: 'zh_cn',
+        // upload: {
+        //   serverPath: '/'
+        // }
       }).on('tbwchange', () => {
           scope.$apply(() => {
             ngModel.$setViewValue(editor.trumbowyg('html'))
+          });
+        })
+        .on('tbwfocus', () => {
+          scope.$apply(() => {
+            ngModel.$setViewValue(editor.trumbowyg('html') + ' ')
           });
         });
         
       scope.$on('$destroy', () => {
         editor.trumbowyg('destroy');
       });
+      
+      // $.trumbowyg.upload.serverPath = ''
     }
   }
 }

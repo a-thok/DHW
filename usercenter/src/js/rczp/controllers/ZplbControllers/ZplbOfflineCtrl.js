@@ -1,7 +1,9 @@
+import {dhw} from '../../../data/data.js'
 export default function ZplbOfflineCtrl(){
    var vm = this;
+   vm.dhw = dhw;
    vm.list =  [
-       {name : '职位名称' , key : 'position' ,width: '20%',link : '//hr.dreamhiway.com/jobs/detail/' ,linkkey : 'id'},
+       {name : '职位名称' , key : 'position' ,width: '20%',link : 'true' ,linkkey : 'id'},
        {name : '薪资范围' , key : 'money' ,width : '10%'},
        {name : '工作经验' , key : 'gznx' ,width : '10%'},
        {name : '学历要求' , key : 'xl' ,width : '10%'},

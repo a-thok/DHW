@@ -3,10 +3,6 @@ export default function ZhxxCtrl(){
   var vm = this;
   vm.listTabs = [
     {
-      name : '个人信息',
-      url : '.person'
-    },
-    {
       name : '公司信息',
       url : '.company'
     },

@@ -46,7 +46,7 @@ import switchType from '../directives/userCenter/switchType.js';
  //企业版
  import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
  import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
- import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
+//  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
  import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
  import YqljCtrl from './controllers/YqljCtrl.js';
 
@@ -64,7 +64,7 @@ app
         }
       });
     // 根据个人中心类型，判断默认加载哪个路由
-    $urlRouterProvider.otherwise(logintype === 1 ? '/pzhxx/person' : '/zhxx/person');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/pzhxx/person' : '/zhxx/company');
     
     //$urlRouterProvider.otherwise('/zhxx' , '/zhxx/person');
     $stateProvider
@@ -73,11 +73,11 @@ app
         templateUrl: '/partials/home/partial-zhxx.html',    //公司账号信息主控制器
         controller: 'ZhxxCtrl as zhxxVm'
       })
-      .state('zhxx.person',{
-        url: '/person',
-        templateUrl: '/partials/home/partial-zhxx-person.html' ,//公司账号--基本信息
-        controller: 'PersonCtrl as personVm'
-      })
+      // .state('zhxx.person',{
+      //   url: '/person',
+      //   templateUrl: '/partials/home/partial-zhxx-person.html' ,//公司账号--基本信息
+      //   controller: 'PersonCtrl as personVm'
+      // })
       .state('zhxx.company',{
         url: '/company',
        templateUrl: '/partials/home/partial-zhxx-company.html',  //公司账号--公司信息
@@ -246,7 +246,7 @@ app
   .controller('EducationCtrl',['$http',EducationCtrl])
   //公司账号
   .controller("WorkCtrl",WorkCtrl)
-  .controller("PersonCtrl",['$http',PersonCtrl])
+  // .controller("PersonCtrl",['$http',PersonCtrl])
   .controller("CompanyCtrl",['$http',CompanyCtrl])
   .controller("YqljCtrl",['$http',YqljCtrl])
   // 站内信

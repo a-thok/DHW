@@ -1,3 +1,4 @@
+import {dhw} from '../../data/data.js'
 export default function list() {
   return {
     replace: true,
@@ -31,6 +32,7 @@ export default function list() {
                 data-operation2="${attrs.operation2}"
                 data-func2="${attrs.func2}"
                 data-editurl2="${attrs.editurl2}"
+                data-link="${attrs.link}"
               list-item>
               </li>
             </ul>
@@ -56,7 +58,8 @@ export default function list() {
         `;
     },
     controller: ['$http', '$attrs', '$window', '$scope', function ($http, $attrs, $window, $scope) {
-      let vm = this;
+      var vm = this;
+      vm.dhw = dhw;
       let params;
       if (!$attrs.params) {
         params = {};
