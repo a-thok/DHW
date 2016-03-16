@@ -23,6 +23,11 @@ export default function richText() {
       let editor = $('#editor');
       
       editor.trumbowyg({
+         btnsDef : {
+          image : {
+            dropdowm :['insertImage','upload'],
+          }
+        },
         btns: [
           'viewHTML',
           '|', 'formatting', 'btnGrp-design', 'foreColor', 'backColor',
