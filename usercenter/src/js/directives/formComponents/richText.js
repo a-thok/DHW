@@ -1,7 +1,9 @@
+import $ from 'jquery';
 import 'trumbowyg';
 import 'trumbowyg/dist/plugins/colors/trumbowyg.colors.js';
+import 'trumbowyg/dist/plugins/upload/trumbowyg.upload.js';
 import 'trumbowyg/dist/langs/zh_cn.min.js';
-import $ from 'jquery';
+
 
 export default function richText() {
   return {
@@ -31,7 +33,8 @@ export default function richText() {
         btns: [
           'viewHTML',
           '|', 'formatting', 'btnGrp-design', 'foreColor', 'backColor',
-          '|', 'link', 'insertImage',
+          '|', 'link',
+          '|', 'upload',
           '|', 'btnGrp-justify',
           '|', 'btnGrp-lists',
           '|', 'removeformat'
