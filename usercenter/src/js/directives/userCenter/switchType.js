@@ -24,11 +24,11 @@ export default function switchType() {
           route.active = i === 0 ? true : false;
         });
         // 路由定位到菜单第一项
-        if($attrs.curl && $attrs.purl && mainVm.logintype === 2 ) {
+        if ($attrs.curl && $attrs.purl && mainVm.logintype === 2 ) {
           $location.path($attrs.curl);    
-        }else if($attrs.curl && $attrs.purl && mainVm.logintype === 1) {
+        } else if($attrs.curl && $attrs.purl && mainVm.logintype === 1) {
           $location.path($attrs.purl);
-        }else {
+        } else {
          $location.path(mainVm.routes.items[0].url);
        }
       }

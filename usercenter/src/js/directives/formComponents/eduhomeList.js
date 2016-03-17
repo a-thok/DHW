@@ -42,7 +42,7 @@ export default function eduhomeList(){
         })
       }
       vm.edit = function(id,index) {
-        $scope.$parent[$attrs.vm].index = index;
+        $scope.$parent[$attrs.vm].index = index + 1;
         $http.post($attrs.editapi, {id : id}).success(function(d) {
           $scope.$parent[$attrs.vm].data = d.result;
           var beginDate = d.result.begindate.split('-');

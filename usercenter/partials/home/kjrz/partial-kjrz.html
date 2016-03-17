@@ -1,0 +1,25 @@
+<!--会计认证-->
+<form name="kjrzForm" ng-submit="kjrzVm.submit()">
+  <div web-uploader
+       data-vm="kjrzVm"
+       data-label="头像"
+       data-name="img"
+       data-key="uc"
+       data-size="100x100"
+       ng-model="kjrzVm.data.img"
+       data-required="true"
+  >  
+  </div>
+  <div select-simple
+       data-switch="false"
+       data-vm="kjrzVm"
+       data-label="认证类型"
+       data-name="icid"
+       data-required="true"
+       data-form="kjrzForm"
+       data-options="item.id as item.name for item in kjrzVm.selecttype"
+  ></div>
+  <div class="formGourp formGourp--submit clearfix">
+    <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="kjrzForm.$invalid">
+  </div>
+</form>

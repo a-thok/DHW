@@ -49,6 +49,9 @@ import switchType from '../directives/userCenter/switchType.js';
 //  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
  import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
  import YqljCtrl from './controllers/YqljCtrl.js';
+ //会计认证体系
+ import KjrzCtrl from './controllers/KjrzControllers/KjrzCtrl.js'
+ import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js' 
 
 
 
@@ -73,11 +76,6 @@ app
         templateUrl: '/partials/home/partial-zhxx.html',    //公司账号信息主控制器
         controller: 'ZhxxCtrl as zhxxVm'
       })
-      // .state('zhxx.person',{
-      //   url: '/person',
-      //   templateUrl: '/partials/home/partial-zhxx-person.html' ,//公司账号--基本信息
-      //   controller: 'PersonCtrl as personVm'
-      // })
       .state('zhxx.company',{
         url: '/company',
        templateUrl: '/partials/home/partial-zhxx-company.html',  //公司账号--公司信息
@@ -213,6 +211,16 @@ app
         templateUrl:'/partials/home/email/partial-emailDetail.html',  //站内信
         controller:'EmailDetCtrl as emailDetVm'
       })
+      .state('kjrz',{
+        url:'/kjrz',
+        templateUrl:'/partials/home/kjrz/partial-kjrz.html',  //认证体系
+        controller:'KjrzCtrl as kjrzVm'
+      })
+      .state('kjrzlist',{
+        url : '/kjrzlist',
+        templateUrl : '/partials/home/kjrz/partial-kjrz-list.html',
+        controller: 'KjrzListCtrl as kjrzlistVm'
+      })
   }])
   .directive('showAllModules', showAllModules)
   .directive('sideBar', sideBar)
@@ -232,6 +240,9 @@ app
   .controller('ZtxgCtrl',['$scope', '$http', ZtxgCtrl])
   .controller('avatarCtrl',['$scope', '$http', avatarCtrl])
   .controller('pavatarCtrl', pavatarCtrl)
+  //会计认证体系控制器
+  .controller('KjrzCtrl', ['$http', KjrzCtrl])
+  .controller('KjrzListCtrl',  KjrzListCtrl)
   //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)

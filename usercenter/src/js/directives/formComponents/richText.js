@@ -1,12 +1,6 @@
 // import $ from 'jquery';
 import { dhw } from '../../data/data.js';
 // var wangEditor = require('wangEditor.js')
-// import 'wangeditor';
-// import 'trumbowyg/dist/plugins/colors/trumbowyg.colors.js';
-// import 'trumbowyg/dist/plugins/upload/trumbowyg.upload.js';
-// import 'trumbowyg/dist/plugins/base64/trumbowyg.base64.js';
-// import 'trumbowyg/dist/langs/zh_cn.min.js';
-console.log(wangEditor)
 
 
 export default function richText() {
@@ -43,7 +37,6 @@ export default function richText() {
            scope.$apply(function() {
              ngModel.$setViewValue(editor.$txt.html());
            })
-            console.log(this.$txt.html());
        };
        scope.$on('$destroy', () => {
         editor.destroy();;

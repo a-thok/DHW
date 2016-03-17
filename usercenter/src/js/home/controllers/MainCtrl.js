@@ -5,7 +5,7 @@ export default function MainCtrl() {
   //公司账号
    vm.routes_c = [
     {
-      url: 'zhxx.person',
+      url: 'zhxx.company',
       text: '账号信息',
       active: false
     },
@@ -47,6 +47,16 @@ export default function MainCtrl() {
     {
       url: 'email.inbox',
       text: '站内信',
+      active: false
+    },
+    {
+      url: 'kjrz',
+      text: '认证体系',
+      active: false
+    },
+    {
+      url: 'kjrzlist',
+      text: '会计认证列表',
       active: false
     },
   ];
