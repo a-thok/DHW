@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.(woff|svg|eot|ttf)\??.*$/,
-        loader: 'url?limit=10000&name=font/[name].[ext]?[hash:7]'
+        loader: 'url?sourceMap?limit=10000&name=font/[name].[ext]?[hash:7]'
       },
       {
         test: /\.(png|jpg|gif)$/,

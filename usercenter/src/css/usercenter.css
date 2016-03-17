@@ -4,6 +4,8 @@
 @import 'footer.css';
 /*取色器插件*/
 @import 'colpick.css';
+/*富文本插件*/
+@import 'wangEditor.css';
 /*头像裁剪*/
 @import 'jquery.Jcrop.min.css';
 /* 表单页控件 */
@@ -304,4 +306,9 @@ body {
   line-height: 35px;
   color: #fff;
   text-decoration: none;
+}
+/*富文本编辑器*/
+.formGourp_editor_text {
+  width: 680px;
+  float: left;
 }

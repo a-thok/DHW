@@ -1,8 +1,12 @@
-import $ from 'jquery';
-import 'trumbowyg';
-import 'trumbowyg/dist/plugins/colors/trumbowyg.colors.js';
-import 'trumbowyg/dist/plugins/upload/trumbowyg.upload.js';
-import 'trumbowyg/dist/langs/zh_cn.min.js';
+// import $ from 'jquery';
+import { dhw } from '../../data/data.js';
+// var wangEditor = require('wangEditor.js')
+// import 'wangeditor';
+// import 'trumbowyg/dist/plugins/colors/trumbowyg.colors.js';
+// import 'trumbowyg/dist/plugins/upload/trumbowyg.upload.js';
+// import 'trumbowyg/dist/plugins/base64/trumbowyg.base64.js';
+// import 'trumbowyg/dist/langs/zh_cn.min.js';
+console.log(wangEditor)
 
 
 export default function richText() {
@@ -16,45 +20,36 @@ export default function richText() {
             <label class="formLabel">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
-            <textarea id="editor" ng-model="${attrs.vm}.data.${attrs.name}" ng-required="${attrs.required}"></textarea>
+            <div class="formGourp_editor_text">
+             <div id="editor" ng-model="${attrs.vm}.data.${attrs.name}" ng-required="${attrs.required}" style="min-height:400px;max-height:500px;"></div>
+            </div> 
           </div>
         </div>
       `;
     },
     link: function(scope, elem, attrs, ngModel) {
-      let editor = $('#editor');
+      var editor = new wangEditor('editor');
+   
+      // onchange 事件
+   
       
-      editor.trumbowyg({
-        btns: [
-          'viewHTML',
-          '|', 'formatting', 'btnGrp-design', 'foreColor', 'backColor',
-          '|', 'link',
-          '|', 'upload',
-          '|', 'btnGrp-justify',
-          '|', 'btnGrp-lists',
-          '|', 'removeformat'
-        ],
-        fullscreenable: false,
-        lang: 'zh_cn',
-        // upload: {
-        //   serverPath: '/'
-        // }
-      }).on('tbwchange', () => {
-          scope.$apply(() => {
-            ngModel.$setViewValue(editor.trumbowyg('html'))
-          });
-        })
-        .on('tbwfocus', () => {
-          scope.$apply(() => {
-            ngModel.$setViewValue(editor.trumbowyg('html') + ' ')
-          });
-        });
-        
-      scope.$on('$destroy', () => {
-        editor.trumbowyg('destroy');
-      });
-      
-      // $.trumbowyg.upload.serverPath = ''
+        editor.config.uploadImgUrl = dhw.imguploadurl + '?key=' + attrs.keyname + '&t=' + attrs.size;
+          editor.config.uploadImgFns.onload = function (resultText, xhr) {
+            var b = angular.fromJson(resultText);
+            var a  = dhw.imgurl +  b.path + b.name + '.jpg';
+            editor.command(null, 'insertHtml', '<img src="' + a + '" style="max-width:100%;"/>');
+        };
+        editor.onchange = function () {
+           scope.$apply(function() {
+             ngModel.$setViewValue(editor.$txt.html());
+           })
+            console.log(this.$txt.html());
+       };
+       scope.$on('$destroy', () => {
+        editor.destroy();;
+       });
+     
+        editor.create();
     }
   }
 }
