@@ -72,6 +72,11 @@ export default function MainCtrl() {
       text: '站内信',
       active: false
     },
+    {
+      url: 'addresslist',
+      text: '收货地址管理',
+      active: false
+    },
     
   ];
   

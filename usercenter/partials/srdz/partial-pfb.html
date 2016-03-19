@@ -1,4 +1,8 @@
-<form name="fbForm" ng-submit="fbVm.submit()">
+<div class="list_item_none" ng-if="!fbVm.isfuws">
+  请先申请为服务商
+</div>
+
+<form name="fbForm" ng-submit="fbVm.submit()" ng-if="fbVm.isfuws">
    <div web-uploader
       data-vm="fbVm"
       data-label="项目封面"

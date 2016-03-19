@@ -52,7 +52,9 @@ import switchType from '../directives/userCenter/switchType.js';
  //会计认证体系
  import KjrzCtrl from './controllers/KjrzControllers/KjrzCtrl.js'
  import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js' 
-
+ //收货地址管理
+ import AddressCtrl from './controllers/addressControllers/AddressCtrl.js'
+ import AddressEditCtrl from './controllers/addressControllers/AddressEditCtrl.js'
 
 
  let app = angular.module('userCenter',['ngAnimate', 'ui.router','listComponents','formComponents','modalComponents']);
@@ -221,6 +223,16 @@ app
         templateUrl : '/partials/home/kjrz/partial-kjrz-list.html',
         controller: 'KjrzListCtrl as kjrzlistVm'
       })
+      .state('addresslist',{
+        url : '/addresslist',
+        templateUrl : '/partials/home/addressList/addresslist.html',
+        controller: 'AddressCtrl as addressVm'
+      })
+      .state('addressedit',{
+        url : '/addressedit/:id',
+        templateUrl : '/partials/home/addressList/addressedit.html',
+        controller : 'AddressEditCtrl as addresseditVm'
+      })
   }])
   .directive('showAllModules', showAllModules)
   .directive('sideBar', sideBar)
@@ -243,6 +255,9 @@ app
   //会计认证体系控制器
   .controller('KjrzCtrl', ['$http', KjrzCtrl])
   .controller('KjrzListCtrl',  KjrzListCtrl)
+  //收货地址管理
+  .controller('AddressCtrl', ['$http', AddressCtrl])
+  .controller('AddressEditCtrl', ['$http', '$stateParams', AddressEditCtrl])
   //企业资源
   .controller('QyzzCtrl',QyzzCtrl)
   .controller('QyryCtrl',QyryCtrl)

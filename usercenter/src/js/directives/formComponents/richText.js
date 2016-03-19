@@ -23,16 +23,46 @@ export default function richText() {
     },
     link: function(scope, elem, attrs, ngModel) {
       var editor = new wangEditor('editor');
-   
+       editor.config.menus = [
+          'source',
+        '|',
+        'bold',
+        'underline',
+        'italic',
+        'strikethrough',
+        'eraser',
+        'forecolor',
+        'bgcolor',
+        '|',
+        'quote',
+        'fontfamily',
+        'fontsize',
+        'head',
+        'unorderlist',
+        'orderlist',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        '|',
+        'link',
+        'unlink',
+        'table',
+        '|',
+        'img',
+        '|',
+        'undo',
+        'redo',
+        'fullscreen'
+       ]
       // onchange 事件
    
       
         editor.config.uploadImgUrl = dhw.imguploadurl + '?key=' + attrs.keyname + '&t=' + attrs.size;
           editor.config.uploadImgFns.onload = function (resultText, xhr) {
-            var b = angular.fromJson(resultText);
-            var a  = dhw.imgurl +  b.path + b.name + '.jpg';
-            editor.command(null, 'insertHtml', '<img src="' + a + '" style="max-width:100%;"/>');
-        };
+             var resultTextJson = angular.fromJson(resultText);
+             var resultTextJsona  = dhw.imgurl +  resultTextJson.path + resultTextJson.name + '.jpg';
+             editor.command(null, 'insertHtml', '<img src="' + resultTextJsona + '" style="max-width:100%;"/>');
+       };
         editor.onchange = function () {
            scope.$apply(function() {
              ngModel.$setViewValue(editor.$txt.html());
@@ -41,8 +71,7 @@ export default function richText() {
        scope.$on('$destroy', () => {
         editor.destroy();;
        });
-     
-        editor.create();
+       editor.create();
     }
   }
 }

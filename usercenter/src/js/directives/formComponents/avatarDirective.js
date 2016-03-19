@@ -81,15 +81,22 @@ export default function avatarDirective() {
       params.logo = params.logo + '_600x600';
       params.t = '100x100'
       params.action = 'cut';
+      console.log(params)
+      console.log(dhw.imgcuturl)
       $.post(dhw.imgcuturl, params, function (data) {
         s.$apply(function () {
           s.avatar = data.path + '100x100.jpg';
           s.data.logo = '';
-        });
+        })
         h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success(function () {
         })
-      }, 'json');
+      }, 'json')
+      
+      // .fail(function(error){
+      //   console.log(error.status);
+      // });
     }
+    console.log(2)
     }]
   }
 }

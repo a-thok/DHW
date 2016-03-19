@@ -33,6 +33,8 @@ export default function list() {
                 data-func2="${attrs.func2}"
                 data-editurl2="${attrs.editurl2}"
                 data-link="${attrs.link}"
+                data-area="${attrs.area}"
+                data-addre="${attrs.addre}"
               list-item>
               </li>
             </ul>
@@ -74,7 +76,12 @@ export default function list() {
           id: parseInt($scope.$parent[$attrs.vm].id)
         }, params)).success(res => {
           vm.total = res.result.total;
-          vm.data = res.result.data;
+          if(res.result.data) {
+            vm.data = res.result.data;
+          }else {
+            vm.data = res.result;
+          }
+          
         });
       };
 
