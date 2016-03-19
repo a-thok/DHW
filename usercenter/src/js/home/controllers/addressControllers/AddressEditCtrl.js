@@ -13,7 +13,8 @@ export default function AddressEditCtrl($http,$stateParams) {
   }
   vm.getDraft = function(fn) {
     $http.post('/UserAddr/detail',{id : id}).success((d) => {
-     fn(d.result.area)
+     fn(d.result[0].area)
+     vm.data = d.result[0];
     })
   }
   vm.showModal = false;
@@ -21,6 +22,8 @@ export default function AddressEditCtrl($http,$stateParams) {
     vm.submitText = '提交中';
     vm.isDisabled = true;
     var content = vm.draft.basic();
+    para = $.extend({},vm.data);
+    para.id = id;
     para.area = $.extend({},content.area);
     $http.post('/useraddr/edit', para).success(function(d) {
       if(d.success) {

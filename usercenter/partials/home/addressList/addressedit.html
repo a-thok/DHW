@@ -2,8 +2,19 @@
   <div input-text
     data-switch="false"
     data-vm="addresseditVm"
-    data-label="邮编"
-    data-name="code"
+    data-label="收货人姓名"
+    data-name="name"
+    data-required="true"
+    data-form="addresseditFrom"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写收货人姓名'
+    data-error="收货人必须在2-10个字符之间"
+  ></div>
+  <div input-text
+    data-switch="false"
+    data-vm="addresseditVm"
+    data-label="收货地址"
+    data-name="address"
     data-required="true"
     data-form="addresseditFrom"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
@@ -13,13 +24,13 @@
   <div input-text
     data-switch="false"
     data-vm="addresseditVm"
-    data-label="收货人姓名"
-    data-name="name"
+    data-label="邮编"
+    data-name="code"
     data-required="true"
     data-form="addresseditFrom"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
-    data-tip='请填写收货人姓名'
-    data-error="收货人必须在2-10个字符之间"
+    data-tip='请填写邮编'
+    data-error="邮编必须在2-10个字符之间"
   ></div>
   <div input-text
     data-switch="false"
@@ -53,7 +64,7 @@
      <div class="formSetWrap">
         <label class="formLabel"><span class="formSet_required">*</span></label>
         <p class="formGroup_edit">
-          <input class="agreement" type="checkbox" ng-model="addresseditVm.data.IsDefault" required>
+          <input class="agreement" type="checkbox" ng-model="addresseditVm.data.isDefault" required>
           <label>是否设置为默认地址</label>
         </p>
      </div>
@@ -63,3 +74,6 @@
       ng-disabled="addresseditFrom.$invalid || addresseditVm.isDisabled">
    </div>
 </form>
+<div modal
+     data-vm="addresseditVm"
+></div>

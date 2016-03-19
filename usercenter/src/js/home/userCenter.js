@@ -1,7 +1,7 @@
  import $ from 'jquery';
  import angular from 'angular';
 
-// // 依赖模块
+// 依赖模块
  import listComponents  from '../directives/listComponents.js'
  import modalComponents from '../directives/modalComponents.js'   //表单信息提示弹框 庄
  import formComponents from '../directives/formComponents.js';
@@ -23,10 +23,10 @@ import switchType from '../directives/userCenter/switchType.js';
  import GsalCtrl from './controllers/GsalCtrl.js';
  import AllbCtrl from './controllers/AllbCtrl.js';
  import CasesDetailCtrl from './controllers/CasesDetailCtrl.js';
- import QyzzCtrl from './controllers/QyzzCtrl.js';
- import QyryCtrl from './controllers/QyryCtrl.js';
- import GzhjCtrl from './controllers/GzhjCtrl.js';
- import SyzttCtrl from './controllers/SyzttCtrl.js';
+ import QyzzCtrl from './controllers/QyzyControllers/QyzzCtrl.js';
+ import QyryCtrl from './controllers/QyzyControllers/QyryCtrl.js';
+ import GzhjCtrl from './controllers/QyzyControllers/GzhjCtrl.js';
+ import SyzttCtrl from './controllers/QyzyControllers/SyzttCtrl.js';
  import QyzyCtrl from './controllers/QyzyCtrl.js';
  import ZtxgCtrl from './controllers/ZtxgCtrl.js';  //主题修改
  //  站内信
@@ -35,32 +35,36 @@ import switchType from '../directives/userCenter/switchType.js';
  import OutboxCtrl from './controllers/EmailControllers/OutboxCtrl.js';
  import WriteCtrl from './controllers/EmailControllers/WriteCtrl.js';
  import EmailDetCtrl from './controllers/EmailControllers/EmailDetCtrl.js';
- import avatarCtrl from './controllers/avatarCtrl.js';  //上传头像
- import pavatarCtrl from './controllers/pavatarCtrl.js';  //个人账户上传头像
+ 
+ 
+
+
  
 //个人版
  import PzhxxCtrl from './controllers/PzhxxCtrl.js';
  import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
  import PzhxxEduCtrl from './controllers/PzhxxControllers/PzhxxEduCtrl.js';
- import PzhxxWorkCtrl from './controllers/PzhxxControllers/PzhxxWorkCtrl.js'; 
+ import PzhxxWorkCtrl from './controllers/PzhxxControllers/PzhxxWorkCtrl.js';
+ import pavatarCtrl from './controllers/PzhxxControllers/pavatarCtrl.js';  //个人账户上传头像 
  //企业版
  import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
  import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js'
-//  import PersonCtrl from './controllers/ZhxxControllers/PersonCtrl.js';
  import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
+ import avatarCtrl from './controllers/ZhxxControllers/avatarCtrl.js';  //上传头像
+ 
  import YqljCtrl from './controllers/YqljCtrl.js';
  //会计认证体系
  import KjrzCtrl from './controllers/KjrzControllers/KjrzCtrl.js'
  import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js' 
  //收货地址管理
- import AddressCtrl from './controllers/addressControllers/AddressCtrl.js'
- import AddressEditCtrl from './controllers/addressControllers/AddressEditCtrl.js'
+ import AddressCtrl from './controllers/AddressControllers/AddressCtrl.js'
+ import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js'
 
 
  let app = angular.module('userCenter',['ngAnimate', 'ui.router','listComponents','formComponents','modalComponents']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-         // 从cookie获取当前个人中心类型（企业或个人）
+      // 从cookie获取当前个人中心类型（企业或个人）
       let logintype;
       let cookies = document.cookie.split('; ');
       cookies.forEach((cookie) => {
@@ -70,8 +74,6 @@ app
       });
     // 根据个人中心类型，判断默认加载哪个路由
     $urlRouterProvider.otherwise(logintype === 1 ? '/pzhxx/person' : '/zhxx/company');
-    
-    //$urlRouterProvider.otherwise('/zhxx' , '/zhxx/person');
     $stateProvider
       .state('zhxx',{
         url: '/zhxx',
@@ -272,7 +274,6 @@ app
   .controller('EducationCtrl',['$http',EducationCtrl])
   //公司账号
   .controller("WorkCtrl",WorkCtrl)
-  // .controller("PersonCtrl",['$http',PersonCtrl])
   .controller("CompanyCtrl",['$http',CompanyCtrl])
   .controller("YqljCtrl",['$http',YqljCtrl])
   // 站内信
@@ -281,4 +282,4 @@ app
   .controller('InboxCtrl',['$http', InboxCtrl])  
   .controller('WriteCtrl',['$http', WriteCtrl])  
   .controller('EmailDetCtrl',EmailDetCtrl)  
-     
+  

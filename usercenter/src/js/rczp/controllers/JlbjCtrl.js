@@ -474,39 +474,39 @@ export default function JlbjCtrl(s, h, $location) {
     provs: [],
     // 城市，默认为热门城市
     citys: ['北京', '上海', '广州', '深圳', '杭州', '成都', '西安', '南京', '厦门', '武汉'],
-    // getCitys: function (prov) {
-    //   switch (prov) {
-    //     // 热门城市                                                                                                   
-    //     case '热门城市':
-    //       s.listData.citys = ['北京', '上海', '广州', '深圳', '杭州', '成都', '西安', '南京', '厦门', '武汉'];
-    //       break
-    //     // 如果是直辖市，不显示市下面具体的区
-    //     case '北京':
-    //     case '天津':
-    //     case '上海':
-    //     case '重庆':
-    //       s.listData.citys = [prov + "市"];
-    //       break;
-    //     // 如果是一般省份，取得省下的城市                                                                                                   
-    //     default:
-    //       for (var prop in _areaselect_data.c) {
-    //         if (prop.indexOf(prov) >= 0) {
-    //           s.listData.citys = _areaselect_data.c[prop];
-    //         }
-    //       }
-    //       break;
-    //   }
-    // }
+    getCitys: function (prov) {
+      switch (prov) {
+        // 热门城市                                                                                                   
+        case '热门城市':
+          s.listData.citys = ['北京', '上海', '广州', '深圳', '杭州', '成都', '西安', '南京', '厦门', '武汉'];
+          break
+        // 如果是直辖市，不显示市下面具体的区
+        case '北京':
+        case '天津':
+        case '上海':
+        case '重庆':
+          s.listData.citys = [prov + "市"];
+          break;
+        // 如果是一般省份，取得省下的城市                                                                                                   
+        default:
+          for (var prop in _areaselect_data.c) {
+            if (prop.indexOf(prov) >= 0) {
+              s.listData.citys = _areaselect_data.c[prop];
+            }
+          }
+          break;
+      }
+    }
   }
-  // 取得省份，即给s.listData.provs赋值
-  // s.getProvs = function () {
-  //   s.listData.provs = _areaselect_data.p.map(function (value) {
-  //     if (value.indexOf('黑龙江') >= 0) {
-  //       return value.substring(0, 3);
-  //     }
-  //     return value.substring(0, 2);
-  //   })
-  // } ();
+ // 取得省份，即给s.listData.provs赋值
+  s.getProvs = function () {
+    s.listData.provs = _areaselect_data.p.map(function (value) {
+      if (value.indexOf('黑龙江') >= 0) {
+        return value.substring(0, 3);
+      }
+      return value.substring(0, 2);
+    })
+  } ();
 
   // 下拉控件数据操作
   s.selectData = function (event, prop, index) {

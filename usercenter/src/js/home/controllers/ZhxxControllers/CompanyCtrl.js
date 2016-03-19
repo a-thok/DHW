@@ -68,6 +68,7 @@ export default function CompanyCtrl($http) {
       }
     }
     $http.post('/UserAccount/CompanyEdit', para).success(function(d) {
+      console.log(para.area)
       if (d.success) {
         vm.isSubmitSuccess = true;
       }else {
