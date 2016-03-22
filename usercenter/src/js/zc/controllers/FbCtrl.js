@@ -139,7 +139,7 @@ export default function FbCtrl($scope,$http,$state,$location) {
     $scope.provs;
      $scope.provinces = (() => {
         $http.post('/Dict/city').success((res) => {
-           $scope.areaData = res.result;
+          $scope.areaData = res.result;
           $scope.provs = $scope.areaData.filter((item) => {
             return item.type === 'province';
           });

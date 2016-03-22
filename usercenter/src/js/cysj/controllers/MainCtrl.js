@@ -9,9 +9,14 @@ export default function MainCtrl($location) {
     },
     {
       url: 'cyfb',
-      text: '已发布项目查询',
+      text: '已发布项目',
       active: false
     },
+    {
+      url: 'cgz',
+      text: '已收藏项目',
+      active: false
+    }
   ];
   //个人
   vm.routes_p = [
@@ -24,6 +29,11 @@ export default function MainCtrl($location) {
       url: 'pyfb',
       text: '已发布项目',
       active: false
+    },
+    {
+      url: 'pgz',
+      text: '已收藏项目',
+      active:false
     }
   ];
   

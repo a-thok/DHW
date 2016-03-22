@@ -178,10 +178,10 @@
                       <div class="rsm_select_lists clearfix">
                         <ul class="rsm_select_list rsm_select_list-left rsm_select_list-prov">
                           <li class="active" ng-click="listData.getCitys('热门城市')">热门城市</li>
-                          <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov}}</li>
+                          <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov.name}}</li>
                         </ul>
                         <ul class="rsm_select_list rsm_select_list-right rsm_select_list-city">
-                          <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', -1)">{{city}}</li>
+                          <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', -1)">{{city.name}}</li>
                         </ul>
                       </div>
                     </div>
@@ -708,10 +708,10 @@
                     <div class="rsm_select_lists clearfix">
                       <ul class="rsm_select_list rsm_select_list-left rsm_select_list-prov">
                         <li class="active" ng-click="listData.getCitys('热门城市')">热门城市</li>
-                        <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov}}</li>
+                        <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov.name}}</li>
                       </ul>
                       <ul class="rsm_select_list rsm_select_list-right rsm_select_list-city">
-                        <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', $parent.$index)">{{city}}</li>
+                        <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', $parent.$index)">{{city.name}}</li>
                       </ul>
                     </div>
                   </div>
@@ -898,7 +898,7 @@
           <span class="rsmS_item_btn add" ng-show="!show.project" ng-click="show.project = !show.project">+</span>
           <span class="rsmS_item_btn" ng-show="show.project" ng-click="show.project = !show.project; delSider('projects', 4)">×</span>
         </li>
-        <li class="rsmS_item "><i class="rsmS_zpzs pic"></i>作品展示</li>
+        <!--<li class="rsmS_item "><i class="rsmS_zpzs pic"></i>作品展示</li>-->
         <li>
           <a class="rsmS_item" href="#presentation"><i class="rsmS_zwms pic"></i>自我描述</a>
           <span class="rsmS_item_btn add" ng-show="!show.presentation" ng-click="show.presentation = !show.presentation">+</span>

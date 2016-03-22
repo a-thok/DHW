@@ -473,12 +473,34 @@ export default function JlbjCtrl(s, h, $location) {
     // 省份
     provs: [],
     // 城市，默认为热门城市
-    citys: ['北京', '上海', '广州', '深圳', '杭州', '成都', '西安', '南京', '厦门', '武汉'],
+    citys: [
+      {code:'110000', name:'北京', type:'city'}, 
+      {code:'310000', name:'上海', type:'city'}, 
+      {code:'440100', name:'广州', type:'city'}, 
+      {code:'440300', name:'深圳', type:'city'}, 
+      {code:'330100', name:'杭州', type:'city'}, 
+      {code:'510100', name:'成都', type:'city'}, 
+      {code:'510100', name:'西安', type:'city'}, 
+      {code:'320100', name:'南京', type:'city'}, 
+      {code:'350200', name:'厦门', type:'city'}, 
+      {code:'420100', name:'武汉', type:'city'},
+      ],
     getCitys: function (prov) {
       switch (prov) {
         // 热门城市                                                                                                   
         case '热门城市':
-          s.listData.citys = ['北京', '上海', '广州', '深圳', '杭州', '成都', '西安', '南京', '厦门', '武汉'];
+          s.listData.citys = [
+      {code:'110000', name:'北京', type:'city'}, 
+      {code:'310000', name:'上海', type:'city'}, 
+      {code:'440100', name:'广州', type:'city'}, 
+      {code:'440300', name:'深圳', type:'city'}, 
+      {code:'330100', name:'杭州', type:'city'}, 
+      {code:'510100', name:'成都', type:'city'}, 
+      {code:'510100', name:'西安', type:'city'}, 
+      {code:'320100', name:'南京', type:'city'}, 
+      {code:'350200', name:'厦门', type:'city'}, 
+      {code:'420100', name:'武汉', type:'city'},
+      ];
           break
         // 如果是直辖市，不显示市下面具体的区
         case '北京':
@@ -489,25 +511,22 @@ export default function JlbjCtrl(s, h, $location) {
           break;
         // 如果是一般省份，取得省下的城市                                                                                                   
         default:
-          for (var prop in _areaselect_data.c) {
-            if (prop.indexOf(prov) >= 0) {
-              s.listData.citys = _areaselect_data.c[prop];
-            }
-          }
+         s.listData.citys = s.areaData.filter(function(item) {
+           return item.type === 'city' && item.code.slice(0, 2) === prov.code.slice(0, 2)
+         })
           break;
       }
     }
   }
  // 取得省份，即给s.listData.provs赋值
-  s.getProvs = function () {
-    s.listData.provs = _areaselect_data.p.map(function (value) {
-      if (value.indexOf('黑龙江') >= 0) {
-        return value.substring(0, 3);
-      }
-      return value.substring(0, 2);
-    })
-  } ();
-
+  s.getProvs = (() => {
+     h.post('/Dict/city').success((res) => {
+          s.areaData = res.result;
+          s.listData.provs = s.areaData.filter((item) => {
+            return item.type === 'province';
+          });
+        });
+  })();
   // 下拉控件数据操作
   s.selectData = function (event, prop, index) {
     var elem = $(event.target) // 相当于this

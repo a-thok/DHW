@@ -20,7 +20,8 @@ import CyfbCtrl from './controllers/CyfbCtrl.js';
 import PfbCtrl from './controllers/PfbCtrl.js';
 import PyfbCtrl from './controllers/PyfbCtrl.js';
 import CyfbDetailCtrl from './controllers/CyfbDetailCtrl.js';
-
+import PgzCtrl from './controllers/PgzCtrl.js';
+import CgzCtrl from './controllers/CgzCtrl.js';
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 
@@ -64,7 +65,16 @@ app
         templateUrl : '/partials/cysj/partial-cyfb-detail.html',
         controller : 'CyfbDetailCtrl as detailVm'
       })
-    
+      .state('pgz',{
+        url : '/pgz',
+        templateUrl : '/partials/cysj/partial-pgz.html',
+        controller : 'PgzCtrl as pgzVm'
+      })
+      .state('cgz',{
+        url : '/cgz',
+        templateUrl : '/partials/cysj/partial-cgz.html',
+        controller : 'CgzCtrl as cgzVm'
+      })
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -76,3 +86,5 @@ app
   .controller('PfbCtrl', ['$http', PfbCtrl])
   .controller('PyfbCtrl', [ PyfbCtrl])
   .controller('CyfbDetailCtrl', ['$http','$stateParams', CyfbDetailCtrl])
+  .controller('PgzCtrl', ['$http', PgzCtrl])
+  .controller('CgzCtrl', ['$http', CgzCtrl])
