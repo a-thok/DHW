@@ -21,6 +21,16 @@ export default function MainCtrl($location) {
       url: 'pygz',
       text: '已关注项目',
       active: false
+    },
+    {
+      url: 'seller.all',
+      text: '卖家订单列表',
+      active: false
+    },
+    {
+      url: 'buyer.all',
+      text: '买家订单列表',
+      active: false
     }
   ];
   
@@ -28,6 +38,16 @@ export default function MainCtrl($location) {
     {
       url: 'cygz',
       text: '已关注项目',
+      active: false
+    },
+    {
+      url: 'seller.all',
+      text: '卖家订单列表',
+      active: false
+    },
+    {
+      url: 'buyer.all',
+      text: '买家订单列表',
       active: false
     }
   ];

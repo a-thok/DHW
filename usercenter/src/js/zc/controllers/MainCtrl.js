@@ -21,6 +21,11 @@ export default function MainCtrl() {
       url: 'tzlist',
       text: '支持列表',
       active: false
+    },
+    {
+      url: 'orderlist.dfk',
+      text: '订单列表',
+      active: false
     }
   ];
   //个人账户

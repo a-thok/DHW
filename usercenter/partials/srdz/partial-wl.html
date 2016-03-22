@@ -7,7 +7,7 @@
     data-required="true"
     data-switch="false"
     data-tip='请填写订单号'
-    data-pattern=""
+    data-pattern="//"
     ></div>
     <div input-text
     data-form="wlForm"
@@ -17,7 +17,7 @@
     data-required="true"
     data-switch="false"
     data-tip='请填写快递公司代码'
-    data-pattern=""
+    data-pattern="//"
     ></div>
     <div input-text
     data-form="wlForm"
@@ -27,7 +27,7 @@
     data-required="true"
     data-switch="false"
     data-tip='请填写物流单号'
-    data-pattern=""
+    data-pattern="//"
     ></div>
     <div text-area
     data-vm="WlVm"
@@ -37,11 +37,11 @@
     data-required="true"
     data-switch="false"
     data-tip='请填写卖家备注'
-    data-pattern=""
+    data-pattern="//"
     ></div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <button class="submitBtn" type="button" ng-disabled="wlForm.$invalid || wlVm.isDisabled" ng-click="wlVm.submit()">提交</button>
+        <button class="submitBtn" type="button" ng-disabled="wlForm.$invalid || WlVm.isDisabled" ng-click="WlVm.submit()">提交</button>
       </div>
     </div>
 </form>

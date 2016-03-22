@@ -1,3 +1,5 @@
+import { dhw } from '../../../data/data.js';
+
 export default function dfkCtrl() {
   var vm = this;
   vm.list = [
@@ -8,4 +10,5 @@ export default function dfkCtrl() {
     { name: '状态', key: 'status', width: '15%' },
     { name: '支持金额', key: 'cost', width: '10%' },
   ]
+  vm.dhw = dhw;
 }

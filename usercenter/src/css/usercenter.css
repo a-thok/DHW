@@ -33,6 +33,7 @@
 @import 'indexinfo.css';
 /*站内信*/
 @import 'email.css';
+@import 'readonly.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
