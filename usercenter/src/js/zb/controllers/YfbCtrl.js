@@ -1,3 +1,5 @@
+import { dhw } from '../../data/data.js'
+
 export default function YfbCtrl ($http) {
   var vm = this;
   vm.list = [
@@ -11,7 +13,7 @@ export default function YfbCtrl ($http) {
   ]
   vm.zjtg = function (project_id) {
     $http.post('/order/zb/add', {projectID: project_id}).success(function (data) {
-      window.location.href = '/order/zb/pay2/' + data.result.number;
+      window.location.href = dhw.urlzb + '/order/zb/pay2/' + data.result.number;
     })
   }
 }
