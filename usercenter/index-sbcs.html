@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="userCenter" ng-controller="MainCtrl as mainVm">
+<head>
+  <meta charset="UTF-8">
+  <title>用户中心 - 梦高速</title>
+  <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
+  <!--<link rel="stylesheet" href="/css/usercenter.css">-->
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/babel-polyfill/6.3.14/polyfill.min.js"></script>
+  <![endif]-->
+  <script>
+  var dhw = {
+    imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
+    mainurl: '//localhost:8085/', staticurl: 'http://192.168.2.10:81',
+    urlmain: '//localhost:8085/', urlcdn: '//192.168.2.10:81/', urlzc: '//localhost:8088/', urlkj: '//localhost:8087/', urlhr: '//localhost:8086/', urlzckj: '//localhost:8091/',
+    urlzb: '//localhost:8090/', urldiy: '//localhost:8092/', urlsrdz: '//localhost:8093/', urlcqbh: '//localhost:8094/', urlzxsj: '//localhost:8095/', urlgsss: '//localhost:8096/'
+  };
+  </script>
+</head>
+<body>
+  <!--通用顶栏 开始-->
+  <div class="siteNav">
+    
+  </div>
+  <!--通用顶栏 结束-->
+  
+  <!--个人中心导航栏 开始-->
+  <div class="ucNav">
+    <div class="ucNav_wrap clearfix">
+      <div class="ucNav_logo">
+ 
+      </div>
+      <ul class="ucNav_list" nav-slide>
+        <li class="ucNav_list_item ucNav_list_item--slider"></li>
+        <a href="#"><li class="ucNav_list_item ucNav_list_item--active">首页</li></a>
+        <a href="#"><li class="ucNav_list_item">人才招聘</li></a>
+        <a href="#"><li class="ucNav_list_item">众筹</li></a>
+        <a href="#"><li class="ucNav_list_item">众创空间</li></a>
+        <li class="ucNav_list_item ucNav_list_item--all" show-all-modules>
+          <div class="ucNav_list_item--all_text">所有服务<i class="ucNav_list_item--all_arrow"></i></div>
+          <ul class="ucNav_list_item--all_list">
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon kjfw"></i>
+                <span class="ucNav_list_item--all_list_item_text">会计服务</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon rczp"></i>
+                <span class="ucNav_list_item--all_list_item_text">人才招聘</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zchou"></i>
+                <span class="ucNav_list_item--all_list_item_text">众筹</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zckj"></i>
+                <span class="ucNav_list_item--all_list_item_text">众创空间</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon cysj"></i>
+                <span class="ucNav_list_item--all_list_item_text">创意设计</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon srdz"></i>
+                <span class="ucNav_list_item--all_list_item_text">私人定制</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zbao"></i>
+                <span class="ucNav_list_item--all_list_item_text">众包</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon cqbh"></i>
+                <span class="ucNav_list_item--all_list_item_text">产保护</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zxsj"></i>
+                <span class="ucNav_list_item--all_list_item_text">转型升级</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon gsss"></i>
+                <span class="ucNav_list_item--all_list_item_text">公司上市</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="ucNav_search">
+        <label class="ucNav_search_select">搜索
+          <!--<ul class="ucNav_search_select_list">
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+          </ul>-->
+        </label>
+        <input class="ucNav_search_input" id="ucSearch" name="ucSearch" type="text">
+        <label class="ucNav_search_btn"></label>
+      </div>
+      
+      <div switch-type></div>
+    </div>
+  </div>
+  <!--个人中心导航栏 结束-->
+  
+  <!--个人中心主内容 开始-->
+  <div class="ucMain clearfix" ng-cloak>
+    <!--侧边栏 开始-->
+    <div side-bar></div>
+    <!--侧边栏 结束-->
+    
+    <!--内容 开始-->
+    <div class="ucContent" ng-cloak ui-view>
+      
+    </div>
+    <!--内容 结束-->
+  </div>
+  <!--个人中心主内容 结束-->
+  
+  <!--通用底栏 开始-->
+ <div class="footer">
+    <div class="footer_content">
+      <span class="">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
+      <ul>
+        <li>
+          <a href="#" class="footer_a">免责声明</a>
+        </li>
+        <li>
+          <a href="#" class="footer_a">帮助中心</a>
+        </li>
+        <li>
+          <a href="#" class="footer_a">项目规范</a>
+        </li>
+        <li>
+          <a href="#" class="footer_a">服务协议</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用底栏 结束-->
+  
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/webuploader.nolog.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/js/angular.js"></script>
+  <!--<script src="/js/common.js"></script>-->
+  <script src="/js/uc.sbcs.js"></script>
+ 
+</body>
+</html>
