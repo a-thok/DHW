@@ -18,7 +18,7 @@ export default function textArea() {
             </div>
             
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
-              <textarea class="formTextarea" id="${attrs.name}" name="${attrs.name}" type="text"
+              <textarea class="formTextarea" id="${attrs.name}" name="${attrs.name}" type="text" ng-disabled="${attrs.disabled}"
                 ${
                   attrs.repeatitem ?
                   'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
