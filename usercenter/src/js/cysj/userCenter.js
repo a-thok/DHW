@@ -23,6 +23,12 @@ import CyfbDetailCtrl from './controllers/CyfbDetailCtrl.js';
 import PgzCtrl from './controllers/PgzCtrl.js';
 import CgzCtrl from './controllers/CgzCtrl.js';
 
+//投稿人列表
+import CytglistCtrl from './controllers/TgzControllers/CytglistCtrl.js';
+import CyfblistCtrl from './controllers/TgzControllers/CyfblistCtrl.js';
+import CytgdetailCtrl from './controllers/TgzControllers/CytgdetailCtrl.js';
+import CyfbdetailCtrl from './controllers/TgzControllers/CyfbdetailCtrl.js';
+
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 
 app
@@ -75,6 +81,29 @@ app
         templateUrl : '/partials/cysj/partial-cgz.html',
         controller : 'CgzCtrl as cgzVm'
       })
+      //投稿--个人
+      .state('cytglist',{
+        url : '/cytglist',
+        templateUrl : '/partials/cysj/contributor/partial-Contributors.html',
+        controller : 'CytglistCtrl as cytglistVm'
+      })
+      .state('cytgdetail',{
+        url : '/cytgdetail/:id',
+        templateUrl : '/partials/cysj/contributor/partial-cytgdetail.html',
+        controller : 'CytgdetailCtrl as cytgdetailVm'
+      })
+      
+      .state('cyfbdetail',{
+        url : '/cyfbdetail/:id',
+        templateUrl : '/partials/cysj/contributor/partial-cyfbdetail.html',
+        controller : 'CyfbdetailCtrl as cyfbdetailVm'
+      })
+      //投稿--公司
+      .state('cyfblist',{
+        url : '/cyfblist',
+        templateUrl : '/partials/cysj/contributor/partial-cyfblist.html',
+        controller : 'CyfblistCtrl as cyfblistVm'
+      })
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -88,3 +117,8 @@ app
   .controller('CyfbDetailCtrl', ['$http','$stateParams', CyfbDetailCtrl])
   .controller('PgzCtrl', ['$http', PgzCtrl])
   .controller('CgzCtrl', ['$http', CgzCtrl])
+  //投稿
+  .controller('CytglistCtrl',CytglistCtrl)
+  .controller('CyfblistCtrl',CyfblistCtrl)
+  .controller('CytgdetailCtrl',['$http','$stateParams', CytgdetailCtrl])
+  .controller('CyfbdetailCtrl',['$http','$stateParams', CyfbdetailCtrl])

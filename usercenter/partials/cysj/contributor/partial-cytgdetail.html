@@ -1,0 +1,48 @@
+<!--投稿人详细列表-->
+<form name="cytgdetailForm">
+   <div input-text
+    data-switch="false"
+    data-vm="cytgdetailVm"
+    data-label="报价"
+    data-name="quote"
+    data-required="true"
+    data-form="cytgdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写报价'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cytgdetailVm"
+    data-label="地区"
+    data-name="address"
+    data-required="true"
+    data-form="cytgdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写地区名称'
+    data-error="地区名称必须在2-10个字符之间"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cytgdetailVm"
+    data-label="报价"
+    data-name="worktime"
+    data-required="true"
+    data-form="cytgdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写报价'
+    data-error="职位名称必须在2-10个字符之间"
+  ></div>
+   <div text-area
+    data-switch="false"
+    data-vm="cytgdetailVm"
+    data-label="职位描述"
+    data-name="intro"
+    data-required="true"
+    data-form="cytgdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\-\:\；\,\，\.\!\、\。\：\;\'']{4,200}$/"
+    data-tip='请填写此职位的描述'
+    data-error="职位名称必须在4-200个字符之间,不能包含特殊字符"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+</form>

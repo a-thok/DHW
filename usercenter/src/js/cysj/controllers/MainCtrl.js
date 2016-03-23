@@ -16,6 +16,11 @@ export default function MainCtrl($location) {
       url: 'cgz',
       text: '已收藏项目',
       active: false
+    },
+    {
+      url: 'cyfblist',
+      text: '发布人',
+      active: false
     }
   ];
   //个人
@@ -34,6 +39,11 @@ export default function MainCtrl($location) {
       url: 'pgz',
       text: '已收藏项目',
       active:false
+    },
+    {
+      url : 'cytglist',
+      text : '投稿人',
+      active : false
     }
   ];
   
