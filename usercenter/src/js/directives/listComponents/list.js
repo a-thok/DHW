@@ -32,9 +32,15 @@ export default function list() {
                 data-operation2="${attrs.operation2}"
                 data-func2="${attrs.func2}"
                 data-editurl2="${attrs.editurl2}"
+                data-operate3="${attrs.operate3}"
+                data-editurl3="${attrs.editurl3}"
+                data-operation3="${attrs.operation3}"
+                data-func3="${attrs.func3}"
                 data-link="${attrs.link}"
                 data-area="${attrs.area}"
                 data-addre="${attrs.addre}"
+                data-return="${attrs.return}"
+                data-returnurl="${attrs.returnurl}"
               list-item>
               </li>
             </ul>

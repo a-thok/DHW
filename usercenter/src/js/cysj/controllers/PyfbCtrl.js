@@ -16,4 +16,11 @@ export default function PyfbCtrl($http) {
       window.location.href = dhw.urldiy + '/order/diy/pay2/' + data.result.number;
     })
   }
+   vm.complete = function(id) {
+    $http.post('/CysjFb/PojectComplete',{id : id}).success(function(d) {
+      if(d.success) {
+        alert('操作成功')
+      }
+    })
+  }
 }

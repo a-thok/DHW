@@ -18,9 +18,9 @@ export default function MainCtrl($location) {
       active: false
     },
     {
-      url: 'cyfblist',
-      text: '发布人',
-      active: false
+      url : 'cytglist',
+      text : '已投递项目',
+      active : false
     }
   ];
   //个人
@@ -42,7 +42,7 @@ export default function MainCtrl($location) {
     },
     {
       url : 'cytglist',
-      text : '投稿人',
+      text : '已投递项目',
       active : false
     }
   ];

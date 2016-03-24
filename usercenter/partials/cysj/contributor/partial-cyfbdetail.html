@@ -49,7 +49,7 @@
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
   ></div>
-   <div input-text
+   <!--<div input-text
     data-switch="false"
     data-vm="cyfbdetailVm"
     data-label="附件地址"
@@ -58,7 +58,14 @@
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
-  ></div>
+  ></div>-->
+  <div class="formGourp clearfix">
+          <label class="formLabel" for="">
+            附件下载
+          </label>
+          <span class="readSpan"><a href="{{cyfbdetailVm.data.savaaddr}}" target="_self">附件下载</a></span>
+   </div>
+  
    <div input-text
     data-switch="false"
     data-vm="cyfbdetailVm"
@@ -90,3 +97,6 @@
     data-disabled="true"
   ></div>
 </form>
+<div class="return_btn">
+  <a  href="#/pyfb">返回</a>
+</div>

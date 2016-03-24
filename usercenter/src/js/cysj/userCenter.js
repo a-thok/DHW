@@ -84,7 +84,7 @@ app
       //投稿--个人
       .state('cytglist',{
         url : '/cytglist',
-        templateUrl : '/partials/cysj/contributor/partial-Contributors.html',
+        templateUrl : '/partials/cysj/contributor/partial-cytglist.html',
         controller : 'CytglistCtrl as cytglistVm'
       })
       .state('cytgdetail',{
@@ -100,7 +100,7 @@ app
       })
       //投稿--公司
       .state('cyfblist',{
-        url : '/cyfblist',
+        url : '/cyfblist/:id',
         templateUrl : '/partials/cysj/contributor/partial-cyfblist.html',
         controller : 'CyfblistCtrl as cyfblistVm'
       })
@@ -118,7 +118,7 @@ app
   .controller('PgzCtrl', ['$http', PgzCtrl])
   .controller('CgzCtrl', ['$http', CgzCtrl])
   //投稿
-  .controller('CytglistCtrl',CytglistCtrl)
-  .controller('CyfblistCtrl',CyfblistCtrl)
+  .controller('CytglistCtrl',['$stateParams', CytglistCtrl])
+  .controller('CyfblistCtrl',['$http','$stateParams', CyfblistCtrl])
   .controller('CytgdetailCtrl',['$http','$stateParams', CytgdetailCtrl])
   .controller('CyfbdetailCtrl',['$http','$stateParams', CyfbdetailCtrl])

@@ -8,6 +8,7 @@ export default function listItem() {
           <div class="list_item_date">
             <i class="list_item_del" ng-if="${attrs.del}" ng-click="vm.delItem(${attrs.delkey})"></i>
             <span ng-show="${attrs.toptxt}">${attrs.datekeytxt} : {{item.${attrs.datekey}}}</span>
+            <span ng-if="${attrs.return}"><a href="${attrs.returnurl}">sdfsdf</a></span>
           </div>
           <ul class="list_item_boxes clearfix">
             <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
@@ -30,7 +31,10 @@ export default function listItem() {
                  <a ng-if="item.states !==2" href="javascript:;">审核未通过<br>无法查看</a>
               </span>
               <span ng-if="${attrs.operate2}">
-                <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</a>
+                <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>
+              </span>
+              <span ng-if="${attrs.operate3}">
+                <a href="${attrs.editurl3}" ng-click="${attrs.vm}.${attrs.func3}">${attrs.operation3}</a>
               </span>
             </li>
             <li ng-if="${attrs.orderstate}" class="list_item_box" style="width:15%">
