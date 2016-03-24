@@ -1,4 +1,5 @@
-   export default function TdpreviewdetailCtrl($http,$scope,$location){
+ //公司查看收到的简历的详细信息--预览
+ export default function TdpreviewdetailCtrl($http,$scope,$location){
      $scope.dhw = window.dhw;
      $scope.show = {};
     //   var obj_names = [
@@ -72,8 +73,7 @@
           if(statemc < 1) {
               $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 1, tdUserID: tdUserID });
           }
-      }
-     
+      }     
      // 2:待沟通
       $scope.dgt = function () {
           $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 2, tdUserID: tdUserID });
@@ -86,6 +86,4 @@
       $scope.bhs = function () {
           $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 4, tdUserID: tdUserID });
       }
-      
-     
    }

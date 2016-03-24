@@ -25,7 +25,7 @@ export default function webUploader() {
             >
             <div class="formUploadImg clearfix">
               <div class="formUploadImg_preview">
-                <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : ''}}" ng-if="!${attrs.isrepeatitem}">
+                <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="!${attrs.isrepeatitem}">
                 <img ng-src="{{${attrs.repeatitem}.${attrs.name} ? dhw.imgurl + ${attrs.repeatitem}.${attrs.name} + '_${attrs.size}' + '.jpg' : ''}}" ng-if="${attrs.isrepeatitem}">
                 <span class="formUploadImg_result"></span>
               </div>

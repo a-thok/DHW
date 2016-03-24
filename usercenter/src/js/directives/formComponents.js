@@ -24,28 +24,6 @@ import colpickDirective from './formComponents/colpickDirective.js'
 import fileUploader from './formComponents/fileUploader.js'
 let app = angular.module('formComponents',[]);
 app
-  // .config(function(ngJcropConfigProvider) {
-  //   //   ngJcropConfigProvider.setJcropConfig({
-  //   //     bgColor: 'black',
-  //   //     bgOpacity: .4,
-  //   //     aspectRatio: 1,
-  //   // });
-
-  //   // [optional] To change the css style in the preview image
-  //   ngJcropConfigProvider.setPreviewStyle({
-  //       'width': '100px',
-  //       'height': '100px',
-  //       'overflow': 'hidden',
-  //       'margin-left': '5px'
-  //   });
-     
-  //   ngJcropConfigProvider.setJcropConfig('upload',{
-  //       bgColor: 'black',
-  //       bgOpacity: .4,
-  //       aspectRatio: 16/8,
-
-  //   });
-  // })
   // input text类型
   .directive('inputText', inputText)
   // textarea

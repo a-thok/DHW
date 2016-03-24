@@ -16,7 +16,7 @@ export default function modal() {
             <p class="modal_body_text" ng-show="!${attrs.vm}.isSubmitSuccess && !${attrs.vm}.errorMsg">对不起，系统处理您的提交时出现错误，请稍后重试。</p>
           </div>
           <div class="modal_footer">
-            <button type="button" class="modal_confirm" ng-hide="${attrs.vm}.isSubmitSuccess" ng-click="vm.hideModal()">确认</button>
+            <button type="button" class="modal_confirm"  ng-click="vm.hideModal()">确认</button>
           </div>
         </div>
       `;

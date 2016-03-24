@@ -24,7 +24,6 @@
     data-vm="cyfbdetailVm"
     data-label="用户账户类型"
     data-name="type"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
@@ -34,7 +33,6 @@
     data-vm="cyfbdetailVm"
     data-label="投稿时间"
     data-name="time"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
@@ -44,7 +42,6 @@
     data-vm="cyfbdetailVm"
     data-label="地址"
     data-name="address"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
@@ -63,7 +60,7 @@
           <label class="formLabel" for="">
             附件下载
           </label>
-          <span class="readSpan"><a href="{{cyfbdetailVm.data.savaaddr}}" target="_self">附件下载</a></span>
+          <span class="readSpan"><a href="{{ cyfbdetailVm.data.savaaddr === 'NaN' ? '1' : '2'}}" target="_self">附件下载</a></span>
    </div>
   
    <div input-text
@@ -71,7 +68,6 @@
     data-vm="cyfbdetailVm"
     data-label="报价"
     data-name="quote"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
@@ -81,7 +77,6 @@
     data-vm="cyfbdetailVm"
     data-label="工作周期"
     data-name="worktime"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
     data-disabled="true"
@@ -91,7 +86,6 @@
     data-vm="cyfbdetailVm"
     data-label="说明"
     data-name="intro"
-    data-required="true"
     data-form="cyfbdetailForm"
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\-\:\；\,\，\.\!\、\。\：\;\'']{4,200}$/"
     data-disabled="true"

@@ -21,7 +21,6 @@ export default function ZtxgCtrl($scope,$http){
       vm.isDisabled = true;
       var para = $.extend(true, {}, vm.data);
       para.themes = angular.toJson(para.themes);
-      console.log(para);
       $http.post('/CompanyHomeEdit/TitleSave', para).success((d) => {
         if (d.success) {
           vm.isSubmitSuccess = true;
