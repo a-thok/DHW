@@ -43,28 +43,28 @@ export const dhw = {
 export const jobCategory = ['不限', '全职', '兼职', '实习'];
 export const salary = ['2k以下', '2k-5k', '5k-10k', '10k-15k', '15k-25k', '25k-50k', '50k以上','面议'];
 export const exprience = ['不限', '应届毕业生', '一年以下', '1-3年', '3-5年', '5-10年', '10年以上'];
-export const homesex = [{name:'male',sex:'男'},{name:'female',sex:'女'}]
+export const homesex = [{ name: 'male', sex: '男' }, { name: 'female', sex: '女' }];
 export const education = ['不限', '大专', '本科', '硕士', '博士'];
-//个人中心基本信息
-export const companynum = ['5-10人','10-50人','50-100人','100-200人','200人以上'];
+// 个人中心基本信息
+export const companynum = ['5-10人', '10-50人', '50-100人', '100-200人', '200人以上'];
 export const companytrade = [
-{name:'IT·互联网',value:1},
-{name:'房地产',value:2},
-{name:'金融',value:3},
-{name:'消费品',value:4},
-{name:'汽车·制造',value:5},
-{name:'医疗·化工',value:6},
-{name:'会计',value:7}
+{ name: 'IT·互联网', value: 1 },
+{ name: '房地产', value: 2 },
+{ name: '金融', value: 3 },
+{ name: '消费品', value: 4 },
+{ name: '汽车·制造', value: 5 },
+{ name: '医疗·化工', value: 6 },
+{ name: '会计', value: 7 }
 ];
 export const companynature = [
-  {name:'政府机关/事业单位',value:'政府机关/事业单位'},
-  {name:'国营',value:'国营'},
-  {name:'私营',value:'私营'},
-  {name:'中外合资',value:'中外合资'},
-  {name:'外资',value:'外资'},
-  {name:'其他',value:'其他'},
-  ];
-export const typeids  = [
+  { name: '政府机关/事业单位', value: '政府机关/事业单位' },
+  { name: '国营', value: '国营' },
+  { name: '私营', value: '私营' },
+  { name: '中外合资', value: '中外合资' },
+  { name: '外资', value: '外资' },
+  { name: '其他', value: '其他' },
+ ];
+export const typeids = [
       { id: 1, text: '设计' },
       { id: 2, text: '开发' },
       { id: 3, text: '文案' },
@@ -73,10 +73,10 @@ export const typeids  = [
       { id: 6, text: '商务' },
       { id: 7, text: '生活' },
       { id: 8, text: '其他' }
-  ]  
-//私人定制
-export const category = [{id:'1',name:'创意定制'},{id:'2',name:'企业定制'},{id:'3',name:'找代加工'},{id:'4',name:'礼品定制'},{id:'5',name:'logo定制'},{id:'6',name:'制服定制'},{id:'7',name:'3D打印设备定制'},{id:'8',name:'智能设备硬件加工'}];
-//创意设计品牌
+];
+// 私人定制
+export const category = [{ id: '1', name: '创意定制' }, { id: '2', name: '企业定制' }, { id: '3', name: '找代加工' }, { id: '4', name: '礼品定制'},{id:'5',name:'logo定制'},{id:'6',name:'制服定制'},{id:'7',name:'3D打印设备定制'},{id:'8',name:'智能设备硬件加工'}];
+// 创意设计品牌
 export const brand =[
   {id:'2',name:'logo设计'},
   {id:'3',name:'名片设计'},

@@ -1,6 +1,5 @@
-export default function OrderList () {
+export default function OrderList() {
   var vm = this;
-  
   vm.listTabs = [
     {
       name: '待付款',
@@ -19,5 +18,5 @@ export default function OrderList () {
       name: '待评价',
       url: '.dpj',
     },
-  ]
+  ];
 }

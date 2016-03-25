@@ -1,6 +1,5 @@
-export default function SellerCtrl ($stateParams) {
+export default function SellerCtrl($stateParams) {
   var vm = this;
-  
   vm.listTabs = [
     {
       name: '全部订单',

@@ -1,9 +1,10 @@
+import angular from 'angular';
 export default function WlCtrl($http) {
   var vm = this;
-  vm.submit = function() {
+  vm.submit = function () {
     var para = angular.copy(vm.data);
-    $http.post('/CpzcOrderSeller/SaveLogistic', para).success(function() {
+    $http.post('/CpzcOrderSeller/SaveLogistic', para).success(() => {
 
-    })
-  }
+    });
+  };
 }

@@ -9,6 +9,6 @@ export default function dfkCtrl() {
     { name: '数量', key: 'hbcount', width: '10%' },
     { name: '状态', key: 'status', width: '15%' },
     { name: '支持金额', key: 'cost', width: '10%' },
-  ]
+  ];
   vm.dhw = dhw;
 }
