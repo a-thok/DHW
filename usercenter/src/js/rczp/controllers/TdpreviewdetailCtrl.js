@@ -17,6 +17,7 @@
       var JobID = $location.search().JobID;
       var tdUserID = $location.search().tdUserID;
       $scope.statemc = $location.search().statemc;
+      console.log($scope.statemc)
       //初始化获取数据状态,获取未绑定数据
       var loaddata = function () {
           $http.post('/HRDelivery/DeliveryDetail', { tdUserID: tdUserID, JobID: JobID }).success(function (d) {
@@ -70,7 +71,7 @@
       loaddata();
      // 1 : 已查看
      $scope.yck = function () {
-          if(statemc < 1) {
+          if($scope.statemc < 1) {
               $.post('/HRDelivery/DeliveryEdit', { JobID: JobID, state: 1, tdUserID: tdUserID });
           }
       }     
