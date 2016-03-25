@@ -2,7 +2,7 @@ export default function switchType() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
+    template: function () {
       return `
       <div class="switchType" ng-if="vm.accountType == 2">
         <span ng-show="mainVm.logintype == 2" ng-click="vm.switch(1)">切换到个人版</span>
@@ -25,14 +25,14 @@ export default function switchType() {
         });
         // 路由定位到菜单第一项
         if ($attrs.curl && $attrs.purl && mainVm.logintype === 2 ) {
-          $location.path($attrs.curl);    
-        } else if($attrs.curl && $attrs.purl && mainVm.logintype === 1) {
+          $location.path($attrs.curl);
+        } else if ($attrs.curl && $attrs.purl && mainVm.logintype === 1) {
           $location.path($attrs.purl);
         } else {
-         $location.path(mainVm.routes.items[0].url);
-       }
-      }
+          $location.path(mainVm.routes.items[0].url);
+        }
+      };
     }],
     controllerAs: 'vm'
-  }
+  };
 }

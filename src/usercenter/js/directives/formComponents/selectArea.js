@@ -4,7 +4,7 @@ export default function selectArea() {
   return {
     replace: true,
     scope: true,
-    template: function(elem, attrs) {
+    template: function (elem, attrs) {
       return `
         <div class="formGourp clearfix">
           <div class="formGourp_wrap">
@@ -51,17 +51,14 @@ export default function selectArea() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs','$http','$stateParams', function($scope, $attrs,$http,$stateParams) {
+    controller: ['$scope', '$attrs', '$http', '$stateParams', function ($scope, $attrs, $http, $stateParams) {
       let vm = this;
-      partialController($scope, $attrs,$http,$stateParams, vm);
-      
+      partialController($scope, $attrs, $http, $stateParams, vm);
       // 市、县显示切换
       vm.isShowCities = false;
       vm.isShowDistricts = false;
-      
       // 省、市、县数据
       vm.areaData = [];
-      
       // 获取省
       vm.provinces = (() => {
         $http.post('/Dict/city').success((res) => {
@@ -71,7 +68,6 @@ export default function selectArea() {
           });
         });
       })();
-      
       // 点击省获取市
       vm.getCities = (province) => {
         vm.cities = vm.areaData.filter((item) => { 
@@ -80,7 +76,6 @@ export default function selectArea() {
         vm.isShowCities = true; // 显示市
         vm.isShowDistricts = false; // 隐藏县
       };
-      
       // 点击市获取县
       vm.getDistricts = (city) => {
         vm.districts = vm.areaData.filter((item) => { 
@@ -88,7 +83,6 @@ export default function selectArea() {
         });
         vm.isShowDistricts = true; // 显示县
       };
-      
     }],
     controllerAs: 'vm'
   };

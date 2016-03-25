@@ -1,4 +1,5 @@
-export default function partialController($scope,$attrs,$http,$stateParams,vm ){
+import $ from 'jquery';
+export default function partialController($scope, $attrs, $http, $stateParams, vm) {
   vm.isPlain = $scope.$eval($attrs.switch);
 
   vm.edit = (model, anotherModel) => {
@@ -12,12 +13,11 @@ export default function partialController($scope,$attrs,$http,$stateParams,vm ){
   vm.save = () => {
     vm.isPlain = true;
     let isdata = $scope.$parent[$attrs.vm].data;
-    //个人中心基本信息企业版传递sex名称
-    let para = $.extend({},isdata);
+    // 个人中心基本信息企业版传递sex名称
+    let para = $.extend({}, isdata);
     let isid = $stateParams.id;
-    //这里是提交数据
-    $http.post($attrs.editapi,Object.assign({}, { id : isid },para)).success((d) => {
-    })
+    // 这里是提交数据
+    $http.post($attrs.editapi, Object.assign({}, { id: isid }, para)).success(() => {});
   };
 
   vm.cancle = () => {

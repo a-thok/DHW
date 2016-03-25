@@ -1,4 +1,4 @@
-import {dhw} from '../../data/data.js'
+import { dhw } from '../../data/data.js';
 export default function list() {
   return {
     replace: true,
@@ -74,7 +74,6 @@ export default function list() {
       } else {
         params = JSON.parse($attrs.params);
       }
-      
       let getData = (pageIndex) => {
         $http.post($attrs.api, Object.assign({}, {
           pageIndex: pageIndex,
@@ -82,12 +81,11 @@ export default function list() {
           id: parseInt($scope.$parent[$attrs.vm].id)
         }, params)).success(res => {
           vm.total = res.result.total;
-          if(res.result.data) {
+          if (res.result.data) {
             vm.data = res.result.data;
-          }else {
+          } else {
             vm.data = res.result;
           }
-          
         });
       };
 
@@ -99,24 +97,20 @@ export default function list() {
       };
 
       vm.delItem = (key) => {
-
-        $http.post($attrs.delapi, { id: key }).success(res => {
-          getData(1)
-        })
-      }
+        $http.post($attrs.delapi, { id: key }).success(() => {
+          getData(1);
+        });
+      };
       vm.isArray = (function () {
         if (Array.isArray) {
           return Array.isArray;
         }
-        var objectToStringFn = Object.prototype.toString,
-          arrayToStringResult = objectToStringFn.call([]);
-
+        var objectToStringFn = Object.prototype.toString;
+        var arrayToStringResult = objectToStringFn.call([]);
         return function (subject) {
           return objectToStringFn.call(subject) === arrayToStringResult;
         };
-      } ());
-
-
+      }());
     }],
     controllerAs: 'vm'
   };

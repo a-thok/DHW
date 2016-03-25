@@ -17,6 +17,7 @@ module.exports = {
     "no-unneeded-ternary": 0,
     "camelcase": 0,
     "eqeqeq": 0,
-    "no-unuserd-expressions":0
+    "no-unuserd-expressions":0,
+    "array-callback-return":0
   }
 }

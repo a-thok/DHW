@@ -52,10 +52,9 @@ export default function webUploader() {
           mimeTypes: 'image/*'
         }
       });
-        
       // 添加图片
-      uploader.on('fileQueued', function (file) {
-        uploader.makeThumb(file, function (error, src) {
+      uploader.on('fileQueued', (file) => {
+        uploader.makeThumb(file, (error, src) => {
           if (error) {
             $img.replaceWith('<span>不能预览</span>');
             return;
@@ -64,20 +63,17 @@ export default function webUploader() {
         }, 100, 100);
         $result.text('正在上传…').show()
       });
-        
       // 上传成功
       uploader.on('uploadSuccess', (file, res) => {
         $result.text('上传成功');
-        scope.$apply(function () {
+        scope.$apply(() => {
           ngModel.$setViewValue(res.path + res.name);
         });
       });
-        
       // 上传失败
-      uploader.on('uploadError', function (file) {
+      uploader.on('uploadError', () => {
         $result.text('上传出错');
       });
-
     }
   };
 }

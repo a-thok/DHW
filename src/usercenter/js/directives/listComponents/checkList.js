@@ -1,8 +1,9 @@
+import $ from 'jquery';
 export default function checkList() {
   return {
     replace: true,
     scope: true,
-    template: function(elem, attrs) {
+    template: function (elem, attrs) {
       return `
           <div class="listWrap">
             <ul class="titleList clearfix">
@@ -61,7 +62,7 @@ export default function checkList() {
           </div>
         `;
     },
-    controller: ['$http', '$attrs', '$window', '$scope', '$parse', function($http, $attrs, $window, $scope, $parse) {
+    controller: ['$http', '$attrs', '$window', '$scope', function ($http, $attrs, $window, $scope) {
       let vm = this;
       let params;
       let para;
@@ -76,7 +77,7 @@ export default function checkList() {
         $http.post($attrs.api, Object.assign({}, {
           pageIndex: pageIndex,
           pageSize: 5,
-          id: parseInt($scope.$parent[$attrs.vm].id)
+          id: parseInt($scope.$parent[$attrs.vm].id),
         }, params)).success(res => {
           vm.total = res.result.total;
           $scope.$parent[$attrs.vm].listData = res.result.data;
@@ -90,33 +91,32 @@ export default function checkList() {
       };
 
       vm.delItem = (key) => {
-
-        $http.post($attrs.delapi, { id: key }).success(res => {
-          getData(1)
-        })
-      }
-      vm.isArray = (function() {
+        $http.post($attrs.delapi, { id: key }).success(() => {
+          getData(1);
+        });
+      };
+      vm.isArray = (function () {
         if (Array.isArray) {
           return Array.isArray;
         }
-        var objectToStringFn = Object.prototype.toString,
-          arrayToStringResult = objectToStringFn.call([]);
+        var objectToStringFn = Object.prototype.toString;
+        var arrayToStringResult = objectToStringFn.call([]);
 
-        return function(subject) {
+        return function (subject) {
           return objectToStringFn.call(subject) === arrayToStringResult;
         };
-      } ());
+      }());
       // 多选删除
       vm.multidel = () => {
         if (arrid.length === 0) {
-          alert('您并未选中任何邮件')
+          alert('您并未选中任何邮件');
         } else {
           if (!$attrs.delparams) {
             para = {};
           } else {
             para = $scope.$eval($attrs.delparams);
           }
-          var conf = confirm('是否确定删除?')
+          var conf = confirm('是否确定删除?');
           if (conf === true) {
             $http.post($attrs.multidel, Object.assign({}, {
               arrid: $scope.$parent[$attrs.vm].arrid
@@ -137,7 +137,7 @@ export default function checkList() {
         } else {
           var allchecked = document.getElementsByName('allchecked');
           allchecked.checked = false;
-          console.log(allchecked.checked)
+          console.log(allchecked.checked);
           para = {
             state: 23,
             arrid: arrid
@@ -146,11 +146,11 @@ export default function checkList() {
             if (res.success) {
               var allchecked = document.getElementsByName('allchecked');
               allchecked.checked = false;
-              getData(1)
+              getData(1);
             }
           });
         }
-      }
+      };
 
       // 选中全部
       vm.checked = (event) => {
@@ -159,14 +159,13 @@ export default function checkList() {
         for (let i = 0, len = checkbox.length; i < len; i++) {
           if ($(elem).is(':checked')) {
             checkbox[i].checked = true;
-            arrid.push(parseInt(checkbox[i].getAttribute('data-id')))
+            arrid.push(parseInt(checkbox[i].getAttribute('data-id')));
           } else {
             checkbox[i].checked = false;
             arrid = [];
           }
         }
-
-      }
+      };
     }],
     controllerAs: 'vm'
   };

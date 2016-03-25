@@ -2,7 +2,7 @@
 export default function listItem() {
   return {
     replace: true,
-    template: function(elem, attrs) {
+    template: function (elem, attrs) {
       return `
         <li>
           <div class="list_item_date">
@@ -21,7 +21,6 @@ export default function listItem() {
                  <span ng-if="item[box.key]">默认地址</span>
               </span>
               <span ng-if="vm.isArray(box.key) && !box.img"> {{box.key[0].zid}}{{ item[box.key[0].zikey] }}<br/>{{ box.key[1].zid }}{{item[box.key[1].zikey]}}{{box.key[1].zikeyfh}}</span>
-       
               <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="{{vm.dhw.imgurl}}{{item[box.key[0].zikey]}}_280x280.jpg">{{item[box.key[1].zikey]}}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%">

@@ -1,6 +1,6 @@
 // 项目信息填写控制器;
 import $ from 'jquery';
-import angular from 'angualr';
+import angular from 'angular';
 export default function ProjectCtrl(s) {
   s.dhw = window.dhw;
   // 核心数据

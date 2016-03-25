@@ -1,5 +1,6 @@
 import WebUploader from 'web-uploader';
 import { dhw } from '../../data/data.js';
+import $ from 'jquery';
 export default function fileUpLoader() {
   return {
     replace: true,
@@ -30,19 +31,19 @@ export default function fileUpLoader() {
         pick: elem.find('.picker')[0],
         resize: false
       });
-      elem.find('#ctlBtn').click(() => uploader.upload())
-      uploader.on('fileQueued', function (file) {
-        scope.$apply(function () {
-          scope.$parent[attrs.vm].data[attrs.name] = file.name
+      elem.find('#ctlBtn').click(() => uploader.upload());
+      uploader.on('fileQueued', (file) => {
+        scope.$apply(() => {
+          scope.$parent[attrs.vm].data[attrs.name] = file.name;
         });
         elem.find('.formUploadImg').append('<div id="' + file.id + '" class="item">' +
           '<h4 class="info">' + file.name + '</h4>' +
           '<p class="state">等待上传...</p>' +
           '</div>');
       });
-      uploader.on('uploadProgress', function (file, percentage) {
-        var $li = elem.find('#' + file.id),
-          $percent = $li.find('.progress .progress-bar');
+      uploader.on('uploadProgress', (file, percentage) => {
+        var $li = elem.find('#' + file.id);
+        var $percent = $li.find('.progress .progress-bar');
 
         // 避免重复创建
         if (!$percent.length) {
@@ -57,18 +58,18 @@ export default function fileUpLoader() {
         $percent.css('width', percentage * 100 + '%');
       });
 
-      uploader.on('uploadSuccess', function (file, res) {
+      uploader.on('uploadSuccess', (file, res) => {
         elem.find('#' + file.id).find('p.state').text('已上传');
-        scope.$parent[attrs.vm].data[attrs.pathname] = res.path + res.name
+        scope.$parent[attrs.vm].data[attrs.pathname] = res.path + res.name;
       });
 
-      uploader.on('uploadError', function (file) {
+      uploader.on('uploadError', (file) => {
         elem.find('#' + file.id).find('p.state').text('上传出错');
       });
 
-      uploader.on('uploadComplete', function (file) {
+      uploader.on('uploadComplete', (file) => {
         elem.find('#' + file.id).find('.progress').fadeOut();
       });
     }
-  }
+  };
 }

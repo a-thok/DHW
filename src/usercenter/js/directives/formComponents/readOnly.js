@@ -11,7 +11,7 @@ export default function readOnly() {
           <span class="readSpan" ng-if="!${attrs.isarea}">{{${attrs.vm}.data.${attrs.name}}}</span>
           <textarea class="formTextarea" ng-if="${attrs.isarea}" ng-disabled="${attrs.disabled}">{{${attrs.vm}.data.${attrs.name}}}</textarea>
         </div>
-      `
+      `;
     }
-  }
+  };
 }

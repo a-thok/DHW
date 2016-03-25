@@ -1,12 +1,10 @@
 export default function navSlide() {
   return {
-    link: function (scope, elem, attrs) {
-      // let active = elem.find('.ucNav_list_item--active'),
-      //   activeWidth = active.width() + 'px',
-      //   activeLeft = active.position().left + 'px';
-        
-      let active, activeWidth, activeLeft;
-      setTimeout(function() {
+    link: function (scope, elem) {
+      let active;
+      let activeWidth;
+      let activeLeft;
+      setTimeout(() => {
         active = elem.find('.ucNav_list_item--active');
         activeWidth = active.width() + 'px';
         activeLeft = active.position().left + 'px';
@@ -26,7 +24,7 @@ export default function navSlide() {
             width: hoverWidth,
             left: hoverLeft
           }, 200);
-      }, function () {
+      }, () => {
         slider.stop(false, false)
           .animate({
             width: activeWidth,

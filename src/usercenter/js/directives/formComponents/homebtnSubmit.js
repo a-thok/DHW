@@ -1,4 +1,5 @@
-// 个人中心基本信息教育经历--工作经历提交指令
+// 个人中心基本信息教育经历--工作经历提交指令\
+import $ from 'jquery';
 export default function homebtnSubmit() {
   return {
     replace: true,
@@ -13,47 +14,33 @@ export default function homebtnSubmit() {
             ng-disabled="${attrs.form}.$invalid"
           >
         </div>
-      `
+      `;
     },
     controller: ['$scope', '$http', '$attrs', function ($scope, $http, $attrs) {
-      let vm = this;
+      var vm = this;
       vm.index;
-      //vm.submitText = '提交';
-      // vm.isDisabled = false;
       function fail() {
         $scope[$attrs.vm].isSubmitSuccess = false;
-        //vm.submitText = '提交';
-        // vm.isDisabled = false;
       }
-
-
       var dataApi;
-
       $scope[$attrs.vm].showModal = false;
       $scope[$attrs.vm].submit = () => {
-        
-        //vm.submitText = '提交中';
         vm.isDisabled = true;
         var begindata = $scope[$attrs.vm].startyear + '-' + $scope[$attrs.vm].startmonth;
         var enddata = $scope[$attrs.vm].endyear + '-' + $scope[$attrs.vm].endmonth;
-        $scope[$attrs.vm].data.begindate = begindata
-        $scope[$attrs.vm].data.enddate = enddata
-
-
+        $scope[$attrs.vm].data.begindate = begindata;
+        $scope[$attrs.vm].data.enddate = enddata;
         var para = $.extend({}, $scope[$attrs.vm].data);
         if ($scope[$attrs.vm].index) {
-          //修改功能
+          // 修改功能
           $scope[$attrs.vm].listdata[$scope[$attrs.vm].index] = para;
           $scope[$attrs.vm].index = undefined;
           dataApi = $attrs.modifyapi;
-        }else {
-          //新增功能
+        } else {
+          // 新增功能
           $scope[$attrs.vm].listdata.push(para);
-          dataApi = $attrs.addapi
+          dataApi = $attrs.addapi;
         }
-        
-        
-        
         $http.post(dataApi,
           para
           ).success(res => {
@@ -68,9 +55,7 @@ export default function homebtnSubmit() {
             fail();
             $scope[$attrs.vm].showModal = true;
           });
-
       };
-
     }],
     controllerAs: 'vm'
   };

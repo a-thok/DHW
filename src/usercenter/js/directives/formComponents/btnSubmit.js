@@ -1,3 +1,4 @@
+import $ from 'jquery';
 export default function btnSubmit() {
   return {
     replace: true,
@@ -9,7 +10,7 @@ export default function btnSubmit() {
             ng-disabled="${attrs.form}.$invalid || vm.isDisabled"
           >
         </div>
-      `
+      `;
     },
     controller: ['$scope', '$http', '$attrs', function ($scope, $http, $attrs) {
       var vm = this;
@@ -20,19 +21,17 @@ export default function btnSubmit() {
         vm.submitText = '提交';
         vm.isDisabled = false;
       }
-      
       $scope[$attrs.vm].showModal = false;
       $scope[$attrs.vm].submit = () => {
         vm.submitText = '提交中';
         vm.isDisabled = true;
         var para = {};
         // 更改指令的通用性判断是否为发布招聘
-        if($attrs.isfbzp === true) {
-           para.model = $scope[$attrs.vm].data;
-        }else {
-          para = $.extend({},$scope[$attrs.vm].data);
+        if ($attrs.isfbzp === true) {
+          para.model = $scope[$attrs.vm].data;
+        } else {
+          para = $.extend({}, $scope[$attrs.vm].data);
         }
-           
         $http.post($attrs.api, para).success(res => {
           if (res.success) {
             $scope[$attrs.vm].isSubmitSuccess = true;
@@ -47,9 +46,7 @@ export default function btnSubmit() {
           fail();
           $scope[$attrs.vm].showModal = true;
         });
-     
       };
-     
     }],
     controllerAs: 'vm'
   };

@@ -2,7 +2,7 @@ export default function sideBar() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
+    template: function () {
       return `
       <div class="ucSidebar">
         <dl class="ucSidebar_menu">
@@ -19,7 +19,7 @@ export default function sideBar() {
           </dd>
         </dl>
       </div>
-      `
+      `;
     },
     controller: ['$scope', '$location', function ($scope, $location) {
       let vm = this;
@@ -29,11 +29,9 @@ export default function sideBar() {
           route.active = i === index ? true : false;
         });
       };
-  
       // 刷新页面时，判断当前路由，更改菜单高亮项
       (function () {
         let index;
-
         let currentPath;
         let lastIndex = $location.path().lastIndexOf('/');
         if (lastIndex !== 0) {
@@ -41,7 +39,6 @@ export default function sideBar() {
         } else {
           currentPath = $location.path().substring(1);
         }
-        
         $scope.$parent.mainVm.routes.items.forEach((route, i) => {
           if (route.url.indexOf('.') !== -1 && route.url.slice(0, route.url.indexOf('.')) === currentPath) {
             index = i;
@@ -50,8 +47,8 @@ export default function sideBar() {
           }
         });
         vm.changeRoute(index === undefined ? 0 : index);
-      })();
+      }());
     }],
     controllerAs: 'vm'
-  }
+  };
 }

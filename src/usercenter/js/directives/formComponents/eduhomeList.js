@@ -1,8 +1,8 @@
 export default function eduhomeList(){
   return {
-    scope : true,
+    scope: true,
     replace: true,
-    template: function(elem, attrs) {
+    template: function (elem, attrs) {
       return `
         <table class="accountInfoTable">
            <thead>
@@ -19,60 +19,54 @@ export default function eduhomeList(){
                    <td>
                       <span ng-if="${attrs.operate}" ng-click="vm.del(item.id,$index)" style="cursor:pointer">删除 | </span>
                       <span ng-if="${attrs.operate}" ng-click="vm.edit(item.id,$index)" style="cursor:pointer">修改</span>
-                   </td>   
+                   </td>
                  </tr>
              </tbody>
            </thead>
         </table>
-      `
+      `;
     },
-    controller: ['$scope','$http', '$attrs', function($scope, $http, $attrs) {
+    controller: ['$scope', '$http', '$attrs', function ($scope, $http, $attrs) {
       var vm = this;
-      
-      $http.post($attrs.postapi).success(function(d) {
-        if(d.success) {
-            $scope.$parent[$attrs.vm].listdata = d.result;          
+      $http.post($attrs.postapi).success((d) => {
+        if (d.success) {
+          $scope.$parent[$attrs.vm].listdata = d.result;
         }
-      })
-      vm.del = function(id,index) {
-        $http.post($attrs.delapi,{id: id}).success(function(d) {
-          if(d.success) {
-            $scope.$parent[$attrs.vm].listdata.splice(index,1);
+      });
+      vm.del = function (id, index) {
+        $http.post($attrs.delapi, { id: id }).success((d) => {
+          if (d.success) {
+            $scope.$parent[$attrs.vm].listdata.splice(index, 1);
           }
-        })
-      }
-      vm.edit = function(id,index) {
+        });
+      };
+      vm.edit = function (id, index) {
         $scope.$parent[$attrs.vm].index = index + 1;
-        $http.post($attrs.editapi, {id : id}).success(function(d) {
+        $http.post($attrs.editapi, { id: id }).success((d) => {
           $scope.$parent[$attrs.vm].data = d.result;
           var beginDate = d.result.begindate.split('-');
           var endDate = d.result.enddate.split('-');
-          $scope.$parent[$attrs.vm].startyear =  beginDate[0];
-          $scope.$parent[$attrs.vm].startmonth =  beginDate[1];
-          
+          $scope.$parent[$attrs.vm].startyear = beginDate[0];
+          $scope.$parent[$attrs.vm].startmonth = beginDate[1];
           $scope.$parent[$attrs.vm].endyearTemp = endDate[0];
-          
           $scope.$parent[$attrs.vm].endyear = endDate[0];
           $scope.$parent[$attrs.vm].endmonth = endDate[1];
-          
-          
           $scope.$parent[$attrs.vm].setEndYear();
           $scope.$parent[$attrs.vm].setEndMonth();
-        })
-      }
-      //判断是否为数组
-      vm.isArray = (function(){
-        if(Array.isArray) {
+        });
+      };
+      // 判断是否为数组
+      vm.isArray = (function () {
+        if (Array.isArray) {
           return Array.isArray;
         }
-        var objectToStringFn = Object.prototype.toString,
-        arrayToStringResult = objectToStringFn.call([]);
-
+        var objectToStringFn = Object.prototype.toString;
+        var arrayToStringResult = objectToStringFn.call([]);
         return function (subject) {
           return objectToStringFn.call(subject) === arrayToStringResult;
-        }; 
-      } ());
+        };
+      }());
     }],
     controllerAs: 'vm',
-  }
+  };
 }

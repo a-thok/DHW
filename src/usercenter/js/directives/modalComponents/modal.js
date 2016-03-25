@@ -1,6 +1,6 @@
 export default function modal() {
   return {
-    replace : true,
+    replace: true,
     template: function (elem, attrs) {
       return `
         <div class="modalWrapper">
@@ -21,17 +21,15 @@ export default function modal() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', '$location', '$timeout', function($scope, $attrs, $location, $timeout) {
+    controller: ['$scope', '$attrs', '$location', '$timeout', function ($scope, $attrs, $location, $timeout) {
       let vm = this;
+      vm.hideModal = () => {$scope[$attrs.vm].showModal = false; };
       
-      vm.hideModal = () =>  $scope[$attrs.vm].showModal = false;
-      
-      $scope.$watch($attrs.vm + '.isSubmitSuccess', function(newValue) {
+      $scope.$watch($attrs.vm + '.isSubmitSuccess', (newValue) => {
         if (newValue) {
           $timeout(() => $location.path($attrs.url), 3000);
         }
       });
-      
     }],
     controllerAs: 'vm'
   };

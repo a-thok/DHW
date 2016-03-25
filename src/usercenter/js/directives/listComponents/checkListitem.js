@@ -1,7 +1,8 @@
+import $ from 'jquery';
 export default function checkListitem() {
   return {
     replace: true,
-    template: function(elem, attrs) {
+    template: function (elem, attrs) {
       return `
         <li>
           <div class="list_item_date">
@@ -26,21 +27,21 @@ export default function checkListitem() {
         </li>
       `;
     },
-    controller: ['$scope', '$attrs', function($scope, $attrs) {
+    controller: ['$scope', '$attrs', function ($scope, $attrs) {
       let vm = this;
-      let arrid = $scope.$parent[$attrs.vm].arrid
-      $scope.select = function(id, event) {
+      let arrid = $scope.$parent[$attrs.vm].arrid;
+      $scope.select = function (id, event) {
         var elem = event.target;
         if ($(elem).is(':checked')) {
-          arrid.push(id)
+          arrid.push(id);
         } else {
-          arrid.filter(function(value, index) {
+          arrid.filter((value, index) => {
             if (id === value) {
               arrid.splice(index, 1);
             }
-          })
+          });
         }
-      }
+      };
     }]
   };
 }

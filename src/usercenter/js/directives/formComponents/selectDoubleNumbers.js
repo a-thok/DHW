@@ -11,14 +11,12 @@ export default function selectDoubleNumbers() {
             <label class="formLabel" for="${attrs.first}">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
-            
             <div class="formGroup_display" ng-show="vm.isPlain">
               {{${attrs.vm}.data.${attrs.first}.${attrs.part} || ${attrs.vm}.data.${attrs.first}}}
               -
               {{${attrs.vm}.data.${attrs.second}.${attrs.part} || ${attrs.vm}.data.${attrs.second}}}
               <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
             </div>
-            
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
               <select class="formSelect formSelect--multiple" id="${attrs.first}" name="${attrs.first}"
                 ng-model="${attrs.vm}.data.${attrs.first}"
@@ -41,10 +39,9 @@ export default function selectDoubleNumbers() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', '$http','$stateParams',function($scope, $attrs,$http,$stateParams) {
+    controller: ['$scope', '$attrs', '$http', '$stateParams', function ($scope, $attrs, $http, $stateParams) {
       let vm = this;
-      partialController($scope, $attrs,$http,$stateParams, vm);
-      
+      partialController($scope, $attrs, $http, $stateParams, vm);
       // 计算一组数字
       let cal = (start) => {
         let arr = [];
@@ -53,16 +50,12 @@ export default function selectDoubleNumbers() {
         }
         return arr;
       };
-      
       // 第一组数字
       vm.firstNumbers = cal(18);
-      
       // 选择第一组数字后，计算第二组数字
       vm.getSecondNumbers = (firtNumber) => {
         vm.secondNumbers = cal(firtNumber);
       };
-
-      
     }],
     controllerAs: 'vm'
   };

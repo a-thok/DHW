@@ -1,9 +1,10 @@
-// 此版为没有省市区三个数据直接绑在 如 fbVm.data.city 上面 
+// 此版为没有省市区三个数据直接绑在 如 fbVm.data.city
+import $ from 'jquery';
 export default function nodatasArea() {
   return {
-    replace:true,
-    scope:true,
-    template: function(elem, attrs) {
+    replace: true,
+    scope: true,
+    template: function (elem, attrs) {
       return `
        <div class="formSet">
         <div class="formSet-doubleWrap" class="clearfix">
@@ -29,25 +30,24 @@ export default function nodatasArea() {
             </ul>
           </div>
         </div>
-      </div> 
+      </div>
       `;
     },
-  controller: ['$scope', '$http', '$attrs', function (s, $http, $attrs) {
+    controller: ['$scope', '$http', '$attrs', function (s, $http, $attrs) {
       s.data = {};
       // 获取省份的数据
       s.provs;
-      s.provinces = function () {
-        $http.post('/Dict/city').success(function (res) {
+      s.provinces = (function () {
+        $http.post('/Dict/city').success((res) => {
           s.areaData = res.result;
 
-          s.provs = s.areaData.filter(function (item) {
+          s.provs = s.areaData.filter((item) => {
             return item.type === 'province';
           });
         });
-      }();
-
-      //提交成功之后获取后台返回给我们的数据
-      s.$parent[$attrs.vm].getDraft(function (draft) {
+      }());
+      // 提交成功之后获取后台返回给我们的数据
+      s.$parent[$attrs.vm].getDraft((draft) => {
         if (draft) {
           s.prov = draft.province.name;
           s.citym = draft.city.name;
@@ -55,27 +55,25 @@ export default function nodatasArea() {
           s.area = draft;
         }
       });
-      //将数据保存到跟作用域上
+      // 将数据保存到跟作用域上
       s.$parent[$attrs.vm].draft.basic = function () {
         var draft = {};
         draft.area = s.area;
         return draft;
-        //return angular.toJson(draft);
       };
-
-      //取得城市的数据
+      // 取得城市的数据
       s.getCitys = function (provinces) {
-        //获取城市的数据
-        s.citys = s.areaData.filter(function (item) {
+        // 获取城市的数据
+        s.citys = s.areaData.filter((item) => {
           return item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2);
         });
 
-        //初始化城市的第一个数据选择
+        // 初始化城市的第一个数据选择
         s.citym = s.citys[0].name;
         s.prov = provinces.name;
-        //清空县区的数据
+        // 清空县区的数据
         s.country = '';
-        //此操作为用户只进行选择省份的操作
+        // 此操作为用户只进行选择省份的操作
         s.province = { code: provinces.code, name: provinces.name };
         s.city = { code: s.citys[0].code, name: s.citym };
         s.district = { code: '', name: '' };
@@ -88,8 +86,8 @@ export default function nodatasArea() {
       };
       // 取得县区的信息
       s.setCity = function (citys) {
-        //获取区县的数据
-        s.countrys = s.areaData.filter(function (item) {
+        // 获取区县的数据
+        s.countrys = s.areaData.filter((item) => {
           return item.type === 'district' && item.code.slice(0, 4) === citys.code.slice(0, 4);
         });
 
