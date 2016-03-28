@@ -1,6 +1,6 @@
-// import $ from 'jquery';
+
 import { dhw } from '../../data/data.js';
-import angular from 'jquery';
+import angular from 'angular';
 export default function richText() {
   return {
     require: 'ngModel',
@@ -51,10 +51,10 @@ export default function richText() {
         'undo',
         'redo',
         'fullscreen'
-       ];
+      ];
       // onchange 事件
       editor.config.uploadImgUrl = dhw.imguploadurl + '?key=' + attrs.keyname + '&t=' + attrs.size;
-      editor.config.uploadImgFns.onload = function (resultText, xhr) {
+      editor.config.uploadImgFns.onload = function (resultText) {
         var resultTextJson = angular.fromJson(resultText);
         var resultTextJsona = dhw.imgurl + resultTextJson.path + resultTextJson.name + '.jpg';
         editor.command(null, 'insertHtml', '<img src="' + resultTextJsona + '" style="max-width:100%;"/>');

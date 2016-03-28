@@ -1,3 +1,4 @@
+import $ from 'jquery';
 export default function JlylCtrl(s, h, $location) {
   s.dhw = window.dhw;
   s.intentTemp = {};
@@ -58,7 +59,7 @@ export default function JlylCtrl(s, h, $location) {
 
   });
   s.JobID = $location.search().JobID;
-  s.table = $location.search().table;
+  // s.table = $location.search().table;
   s.tzcg = function() {
     $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success(function(d) {
       if (d.success) {

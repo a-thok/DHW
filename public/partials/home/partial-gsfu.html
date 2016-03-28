@@ -20,21 +20,25 @@
       data-size="282x284"
       ng-model="gsfwVm.data.img"
     ></div>
+    <div class="content_t_t ">
+       <p>如果价格为面议则无需填写</p>
+    </div>
     <div input-text
       data-switch="false"
       data-vm="gsfwVm"
       data-name="money"
-      data-required="true"
+      data-required="false"
       data-form="gsfwForm"
       data-label="价格"
       data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
-      data-error="价格必须在2-10个数字之间"
+      data-tip="价格必须在2-10个数字之间"
+      data-errot="填写的价格格式错误"
     ></div>
     <div input-text
       data-switch="false"
       data-vm="gsfwVm"
       data-name="url"
-      data-required="true"
+      data-required="false"
       data-form="gsfwForm"
       data-label="链接"
       data-pattern="/^((https?|ftp|news):\/\/)?([a-z]([a-z0-9\-]*[\.。])+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel)|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&]*)?)?(#[a-z][a-z0-9_]*)?$/"

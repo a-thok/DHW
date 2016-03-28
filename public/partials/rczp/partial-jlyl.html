@@ -239,9 +239,9 @@
             </div>
             <!--求职意向 结束-->
         </div>
-        <div class="return_btn" ng-if="table!=0">
+        <div class="return_btn">
             <a href="#/">返回</a> 
-            <a href="javascript:;" ng-click="tzcg()">投递</a>
+            <a href="javascript:;" ng-click="tzcg()" ng-if="JobID > 0">投递</a>
         </div>
     </div>
 </div>

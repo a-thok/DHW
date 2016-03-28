@@ -1,9 +1,8 @@
 <!--个人发布项目功能-->
-
-<form name="pfbForm" ng-submit="pfbVm.submit()">
-    <div ng-show="!pfbVm.realnameauth">您未实名认证，无法发布需求
-      <a href="//www.dreamhiway.com/CenterAuth/Auth">马上验证</a>
+  <div ng-show="!pfbVm.hasCompanyCerfity && !pfbVm.hasPersonCerfity" class="list_item_none">您未实名认证，无法发布需求<br/>
+      <a href="//www.dreamhiway.com/CenterAuth/Auth"  style="text-decoration:none;">马上验证</a>
   </div>
+<form name="pfbForm" ng-submit="pfbVm.submit()" ng-show="pfbVm.hasCompanyCerfity || pfbVm.hasPersonCerfity">
  <div select-simple
       data-switch="false"
       data-vm="pfbVm"
@@ -62,7 +61,19 @@
       data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
       data-tip='请填写价格'
       data-error="价格格式错误或超出限制"
-  ></div> 
+  ></div>
+  <div class="content_t_t ">
+      <p>如需上传多个文件，请在本地进行压缩后上传</p>
+   </div>
+   <div file-uploader
+        data-vm="cfbVm"
+        data-form="cfbForm"
+        data-label="附件"
+        data-name="attachment_orgin"
+        data-pathname="attachment"
+        data-keyname="diy"
+        data-required="true"
+        ></div>  
      <!--交易模式-->
       <div class="formSet clearfix">
         <label class="formLabel"><span class="formSet_required">*</span> 交易模式</label>

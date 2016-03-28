@@ -14,7 +14,7 @@ export default function fileUpLoader() {
             </label>
             <div class="wu-example formUploadImg">
               <!--用来存放文件信息-->
-              <div class="uploader-list" ></div>
+              <div class="uploader-list" style="float:right"></div>
               <div class="btns">
                   <div class="picker">选择文件</div>
               </div>
@@ -36,13 +36,14 @@ export default function fileUpLoader() {
         scope.$apply(() => {
           scope.$parent[attrs.vm].data[attrs.name] = file.name;
         });
-        elem.find('.formUploadImg').append('<div id="' + file.id + '" class="item">' +
+        elem.find('.uploader-list').html('<div id="' + file.id + '" class="item" style="position:relative">' + '<span title="删除" style="position:absolute;left:130px;top:-7px;cursor:pointer;color:red" id="cancel' + file.id + '">x</span>' +
           '<h4 class="info">' + file.name + '</h4>' +
           '<p class="state">等待上传...</p>' +
           '</div>');
       });
       uploader.on('uploadProgress', (file, percentage) => {
         var $li = elem.find('#' + file.id);
+        var $cancel = elem.find('#cancel' + file.id);
         var $percent = $li.find('.progress .progress-bar');
 
         // 避免重复创建
@@ -54,7 +55,10 @@ export default function fileUpLoader() {
         }
 
         $li.find('p.state').text('上传中');
-
+        $cancel.on('click', () => {
+          uploader.removeFile(file, true);
+          $li.remove();
+        });
         $percent.css('width', percentage * 100 + '%');
       });
 

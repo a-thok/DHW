@@ -1,7 +1,9 @@
-<form name="zbForm">
-  <div ng-show="data.realnameauth" class="auth">您还未实名验证，无法发布需求 <a href="#">马上验证</a></div>
+  <div class="list_item_none" ng-if="!fbVm.hasCompanyCerfity && !fbVm.hasPersonCerfity" ng-cloak>
+     请先进行实名认证<br/><a href="//www.dreamhiway.com/CenterAuth/Auth" style="text-decoration:none;">马上验证</a>
+  </div>
   <!--项目基本信息 开始-->
-  <div ng-show="!data.realnameauth">
+<form name="zbForm" ng-if="fbVm.hasCompanyCerfity || fbVm.hasPersonCerfity" ng-cloak>  
+  <div>
     <div class="zbFormBox">
       <h2 class="zbFormBox_ttl">项目基本信息<i></i></h2>
       <div input-text
@@ -117,6 +119,9 @@
         data-switch="false"
         data-pattern=""
         ></div>
+        <div class="content_t_t ">
+          <p>如需上传多个文件，请在本地进行压缩后上传</p>
+        </div>
         <div file-uploader
         data-vm="fbVm"
         data-form="zbForm"
@@ -224,7 +229,7 @@
     <!--个人信息 结束-->
 </form>
 </div>
-    <div modal
-      data-vm = "fbVm"
-      data-url="/yfb"
-    ></div>
+<div modal
+     data-vm = "fbVm"
+     data-url="/yfb"
+></div>

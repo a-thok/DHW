@@ -23,7 +23,7 @@ app.use(webpackHotMiddleware(compiler));
 
 const proxy = require('proxy-middleware');
 const url = require('url');
-app.use('/', proxy(url.parse('http://192.168.2.145:8085/')));
+app.use('/', proxy(url.parse('http://192.168.2.17:8085/')));
 
 app.listen(app.get('port'), (err) => {
   if (err) {

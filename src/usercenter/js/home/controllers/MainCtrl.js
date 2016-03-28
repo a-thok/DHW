@@ -2,8 +2,8 @@
 
 export default function MainCtrl() {
   var vm = this;
-  //公司账号
-   vm.routes_c = [
+  // 公司账号
+  vm.routes_c = [
     {
       url: 'zhxx.company',
       text: '账号信息',
@@ -59,12 +59,17 @@ export default function MainCtrl() {
       text: '会计认证列表',
       active: false
     },
+    {
+      url: 'gsdt',
+      text: '公司动态',
+      active: false
+    }
   ];
-  
+
   vm.routes_p = [
     {
       url: 'pzhxx.person',
-      text:'账号信息',
+      text: '账号信息',
       active: false
     },
     {
@@ -72,27 +77,27 @@ export default function MainCtrl() {
       text: '站内信',
       active: false
     },
-    {
-      url: 'addresslist',
-      text: '收货地址管理',
-      active: false
-    },
-    
+    // {
+    //   url: 'addresslist',
+    //   text: '收货地址管理',
+    //   active: false
+    // },
+
   ];
-  
-  let cookies = {}
+
+  let cookies = {};
   document.cookie.split('; ').forEach(item => {
-    let arr = item.split('=')
-    cookies[arr[0]] = arr[1]
+    let arr = item.split('=');
+    cookies[arr[0]] = arr[1];
   })
   if (cookies.accountType) {
-    vm.accountType = cookies.accountType
-    vm.logintype = cookies.logintype
+    vm.accountType = cookies.accountType;
+    vm.logintype = cookies.logintype;
   }
-  
-  
+
+
   vm.routes = {
     title: '常用功能',
-    items: vm.logintype == 1 ? vm.routes_p :vm.routes_c
+    items: vm.logintype == 1 ? vm.routes_p : vm.routes_c
   };
 }

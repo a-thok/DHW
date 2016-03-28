@@ -61,7 +61,7 @@ export default function webUploader() {
           }
           $img.attr('src', src).parent().show();
         }, 100, 100);
-        $result.text('正在上传…').show()
+        $result.text('正在上传…').show();
       });
       // 上传成功
       uploader.on('uploadSuccess', (file, res) => {
