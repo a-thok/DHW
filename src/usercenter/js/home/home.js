@@ -55,6 +55,8 @@ import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
 import avatarCtrl from './controllers/ZhxxControllers/avatarCtrl.js';  //上传头像
 import GsdtCtrl from './controllers/GsdtCtrl.js';
 import YqljCtrl from './controllers/YqljCtrl.js';
+import GsdtFbCtrl from './controllers/GsdtControllers/GsdtFbCtrl.js';
+import GsdtlistCtrl from './controllers/GsdtControllers/GsdtlistCtrl.js';
 //会计认证体系
 import KjrzCtrl from './controllers/KjrzControllers/KjrzCtrl.js'
 import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js'
@@ -241,6 +243,16 @@ app
         url: '/gsdt',
         templateUrl: '/partials/home/partial-gsdt.html',
         controller: 'GsdtCtrl as gsdtVm'
+      })
+      .state('gsdt.fb', {
+        url: '/fb',
+        templateUrl: '/partials/home/gsdt/partials-gsdtfb.html',
+        controller: 'GsdtFbCtrl as gsdtfbVm'
+      })
+      .state('gsdt.list', {
+        url: '/list',
+        templateUrl: '/partials/home/gsdt/partials-gsdtlist.html',
+        controller: 'GsdtlistCtrl as gsdtlistVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -262,6 +274,8 @@ app
   .controller('avatarCtrl', ['$scope', '$http', avatarCtrl])
   .controller('pavatarCtrl', pavatarCtrl)
   .controller('GsdtCtrl', ['$http', GsdtCtrl])
+  .controller('GsdtFbCtrl', ['$http', GsdtFbCtrl])
+  .controller('GsdtlistCtrl', ['$http', GsdtlistCtrl])
   //会计认证体系控制器
   .controller('KjrzCtrl', ['$http', KjrzCtrl])
   .controller('KjrzListCtrl', KjrzListCtrl)
@@ -289,4 +303,4 @@ app
   .controller('OutboxCtrl', ['$http', '$scope', OutboxCtrl])
   .controller('InboxCtrl', ['$http', InboxCtrl])
   .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
-  .controller('EmailDetCtrl', EmailDetCtrl)
+  .controller('EmailDetCtrl', EmailDetCtrl);

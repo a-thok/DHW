@@ -60,7 +60,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'gsdt',
+      url: 'gsdt.fb',
       text: '公司动态',
       active: false
     }

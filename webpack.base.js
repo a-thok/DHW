@@ -10,7 +10,8 @@ module.exports = {
     'uc.cysj': [path.join(__dirname, './src/usercenter/js/cysj/cysj.js')],
     'uc.srdz': [path.join(__dirname, './src/usercenter/js/srdz/srdz.js')],
     'uc.zb': [path.join(__dirname, './src/usercenter/js//zb/zb.js')],
-    'uc.zc': [path.join(__dirname, './src/usercenter/js/zc/zc.js')]
+    'uc.zc': [path.join(__dirname, './src/usercenter/js/zc/zc.js')],
+    'uc.zckj': [path.join(__dirname, './src/usercenter/js/zckj/zckj.js')],
   },
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -43,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: 'url?limit=10000&name=img/uc/[name].[ext]?[hash:7]'
+        loaders: ['url?limit=10000&name=img/uc/[name].[ext]?[hash:7]', 'image-webpack?{progressive:true, optimizationLevel: 7, pngquant: {quality: "65-90", speed: 4}}']
       }
     ]
   },

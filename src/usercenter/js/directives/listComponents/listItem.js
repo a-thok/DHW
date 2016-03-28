@@ -25,9 +25,13 @@ export default function listItem() {
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%">
               <a  ng-if="${attrs.projectname} === false" href="${attrs.editurl}" ng-click="${attrs.vm}.${attrs.func}">${attrs.operation}</br></a>
-              <span ng-if="${attrs.projectname} === srdz">
+              <span ng-if="${attrs.projectname} === 1">
                  <a ng-if="item.states === 2" href="${attrs.editurl}{{item.id}}">查看详情</a>
                  <a ng-if="item.states !==2" href="javascript:;">审核未通过<br>无法查看</a>
+              </span>
+              <span ng-if="${attrs.projectname} === 2">
+                 <a ng-if="item.statemc === 0" href="${attrs.editurl}{{item.ddid}}">查看详情</a>
+                 <a ng-if="item.statemc !== 0" href="javascript:;">审核未通过<br>无法查看</a>
               </span>
               <span ng-if="${attrs.operate2}">
                 <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>

@@ -1,10 +1,10 @@
 import angular from 'angular';
 
 // 依赖模块
-import formComponents from '../directives/formComponents.js';
-import pagination from '../directives/pagination.js';
-import listComponents  from '../directives/listComponents.js';
-import modalComponents from '../directives/modalComponents.js';
+import '../directives/formComponents.js';
+import '../directives/pagination.js';
+import '../directives/listComponents.js';
+import '../directives/modalComponents.js';
 
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
@@ -38,9 +38,9 @@ import DetailCtrl from './controllers/DetailCtrl.js'; // 物流保存
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 
 app
-  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    
-     // 从cookie获取当前个人中心类型（企业或个人）
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
+    // 从cookie获取当前个人中心类型（企业或个人）
     let logintype;
     let cookies = document.cookie.split('; ');
     cookies.forEach((cookie) => {
@@ -50,7 +50,7 @@ app
     });
     // 根据个人中心类型，判断默认加载哪个路由
     $urlRouterProvider.otherwise(logintype === 1 ? '/cygz' : '/pfb');
-     //$urlRouterProvider.otherwise('/pfb');
+    // $urlRouterProvider.otherwise('/pfb');
     $stateProvider
       .state('pfb', {
         url: '/pfb',
@@ -137,25 +137,25 @@ app
         templateUrl: '/partials/srdz/SellerOrder/partial-seller-ysh.html',
         controller: 'SellerYshCtrl as sellerYshVm'
       })
-      .state('wl',{
+      .state('wl', {
         url: '/wl/:number',
-        templateUrl:'/partials/srdz/partial-wl.html',
+        templateUrl: '/partials/srdz/partial-wl.html',
         controller: 'WlCtrl as WlVm'
       })
-      .state('detail',{
+      .state('detail', {
         url: '/detail/:number',
-        templateUrl:'/partials/srdz/partial-detail.html',
+        templateUrl: '/partials/srdz/partial-detail.html',
         controller: 'DetailCtrl as detailVm'
       })
-    
+
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
   .directive('switchType', switchType)
-  .controller('MainCtrl', [ MainCtrl])
+  .controller('MainCtrl', [MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl])
-  .controller('YfbCtrl', [ YfbCtrl])
+  .controller('YfbCtrl', [YfbCtrl])
   .controller('FuwsCtrl', ['$http', FuwsCtrl])
   .controller('YgzCtrl', ['$http', YgzCtrl])
   .controller('PygzCtrl', ['$http', PygzCtrl])
@@ -174,5 +174,6 @@ app
   .controller('SellerDshCtrl', ['$http', SellerDshCtrl])
   .controller('SellerYshCtrl', ['$http', SellerYshCtrl])
   // 物流保存
-  .controller('WlCtrl',['$http', '$stateParams', WlCtrl])
-  .controller('DetailCtrl',['$http', '$stateParams', DetailCtrl])
+  .controller('WlCtrl', ['$http', '$stateParams', WlCtrl])
+  .controller('DetailCtrl', ['$http', '$stateParams', DetailCtrl]);
+export default app;

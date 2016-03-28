@@ -95,10 +95,15 @@ export default function list() {
         getData(vm.currentPage);
         $window.scrollTo(0, 0);
       };
-
+      // 删除功能
       vm.delItem = (key) => {
-        $http.post($attrs.delapi, { id: key }).success(() => {
-          getData(1);
+        $http.post($attrs.delapi, { id: key }).success((d) => {
+          if (d.success) {
+            alert('您已删除成功');
+            getData(1);
+          } else {
+            alert('因网络原因无法进行及时删除');
+          }
         });
       };
       vm.isArray = (function () {

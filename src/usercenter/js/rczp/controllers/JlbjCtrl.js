@@ -1,111 +1,113 @@
+import $ from 'jquery';
+import angular from 'angular';
 export default function JlbjCtrl(s, h, $location) {
   s.dhw = window.dhw;
-  
+
   $(function() {
-  /** 表单取消删除 **/
-  $(".rsmM_box").on("click", ".delCancel", function() {
-    $(this).parents(".rsm_form_ctrl_model").hide();
+    /** 表单取消删除 **/
+    $('.rsmM_box').on('click', '.delCancel', function () {
+      $(this).parents('.rsm_form_ctrl_model').hide();
+    });
+    $('.rsmM_box').on('click', '.rsm_form_ctrl_model', function (event) {
+      var e = event || window.event;
+      e.stopPropagation();
+    });
+    $('.rsmM_box').on('click', '.rsm_form_ctrl_delete', function (event) {
+      var e = event || window.event;
+      e.stopPropagation();
+    });
+
+    /** 下拉控件共用 **/
+    // 显示下拉菜单
+    $('.rsmM_box').on('click', '.rsm_select_btn', function (event) {
+      var e = event || window.event;
+      e.stopPropagation();
+      // 判断当前list在点击前可不可见
+      var list = $(this).next();
+      var isListVisible = list.is(':visible');
+      // 关闭其它list，切换当前list的可见状态
+      $('.rsm_select_lists').hide();
+      isListVisible ? list.hide() : list.show();
+    });
+    // 点击外部任意地方关闭下拉菜单
+    $(document).click(function() {
+      $('.rsm_select_lists').hide();
+      // 关闭表单删除框
+      $('.rsm_form_ctrl_model').hide();
+    });
+    $('.rsmM_box').on('click', '.rsm_select_lists', function (event) {
+      var e = event || window.event;
+      e.stopPropagation();
+    });
+    // 点击下拉菜单子项
+    $('.rsmM_box').on('click', '.rsm_select_lists-normal li', function () {
+      $(this).parents('.rsm_select_lists').hide();
+    });
+    // 点击双列下拉菜单左列
+    $('.rsmM_box').on('click', '.rsm_select_list-left li', function () {
+      $(this).siblings().removeClass('active')
+        .end().addClass('active');
+      $('.rsm_select_list-right li').removeClass('active');
+    });
+    // 点击双列下拉菜单右列
+    $('.rsmM_box').on('click', '.rsm_select_list-right li', function () {
+      $(this).siblings().removeClass('active')
+        .end().addClass('active');
+      $(this).parents('.rsm_select_lists').hide();
+    });
+
+    /** 性别选择 **/
+    $('.rsm_inputGroup_gender').click(function () {
+      $(this).siblings().removeClass('active')
+        .end().addClass('active');
+    });
+
+    // 右边栏
+    // $('.rsmS_item').click(function() {
+    //   $('.rsmS_item').removeClass('current');
+    //   $(this).addClass('current');
+    // });
+
+    // var fixed_top = $('.rsmS_fixed').offset().top;
+    // var fixed_right = $('.rsmS_fixed').offset().right;
+    // var fixed_top_foot = $('.footer').offset().top;
+
+    // $('.rsmS_fixed').css('right', fixed_right);
+    // $(window).scroll(function() {
+    //   var page_scrollTop = $(document).scrollTop();
+
+    //   if (page_scrollTop >= fixed_top) {
+    //     if(fixed_top_foot - page_scrollTop > 516) {
+    //       $('.rsmS_fixed').css('position', 'fixed');
+    //     }else {
+    //       var top = 516 - (fixed_top_foot - page_scrollTop);
+    //       $('.rsmS_fixed').css({'position': 'fixed', 'top': -top});
+    //     }
+    //   } else  {
+    //     $('.rsmS_fixed').css({'position': 'static', 'top': 0});
+    //   }
+    // });
+
+    // 右边栏添加与删除按钮
+    $('.rsmS_item_btn').mouseenter(function () {
+      $(this).siblings('.rsmS_item').addClass('hover');
+    }).mouseout(function () {
+      $(this).siblings('.rsmS_item').removeClass('hover');
+    })
+    $('.rsmS_item_btn').click(function () {
+      if ($(this).hasClass('add')) {
+        $(this).siblings('.rsmS_item').trigger('click');
+      }
+    });
+
+    // 头像上传
+    // $('.avatarUploadBtn').mouseenter(function() {
+    //   $(this).addClass('hover');
+    // }).mouseleave(function() {
+    //   $(this).removeClass('hover');
+    // });
   });
-  $(".rsmM_box").on("click", ".rsm_form_ctrl_model", function(event) {
-    var e = event || window.event;
-    e.stopPropagation();
-  });
-  $(".rsmM_box").on("click", ".rsm_form_ctrl_delete", function(event) {
-    var e = event || window.event;
-    e.stopPropagation();
-  });
-  
-  /** 下拉控件共用 **/
-  // 显示下拉菜单
-  $(".rsmM_box").on("click", ".rsm_select_btn", function(event) {
-    var e = event || window.event;
-    e.stopPropagation();
-    // 判断当前list在点击前可不可见
-    var list = $(this).next();
-    var isListVisible = list.is(":visible");
-    // 关闭其它list，切换当前list的可见状态
-    $(".rsm_select_lists").hide();
-    isListVisible? list.hide() : list.show();
-  });
-  // 点击外部任意地方关闭下拉菜单
-  $(document).click(function() {
-    $(".rsm_select_lists").hide();
-    // 关闭表单删除框
-    $(".rsm_form_ctrl_model").hide();
-  });
-  $(".rsmM_box").on("click", ".rsm_select_lists", function(event) {
-    var e = event || window.event;
-    e.stopPropagation();
-  });
-  // 点击下拉菜单子项
-  $(".rsmM_box").on("click", ".rsm_select_lists-normal li", function() {
-    $(this).parents(".rsm_select_lists").hide();
-  });
-  // 点击双列下拉菜单左列
-  $(".rsmM_box").on("click", ".rsm_select_list-left li", function() {
-    $(this).siblings().removeClass("active")
-            .end().addClass("active");
-    $(".rsm_select_list-right li").removeClass("active");
-  });
-  // 点击双列下拉菜单右列
-  $(".rsmM_box").on("click", ".rsm_select_list-right li", function() {
-    $(this).siblings().removeClass("active")
-            .end().addClass("active");
-    $(this).parents(".rsm_select_lists").hide();
-  });
-  
-  /** 性别选择 **/
-  $(".rsm_inputGroup_gender").click(function() {
-    $(this).siblings().removeClass("active")
-            .end().addClass("active");
-  });
-  
-  // 右边栏
-  // $(".rsmS_item").click(function() {
-  //   $(".rsmS_item").removeClass("current");
-  //   $(this).addClass("current");
-  // });
-  
-  // var fixed_top = $(".rsmS_fixed").offset().top;
-  // var fixed_right = $(".rsmS_fixed").offset().right;
-  // var fixed_top_foot = $('.footer').offset().top;
-  
-  // $(".rsmS_fixed").css("right", fixed_right);
-  // $(window).scroll(function() {
-  //   var page_scrollTop = $(document).scrollTop();
-    
-  //   if (page_scrollTop >= fixed_top) {
-  //     if(fixed_top_foot - page_scrollTop > 516) {
-  //       $(".rsmS_fixed").css("position", "fixed");
-  //     }else {
-  //       var top = 516 - (fixed_top_foot - page_scrollTop);
-  //       $(".rsmS_fixed").css({"position": "fixed", 'top': -top});
-  //     }
-  //   } else  {
-  //     $(".rsmS_fixed").css({"position": "static", 'top': 0});
-  //   }
-  // });
-  
-  // 右边栏添加与删除按钮
-  $(".rsmS_item_btn").mouseenter(function() {
-    $(this).siblings(".rsmS_item").addClass("hover");
-  }).mouseout(function() {
-    $(this).siblings(".rsmS_item").removeClass("hover");
-  })
-  $(".rsmS_item_btn").click(function() {
-    if($(this).hasClass("add")) {
-      $(this).siblings(".rsmS_item").trigger("click");
-    }
-  });
-  
-  // 头像上传
-  // $(".avatarUploadBtn").mouseenter(function() {
-  //   $(this).addClass("hover");
-  // }).mouseleave(function() {
-  //   $(this).removeClass("hover");
-  // });
-});
-  
+
   /** 数据交互 **/
 
   // 读取数据
@@ -132,7 +134,7 @@ export default function JlbjCtrl(s, h, $location) {
     var items = data.result.items;
     // 循环获取的数据
     for (var i = 0; i < items.length; i++) {
-      //定义类型和内容
+      // 定义类型和内容
       var _type = items[i].type;
       var _content = items[i].content;
       // 把内容插入对应的对象或数组
@@ -167,8 +169,6 @@ export default function JlbjCtrl(s, h, $location) {
       $('.rsm_form').hide();
       $('.rsm_result').show();
     });
-
-
   });
 
   // 存储数据
@@ -186,7 +186,7 @@ export default function JlbjCtrl(s, h, $location) {
       $.post('/HRFbjl/SaveDetailSub', para, function () {
       });
     }
-  }
+  };
 
 
   /** 通用 **/
@@ -386,7 +386,7 @@ export default function JlbjCtrl(s, h, $location) {
   s.skills = [{}];
   s.skillAdd = function () {
     s.skills.push({});
-  }
+  };
   s.skillDel = function (index) {
     if (index == 0) {
       s.evaluations = [];
@@ -416,7 +416,7 @@ export default function JlbjCtrl(s, h, $location) {
     if (s.expectations.length != 0) per += 12;
     if (s.evaluations.length != 0) per += 12;
     s.percentage = per;
-  }
+  };
   s.getPercentage();
 
 
@@ -474,62 +474,62 @@ export default function JlbjCtrl(s, h, $location) {
     provs: [],
     // 城市，默认为热门城市
     citys: [
-      {code:'110000', name:'北京', type:'city'}, 
-      {code:'310000', name:'上海', type:'city'}, 
-      {code:'440100', name:'广州', type:'city'}, 
-      {code:'440300', name:'深圳', type:'city'}, 
-      {code:'330100', name:'杭州', type:'city'}, 
-      {code:'510100', name:'成都', type:'city'}, 
-      {code:'510100', name:'西安', type:'city'}, 
-      {code:'320100', name:'南京', type:'city'}, 
-      {code:'350200', name:'厦门', type:'city'}, 
-      {code:'420100', name:'武汉', type:'city'},
-      ],
+      { code: '110000', name: '北京', type: 'city' },
+      { code: '310000', name: '上海', type: 'city' },
+      { code: '440100', name: '广州', type: 'city' },
+      { code: '440300', name: '深圳', type: 'city' },
+      { code: '330100', name: '杭州', type: 'city' },
+      { code: '510100', name: '成都', type: 'city' },
+      { code: '510100', name: '西安', type: 'city' },
+      { code: '320100', name: '南京', type: 'city' },
+      { code: '350200', name: '厦门', type: 'city' },
+      { code: '420100', name: '武汉', type: 'city' },
+    ],
     getCitys: function (prov) {
       switch (prov) {
-        // 热门城市                                                                                                   
+        // 热门城市
         case '热门城市':
           s.listData.citys = [
-      {code:'110000', name:'北京', type:'city'}, 
-      {code:'310000', name:'上海', type:'city'}, 
-      {code:'440100', name:'广州', type:'city'}, 
-      {code:'440300', name:'深圳', type:'city'}, 
-      {code:'330100', name:'杭州', type:'city'}, 
-      {code:'510100', name:'成都', type:'city'}, 
-      {code:'510100', name:'西安', type:'city'}, 
-      {code:'320100', name:'南京', type:'city'}, 
-      {code:'350200', name:'厦门', type:'city'}, 
-      {code:'420100', name:'武汉', type:'city'},
-      ];
-          break
+            { code: '110000', name: '北京', type: 'city' },
+            { code: '310000', name: '上海', type: 'city' },
+            { code: '440100', name: '广州', type: 'city' },
+            { code: '440300', name: '深圳', type: 'city' },
+            { code: '330100', name: '杭州', type: 'city' },
+            { code: '510100', name: '成都', type: 'city' },
+            { code: '510100', name: '西安', type: 'city' },
+            { code: '320100', name: '南京', type: 'city' },
+            { code: '350200', name: '厦门', type: 'city' },
+            { code: '420100', name: '武汉', type: 'city' },
+          ];
+          break;
         // 如果是直辖市，不显示市下面具体的区
         case '北京':
         case '天津':
         case '上海':
         case '重庆':
-          s.listData.citys = [prov + "市"];
+          s.listData.citys = [prov + '市'];
           break;
-        // 如果是一般省份，取得省下的城市                                                                                                   
+        // 如果是一般省份，取得省下的城市
         default:
-         s.listData.citys = s.areaData.filter(function(item) {
-           return item.type === 'city' && item.code.slice(0, 2) === prov.code.slice(0, 2)
-         })
+          s.listData.citys = s.areaData.filter((item) => {
+            return item.type === 'city' && item.code.slice(0, 2) === prov.code.slice(0, 2);
+          });
           break;
       }
     }
-  }
- // 取得省份，即给s.listData.provs赋值
+  };
+  // 取得省份，即给s.listData.provs赋值
   s.getProvs = (() => {
-     h.post('/Dict/city').success((res) => {
-          s.areaData = res.result;
-          s.listData.provs = s.areaData.filter((item) => {
-            return item.type === 'province';
-          });
-        });
+    h.post('/Dict/city').success((res) => {
+      s.areaData = res.result;
+      s.listData.provs = s.areaData.filter((item) => {
+        return item.type === 'province';
+      });
+    });
   })();
   // 下拉控件数据操作
   s.selectData = function (event, prop, index) {
-    var elem = $(event.target) // 相当于this
+    var elem = $(event.target);
     var boxID = whichBox(elem);
     var select_box = elem.parents('.rsm_select');
 
@@ -551,7 +551,6 @@ export default function JlbjCtrl(s, h, $location) {
     } else {
       (index < 0) ? (s[boxID + 'Temp'][prop] = data) : (s[boxID + 's'][index][prop] = data);
     }
-
   };
 
   /** 性别选择 **/
@@ -563,8 +562,7 @@ export default function JlbjCtrl(s, h, $location) {
   };
   s.JobID = $location.search().JobID;
   s.table = $location.search().table;
-  // var JobID = $location.search().JobID;
   s.tzcg = function () {
     $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID });
-  }
+  };
 }

@@ -1,50 +1,5 @@
-<form name="GsdtForm" ng-submit="gsdtVm.submit()">
-  <div web-uploader
-      data-vm="gsdtVm"
-      data-label="项目封面"
-      data-name="frontpic"
-      data-key="uc"
-      data-size='310x310'
-      ng-model="gsdtVm.data.frontpic"
-  ></div>
-  <div input-text
-      data-switch="false"
-      data-vm="gsdtVm"
-      data-label="产品标题"
-      data-name="title"
-      data-required="true"
-      data-form="GsdtForm"
-      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-      data-tip='请填写此产品标题'
-      data-error="职位名称必须在2-30个字符之间"
-  ></div>
-  <div class="formSet clearfix">
-        <label class="formLabel"><span class="formSet_required">*</span>动态类型</label>
-        <input type="hidden" ng-model="gsdtVm.data.transaction" required>
-        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="gsdtVm.selectTrans($event, 1)"></i> 公司动态</span>
-        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="gsdtVm.selectTrans($event, 2)"></i> 行业动态</span>
-  </div>
-  <div text-area
-      data-switch="false"
-      data-vm="gsdtVm"
-      data-label="摘要"
-      data-name="abstracts"
-      data-required="true"
-      data-form="GsdtForm"
-      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-      data-tip='请填写此产品标题'
-      data-error="职位名称必须在2-30个字符之间"
-  ></div>
-  <div rich-text
-      data-vm="gsdtVm"
-      data-label="产品描述"
-      data-name="txt"
-      data-required="true"
-      data-keyname="uc"
-      data-size="800x800"
-      ng-model="gsdtVm.data.txt"
-   ></div>
-  <div class="formGourp formGourp--submit clearfix">
-        <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="GsdtForm.$invalid">
-  </div>
-</form>
+<div list-tabs
+     data-repeat="item in gsdtVm.listTabs"
+     data-vm="gsdtVm"
+></div>
+<div ui-view></div>

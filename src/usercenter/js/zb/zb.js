@@ -1,10 +1,10 @@
 import angular from 'angular';
 
-//依赖模块
-import pagination from '../directives/pagination.js';
-import listComponents  from '../directives/listComponents.js';
-import formComponents from '../directives/formComponents';
-import modalComponents from '../directives/modalComponents.js';
+// 依赖模块
+import '../directives/pagination.js';
+import '../directives/listComponents.js';
+import '../directives/formComponents';
+import '../directives/modalComponents.js';
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
@@ -12,10 +12,10 @@ import sideBar from '../directives/userCenter/sideBar.js';
 import switchType from '../directives/userCenter/switchType.js';
 
 // 控制器
-import MainCtrl from './controllers/MainCtrl.js'
-import FbCtrl from './controllers/FbCtrl.js'
-import ScCtrl from './controllers/ScCtrl.js'
-import YfbCtrl from './controllers/YfbCtrl.js'
+import MainCtrl from './controllers/MainCtrl.js';
+import FbCtrl from './controllers/FbCtrl.js';
+import ScCtrl from './controllers/ScCtrl.js';
+import YfbCtrl from './controllers/YfbCtrl.js';
 
 
 
@@ -54,7 +54,7 @@ app
       url: '/yfb',
       templateUrl: '/partials/zb/partial-yfb.html',
       controller: 'YfbCtrl as yfbVm'
-    })
+    });
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -63,4 +63,7 @@ app
   .controller('MainCtrl', [MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
   .controller('ScCtrl', [ScCtrl]) // 收藏控制器
-  .controller('YfbCtrl', ['$http', YfbCtrl]) // 已发布控制器
+  .controller('YfbCtrl', ['$http', YfbCtrl]);
+  
+export default app;
+ 
