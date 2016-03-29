@@ -1,5 +1,5 @@
 import { companytrade } from '../../data/data.js';
-export default function ApplyCtrl($http) {
+export default function ApplyCtrl($http, $location) {
   const vm = this;
   vm.companytrade = companytrade;
   vm.data = {};
@@ -8,7 +8,7 @@ export default function ApplyCtrl($http) {
     para = Object.assign({}, vm.data);
     para.trade = vm.data.trade.name;
     para.dtid = vm.data.trade.value;
-    para.platform = 1;
+    para.platform = $location.search().platform;
     $http.post('/Zckj/Sqrz', para).success((d) => {
       if (d.success) {
         alert('success');

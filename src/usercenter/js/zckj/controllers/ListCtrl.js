@@ -8,7 +8,7 @@ export default function ListCtrl() {
     { name: '法人代表', key: 'introducer', width: '10%' },
     { name: '联系人姓名', key: 'contacts', width: '10%' },
     { name: '联系人邮箱', key: 'email', width: '10%' },
-    { name: '商业计划书', key: 'plan', width: '20%' },
+    { name: '商业计划书', key: 'plan', width: '20%', link: true, linkkey: 'plan' },
     { name: '状态', key: 'state', width: '10%' },
   ];
 }

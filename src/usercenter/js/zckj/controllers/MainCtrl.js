@@ -7,11 +7,11 @@ export default function MainCtrl() {
       text: '入驻列表',
       active: false
     },
-    {
-      url: 'apply',
-      text: '申请入驻',
-      active: false
-    }
+    // {
+    //   url: 'apply',
+    //   text: '申请入驻',
+    //   active: false
+    // }
   ];
   vm.routes = {
     title: '常用功能',

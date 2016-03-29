@@ -31,7 +31,7 @@ export default function listItem() {
               </span>
               <span ng-if="${attrs.projectname} === 2">
                  <a ng-if="item.statemc === 0" href="${attrs.editurl}{{item.ddid}}">查看详情</a>
-                 <a ng-if="item.statemc !== 0" href="javascript:;">审核未通过<br>无法查看</a>
+                 <a ng-if="item.statemc !== 0" href="javascript:;">已删除<br>无法查看</a>
               </span>
               <span ng-if="${attrs.operate2}">
                 <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>

@@ -16,16 +16,6 @@ import ApplyCtrl from './controllers/ApplyCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'ui.bootstrap.pagination']);
 app
   .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
-    // 从cookie获取当前个人中心类型（企业或个人）
-    // let logintype;
-    // let cookies = document.cookie.split('; ');
-    // cookies.forEach((cookie) => {
-    //   if (cookie.indexOf('logintype') !== -1) {
-    //     logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
-    //   }
-    // });
-    // // 根据个人中心类型，判断默认加载哪个路由
-    // $urlRouterProvider.otherwise(logintype === 1 ? '/pgzlist' : '/fb/basic');
     $urlRouterProvider.otherwise('/list');
     $stateProvider
       .state('list', {
@@ -45,6 +35,6 @@ app
   .directive('switchType', switchType)
   .controller('MainCtrl', MainCtrl)
   .controller('ListCtrl', ListCtrl)
-  .controller('ApplyCtrl', ['$http', ApplyCtrl]);
+  .controller('ApplyCtrl', ['$http', '$location', ApplyCtrl]);
 export default app;
 

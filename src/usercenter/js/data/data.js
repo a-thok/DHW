@@ -16,7 +16,8 @@
 //   urlsrdz: '//srdz.dreamhiway.com/',
 //   urlcqbh: '/bh.dreamhiway.com/',
 //   urlzxsj: '//zxsj.dreamhiway.com/',
-//   urlgsss: '//gsss.dreamhiway.com/'
+//   urlgsss: '//gsss.dreamhiway.com/',
+//   urlfj: 'http://upload.dreamhiway.com/file/'
 // };
 
 export const dhw = {
@@ -37,7 +38,8 @@ export const dhw = {
   urlsrdz: '//localhost:8093/',
   urlcqbh: '//localhost:8094/',
   urlzxsj: '//localhost:8095/',
-  urlgsss: '//localhost:8096/'
+  urlgsss: '//localhost:8096/',
+  urlfj: 'http://192.168.2.10:82/file/'
 };
 
 export const jobCategory = ['不限', '全职', '兼职', '实习'];
