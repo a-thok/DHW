@@ -11,7 +11,6 @@ export default function PyfbCtrl($http) {
     {name:'状态',key:'type',width:'10%'},
   ]
   vm.zjtg = function (project_id) {
-    console.log(dhw.urldiy)
     $http.post('/order/diy/add', {projectID: project_id}).success(function (data) {
       window.location.href = dhw.urldiy + '/order/diy/pay2/' + data.result.number;
     })

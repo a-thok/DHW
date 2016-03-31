@@ -137,7 +137,6 @@ export default function checkList() {
         } else {
           var allchecked = document.getElementsByName('allchecked');
           allchecked.checked = false;
-          console.log(allchecked.checked)
           para = {
             state: 23,
             arrid: arrid

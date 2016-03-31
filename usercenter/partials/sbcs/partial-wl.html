@@ -1,0 +1,37 @@
+<form name="wlForm">
+  <div input-text
+  data-form="wlForm"
+  data-vm="WlVm"
+  data-label="快递公司代码"
+  data-name="shippercode"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写快递公司代码'
+  data-pattern=""
+  ></div>
+  <div input-text
+  data-form="wlForm"
+  data-vm="WlVm"
+  data-label="物流单号"
+  data-name="logisticcode"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写物流单号'
+  data-pattern=""
+  ></div>
+  <div text-area
+  data-vm="WlVm"
+  data-form="wlForm"
+  data-label="卖家备注"
+  data-name="sellernote"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写卖家备注'
+  data-pattern=""
+  ></div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="submitBtn" type="button" ng-disabled="wlForm.$invalid || wlVm.isDisabled" ng-click="wlVm.submit()">提交</button>
+    </div>
+  </div>
+</form>
