@@ -82,7 +82,6 @@ app
   .directive('addPhoto',addPhoto)
   //头像上传裁剪功能
   .directive('avatarDirective',avatarDirective)
-
 export default app;
 
 

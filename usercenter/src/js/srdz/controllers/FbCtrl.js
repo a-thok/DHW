@@ -54,7 +54,6 @@ export default function FbCtrl($http) {
   // 判断是否已经申请为服务商
   $http.post('/SrdzFb/GetDd').success(function(d) {
     if(d.result.code === 0) {
-      console.log(1)
       vm.isfuws = false;
     }else {
       vm.isfuws = true

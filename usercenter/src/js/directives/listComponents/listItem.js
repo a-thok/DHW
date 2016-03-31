@@ -14,13 +14,13 @@ export default function listItem() {
               <a ng-if="box.link" href="${attrs.link}{{ item[box.linkkey] }}" target="_blank">{{ item[box.key] }}</a>
               <a ng-if="box.resumlink" href="${attrs.editurl}">{{ item[box.key] }}</a>
               <img ng-if="box.img && !vm.isArray(box.key)" ng-src="{{vm.dhw.imgurl}}{{item[box.key]}}.jpg">
-              <span ng-if="!box.link && !box.img && !box.resumlink && !box.addre">{{ item[box.key] }}</span>
+              <span ng-if="!box.link && !box.img && !box.resumlink && !box.addre && !vm.isArray(item[box.key])">{{ item[box.key] }}</span>
               <span ng-if="box.addre">
                  <span ng-if="!item[box.key]">非默认</span>
                  <span ng-if="item[box.key]">默认地址</span>
               </span>
               <span ng-if="vm.isArray(box.key) && !box.img"> {{box.key[0].zid}}{{ item[box.key[0].zikey] }}<br/>{{ box.key[1].zid }}{{item[box.key[1].zikey]}}{{box.key[1].zikeyfh}}</span>
-       
+              <span ng-if="vm.isArray(item[box.key])"><span ng-repeat="items in item[box.key]"> {{items.name}} </span></span>
               <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="{{vm.dhw.imgurl}}{{item[box.key[0].zikey]}}_280x280.jpg">{{item[box.key[1].zikey]}}</span>
             </li>
             <li ng-if="${attrs.operate}" class="list_item_box" style="width:10%">
@@ -40,6 +40,20 @@ export default function listItem() {
           </ul>
         </li>
       `;
-    }
+    },
+    controller: [function() {
+      var vm = this;
+      vm.isArray = (function() {
+        if (Array.isArray) {
+          return Array.isArray;
+        }
+        var objectToStringFn = Object.prototype.toString,
+          arrayToStringResult = objectToStringFn.call([]);
+
+        return function(subject) {
+          return objectToStringFn.call(subject) === arrayToStringResult;
+        };
+      } ());
+    }]
   };
 }

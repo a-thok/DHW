@@ -15,7 +15,7 @@ export default function MainCtrl($location) {
     {
       url: 'pfws',
       text: '申请为服务商',
-      active: false
+      active: false,
     },
     {
       url: 'pygz',
