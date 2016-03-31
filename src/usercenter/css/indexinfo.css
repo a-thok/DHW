@@ -2,7 +2,8 @@
 .formSet {
   margin-top: 30px;
 }
-.formSet_label {
+.formSet_label-sku {
+    display: inline-block;
     width: 230px;
     height: 38px;
     margin-right: 20px;

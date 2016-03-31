@@ -29,6 +29,9 @@ import BhsCtrl from './controllers/JllbControllers/BhsCtrl.js';
 import TdpreviewdetailCtrl from './controllers/TdpreviewdetailCtrl.js';
 // 职位收藏
 import ZwscCtrl from './controllers/ZwscControllers/ZwscCtrl.js';
+// 职位评价
+import ReplayCtrl from './controllers/ReplayCtrl.js';
+import PreplayCtrl from './controllers/PreplayCtrl.js';
 // 已投简历
 import YtjlCtrl from './controllers/YtjlCtrl.js';
 // 简历编辑与简历预览
@@ -114,6 +117,16 @@ app
         templateUrl: '/partials/rczp/partial-jlyl.html',
         controller: 'JlylCtrl as JlylVm'
       })
+      .state('replay', {
+        url: '/replay',
+        templateUrl: '/partials/rczp/partial-replay.html',
+        controller: 'ReplayCtrl as replayVm'
+      })
+      .state('preplay', {
+        url: '/preplay',
+        templateUrl: '/partials/rczp/partial-preplay.html',
+        controller: 'PreplayCtrl as preplayVm'
+      })
       .state('ytjl', {
         url: '/ytjl',
         templateUrl: '/partials/rczp/partial-ytjl.html',
@@ -153,6 +166,8 @@ app
   .controller('DgtjlCtrl', [DgtjlCtrl])
   .controller('YtgmsCtrl', [YtgmsCtrl])
   .controller('BhsCtrl', [BhsCtrl])
+  .controller('ReplayCtrl', ['$scope', ReplayCtrl])
+  .controller('PreplayCtrl', ['$scope', PreplayCtrl])
   .controller('ZwscCtrl', ['$http', ZwscCtrl])
   // 已投简历
   .controller('YtjlCtrl', ['$http', YtjlCtrl])

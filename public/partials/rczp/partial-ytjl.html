@@ -1,9 +1,19 @@
 <!--已投简历-->
 <div list
   data-vm='ytjlVm'
-  data-operate="false"
   data-api="/HRTdjl/List"
+  data-operate="true"
+  data-commentop="评论"
+  data-commentfunc="comment(item.jobid, item.duid)"
+  data-projectname="3"
   data-params='{"total":0}'
   data-datekey="tdcgsj"
   data-datekeytxt="投递时间"
+></div>
+<div commentmodal
+     data-vm="ytjlVm"
+     data-jobname="position"
+     data-comyname="company"
+     data-postcomment="postcomment()"
+     data-about="about"
 ></div>

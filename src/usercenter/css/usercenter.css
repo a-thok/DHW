@@ -313,3 +313,179 @@ body {
   width: 680px;
   float: left;
 }
+/*人才招聘*/
+/*.comment_modal {
+  display: none;
+}*/
+.comment_bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+}
+.comment_area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 570px;
+  height: 570px;
+  margin-left: -285px;
+  margin-top: -285px;
+  background: #fff;
+}
+.comment_title {
+  padding: 19px 20px 6px 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.comment_title .title_name {
+  font-size: 18px;
+  float: left;
+  color: #666666;
+}
+.comment_title .comment_close {
+  font-size: 16px;
+  font-style: normal;
+  float: right;
+}
+.comment_col {
+  margin-top: 39px;
+}
+.coment_col_pf {
+  margin-top: 31px;
+}
+.coment_col_pj {
+  margin-top: 29px;
+}
+.comment_col .comment_label {
+  width: 131px;
+  margin-right: 10px;
+  text-align: right;
+  float: left;
+  font-size: 16px; 
+}
+.comment_col .comment_content {
+  float: left;
+}
+.comment_content .comment_jobtitle {
+  font-size: 16px;
+  color: #337ab7;
+  font-weight: bold;
+}
+.comment_content .comment_comyname {
+  font-size: 14px;
+  color: #666666;
+}
+.comment_content .comment_salary {
+  font-size: 16px;
+  color: red;
+}
+.comment_content .comment_salarypart {
+  margin-top: 6px;
+}
+.comment_content li {
+  margin-bottom: 5px;
+}
+.comment_content li.last {
+  margin-bottom: 0px;
+}
+.comment_totalscole {
+  font-size: 14px;
+}
+.comment_content textarea {
+  width: 360px;
+  height: 129px;
+}
+.comment_content .stars {
+  float: right;
+  margin-left: 13px; 
+}
+.star {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url('../img/start.png') no-repeat 0px -19px;
+}
+.star-5 {
+  background-position: 0px 0px;
+}
+.comment_btn {
+  width: 170px;
+  margin: 66px auto;
+}
+.comment_btn .btn{
+  width: 170px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #337ab7;
+  color: #fff;
+  font-size: 18px;
+}
+/*恢复评论*/
+.replay_box {
+  position: absolute;
+  width: 663px;
+  height: 205px;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  padding: 7px 8px 7px 5px;
+  display: none;
+  /*opacity: 0;*/
+  transition: all 0.1s
+}
+.replay_area {
+  position: relative;
+  padding: 24px 20px 5px 20px;
+  background: #fff;
+}
+.replay_num {
+  position: absolute;
+  position: absolute;
+  bottom: 39px;
+  right: 35px;
+  color: #ccc;
+}
+.replay_content textarea {
+  width: 621px;
+  height: 145px;
+  border: 1px solid #ccc;
+}
+.confirm_btn {
+  width: 38px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color:  #337ab7;
+  color: #fff;
+  float: right;
+}
+.box_close {
+  position: absolute;
+  top: 12px;
+  right: 14px; 
+  width: 15px;
+  height: 15px;
+  background: url('../img/closeBtn.png') no-repeat 0px 0px;
+  z-index: 1;
+}
+.replay-arrow1 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 19px dashed transparent;
+    border-bottom: 17px solid #7F7F7F;
+    top: -36px;
+    left: 63px;
+}
+.replay-arrow2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 19px dashed transparent;
+    border-bottom: 17px solid #fff;
+    top: -28px;
+    left: 63px;
+}

@@ -14,7 +14,7 @@ export default function listItem() {
             <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
               <a ng-if="box.link" href="${attrs.link}{{ item[box.linkkey] }}" target="_blank">{{ item[box.key] }}</a>
               <a ng-if="box.resumlink" href="${attrs.editurl}">{{ item[box.key] }}</a>
-              <img ng-if="box.img && !vm.isArray(box.key)" ng-src="{{vm.dhw.imgurl}}{{item[box.key]}}.jpg">
+              <img ng-if="box.img && !vm.isArray(box.key)" ng-src="{{vm.dhw.imgurl}}{{item[box.key]}}">
               <span ng-if="!box.link && !box.img && !box.resumlink && !box.addre">{{ item[box.key] }}</span>
               <span ng-if="box.addre">
                  <span ng-if="!item[box.key]">非默认</span>
@@ -32,6 +32,10 @@ export default function listItem() {
               <span ng-if="${attrs.projectname} === 2">
                  <a ng-if="item.statemc === 0" href="${attrs.editurl}{{item.ddid}}">查看详情</a>
                  <a ng-if="item.statemc !== 0" href="javascript:;">已删除<br>无法查看</a>
+              </span>
+             <span ng-if="${attrs.projectname} === 3">
+                <b ng-if="item.pj !== 3">未面试<br/>无法恢复</b>
+                <a ng-if="item.pj === 3" href="javascript:;" ng-click="${attrs.vm}.${attrs.commentfunc}">${attrs.commentop}</a>
               </span>
               <span ng-if="${attrs.operate2}">
                 <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>

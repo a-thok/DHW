@@ -21,6 +21,11 @@ export default function MainCtrl() {
       url: 'zwsc',
       text: '职位收藏',
       active: false
+    },
+    {
+      url: 'preplay',
+      text: '我的评价',
+      active: false
     }
   ];
   // 公司账号
@@ -38,6 +43,11 @@ export default function MainCtrl() {
     {
       url: 'jllb.filter',
       text: '简历列表',
+      active: false
+    },
+    {
+      url: 'replay',
+      text: '我的评价',
       active: false
     }
   ];
