@@ -46,7 +46,7 @@ export default function startendYear() {
                 ng-disabled="isChecked"
               >
               </select>
-               <div class="formSelectDiv"> 月 </div>
+               <div class="formSelectDiv"> 年 </div>
               <select class="formSelect formSelect--multiple" id="${attrs.fourth}" name="${attrs.fourth}"
                 ng-model="${attrs.vm}.${attrs.fourth}"
                 ng-options="item for item in vm.list.endMonths"
@@ -54,7 +54,8 @@ export default function startendYear() {
                 ng-disabled="isChecked"
               >
               </select>
-              <span>
+              <div class="formSelectDiv"> 月 </div>
+              <span ng-if="${!attrs.isneed}">
                  <input type="checkbox" ng-click="vm.getToday($event)" ng-model="isChecked">至今
               </span>
               <a class="formSwitch" href="javascript:;" ng-show="${attrs.switch}" ng-click="vm.save()">保存</a>

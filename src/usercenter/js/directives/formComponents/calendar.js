@@ -4,7 +4,7 @@ export default function calendar() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
+    template: function(elem, attrs) {
       return `
         <div class="formGourp clearfix">
           <div class="formGourp_wrap">
@@ -20,6 +20,8 @@ export default function calendar() {
                 ng-model="${attrs.vm}.data.${attrs.name}"
                 ng-focus="vm.show()"
                 ng-required="${attrs.required}"
+                ng-change="${attrs.change}"
+                ng-disabled="${!!attrs.issecond}"
               readonly>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
@@ -60,7 +62,7 @@ export default function calendar() {
         </div>
       `;
     },
-    controller: ['$scope', '$attrs', '$http', '$stateParams', function ($scope, $attrs, $http, $stateParams) {
+    controller: ['$scope', '$attrs', '$http', '$stateParams', function($scope, $attrs, $http, $stateParams) {
       let vm = this;
       partialController($scope, $attrs, $http, $stateParams, vm);
       // 日历显示切换
@@ -74,16 +76,23 @@ export default function calendar() {
       // 日历数据
       vm.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
       vm.dates = []; // 动态赋值
+
+      // 日历数据
+      vm.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+      vm.dates = []; // 动态赋值
+
       // 当天
       const today = new Date();
       vm._year = today.getFullYear();
       vm._month = today.getMonth();
       vm._date = today.getDate();
       /* * 年 * */
+
       vm.year = vm._year;
+
       // 上一年
       vm.prevYear = () => {
-        if (vm.year > vm._year) {
+        if (!$attrs.issecond) {
           vm.year--;
           vm.setDates(vm.month);
         }
@@ -93,6 +102,7 @@ export default function calendar() {
         vm.year++;
         vm.setDates(vm.month);
       };
+
       /* * 月 * */
       vm.month = vm.months[vm._month];
       // 是否当前月
@@ -108,11 +118,11 @@ export default function calendar() {
         }
       };
       // 是否小于当前月
-      vm.isLessThanMonth = (month) => {
-        if (vm.year <= vm._year && (month - 1) < vm._month) {
-          return true;
-        }
-      };
+      // vm.isLessThanMonth = (month) => {
+      //   if (vm.year <= vm._year && (month - 1) < vm._month) {
+      //     return true;
+      //   }
+      // };
       // 选择月
       vm.selectMonth = (e, month) => {
         if (e.target.className.indexOf('disabled') === -1) {
@@ -121,6 +131,7 @@ export default function calendar() {
           vm.setDates(month);
         }
       };
+
       /* * 日 * */
       vm.date = (vm._date < 10) ? '0' + vm._date : vm._date + '';
       // 是否当前日
@@ -147,10 +158,20 @@ export default function calendar() {
           vm.selectedYear = vm.year;
           vm.selectedMonth = vm.month;
           vm.date = date;
+          if (!$attrs.issecond) {
+            $scope.$parent.date = vm.year;
+          }
           vm.result = vm.year + '-' + vm.month + '-' + vm.date;
           vm.hide();
         }
       };
+
+      if ($attrs.issecond) {
+        $scope.$parent.$watch('date', (newV) => {
+          vm.year = newV
+        })
+      }
+
       // 计算不同月的合法日期
       vm.setDates = (month) => {
 
