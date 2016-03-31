@@ -65,10 +65,14 @@ export default function calendar() {
     controller: ['$scope', '$attrs', '$http', '$stateParams', function($scope, $attrs, $http, $stateParams) {
       let vm = this;
       partialController($scope, $attrs, $http, $stateParams, vm);
+<<<<<<< HEAD:src/usercenter/js/directives/formComponents/calendar.js
 <<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
 =======
 
 >>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
+=======
+
+>>>>>>> 67deff1e915bfec96bf86dbb26426b16611ae49e:usercenter/src/js/directives/formComponents/calendar.js
       // 日历显示切换
       vm.isShow = false;
       vm.show = () => {
@@ -76,15 +80,7 @@ export default function calendar() {
       };
       vm.hide = () => {
         vm.isShow = false;
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
       };
-      // 日历数据
-      vm.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-      vm.dates = []; // 动态赋值
-=======
-      }
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
-
       // 日历数据
       vm.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
       vm.dates = []; // 动态赋值
@@ -124,11 +120,8 @@ export default function calendar() {
         if (vm.year === vm.selectedYear && month === vm.month) {
           return true;
         }
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
       };
-=======
-      }
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
+      
       // 是否小于当前月
       // vm.isLessThanMonth = (month) => {
       //   if (vm.year <= vm._year && (month - 1) < vm._month) {
@@ -142,11 +135,7 @@ export default function calendar() {
           vm.month = month;
           vm.setDates(month);
         }
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
       };
-=======
-      }
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
 
       /* * 日 * */
       vm.date = (vm._date < 10) ? '0' + vm._date : vm._date + '';
@@ -180,7 +169,6 @@ export default function calendar() {
           vm.result = vm.year + '-' + vm.month + '-' + vm.date;
           vm.hide();
         }
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
       };
 
       if ($attrs.issecond) {
@@ -189,17 +177,12 @@ export default function calendar() {
         })
       }
 
-=======
-
-      }
-
       if ($attrs.issecond) {
         $scope.$parent.$watch('date', (newV) => {
           vm.year = newV
         })
       }
 
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
       // 计算不同月的合法日期
       vm.setDates = (month) => {
 

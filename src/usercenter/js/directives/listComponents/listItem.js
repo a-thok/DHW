@@ -20,10 +20,7 @@ export default function listItem() {
                  <span ng-if="!item[box.key]">非默认</span>
                  <span ng-if="item[box.key]">默认地址</span>
               </span>
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/listComponents/listItem.js
-=======
               <span ng-if="vm.isArray(box.key) && !box.img"> {{box.key[0].zid}}{{ item[box.key[0].zikey] }}<br/>{{ box.key[1].zid }}{{item[box.key[1].zikey]}}{{box.key[1].zikeyfh}}</span>
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/listComponents/listItem.js
               <span ng-if="vm.isArray(item[box.key])"><span ng-repeat="items in item[box.key]"> {{items.name}} </span></span>
               <span ng-if="vm.isArray(box.key) && box.img"><img ng-src="{{vm.dhw.imgurl}}{{item[box.key[0].zikey]}}_280x280.jpg">{{item[box.key[1].zikey]}}</span>
             </li>
