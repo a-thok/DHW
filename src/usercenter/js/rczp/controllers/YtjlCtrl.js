@@ -26,9 +26,13 @@ export default function YtjlCtrl($http) {
     $http.post('/HRMspj/PjAdd', Object.assign({}, vm.para, vm.data)).success((d) => {
       if (d.success) {
         alert('评论成功');
+        location.reload();
       } else {
         alert('评论失败，请确保您提交的信息填写完整以及网络流畅');
       }
     });
+    vm.close = () => {
+      vm.isshow = false;
+    };
   };
 }

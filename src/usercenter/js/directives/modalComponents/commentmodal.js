@@ -10,7 +10,7 @@ export default function commentmodal() {
           <div class="comment_area">
             <div class="comment_title clearfix">
                 <span class="title_name">职位评价</span>
-                <i class="comment_close" style="cursor:pointer">X</i>
+                <i class="comment_close" style="cursor:pointer" ng-click="${attrs.vm}.close()">X</i>
             </div>
             <div class="comment_operate">
               <div class="comment_col clearfix">

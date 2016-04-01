@@ -43,9 +43,9 @@ export default function CfbCtrl($http) {
     });
   };
   // 获取数据
-  $http.post('/Zbfb/Get').success((data) => {
-    vm.realnameauth = data.result.realnameauth;
-  });
+  // $http.post('/Zbfb/Get').success((data) => {
+  //   vm.realnameauth = data.result.realnameauth;
+  // });
    // 查看用户是否认证
   $http.post('/LoginService/Certify').success((d) => {
     if (d.success) {
