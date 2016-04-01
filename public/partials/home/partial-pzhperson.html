@@ -5,10 +5,10 @@
        <label  class="formLabel">
          <span class="formRequired">*</span>姓名
        </label>
-       <div class="formGroup_display" ng-if="!pzhpersonVm.data.realnameauth">
-         <a href="javascript:;" class="formSwitch">点击进入实名认证</a>
+       <div class="formGroup_display" ng-if="!pzhpersonVm.hasCompanyCerfity && !pzhpersonVm.hasPersonCerfity">
+         <a href="//www.dreamhiway.com/CenterAuth/Auth" class="formSwitch">点击进入实名认证</a>
        </div>
-       <div class="formGroup_display" ng-if="pzhpersonVm.data.realnameauth">
+       <div class="formGroup_display" ng-if="pzhpersonVm.hasCompanyCerfity || pzhpersonVm.hasPersonCerfity">
           <a href="javascript:;" class="formSwitch">{{pzhpersonVm.data.realname}}</a>
        </div>
      </div>

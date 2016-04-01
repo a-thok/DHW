@@ -3,12 +3,13 @@ export default function PreplayCtrl($scope) {
   vm.list = [
     { name: '内容', key: [
       { keyname: '', keyword: 'about' },
-      { keyname: '[回复]', keyword: 'huifu' },
+      { keyname: '[已收到回复]', keyword: 'huifu' },
     ], width: '50%' },
-    { name: '公司信息：', key: [
-      { keyname: '公司：', keyword: 'company' },
+    { name: '公司名称', key: 'company', width: '25%' },
+    { name: '职位信息', key: [
+      { keyname: '名称：', keyword: 'position' },
       { keyname: '薪资', keyword: 'money' }
-    ], width: '40%' },
+    ], width: '25%' },
   ];
   $scope.style = {
     top: '-9999px',
