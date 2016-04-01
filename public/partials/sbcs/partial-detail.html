@@ -17,7 +17,7 @@
   data-required="true"
   data-switch="false"
   data-part="text"
-  data-options="item.name as item.name for item in detailVm.area"
+  data-options="item for item in detailVm.area"
   ></div>
   <div select-simple
   data-vm="detailVm"
@@ -27,13 +27,13 @@
   data-required="true"
   data-switch="false"
   data-part="text"
-  data-options="item.name as item.name for item in detailVm.type"
+  data-options="item as item.name for item in detailVm.type"
   data-onchange="change()"
   ></div>
   <div class="formGourp clearfix">
     <label class="formLabel"><span class="formRequired">*</span>核定使用范围</label>
     <div class="multipleSelect">
-      <span class="multipleSelect_type" ng-repeat="item in detailVm.secType" ng-click="detailVm.typeSelect($event, item)">{{item.name}}</span>
+      <span class="multipleSelect_type" id="ss" ng-repeat="item in detailVm.secType" ng-click="detailVm.typeSelect($event, item)">{{item.name}}</span>
     </div>
   </div>
   <div input-text

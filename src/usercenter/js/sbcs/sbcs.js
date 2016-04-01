@@ -15,6 +15,7 @@ import switchType from '../directives/userCenter/switchType.js';
 import MainCtrl from './controllers/MainCtrl.js'
 import FbCtrl from './controllers/FbCtrl.js'
 import SplbCtrl from './controllers/SplbCtrl.js'
+import ScCtrl from './controllers/ScCtrl.js'
 import JyzCtrl from './controllers/SplbControllers/JyzCtrl.js'
 import YjyCtrl from './controllers/SplbControllers/YjyCtrl.js'
 import YxCtrl from './controllers/SplbControllers/YxCtrl.js'
@@ -203,6 +204,11 @@ app
              templateUrl:'/partials/sbcs/partial-detail.html',
              controller: 'DetailCtrl as detailVm'
            })
+           .state('sc',{
+             url: '/sc',
+             templateUrl:'/partials/sbcs/partial-sc.html',
+             controller: 'ScCtrl as scVm'
+           })
   }])
   
   .directive('showAllModules', showAllModules)
@@ -213,6 +219,7 @@ app
   
   .controller('MainCtrl',[MainCtrl]) //主控制器
   .controller('SplbCtrl',[SplbCtrl])
+  .controller('ScCtrl',[ScCtrl])
   .controller('FbCtrl',['$http', '$scope', FbCtrl])
   .controller('JyzCtrl',[JyzCtrl])
   .controller('YjyCtrl',[YjyCtrl])

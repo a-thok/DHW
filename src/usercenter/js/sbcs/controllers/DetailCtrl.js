@@ -3,6 +3,9 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   vm.data = {};
   vm.photos = [];
   var id = $stateParams.id;
+  $http.post('/dict/trademarktype').success(function(data) {
+    vm.type = data.result;
+  })
   $http.post('/Sys/rshop/Trademark/Get', { id: id }).success((data) => {
     vm.data = data.result;
     for (var i = 0, len = JSON.parse(data.result.content).length; i < len; i++) {
@@ -21,6 +24,21 @@ export default function DetailCtrl($scope, $http, $stateParams) {
         $('#negotiable_no').attr('checked', 'checked')
       }
     }
+    for(i = 0, len = vm.type.length; i < len; i++) {
+      if(data.result.pcode === vm.type[i].code) {
+        vm.data.code = vm.type[i]
+        vm.secType = vm.type[i].types;
+      }
+    }
+    setTimeout(function() {
+      for(var i = 0, len = vm.data.type.length; i < len; i++){
+        for(var j = 0, leng = $('.multipleSelect_type').length; j < leng; j++) {
+          if($('.multipleSelect_type').eq(j).text() === vm.data.type[i].name) {
+            $('.multipleSelect_type').eq(j).addClass('multipleSelect_type-selected')
+          }
+        }
+      }
+    });
   })
   vm.addphoto = function() {
     if (vm.photos.length < 5) {
@@ -33,13 +51,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   vm.delphoto = function(index) {
     vm.photos.splice(index, 1);
   }
-
-  $http.post('/dict/trademarktype').success(function(data) {
-    vm.type = data.result;
-  })
-  vm.area = [
-    { code: '01', name: '中国大陆' }
-  ]
+  vm.area = [ '中国内地' ]
   vm.count = [];
   for (var i = 0; i < 100; i++) {
     vm.count.push(i)
@@ -101,7 +113,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
     vm.data.content = angular.toJson(vm.data.content)
     vm.data.type = angular.toJson(vm.data.type)
     var para = Object.assign({}, vm.data);
-    $http.post('/Sys/rshop/Trademark/Add', para).success(function() {
+    $http.post('/Sys/rshop/Trademark/Edit', para).success(function() {
 
     })
   }

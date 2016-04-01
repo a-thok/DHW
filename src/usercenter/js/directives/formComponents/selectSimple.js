@@ -22,6 +22,7 @@ export default function selectSimple() {
                 ng-required="${attrs.required}"
                 ng-change="${attrs.vm}.${attrs.onchange}"
               >
+              <option value="" selected hidden></option>
               </select>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>

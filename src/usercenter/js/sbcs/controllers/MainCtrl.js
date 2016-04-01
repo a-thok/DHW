@@ -13,8 +13,8 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'jb',
-      text: '举报',
+      url: 'order',
+      text: '支付',
       active: false
     }
   ];
@@ -31,8 +31,8 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'jb',
-      text: '举报',
+      url: 'order',
+      text: '支付',
       active: false
     }
   ];

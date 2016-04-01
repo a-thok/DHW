@@ -65,14 +65,6 @@ export default function calendar() {
     controller: ['$scope', '$attrs', '$http', '$stateParams', function($scope, $attrs, $http, $stateParams) {
       let vm = this;
       partialController($scope, $attrs, $http, $stateParams, vm);
-<<<<<<< HEAD:src/usercenter/js/directives/formComponents/calendar.js
-<<<<<<< af5567fa9ff286b0dbf47853e20facc5c66493e6:src/usercenter/js/directives/formComponents/calendar.js
-=======
-
->>>>>>> 个人中心 商标超市除商标修改外所有功能:usercenter/src/js/directives/formComponents/calendar.js
-=======
-
->>>>>>> 67deff1e915bfec96bf86dbb26426b16611ae49e:usercenter/src/js/directives/formComponents/calendar.js
       // 日历显示切换
       vm.isShow = false;
       vm.show = () => {
