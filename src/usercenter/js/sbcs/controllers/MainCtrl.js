@@ -11,11 +11,6 @@ export default function MainCtrl() {
       url: 'buyer.all',
       text: '订单列表',
       active: false
-    },
-    {
-      url: 'order',
-      text: '支付',
-      active: false
     }
   ];
   //个人账户
@@ -28,11 +23,6 @@ export default function MainCtrl() {
     {
       url: 'buyer.all',
       text: '订单列表',
-      active: false
-    },
-    {
-      url: 'order',
-      text: '支付',
       active: false
     }
   ];
