@@ -3,7 +3,7 @@ import {
   companynum,
   companytrade,
   companynature
-} from '../../../data/data.js'
+} from '../../../data/data.js';
 export default function CompanyCtrl($http) {
   var vm = this;
   vm.companynum = companynum;
@@ -13,7 +13,8 @@ export default function CompanyCtrl($http) {
   vm.fuliTemp = [];
   vm.data = {};
   vm.draft = {};
-  vm.fuliT = {}
+  vm.fuliT = {};
+  vm.mapcity = '';
   function fail() {
         vm.isSubmitSuccess = false;
         vm.isDisabled = false;
@@ -32,7 +33,7 @@ export default function CompanyCtrl($http) {
           vm.fuliTemp.push({ value: vm.fuliTep[i] });
         }
       }
-      $.extend(vm.data, data.result)
+      $.extend(vm.data, data.result);
     })
   }
   //添加业务范围与添加福利
@@ -68,7 +69,6 @@ export default function CompanyCtrl($http) {
       }
     }
     $http.post('/UserAccount/CompanyEdit', para).success(function(d) {
-      console.log(para.area)
       if (d.success) {
         vm.isSubmitSuccess = true;
       }else {

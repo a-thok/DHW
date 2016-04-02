@@ -13,7 +13,7 @@ import bindImg from './formComponents/bindImg.js' ;
 import nodatasArea from './formComponents/nodatasArea.js' ;
 import addPhoto from './formComponents/addPhoto.js' ;
 import homebtnSubmit from './formComponents/homebtnSubmit.js' ;
-import startendYear from './formComponents/startendYear.js'; 
+import startendYear from './formComponents/startendYear.js';
 import eduhomeList from './formComponents/eduhomeList.js';
 import readOnly from './formComponents/readOnly.js';
 // 头像上传裁剪指令
@@ -22,6 +22,8 @@ import avatarDirective from './formComponents/avatarDirective.js';
 import colpickDirective from './formComponents/colpickDirective.js';
 // 测试指令省市三级联动
 import fileUploader from './formComponents/fileUploader.js';
+// 百度地图
+import baidumap from './formComponents/baidumap.js';
 let app = angular.module('formComponents', []);
 app
   // input text类型
@@ -55,6 +57,8 @@ app
   .directive('colpickDirective', colpickDirective)
   // 详情页只读指令
   .directive('readOnly', readOnly)
+  // 百度地图
+  .directive('baidumap', baidumap)
 
   // 个人中心企业上传图片指令--有新增功能
   .directive('addPhoto', addPhoto)

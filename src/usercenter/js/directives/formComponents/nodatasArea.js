@@ -51,6 +51,10 @@ export default function nodatasArea() {
         if (draft) {
           s.prov = draft.province.name;
           s.citym = draft.city.name;
+          if ($attrs.map) {
+            s.$parent[$attrs.vm].mapcity = s.citym;
+            console.log(s.$parent[$attrs.vm].mapcity);
+          }
           s.country = draft.district.name;
           s.area = draft;
         }
@@ -93,7 +97,9 @@ export default function nodatasArea() {
 
         s.country = s.countrys[0].name;
         s.citym = citys.name;
-
+        if ($attrs.map) {
+          s.$parent[$attrs.vm].mapcity = s.citym;
+        }
         s.city = { code: citys.code, name: citys.name };
         s.district = { code: s.countrys[0].code, name: s.country };
 
