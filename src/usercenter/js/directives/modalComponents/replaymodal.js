@@ -7,7 +7,7 @@ export default function replaymodal() {
       <div>
         <div class="replay_box" ng-style="style">
           <div class="replay_content">
-            <span class="box_close"></span>
+            <span class="box_close" ng-click="vm.close()"></span>
             <div class="replay_area">
               <textarea name="" id="" cols="30" rows="10" ng-model="${attrs.vm}.data.${attrs.name}"></textarea>
               <span class="replay_num">500字</span>
@@ -35,6 +35,10 @@ export default function replaymodal() {
             location.reload();
           }
         });
+      };
+      vm.close = function () {
+        $scope.$parent.style.top = '-9999px';
+        $scope.$parent.style.left = '-9999px';
       };
     }],
     controllerAs: 'vm'

@@ -47,7 +47,7 @@ export default function MainCtrl() {
     },
     {
       url: 'replay',
-      text: '我的评价',
+      text: '收到的评价',
       active: false
     }
   ];

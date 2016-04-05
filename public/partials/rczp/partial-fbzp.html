@@ -23,13 +23,14 @@
     data-tip='请填写此职位'
     data-error="职位名称必须在2-10个字符之间"
   ></div>
-   <div nodatas-area
+   <div nodatas-Area
         data-vm="fbzpVm"
         data-label="所在地"
         data-required="true"
         data-name="area"
+        data-map="true"
    ></div>
-   <div input-text
+   <!--<div input-text
     data-switch="false"
     data-vm="fbzpVm"
     data-label="详细地址"
@@ -39,8 +40,8 @@
     data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,50}$/"
     data-tip='请填写此职位的详细地址'
     data-error="详细地址必须在2-50个字符之间"
-  ></div>
-  
+  ></div>-->
+   <div baidumap data-vm="fbzpVm" data-name="addr" data-required="true" data-label="详细地址" data-pattern=""></div>
    <div input-text
     data-switch="false"
     data-vm="fbzpVm"

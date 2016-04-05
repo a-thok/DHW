@@ -34,9 +34,7 @@ export default function baidumap() {
       `;
     },
     controller: ['$scope', '$attrs', '$http', function ($scope, $attrs, $http) {
-    }],
-    link: function (scope, attrs, elem) {
-       var detailaddress = document.getElementById("detailaddress");
+        var detailaddress = document.getElementById("detailaddress");
        var pointall;
         // 有用的代码
         // 百度地图API功能
@@ -47,16 +45,18 @@ export default function baidumap() {
         var myGeo = new BMap.Geocoder();
         // 将地址解析结果显示在地图上,并调整地图视野
         var address;
-        console.log(scope.$parent.companyVm);
+       
         // address = angular.fromJson(scope.$parent.companyVm.area).city.name;
         //var mapcity1 = scope.$parent[attrs.vm].mapcity;
   detailaddress.onblur = function() {
        address = detailaddress.value;
-       var mapcity1 = scope.$parent.companyVm.mapcity;
+       console.log(address);
+       var mapcity1 = $scope.$parent[$attrs.vm].mapcity;
+       console.log(mapcity1);
        myGeo.getPoint(address, function (point) {
             if (point) {
               pointall = point.lng + ',' + point.lat;
-              scope.$parent.companyVm.data.addrBDMap = pointall;
+              $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
               map.centerAndZoom(point, 16);
               map.addOverlay(new BMap.Marker(point));
             } else {
@@ -67,12 +67,12 @@ export default function baidumap() {
         function showMark(e) {
           var pointone = e.point;
           pointall = pointone.lng + ',' + pointone.lat;
-          scope.$parent.companyVm.data.addrBDMap = pointall;
+          $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
           map.addOverlay(new BMap.Marker(pointone));
         }
         map.addEventListener('click', showMark);
         map.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放
-    },
+    }],
     controllerAs: 'vm'
   };
 }

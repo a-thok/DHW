@@ -99,14 +99,16 @@ export default function list() {
       };
       // 删除功能
       vm.delItem = (key) => {
-        $http.post($attrs.delapi, { id: key }).success((d) => {
-          if (d.success) {
-            alert('您已删除成功');
-            getData(1);
-          } else {
-            alert('因网络原因无法进行及时删除');
-          }
-        });
+        if (confirm('您真的确定要删除此条数据吗？')) {
+          $http.post($attrs.delapi, { id: key }).success((d) => {
+            if (d.success) {
+              alert('您已删除成功');
+              getData(1);
+            } else {
+              alert('因网络原因无法进行及时删除');
+            }
+          });
+        };
       };
       vm.isArray = (function () {
         if (Array.isArray) {

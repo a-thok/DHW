@@ -73,17 +73,13 @@ export default function replaylist() {
       };
     }],
     link: function (scope, elem, attrs) {
-      console.log(elem.find('#replay'));
       elem.on('click', '#replay', function () {
-        var c = this.offsetTop;
-        console.log(this.offsetTop);
+        var c = parseInt(this.offsetTop);
         scope.$apply(function() {
-          scope.$parent.style.top = c + 'px';
+          scope.$parent.style.top = c + 50 + 'px';
           scope.$parent.style.left = '675px';
           scope.$parent.style.display = 'block';
         });
-       
-        console.log(scope.$parent.style.top);
       });
     },
     controllerAs: 'vm'

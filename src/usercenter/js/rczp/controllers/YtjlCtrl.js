@@ -31,8 +31,9 @@ export default function YtjlCtrl($http) {
         alert('评论失败，请确保您提交的信息填写完整以及网络流畅');
       }
     });
-    vm.close = () => {
-      vm.isshow = false;
-    };
+  };
+  vm.close = function () {
+    console.log(1);
+    vm.isshow = false;
   };
 }

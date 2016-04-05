@@ -36,8 +36,8 @@ export default function listItem() {
                  <a ng-if="item.statemc !== 0" href="javascript:;">已删除<br>无法查看</a>
               </span>
              <span ng-if="${attrs.projectname} === 3">
-                <b ng-if="item.pj !== 3">未面试<br/>无法恢复</b>
-                <a ng-if="item.pj === 3" href="javascript:;" ng-click="${attrs.vm}.${attrs.commentfunc}">${attrs.commentop}</a>
+                <b ng-if="item.pj !== 3">未面试<br/>无法评论</b>
+                <a ng-if="item.pj !== 3" href="javascript:;" ng-click="${attrs.vm}.${attrs.commentfunc}">${attrs.commentop}</a>
               </span>
               <span ng-if="${attrs.operate2}">
                 <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>

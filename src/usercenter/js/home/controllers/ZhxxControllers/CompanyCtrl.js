@@ -24,6 +24,7 @@ export default function CompanyCtrl($http) {
   vm.getDraft = function(fn) {
     $http.post('/UserAccount/Company').success(function(data) {
       fn(data.result.area);
+      vm.mapcity = angular.fromJson(data.result.area).city.name
       if (data.result.business) {
         vm.businessTemp = angular.fromJson(data.result.business);
       }

@@ -39,7 +39,9 @@ export const dhw = {
 //   urlcqbh: '/bh.dreamhiway.com/',
 //   urlzxsj: '//zxsj.dreamhiway.com/',
 //   urlgsss: '//gsss.dreamhiway.com/',
-//   urlfj: 'http://upload.dreamhiway.com/file/'
+//   urlfj: 'http://upload.dreamhiway.com/file/',
+//   urlimg: 'http://upload.dreamhiway.com/img/',
+//   urlfjupload: 'http://upload.dreamhiway.com/uploadfj'
 // };
 
 
