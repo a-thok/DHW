@@ -10,13 +10,21 @@ export default function commentmodal() {
           <div class="comment_area">
             <div class="comment_title clearfix">
                 <span class="title_name">职位评价</span>
-                <i class="comment_close" style="cursor:pointer" ng-click="${attrs.vm}.close()">X</i>
+                <span class="comment_close" style="cursor:pointer" ng-click="${attrs.vm}.${attrs.close}"></span>
             </div>
             <div class="comment_operate">
               <div class="comment_col clearfix">
                 <label for="" class="comment_label">职位信息 :</label>
                 <div class="comment_content">
-                  <p>
+                  <p style="
+    width: 374px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: -webkit-baseline-middle;
+    height: 24px;
+    line-height: 24px;
+">
                     <span class="comment_jobtitle">{{ ${attrs.vm}.data.${attrs.jobname} }}</span>/<span class="comment_comyname">{{ ${attrs.vm}.data.${attrs.comyname} }}</span>
                   </p>
                   <p class="comment_salarypart">
