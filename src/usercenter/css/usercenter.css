@@ -348,8 +348,9 @@ body {
   color: #666666;
 }
 .comment_title .comment_close {
-  font-size: 16px;
-  font-style: normal;
+   width: 15px;
+  height: 15px;
+  background: url('../img/closeBtn.png') no-repeat 0px 0px;
   float: right;
 }
 .comment_col {

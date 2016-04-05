@@ -12,7 +12,7 @@ export default function GsdtFbCtrl($http) {
     });
   };
   vm.selectTrans = function (event, type) {
-    vm.data.type = type;
+    vm.data.transaction = type;
     $(event.target).parents('.formSet').find('.formInputSet_radio').css({
       'background-position': '0 0',
     });
