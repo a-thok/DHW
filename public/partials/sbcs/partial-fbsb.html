@@ -1,0 +1,131 @@
+<form name="fbForm">
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="商标名称"
+  data-name="name"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写商标名称'
+  data-pattern=""
+  ></div>
+  <div select-simple
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="所属区域"
+  data-name="area"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item for item in fbVm.area"
+  ></div>
+  <div select-simple
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="所属分类"
+  data-name="code"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item as item.name for item in fbVm.type"
+  data-onchange="change()"
+  ></div>
+  <div class="formGourp clearfix">
+    <label class="formLabel"><span class="formRequired">*</span>核定使用范围</label>
+    <div class="multipleSelect">
+      <span class="multipleSelect_type" ng-repeat="item in fbVm.secType" ng-click="fbVm.typeSelect($event, item)">{{item.name}}</span>
+    </div>
+  </div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="商标注册号"
+  data-name="regNo"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写商标注册号'
+  data-pattern=""
+  ></div>
+  <div calendar
+  data-switch="false"
+  data-vm="fbVm"
+  data-label="开始专用时间"
+  data-name="date1"
+  data-required="true"
+  ></div>
+  <div calendar
+  data-switch="false"
+  data-vm="fbVm"
+  data-label="结束专用时间"
+  data-name="date2"
+  data-required="true"
+  data-issecond="true"
+  ></div>
+  <div  class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 商标形式</label>
+    <span class="formSet_span">中文个数</span><select class="formSelect_small" ng-model="fbVm.data.cnNum" ng-options="item for item in fbVm.count"></select>
+    <span class="formSet_span">英文个数</span><select class="formSelect_small" ng-model="fbVm.data.enNum" ng-options="item for item in fbVm.count"></select>
+    <span class="formSet_span">数字个数</span><select class="formSelect_small" ng-model="fbVm.data.nuNum" ng-options="item for item in fbVm.count"></select>
+  </div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 交易形式</label>
+    <span class="formInputSet_radioWrap"><input type="radio" name="tradetype" id="tradetype_zr">转让</span>
+    <span class="formInputSet_radioWrap"><input type="radio" name="tradetype" id="tradetype_sq">授权</span>
+  </div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 是否可议价</label>
+    <span class="formInputSet_radioWrap"><input type="radio" name="negotiable" id="negotiable_yes">是</span>
+    <span class="formInputSet_radioWrap"><input type="radio" name="negotiable" id="negotiable_no">否</span>
+  </div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="收购价格"
+  data-name="price"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写收购价格'
+  data-pattern=""
+  ></div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="转让价格"
+  data-name="sellprice"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写转让价格'
+  data-pattern=""
+  ></div>
+  <div web-uploader
+  data-vm="fbVm"
+  data-label="logo图片"
+  data-name="img"
+  data-required="true"
+  data-key="uc"
+  data-size="185x121"
+  ng-model="fbVm.data.img"
+  ></div>
+  <div class="formGourp clearfix">
+    <div ng-repeat="photo in fbVm.photos" class="addphoto">
+      <div web-uploader 
+      data-vm="fbVm"
+      data-label="描述"
+      data-name="url"
+      data-required="true"
+      data-size="947x474"
+      data-key="uc"
+      data-isrepeatitem="true"
+      data-repeatitem="photo"
+      ng-model="photo.url"
+      ></div>
+      <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>         
+    </div>
+  </div>
+  <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="fbVm.addphoto()" type="button">添加新图片</button>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-click="fbVm.submit()">提交</button>
+    </div>
+  </div>
+</form>

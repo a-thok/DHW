@@ -1,0 +1,75 @@
+<!--个人账号工作经历-->
+<form name="pzhxxworkForm" ng-submit="pzhxxworkVm.submit()">
+  <!--列表指令-->
+<div eduhome-list    
+     data-vm="pzhxxworkVm"
+     data-operate="true"
+     data-postapi="/UserAccount/GzjlList"
+     data-delapi="/UserAccount/GzjlDel"
+     data-editapi="/UserAccount/Gzjl"
+></div>
+<div startend-year
+     data-vm='pzhxxworkVm'
+     data-switch='false'
+     data-label='学习日期'
+     data-first='startyear'
+     data-second='startmonth'
+     data-third='endyear'
+     data-fourth='endmonth'
+     data-required='true'
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="公司名称"
+    data-name="name"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写公司名称'
+    data-error="公司名称必须在2-30个字符之间"
+></div>
+<div select-simple
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="所属行业"
+    data-name="industry"
+    data-required="true"
+    data-form="workForm"
+    data-options="item.name as item.name for item in pzhxxworkVm.companytrade"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="任职部门"
+    data-name="department"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写部门名称'
+    data-error="部门名称必须在2-30个字符之间"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="pzhxxworkVm"
+    data-label="任职职位"
+    data-name="position"
+    data-required="true"
+    data-form="pzhxxworkForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写职位名称'
+    data-error="职位名称必须在2-30个字符之间"
+></div>
+
+<div homebtn-submit
+     data-vm="pzhxxworkVm"
+     data-form="pzhxxworkForm"
+     data-addapi="/UserAccount/GzjlAdd"
+     data-modifyapi="/UserAccount/GzjlEdit"
+></div>
+</form>
+
+<div modal
+     data-vm="pzhxxworkVm"
+     data-url="/pzhxx/experience" 
+></div>

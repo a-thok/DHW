@@ -1,0 +1,494 @@
+/*@import 'normalize.css';*/
+@import 'rootvar.css';
+/*通用底部*/
+@import 'footer.css';
+/*取色器插件*/
+@import 'colpick.css';
+/*富文本插件*/
+@import 'wangEditor.css';
+/*头像裁剪*/
+@import 'jquery.Jcrop.min.css';
+/* 表单页控件 */
+@import 'form.css';
+@import 'calender.css';
+@import 'webuploader.css';
+@import 'richText.css';
+@import 'modal.css';
+/* 列表页 */
+@import 'listTabs.css';
+@import 'list.css';
+@import 'pagination.css';
+/* 简历 */
+@import 'resume.css';
+/*发布众筹样式*/
+@import 'zcForm.css';
+@import 'zhongchou.css';
+/*sku属性样式*/
+@import 'sku.css';
+/*交易模式选择*/
+@import 'cysj.css';
+/*众包*/
+@import 'zhongbao.css';
+/*个人中心首页*/
+@import 'indexinfo.css';
+/*站内信*/
+@import 'email.css';
+@import 'readonly.css';
+@import 'shangbiao.css';
+@import 'order.css';
+/* angular闪烁 */
+[ng-cloak] {
+  display: none !important;
+}
+
+/*
+ * 整体
+ */
+body {
+  background-color: var(--bodyColor);
+  font-size:10px;
+}
+
+.ucNav_wrap,
+.ucMain {
+  width: 1220px;
+  margin: 0 auto;
+}
+
+/* 
+ * 个人中心导航栏
+ */
+ 
+.ucNav {
+  background-color: var(--emColor);
+}
+.ucNav_logo,
+.ucNav_list {
+  float: left;
+}
+.ucNav_search {
+  float: right;
+}
+
+/* logo */
+.ucNav_logo {
+  width: 170px;
+  height: 50px;
+  background: url(../img/uc_logo.png) no-repeat 50% 50%;
+}
+
+/* 列表 */
+.ucNav_list {
+  position: relative;
+}
+.ucNav_list a {
+  float: left;
+}
+.ucNav_list_item {
+  position: relative;
+  z-index: 0;
+  float: left;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+}
+.ucNav_list_item--slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 28px;
+  background-color: var(--emColor-dark);
+}
+
+.ucNav_list_item--all {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+.ucNav_list_item--all_text {
+  height: 100%;
+}
+.ucNav_list_item--all_arrow {
+  display: inline-block;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: #fff transparent transparent;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.ucNav_list_item--all_list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 270px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  border: 1px solid var(--borderColor);
+  background-color: #fff;
+  box-shadow: 1px 1px 5px #aaa;
+}
+.ucNav_list_item--all_list_item {
+  float: left;
+  width: 60px;
+  margin: 30px 30px 0 0;
+  line-height: 1;
+  text-align: center;
+}
+.ucNav_list_item--all_list_item a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+.ucNav_list_item--all_list_item a:hover {
+  opacity: 0.8;
+}
+.ucNav_list_item--all_list_item_icon {
+  display: inline-block;
+  width: 47px;
+  height: 47px;
+  background: url(../img/uc_module_logos.png) 0 0 no-repeat;
+  &.kjfw {
+    background-position: 0 -156px;
+  }
+  &.rczp {
+    background-position: 0 -208px;
+  }
+  &.zchou {
+    background-position: 0 -416px;
+  }
+  &.zckj {
+    background-position: 0 -468px;
+  }
+  &.cysj {
+    background-position: 0 -102px;
+  }
+  &.srdz {
+    background-position: 0 -312px;
+  }
+  &.zbao {
+    background-position: 0 -364px;
+  }
+  &.cqbh {
+    background-position: 0 -52px;
+  }
+  &.gsss {
+    background-position: 0 -260px;
+  }
+}
+.ucNav_list_item--all_list_item_text {
+  
+  line-height: 1.5;
+}
+
+/* 搜索 */
+.ucNav_search {
+  position: relative;
+  margin-top: 8px;
+}
+.ucNav_search_select,
+.ucNav_search_input {
+  float: left;
+}
+.ucNav_search_select {
+  width: 50px;
+  height: 34px;
+  border-radius: 3px 0 0 3px;
+  margin-right: 1px;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 34px;
+  text-align: center;
+}
+.ucNav_search_input {
+  width: 160px;
+  height: 34px;
+  padding: 0 35px 0 5px;
+  border: 0;
+  border-radius: 0 3px 3px 0;
+  font-size: 14px;
+  line-height: 34px;
+}
+.ucNav_search_btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 23px;
+  background: url(../img/ucNav_search_btn.png);
+  cursor: pointer;
+}
+
+
+/*
+ * 个人中心主内容
+ */
+.ucMain {
+  margin-top: 10px;
+}
+.ucSidebar,
+.ucContent {
+  background-color: #fff;
+}
+
+/* * 切换账户类型 * */
+.switchType {
+  float: right;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+ 
+/* * 侧边栏 * */
+.ucSidebar {
+  float: left;
+  width: 168px;
+  border: 1px solid var(--sideBorderColor);
+  margin-right: 15px;
+}
+.ucSidebar_menu_title,
+.ucSidebar_menu_list_item {
+  padding-left: 25px;
+}
+.ucSidebar_menu_title {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid var(--sideBorderColor);
+  font-size:16px;
+}
+.ucSidebar_menu_list_item {
+  display: block;
+  height: 40px;
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 40px;
+  text-decoration: none;
+}
+.ucSidebar_menu_list_item:hover {
+  background-color: var(--emColor-light);
+}
+.ucSidebar_menu_list_item--active {
+  background-color: var(--emColor) !important;
+  color: #fff;
+}
+
+/* 内容 */
+.ucContent {
+  display: table-cell;
+  width: 9999px;
+}
+.ucContent.ng-enter {
+  animation: scaleUp .7s;
+}
+@keyframes scaleUp {
+  from {
+    opacity: 0.3;
+    /*transform: scale(0.8);*/
+  }
+}
+
+/* 底部操作按钮 */
+.return_btn {
+  margin-top: 25px;
+  text-align: center;
+}
+.return_btn a {
+  display: inline-block;
+  height: 35px;
+  padding: 0 25px;
+  border-radius: 3px;
+  background: var(--emColor);
+  font-size: 14px;
+  line-height: 35px;
+  color: #fff;
+  text-decoration: none;
+}
+/*富文本编辑器*/
+.formGourp_editor_text {
+  width: 680px;
+  float: left;
+}
+/*人才招聘*/
+/*.comment_modal {
+  display: none;
+}*/
+.comment_bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+}
+.comment_area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 570px;
+  height: 570px;
+  margin-left: -285px;
+  margin-top: -285px;
+  background: #fff;
+}
+.comment_title {
+  padding: 19px 20px 6px 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.comment_title .title_name {
+  font-size: 18px;
+  float: left;
+  color: #666666;
+}
+.comment_title .comment_close {
+   width: 15px;
+  height: 15px;
+  background: url('../img/closeBtn.png') no-repeat 0px 0px;
+  float: right;
+}
+.comment_col {
+  margin-top: 39px;
+}
+.coment_col_pf {
+  margin-top: 31px;
+}
+.coment_col_pj {
+  margin-top: 29px;
+}
+.comment_col .comment_label {
+  width: 131px;
+  margin-right: 10px;
+  text-align: right;
+  float: left;
+  font-size: 16px; 
+}
+.comment_col .comment_content {
+  float: left;
+}
+.comment_content .comment_jobtitle {
+  font-size: 16px;
+  color: #337ab7;
+  font-weight: bold;
+}
+.comment_content .comment_comyname {
+  font-size: 14px;
+  color: #666666;
+}
+.comment_content .comment_salary {
+  font-size: 16px;
+  color: red;
+}
+.comment_content .comment_salarypart {
+  margin-top: 6px;
+}
+.comment_content li {
+  margin-bottom: 5px;
+}
+.comment_content li.last {
+  margin-bottom: 0px;
+}
+.comment_totalscole {
+  font-size: 14px;
+}
+.comment_content textarea {
+  width: 360px;
+  height: 129px;
+}
+.comment_content .stars {
+  float: right;
+  margin-left: 13px; 
+}
+.star {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url('../img/start.png') no-repeat 0px -19px;
+}
+.star-5 {
+  background-position: 0px 0px;
+}
+.comment_btn {
+  width: 170px;
+  margin: 66px auto;
+}
+.comment_btn .btn{
+  width: 170px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background: #337ab7;
+  color: #fff;
+  font-size: 18px;
+}
+/*恢复评论*/
+.replay_box {
+  position: absolute;
+  width: 663px;
+  height: 205px;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  padding: 7px 8px 7px 5px;
+  display: none;
+  /*opacity: 0;*/
+  transition: all 0.1s
+}
+.replay_area {
+  position: relative;
+  padding: 24px 20px 5px 20px;
+  background: #fff;
+}
+.replay_num {
+  position: absolute;
+  position: absolute;
+  bottom: 39px;
+  right: 35px;
+  color: #ccc;
+}
+.replay_content textarea {
+  width: 621px;
+  height: 145px;
+  border: 1px solid #ccc;
+}
+.confirm_btn {
+  width: 38px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color:  #337ab7;
+  color: #fff;
+  float: right;
+}
+.box_close {
+  position: absolute;
+  top: 12px;
+  right: 14px; 
+  width: 15px;
+  height: 15px;
+  background: url('../img/closeBtn.png') no-repeat 0px 0px;
+  z-index: 1;
+}
+.replay-arrow1 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 19px dashed transparent;
+    border-bottom: 17px solid #7F7F7F;
+    top: -36px;
+    left: 63px;
+}
+.replay-arrow2 {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 19px dashed transparent;
+    border-bottom: 17px solid #fff;
+    top: -28px;
+    left: 63px;
+}

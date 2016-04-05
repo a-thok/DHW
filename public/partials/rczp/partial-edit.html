@@ -1,0 +1,152 @@
+<!--发布简历详情编辑-->
+<form name="editForm" ng-submit="editVm.submit()">
+  <div input-text
+    data-switch="false"
+    data-vm="editVm"
+    data-label="所属部门"
+    data-name="depart"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div input-text
+    data-switch="false"
+    data-vm="editVm"
+    data-label="职位名称"
+    data-name="position"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位'
+    data-error="职位名称必须在2-10个字符之间"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>  
+   <div nodatas-area
+        data-vm="editVm"
+        data-label="所在地"
+        data-required="true"
+        data-name="area"
+   ></div>
+  <div select-simple
+    data-switch="false"
+    data-vm="editVm"
+    data-label="工作性质"
+    data-name="property"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.jobCategory"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div select-simple
+    data-switch="false"
+    data-vm="editVm"
+    data-label="薪资范围"
+    data-name="salary"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.salary"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div select-simple
+    data-switch="false"
+    data-vm="editVm"
+    data-label="工作经验"
+    data-name="experi"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.exprience"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div select-simple
+    data-switch="false"
+    data-vm="editVm"
+    data-label="学历要求"
+    data-name="educat"
+    data-required="true"
+    data-form="editForm"
+    data-options="item for item in editVm.education"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div input-text
+    data-switch="false"
+    data-vm="editVm"
+    data-label="职位诱惑"
+    data-name="tempt"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\、\,]{2,10}$/"
+    data-tip='请填写此职位的诱惑'
+    data-error="职位名称必须在2-10个字符之间,不能包含特殊字符"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div text-area
+    data-switch="false"
+    data-vm="editVm"
+    data-label="职位描述"
+    data-name="detail"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\-\:\；\,\，\.\!\、\。\：\;\'']{4,200}$/"
+    data-tip='请填写此职位的描述'
+    data-error="职位名称必须在4-200个字符之间,不能包含特殊字符"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div input-text
+    data-switch="false"
+    data-vm="editVm"
+    data-label="工作地址"
+    data-name="addr"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,80}$/"
+    data-tip='请填写此职位的工作地址'
+    data-error="职位名称必须在2-40个字符之间"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="editVm"
+    data-label="语言要求"
+    data-name="language"
+    data-required="true"
+    data-form="editForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-tip='请填写此职位的语言要求'
+    data-error="职位名称必须在2-10个字符之间"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+  <div select-double-numbers
+    data-switch="false"
+    data-vm="editVm"
+    data-label="年龄"
+    data-first="minage"
+    data-second="maxage"
+    data-required="true"
+    data-editapi="/HRZpxxFb/Edit"
+  ></div>
+    <div class="formGourp formGourp--submit clearfix">
+          <input class="formBtn formBtn--submit" type="submit" value="{{editVm.submitText}}"
+            ng-disabled="editForm.$invalid || editVm.isDisabled"
+          >
+   </div>
+  <!--<div btn-submit
+    data-vm="editVm"
+    data-form="editForm"
+    
+  ></div>-->
+  <!--<div modal
+  data-vm = "editVm"
+  data-url="/zplb"
+></div>-->
+</form>
+<div class="return_btn">
+  <a ng-if="editVm.statemc==0" href="#/zplb/published">返回</a>
+  <a ng-if="editVm.statemc==1" href="#/zplb/offline">返回</a>
+</div>
+<div modal
+  data-vm = "editVm"
+  data-url="/zplb/published"
+></div>

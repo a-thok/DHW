@@ -1,0 +1,159 @@
+/*
+ * 默认样式重置
+ */
+* {
+  margin:0;
+  padding:0;
+}
+body,
+input,
+select,
+button,
+textarea {
+  font: menu;
+  font-size: 16px;
+}
+ul, ol, dl {
+  list-style: none;
+}
+a img {
+  border: 0;
+}
+
+/*
+ * 清除浮动
+ */
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+.clearfix::after {
+  clear: both;
+  overflow: hidden;
+}
+
+/* 
+ * 全站导航条
+ */
+.nav {
+  height: 30px;
+  background: url(../image/nav_bg.gif) repeat-x;
+  font-size: 12px;
+  color: #333;
+  line-height: 30px;
+}
+.nav_wrap {
+  width: 1220px;
+  margin: 0 auto;
+}
+.nav a {
+  color: #a5a5a5;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.nav a:hover {
+  color: #666;
+}
+.nav .fa {
+  font-size:14px;
+}
+
+/* 左侧 */
+.nav_left {
+  float: left
+}
+.nav_left a {
+  margin-right: 15px;
+}
+
+/* 右侧 */
+.nav_right {
+  float: right
+}
+.nav_right_list_item {
+  float: left;
+}
+.nav_right_list_item > a {
+  padding: 0 10px;
+  border-right: 1px solid #ccc;
+}
+.nav_right_list_item--navigation > a {
+  border-left: 1px solid #ccc;
+}
+.nav_right_list_item--help > a {
+  border: 0;
+}
+.nav_right_list_item .nav_right_list_item_login {
+  padding: 0;
+  border: 0;
+}
+.nav_right_list_item--navigation {
+  position: relative;
+}
+.nav_right_list_item--navigation:hover a {
+  display: inline-block;
+  position: relative;
+  background: #fff;
+  z-index: 102;
+}
+.nav_right_list_item--navigation .fa {
+  display: inline;
+  margin-left: 5px;
+}
+.nav_navigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 101;
+  width: 160px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  background: #fff;
+}
+.nav_right_list_item--navigation:hover .nav_navigation {
+  display: block;
+}
+.nav_navigation_item {
+  float: left;
+}
+.nav_navigation_item a {
+  display: block;
+  width: 70px;
+  padding: 0 5px;
+  text-align: center;
+}
+/* 社交按钮 */
+.nav_social {
+  float: left;
+  position: relative;
+  margin-left: 5px;
+}
+.nav_social a {
+  position: relative;
+  padding: 0 5px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  z-index: 102;
+}
+.nav_social:hover a {
+  display: block;
+  border-color: #ccc;
+  background: #fff;
+}
+.nav_social_code {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 101;
+  padding: 5px 5px 0;
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  background: #fff;
+}
+.nav_social:hover .nav_social_code {
+  display: block;
+}

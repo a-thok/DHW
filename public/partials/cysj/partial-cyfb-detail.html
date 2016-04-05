@@ -1,0 +1,94 @@
+<!--公司项目详情查看页面-->
+   <div input-text
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="项目类型"
+      data-name="type"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,20}$/"
+  ></div>
+  <div input-text
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="项目名称"
+      data-name="title"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,20}$/"
+      data-tip='请填写项目名称'
+      data-error="请填写2-20个字符"
+  ></div>
+   <div text-area
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="需求说明"
+      data-name="info"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,250}$/"
+      data-tip='请输入需求描述'
+      data-error="需求描述必须在2-250个字符之间"
+    ></div>
+    <div input-text
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="项目周期"
+      data-name="xmzq"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^[1-9]\d*$/"
+      data-tip='请填写项目周期'
+      data-error="请填写大于0的数字"
+  ></div>  
+    <div calendar
+        data-switch="false"
+        data-vm="detailVm"
+        data-label="截止日期"
+        data-name="endtime"
+        data-required="true"
+    ></div>
+     <div input-text
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="悬赏金额"
+      data-name="money"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
+      data-tip='请填写价格'
+      data-error="价格格式错误或超出限制"
+  ></div> 
+     <!--交易模式-->
+      <div class="formSet clearfix">
+        <label class="formLabel"><span class="formSet_required">*</span> 交易模式</label>
+        <input type="hidden" ng-model="detailVm.data.transaction" required>
+        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="detailVm.selectTrans($event, 0)"></i> 悬赏模式</span>
+        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="detailVm.selectTrans($event, 1)"></i> 投标模式</span>
+      </div>
+     
+   
+  <div input-text
+      data-switch="false"
+      data-vm="detailVm"
+      data-label="联系电话"
+      data-name="phone"
+      data-required="true"
+      data-form="detailForm"
+      data-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+      data-tip='请填写价格'
+      data-error="价格格式错误或超出限制"
+  ></div>  
+  
+  
+  
+     <div class="formSet formSet-agreement clearfix">
+     <div class="formSetWrap">
+        <label class="formLabel"><span class="formSet_required">*</span></label>
+        <p class="formGroup_edit">
+          <input class="agreement" type="checkbox" ng-model="detailVm.data.agreement" required>
+          <label>是否同意《<a href="#">梦高速众包服务协议</a>》</label>
+        </p>
+     </div>
+   </div>
+

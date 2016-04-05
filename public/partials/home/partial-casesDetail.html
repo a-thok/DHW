@@ -1,0 +1,42 @@
+<!--公司案例列表详情页-->
+<form name="casesdetailForm" ng-submit="casesdetailVm.submit()">
+
+    <div web-uploader
+      data-vm="casesdetailVm"
+      data-name="img"
+      data-form="casesdetailForm"
+      data-size="100x100"
+      data-key="uc"
+      data-label="案例图片"
+      ng-model="casesdetailVm.data.img"
+    ></div>
+    <div input-text
+      data-switch="false"
+      data-vm="casesdetailVm"
+      data-name="title"
+      data-form="casesdetailForm"
+      data-required="true"
+      data-label="案例标题"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+      data-error="标题必须在2-10个字符之间"
+    ></div>
+    <div input-text
+      data-switch="false"
+      data-vm="casesdetailVm"
+      data-name="url"
+      data-form="casesdetailForm"
+      data-label="案例链接"
+      data-required="true"
+      data-pattern="/^((https?|ftp|news):\/\/)?([a-z]([a-z0-9\-]*[\.。])+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel)|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&]*)?)?(#[a-z][a-z0-9_]*)?$/"
+      data-error="链接地址不合法"
+    ></div>
+     <!--提交按钮指令需要重写-->
+     <div class="formGourp formGourp--submit clearfix">
+  <input class="formBtn formBtn--submit" type="submit" value="提交"
+      ng-disabled="casesdetailForm.$invalid">
+</div>
+</form>
+<div modal
+     data-vm="casesdetailVm"
+     data-url="/allb"
+></div>

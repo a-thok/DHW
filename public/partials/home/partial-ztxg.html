@@ -1,0 +1,36 @@
+<!--主题修改-->
+<form name="ztxgForm" ng-submit="ztxgVm.submit()">
+  <div input-text
+    data-switch="false"
+    data-vm="ztxgVm"
+    data-label="主标题"
+    data-name="maintitle"
+    data-form="ztxgForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-error="请输入正确的主标题名称"
+    data-required="true"
+  ></div>
+  <div input-text
+    data-switch="false"
+    data-vm="ztxgVm"
+    data-label="副标题"
+    data-name="subtitle"
+    data-form="ztxgForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-error="请输入正确的副标题名称"
+    data-required="true"
+  ></div>
+  <div colpick-directive
+    data-vm="ztxgVm"
+    data-label="主题色"
+    data-name="themes.themeColor"
+  ></div>
+   <!--提交按钮指令需要重写-->
+     <div class="formGourp formGourp--submit clearfix">
+        <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="ztxgForm.$invalid">
+     </div>
+</form>
+<div modal
+  data-vm="ztxgVm"
+  data-url="/ztxg"
+></div>

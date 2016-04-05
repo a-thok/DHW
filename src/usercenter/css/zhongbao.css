@@ -1,0 +1,100 @@
+.zbFormBox_ttl {
+  position: relative;
+  width: 174px;
+  height: 40px;
+  background-color: #337ab7;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+.zbFormBox_ttl i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-width: 20px 0 20px 35px;
+  border-color: transparent transparent transparent #337ab7;
+  border-style: solid;
+  margin-right: -35px;
+}
+.mission_title {
+  font-size: 16px;
+  margin: 20px 0 0 60px;
+}
+
+.agreementWrap a {
+  color: #027cff;
+}
+
+.submitBtn,
+.errorPop_btn {
+  width: 270px;
+  height: 36px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #027cff;
+  font-size: 16px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.submitBtn span {
+  color: #fff;
+}
+.submitBtn[disabled] {
+  background-color: #ccc;
+}
+
+.formSet_addMore {
+  display: block;
+  margin-left: -170px;
+  font-size: 16px;
+  color: #027cff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.content_t_t  {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: -200px;
+  color: #e34d43;
+  font-size: 14px;
+}
+.formInputSet-check {
+  font-size: 12px;
+}
+.formInputSet-check .formInputSet_label {
+  height: 20px;
+}
+.chechboxSet {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+}
+.checkbox {
+  display: inline-block;
+  margin-top: 13px;
+}
+.submitBtn {
+  margin-left: -200px;
+}
+.btns,
+.item {
+  float: left;
+  margin-left: 5px;
+}
+.sendBtn {
+  min-width: 40px;
+  height: 36px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #337ab7;
+  font-size: 14px;
+  color: #fff;
+}
+.sendBtn[disabled] {
+  background-color: #ccc;
+}

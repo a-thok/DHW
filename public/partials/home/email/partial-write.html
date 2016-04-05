@@ -1,0 +1,35 @@
+<form name="writeForm">
+  <!--<div input-text
+  data-form="writeForm"
+  data-vm="writeVm"
+  data-required="true"
+  data-name="title"
+  data-switch="false"
+  data-label="标题"
+  data-tip='请填写标题'
+  data-pattern=""
+  ></div>-->
+  <div input-text
+  data-form="writeForm"
+  data-vm="writeVm"
+  data-required="true"
+  data-name="to"
+  data-switch="false"
+  data-label="收件人"
+  data-tip='请填写收件人'
+  data-pattern=""
+  ></div>
+  <div text-area
+  data-vm="writeVm"
+  data-form="writeForm"
+  data-label="内容"
+  data-name="message"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写信息内容'
+  data-pattern=""
+  ></div>
+  <div class="formGourp formGourp--submit clearfix ng-scope">
+    <button class="sendBtn" type="button" ng-disabled="writeForm.$invalid || writeForm.isDisabled" ng-click="writeVm.send()">发送</button>
+  </div>
+</form>

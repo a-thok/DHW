@@ -1,0 +1,65 @@
+<!--教育经历-->
+<form name="education" ng-submit="educationVm.submit()">
+  <!--列表指令-->
+<div eduhome-list    
+     data-vm="educationVm"
+     data-operate="true"
+     data-postapi="/UserAccount/EduList"
+     data-delapi="/UserAccount/EduDel"
+     data-editapi="/UserAccount/Eduinfo"
+></div>
+<div startend-year
+     data-vm='educationVm'
+     data-switch='false'
+     data-label='学习日期'
+     data-first='startyear'
+     data-second='startmonth'
+     data-third='endyear'
+     data-fourth='endmonth'
+     data-required='true'
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="educationVm"
+    data-label="学校名称"
+    data-name="name"
+    data-required="true"
+    data-form="education"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学校名称'
+    data-error="学校名称必须在2-30个字符之间"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="educationVm"
+    data-label="学历"
+    data-name="xl"
+    data-required="true"
+    data-form="education"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学历名称'
+    data-error="学历名称必须在2-30个字符之间"
+></div>
+<div input-text
+    data-switch="false"
+    data-vm="educationVm"
+    data-label="专业名称"
+    data-name="major"
+    data-required="true"
+    data-form="education"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
+    data-tip='请填写学校名称'
+    data-error="学校名称必须在2-30个字符之间"
+></div>
+<div homebtn-submit
+     data-vm="educationVm"
+     data-form="education"
+     data-addapi="/UserAccount/EduAdd"
+     data-modifyapi="/UserAccount/EduEdit"
+></div>
+</form>
+
+<div modal
+     data-vm="educationVm"
+     data-url="/zhxx/education" 
+></div>

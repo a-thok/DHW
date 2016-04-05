@@ -1,0 +1,44 @@
+.skuTip {
+  height: 38px;
+  line-height: 38px;
+  color: #999;
+}
+.formSet_input-extrasmall {
+  width: 50px; 
+}
+.skuItem .formSet_input {
+  float: none;
+}
+.skuItem .formSet_input {
+  width: 238px;
+    height: 36px;
+    padding: 0 25px 0 5px;
+    border: 1px solid #ccc;
+    line-height: 36px;
+}
+.skuItem .formSet_input-extrasmall {
+    width: 50px;
+}
+.skuItem {
+  margin-bottom: 10px;
+}
+.formSetWrap-sku {
+  float: none;
+  margin-left: 200px;
+}
+.skuBtn {
+  margin-left: 200px;
+}
+.formSet_input_btn_marginTop {
+  margin-top:20px;
+}
+.formSet_input_btn_upload {
+  display: inline-block;
+  line-height: 38px;
+}
+.formSet_input_btn_upload:hover {
+  text-decoration: none !important;
+}
+.formSet_isphone {
+  margin-left: 275px;
+}

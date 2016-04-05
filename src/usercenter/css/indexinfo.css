@@ -1,0 +1,138 @@
+/*个人中心首页样式*/
+.formSet {
+  margin-top: 30px;
+}
+.formSet_label-sku {
+    display: inline-block;
+    width: 230px;
+    height: 38px;
+    margin-right: 20px;
+    line-height: 38px;
+    text-align: right;
+    color: #999;
+}
+.skuTip {
+    height: 38px;
+    line-height: 38px;
+    color: #999;
+}
+.formSetWrap-sku {
+    float: none;
+    margin-left: 200px;
+}
+.skuItem {
+    margin-bottom: 10px;
+}
+.skuItem .formSet_input {
+   float: left;
+}
+.formSet_input-extrasmall {
+    width: 50px;
+}
+.formSet_input_btn {
+    height: 38px;
+    padding: 0 10px;
+    border: 0;
+    margin-left: 10px;
+    color: #fff;
+    background-color: #337ab7;
+    cursor: pointer;
+    float: left;
+}
+.formSet_input_btn-sku {
+    margin-left: 200px;
+}
+
+/*企业上传图片样式--企业资质等*/
+.addphoto {
+  position: relative;
+}
+.addphoto .addphoto_del_btn {
+  position: absolute;
+  left:499px;
+  top: 50px;
+  background:#337ab7;
+  border-radius:3px;
+}
+.addphoto_add_btn {
+  margin-left:100px;
+  background:#337ab7;
+  border-radius:3px;
+}
+/*教育经历，工作经历*/
+.accountInfoTable {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 12px;
+}
+.accountInfoTable thead td {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+.accountInfoTable td {
+    border: 1px solid #ddd;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+/*删除友情链接按钮样式*/
+.dellink_btn {
+  position: absolute;
+  right: 50x;
+  top: 50px;
+  background:#337ab7;
+  border-radius:3px;
+}
+/*取色器插件样式*/
+.formGroup_colpick .formInput{
+  width: 0px;
+  height: 0px;
+  border : 16px solid green;
+}
+/*上传头像裁剪样式*/
+.avatarWrap {
+    margin-top: 20px;
+    margin-bottom: -20px;
+    text-align: center;
+}
+.avatarWrap .formSet {
+    margin-top: 30px;
+}
+.avatarWrap_upload_btn {
+    text-align: center;
+    margin-top:30px;
+}
+.avatarUpload {
+    width: 705px;
+    min-height: 200px;
+    margin: 20px auto;
+}
+.avatarPre {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    overflow: hidden;
+    float: left;
+}
+.formSet-avatar {
+    text-align: center;
+}
+.submitBtn {
+    width: 270px;
+    height: 36px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #027cff;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+submitBtn[disabled] {
+    background-color: #ccc;
+}
+.jcrop-holder {
+  float: left;
+}
