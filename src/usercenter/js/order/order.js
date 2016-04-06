@@ -296,7 +296,7 @@ $('.nextBtn_btn').click(function () {
     data: JSON.stringify(para),
     success: function (data) {
       var id = data.result.id
-      $.post('/order/rshop1/add', {projectID: orderno}).success((data) => {
+      $.post('/order/rshop1/add', {projectID: id}).success((data) => {
         var orderno = data.result.number;
         window.location.href = '/pay2/' + orderno;
       })
