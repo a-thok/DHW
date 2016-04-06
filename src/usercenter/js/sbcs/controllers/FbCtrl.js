@@ -18,7 +18,7 @@ export default function FbCtrl($http, $scope) {
     vm.type = data.result;
   })
   vm.area = [
-    { code: '01', name: '中国大陆' }
+    { code: '01', name: '中国内地' }
   ]
   vm.count = [];
   for (var i = 0; i < 100; i++) {
@@ -81,7 +81,9 @@ export default function FbCtrl($http, $scope) {
     vm.data.content = angular.toJson(vm.data.content)
     vm.data.type = angular.toJson(vm.data.type)
     var para = Object.assign({}, vm.data);
+    delete para.code;
     $http.post('/Sys/rshop/Trademark/Add', para).success(function() {
+      window.location.href = '#/splb/all';
     })
   }
 
