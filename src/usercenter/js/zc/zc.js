@@ -31,10 +31,10 @@ import DfhCtrl from './controllers/ListControllers/DfhCtrl.js';
 import DpjCtrl from './controllers/ListControllers/DpjCtrl.js';
 // 卖家订单
 import SellerCtrl from './controllers/SellerCtrl.js';
-import SyshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
-import SdshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
-import SdfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
-import SallCtrl from './controllers/sellerControllers/s_AllCtrl.js';
+import s_YshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
+import s_DshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
+import s_DfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
+import s_AllCtrl from './controllers/sellerControllers/s_AllCtrl.js';
 // 物流保存
 import WlCtrl from './controllers/WlCtrl.js';
 import FbCtrl from './controllers/FbCtrl.js';
