@@ -158,17 +158,17 @@ app
       .state('seller.dfh', {
         url: '/dfh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-dfh.html',
-        controller: 'SdfhCtrl as s_DfhVm'
+        controller: 's_DfhCtrl as s_DfhVm'
       })
       .state('seller.dsh', {
         url: '/dsh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-dsh.html',
-        controller: 'SdshCtrl as s_DshVm'
+        controller: 's_DshCtrl as s_DshVm'
       })
       .state('seller.ysh', {
         url: '/ysh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-ysh.html',
-        controller: 'SyshCtrl as s_YshVm'
+        controller: 's_YshCtrl as s_YshVm'
       })
       .state('listdetail', {
         url: '/listdetail',
