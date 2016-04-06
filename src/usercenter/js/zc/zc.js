@@ -43,7 +43,8 @@ import DetailCtrl from './controllers/DetailCtrl.js';
 import PayBackCtrl from './controllers/PayBackCtrl.js';
 import ProjectCtrl from './controllers/ProjectCtrl.js';
 import PreviewCtrl from './controllers/PreviewCtrl.js';
-
+// 项目进展发布
+import PropresCtrl from './controllers/PropresCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router',
   'listComponents', 'formComponents', 'ui.bootstrap.pagination']);
 app
@@ -179,6 +180,12 @@ app
         url: '/ssxz',
         templateUrl: '/partials/zc/partial-ssxz.html',
         controller: 'SsCtrl as ssVm'
+      })
+      // 项目进展发布
+      .state('xmjz', {
+        url: '/xmjz/:id',
+        templateUrl: '/partials/zc/partial-xmjz.html',
+        controller: 'PropresCtrl as propresVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -205,6 +212,8 @@ app
   .controller('s_AllCtrl', ['$scope', s_AllCtrl])
   // 物流保存
   .controller('WlCtrl', ['$http', WlCtrl])
+  // 项目进展发布
+  .controller('PropresCtrl', ['$http', '$stateParams', PropresCtrl])
 
   .controller('FbCtrl', ['$scope', '$http', '$state', '$location', FbCtrl])
   .controller('BaseCtrl', ['$scope', '$http', BaseCtrl])

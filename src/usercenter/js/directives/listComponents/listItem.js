@@ -7,6 +7,8 @@ export default function listItem() {
         <li>
           <div class="list_item_date">
             <i class="list_item_del" ng-if="${attrs.del}" ng-click="vm.delItem(${attrs.delkey})"></i>
+            <i class="list_item_del" ng-if="${attrs.delytjl}" ng-click="vm.delYtjl(${attrs.delkey})"></i>
+            <i class="list_item_del" ng-if="${attrs.delresume}" ng-click="vm.delResume(${attrs.userid},${attrs.jobid})"></i>
             <span ng-show="${attrs.toptxt}">${attrs.datekeytxt} : {{item.${attrs.datekey}}}</span>
             <span ng-if="${attrs.return}"><a href="${attrs.returnurl}">sdfsdf</a></span>
           </div>
