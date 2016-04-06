@@ -199,10 +199,10 @@ app
   .controller('DpjCtrl', [DpjCtrl])
   // 卖家订单
   .controller('SellerCtrl', ['$stateParams', SellerCtrl])
-  .controller('s_DshCtrl', ['$scope', SdshCtrl])
-  .controller('s_DfhCtrl', ['$scope', SdfhCtrl])
-  .controller('s_YshCtrl', ['$scope', SyshCtrl])
-  .controller('s_AllCtrl', ['$scope', SallCtrl])
+  .controller('s_DshCtrl', ['$scope', s_DshCtrl])
+  .controller('s_DfhCtrl', ['$scope', s_DfhCtrl])
+  .controller('s_YshCtrl', ['$scope', s_YshCtrl])
+  .controller('s_AllCtrl', ['$scope', s_AllCtrl])
   // 物流保存
   .controller('WlCtrl', ['$http', WlCtrl])
 
