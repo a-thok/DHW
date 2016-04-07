@@ -49,7 +49,7 @@ export default function baidumap() {
         setTimeout(() => {
             mapcity1 = $scope.$parent[$attrs.vm].mapcity;
            address = $scope.$parent[$attrs.vm].address1;
-           console.log(mapcity1)
+           
           myGeo.getPoint(address, function (point) {
             if (point) {
               pointall = point.lng + ',' + point.lat;

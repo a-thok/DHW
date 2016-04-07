@@ -27,7 +27,6 @@ export default function CompanyCtrl($http) {
       fn(data.result.area);
       vm.mapcity = angular.fromJson(data.result.area).city.name;
       vm.address1 = data.result.addr;
-      console.log(vm.address1);
       if (data.result.business) {
         vm.businessTemp = angular.fromJson(data.result.business);
       }
