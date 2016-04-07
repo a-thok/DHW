@@ -61,6 +61,11 @@ export default function MainCtrl() {
       url: 'gsdt.fb',
       text: '公司动态',
       active: false
+    },
+    {
+      url: 'gslc',
+      text: '公司历程',
+      active: false
     }
   ];
 
