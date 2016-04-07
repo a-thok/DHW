@@ -63,8 +63,10 @@ import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js'
 //收货地址管理
 import AddressCtrl from './controllers/AddressControllers/AddressCtrl.js'
 import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js'
-
-
+// 个人转企业用户
+import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
+// 企业发展历程发布
+import GslcCtrl from './controllers/GslcCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents']);
 app
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -253,6 +255,16 @@ app
         url: '/list',
         templateUrl: '/partials/home/gsdt/partials-gsdtlist.html',
         controller: 'GsdtlistCtrl as gsdtlistVm'
+      })
+      .state('ptoc', {
+        url: '/ptoc',
+        templateUrl: '/partials/home/partial-ptoc.html',
+        controller: 'PersonToCompanyCtrl as persontocompanyVm'
+      })
+      .state('gslc', {
+        url: '/gslc',
+        templateUrl: '/partials/home/partial-gslc.html',
+        controller: 'GslcCtrl as gslcVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -276,6 +288,8 @@ app
   .controller('GsdtCtrl', ['$http', GsdtCtrl])
   .controller('GsdtFbCtrl', ['$http', GsdtFbCtrl])
   .controller('GsdtlistCtrl', ['$http', GsdtlistCtrl])
+  // 公司历程
+  .controller('GslcCtrl', ['$http', GslcCtrl])
   //会计认证体系控制器
   .controller('KjrzCtrl', ['$http', KjrzCtrl])
   .controller('KjrzListCtrl', KjrzListCtrl)
@@ -294,6 +308,7 @@ app
   .controller('PzhxxEduCtrl', PzhxxEduCtrl)
   .controller('PzhxxWorkCtrl', PzhxxWorkCtrl)
   .controller('EducationCtrl', ['$http', EducationCtrl])
+  .controller('PersonToCompanyCtrl', ['$http', PersonToCompanyCtrl])
   //公司账号
   .controller("WorkCtrl", WorkCtrl)
   .controller("CompanyCtrl", ['$http', CompanyCtrl])

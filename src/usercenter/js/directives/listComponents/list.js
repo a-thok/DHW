@@ -20,6 +20,8 @@ export default function list() {
                 data-operation="${attrs.operation}"
                 data-func="${attrs.func}"
                 data-delkey="${attrs.delkey}"
+                data-delytjl="${attrs.delytjl}"
+                data-delresume="${attrs.delresume}"
                 data-del="${attrs.del}"
                 data-editurl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
@@ -43,6 +45,8 @@ export default function list() {
                 data-returnurl="${attrs.returnurl}"
                 data-commentop="${attrs.commentop}"
                 data-commentfunc="${attrs.commentfunc}"
+                data-userid="${attrs.userid}"
+                data-jobid="${attrs.jobid}"
               list-item>
               </li>
             </ul>
@@ -101,6 +105,32 @@ export default function list() {
       vm.delItem = (key) => {
         if (confirm('您真的确定要删除此条数据吗？')) {
           $http.post($attrs.delapi, { id: key }).success((d) => {
+            if (d.success) {
+              alert('您已删除成功');
+              getData(1);
+            } else {
+              alert('因网络原因无法进行及时删除');
+            }
+          });
+        };
+      };
+      // 删除功能
+      vm.delResume = (useridkey, jobidkey) => {
+        if (confirm('您真的确定要删除此条数据吗？')) {
+          $http.post($attrs.delapi, { userid: useridkey, jobid: jobidkey }).success((d) => {
+            if (d.success) {
+              alert('您已删除成功');
+              getData(1);
+            } else {
+              alert('因网络原因无法进行及时删除');
+            }
+          });
+        };
+      };
+      // 删除功能
+      vm.delYtjl = (jobidkey) => {
+        if (confirm('您真的确定要删除此条数据吗？')) {
+          $http.post($attrs.delapi, { jobid: jobidkey }).success((d) => {
             if (d.success) {
               alert('您已删除成功');
               getData(1);

@@ -955,7 +955,7 @@ body .zc-mail:hover {
 }
 .headway-date {
   position: absolute;
-  right: 600px;
+  left: -135px;
   top: 0;
   width: 100px;
   padding-right: 15px;

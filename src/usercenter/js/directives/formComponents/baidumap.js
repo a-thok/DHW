@@ -36,6 +36,7 @@ export default function baidumap() {
     controller: ['$scope', '$attrs', '$http', function ($scope, $attrs, $http) {
         var detailaddress = document.getElementById("detailaddress");
        var pointall;
+       var mapcity1;
         // 有用的代码
         // 百度地图API功能
         var map = new BMap.Map("allmap");
@@ -45,14 +46,25 @@ export default function baidumap() {
         var myGeo = new BMap.Geocoder();
         // 将地址解析结果显示在地图上,并调整地图视野
         var address;
-       
-        // address = angular.fromJson(scope.$parent.companyVm.area).city.name;
-        //var mapcity1 = scope.$parent[attrs.vm].mapcity;
+        setTimeout(() => {
+            mapcity1 = $scope.$parent[$attrs.vm].mapcity;
+           address = $scope.$parent[$attrs.vm].address1;
+           
+          myGeo.getPoint(address, function (point) {
+            if (point) {
+              pointall = point.lng + ',' + point.lat;
+              $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
+              map.centerAndZoom(point, 16);
+              map.addOverlay(new BMap.Marker(point));
+            } else {
+              
+            }
+          }, mapcity1);
+        },100);
+          
   detailaddress.onblur = function() {
        address = detailaddress.value;
-       console.log(address);
-       var mapcity1 = $scope.$parent[$attrs.vm].mapcity;
-       console.log(mapcity1);
+       mapcity1 = $scope.$parent[$attrs.vm].mapcity;
        myGeo.getPoint(address, function (point) {
             if (point) {
               pointall = point.lng + ',' + point.lat;
