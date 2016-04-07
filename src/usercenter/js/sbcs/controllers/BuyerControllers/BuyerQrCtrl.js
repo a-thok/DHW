@@ -10,7 +10,7 @@ export default function BuyerQrCtrl($http) {
   ]
   vm.confirm = (id) => {
     $http.post('/sys/rshop/OrderBuyer/CertificateConfirm', {id: id}).success(() => {
-      location.replace(location.href);
+      location.reload();
     })
   }
   

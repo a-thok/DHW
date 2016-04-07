@@ -12,7 +12,6 @@ var addrData = [];
 var para = {
   model: {}
 };
-var ttid = 1;
 
 
 // 读取数据
@@ -298,7 +297,7 @@ $('.nextBtn_btn').click(function () {
       var id = data.result.id
       $.post('/order/rshop1/add', {projectID: id}).success((data) => {
         var orderno = data.result.number;
-        window.location.href = '/pay2/' + orderno;
+        window.location.href = '/order/rshop1/pay2/' + orderno;
       })
     }
   })
