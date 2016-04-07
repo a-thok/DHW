@@ -1,5 +1,3 @@
-// import $ from 'jquery';
-
 export default function MainCtrl() {
   var vm = this;
   // 公司账号
@@ -77,6 +75,11 @@ export default function MainCtrl() {
       text: '站内信',
       active: false
     },
+    {
+      url: 'ptoc',
+      text: '账号转换',
+      active: false
+    }
     // {
     //   url: 'addresslist',
     //   text: '收货地址管理',
@@ -89,7 +92,7 @@ export default function MainCtrl() {
   document.cookie.split('; ').forEach(item => {
     let arr = item.split('=');
     cookies[arr[0]] = arr[1];
-  })
+  });
   if (cookies.accountType) {
     vm.accountType = cookies.accountType;
     vm.logintype = cookies.logintype;

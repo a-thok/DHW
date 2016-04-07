@@ -45,6 +45,6 @@ export default function FbzpCrtl($http) {
     }).error(() => {
       fail();
       vm.showModal = true;
-    })
-  }
+    });
+  };
 }
