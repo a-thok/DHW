@@ -63,7 +63,8 @@ import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js'
 //收货地址管理
 import AddressCtrl from './controllers/AddressControllers/AddressCtrl.js'
 import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js'
-
+// 个人转企业用户
+import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents']);
 app
@@ -253,6 +254,11 @@ app
         url: '/list',
         templateUrl: '/partials/home/gsdt/partials-gsdtlist.html',
         controller: 'GsdtlistCtrl as gsdtlistVm'
+      })
+      .state('ptoc', {
+        url: '/ptoc',
+        templateUrl: '/partials/home/partial-ptoc.html',
+        controller: 'PersonToCompanyCtrl as persontocompanyVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -294,6 +300,7 @@ app
   .controller('PzhxxEduCtrl', PzhxxEduCtrl)
   .controller('PzhxxWorkCtrl', PzhxxWorkCtrl)
   .controller('EducationCtrl', ['$http', EducationCtrl])
+  .controller('PersonToCompanyCtrl', ['$http', PersonToCompanyCtrl])
   //公司账号
   .controller("WorkCtrl", WorkCtrl)
   .controller("CompanyCtrl", ['$http', CompanyCtrl])

@@ -1,0 +1,65 @@
+<div ng-show="persontocompanyVm.AccountTyp === 2" class="list_item_none">您已经进行过账号转换<br>
+可点击切换到企业版享受更多功能
+</div>
+<form name="persontocompanyForm" ng-submit="persontocompanyVm.submit()" ng-show="persontocompanyVm.AccountTyp !== 2 ">
+   <div class="content_t_t ">
+      <p></p>
+   </div>
+   <div input-text
+      data-switch="false"
+      data-vm="persontocompanyVm"
+      data-name="compay"
+      data-required="true"
+      data-form="persontocompanyForm"
+      data-label="公司名称"
+      data-pattern=""
+      data-tip="公司名称必须在2-10个字符之间"
+    ></div>
+    <div nodatas-area
+        data-vm="persontocompanyVm"
+        data-label="所在地"
+        data-required="true"
+        data-name="area"
+    ></div>
+    <div input-text
+      data-switch="false"
+      data-vm="persontocompanyVm"
+      data-name="addr"
+      data-required="true"
+      data-form="persontocompanyForm"
+      data-label="公司地址"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,50}$/"
+      data-error="公司地址必须在2-25个字符之间"
+    ></div>
+    <div select-simple
+      data-switch="false"
+      data-vm="persontocompanyVm"
+      data-label="公司规模"
+      data-name="scale"
+      data-options="item for item in persontocompanyVm.companynum"
+      data-part="text"
+      data-required="true"
+    ></div>
+    <div select-simple
+      data-switch="false"
+      data-vm="persontocompanyVm"
+      data-label="所属行业"
+      data-name="trade"
+      data-options="item.name as item.name for item in persontocompanyVm.companytrade"
+      data-part="text"
+      data-required="true"
+    ></div>
+    <div select-simple
+      data-switch="false"
+      data-vm="persontocompanyVm"
+      data-label="企业性质"
+      data-name="nature"
+      data-options="item.name as item.name for item in persontocompanyVm.companynature"
+      data-part="text"
+      data-required="true"
+    ></div>
+    <div class="formGourp formGourp--submit clearfix">
+      <input class="formBtn formBtn--submit" type="submit" value="提交"
+      ng-disabled="persontocompanyForm.$invalid">
+    </div>
+</form>
