@@ -116,26 +116,8 @@ export default function nodatasArea() {
           district: s.district
         };
         if ($attrs.map) {
-          var map = new BMap.Map('allmap');
-          var options = {
-            renderOptions: { map: map },
-            onSearchComplete: function (result) {
-            // console.log(result);
-            // 将搜索的结果给后台数据
-              if (result.wr.length !== 0) {
-                var resutltpoint = result.wr[0].point;
-                var pointall = resutltpoint.lng + ',' + resutltpoint.lat;
-                s.$parent[$attrs.vm].data.addrBDMap = pointall;
-              }
-            }
-          };
-          var local = new BMap.LocalSearch(map, options);
-          // 取得详细地址
-          var address = s.$parent[$attrs.vm].data.addr;
           s.$parent[$attrs.vm].mapcity = s.country;
-          var newAddressb = s.country + address;
-          local.search(newAddressb);
-          map.enableScrollWheelZoom(true);
+          s.$parent[$attrs.vm].getAddress();
         }
         $('.selectCont').hide();
       };

@@ -14,6 +14,7 @@ export default function baidumap() {
                 ng-model="${attrs.vm}.data.${attrs.name}"
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
+                ng-blur="${attrs.vm}.getAddress()"
               >
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
@@ -34,7 +35,7 @@ export default function baidumap() {
       `;
     },
     controller: ['$scope', '$attrs', '$http', function ($scope, $attrs, $http) {
-      var detailaddress = document.getElementById('detailaddress');
+      // var vm = this;
       var pointall;
       var mapcity1;
       var newAddress;
@@ -46,7 +47,6 @@ export default function baidumap() {
       var options = {
         renderOptions: { map: map },
         onSearchComplete: function (result) {
-          //console.log(result.wr[0].point);
            // 将搜索的结果给后台数据
           if (result.wr.length !== 0) {
             var resutltpoint = result.wr[0].point;
@@ -66,14 +66,16 @@ export default function baidumap() {
         local.search(newAddress);
       }, 700);
 
-      detailaddress.onblur = function () {
+      $scope.$parent[$attrs.vm].getAddress = function () {
         // 读取详细地址
-        address = detailaddress.value;
+        address = $scope.$parent[$attrs.vm].data.addr;
+        if (address) {
         // 读取市
-        mapcity1 = $scope.$parent[$attrs.vm].mapcity;
+          mapcity1 = $scope.$parent[$attrs.vm].mapcity;
         // 拼凑成新的地址
-        newAddress = mapcity1 + address;
-        local.search(newAddress);
+          newAddress = mapcity1 + address;
+          local.search(newAddress);
+        }
       };
       // 点击事件获取坐标
       function showMark(e) {
