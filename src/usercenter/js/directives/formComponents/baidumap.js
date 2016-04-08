@@ -77,6 +77,7 @@ export default function baidumap() {
           }, mapcity1);
   }
         function showMark(e) {
+          map.clearOverlays();
           var pointone = e.point;
           pointall = pointone.lng + ',' + pointone.lat;
           $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
