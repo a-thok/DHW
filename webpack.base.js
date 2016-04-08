@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     usercenter: [path.join(__dirname, './src/usercenter/css/usercenter.css')],
-    'uc.home': [path.join(__dirname, './src/usercenter/js/home/home.js')],
+    'uc.account': [path.join(__dirname, './src/usercenter/js/account/account.js')],
     'uc.rczp': [path.join(__dirname, './src/usercenter/js/rczp/rczp.js')],
     'uc.cysj': [path.join(__dirname, './src/usercenter/js/cysj/cysj.js')],
     'uc.srdz': [path.join(__dirname, './src/usercenter/js/srdz/srdz.js')],

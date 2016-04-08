@@ -83,187 +83,187 @@ app
     $stateProvider
       .state('zhxx', {
         url: '/zhxx',
-        templateUrl: '/partials/home/partial-zhxx.html',    //公司账号信息主控制器
+        templateUrl: '/partials/account/partial-zhxx.html',    //公司账号信息主控制器
         controller: 'ZhxxCtrl as zhxxVm'
       })
       .state('zhxx.company', {
         url: '/company',
-        templateUrl: '/partials/home/partial-zhxx-company.html',  //公司账号--公司信息
+        templateUrl: '/partials/account/partial-zhxx-company.html',  //公司账号--公司信息
         controller: 'CompanyCtrl as companyVm'
       })
       .state('zhxx.photo', {
         url: '/photo',
-        templateUrl: '/partials/home/partial-zhxx-photo.html',//公司账号--上传头像
+        templateUrl: '/partials/account/partial-zhxx-photo.html',//公司账号--上传头像
         controller: 'avatarCtrl as avatarVm'
       })
       .state('zhxx.education', {
         url: '/education',
-        templateUrl: '/partials/home/partial-zhxx-education.html',  //公司账号--教育经历
+        templateUrl: '/partials/account/partial-zhxx-education.html',  //公司账号--教育经历
         controller: 'EducationCtrl as educationVm'
       })
       .state('zhxx.experience', {
         url: '/experience',
-        templateUrl: '/partials/home/partial-zhxx-experience.html',  //公司账号--工作经历
+        templateUrl: '/partials/account/partial-zhxx-experience.html',  //公司账号--工作经历
         controller: 'WorkCtrl as workVm'
       })
       .state('pzhxx', {
         url: '/pzhxx',
-        templateUrl: '/partials/home/partial-pzhxx.html',  //个人账号
+        templateUrl: '/partials/account/partial-pzhxx.html',  //个人账号
         controller: 'PzhxxCtrl as pzhxxVm'
       })
       .state('pzhxx.person', {
         url: '/person',
-        templateUrl: '/partials/home/partial-pzhperson.html',  //个人账号--基本信息
+        templateUrl: '/partials/account/partial-pzhperson.html',  //个人账号--基本信息
         controller: 'PzhpersonCtrl as pzhpersonVm'
       })
       .state('pzhxx.photo', {
         url: '/photo',
-        templateUrl: '/partials/home/partial-pzhxx-photo.html',  //个人账号--上传头像
+        templateUrl: '/partials/account/partial-pzhxx-photo.html',  //个人账号--上传头像
         controller: 'pavatarCtrl as pavatarVm'
       })
       .state('pzhxx.education', {
         url: '/education',
-        templateUrl: '/partials/home/partial-pzhxx-education.html',  //个人账号--教育经历
+        templateUrl: '/partials/account/partial-pzhxx-education.html',  //个人账号--教育经历
         controller: 'PzhxxEduCtrl as pzhxxeduVm'
       })
       .state('pzhxx.experience', {
         url: '/experience',
-        templateUrl: '/partials/home/partial-pzhxx-experience.html',  //个人账号--工作经历
+        templateUrl: '/partials/account/partial-pzhxx-experience.html',  //个人账号--工作经历
         controller: 'PzhxxWorkCtrl as pzhxxworkVm'
       })
       .state('gsfu', {
         url: '/gsfu',
-        templateUrl: '/partials/home/partial-gsfu.html',   //公司服务
+        templateUrl: '/partials/account/partial-gsfu.html',   //公司服务
         controller: 'GsfwCtrl as gsfwVm'
       })
       .state('fwlb', {
         url: '/fwlb',
-        templateUrl: '/partials/home/partial-fwlb.html',   //服务列表
+        templateUrl: '/partials/account/partial-fwlb.html',   //服务列表
         controller: 'FwlbCtrl as fwlbVm'
       })
       .state('serverDetail', {
         url: '/serverDetail/:id',
-        templateUrl: '/partials/home/partial-serverDetail.html',   //服务列表详情页
+        templateUrl: '/partials/account/partial-serverDetail.html',   //服务列表详情页
         controller: 'ServerDetailCtrl as serverdetailVm'
       })
       .state('gsal', {
         url: '/gsal',
-        templateUrl: '/partials/home/partial-gsal.html',   //公司案例
+        templateUrl: '/partials/account/partial-gsal.html',   //公司案例
         controller: 'GsalCtrl as gsalVm'
       })
       .state('allb', {
         url: '/allb',
-        templateUrl: '/partials/home/partial-allb.html',   //公司案例列表
+        templateUrl: '/partials/account/partial-allb.html',   //公司案例列表
         controller: 'AllbCtrl as allbVm'
       })
       .state('yqlj', {
         url: '/yqlj',
-        templateUrl: '/partials/home/partial-yqlj.html',   //友情链接
+        templateUrl: '/partials/account/partial-yqlj.html',   //友情链接
         controller: 'YqljCtrl as yqljVm'
       })
       .state('ztxg', {
         url: '/ztxg',
-        templateUrl: '/partials/home/partial-ztxg.html',   //主题修改
+        templateUrl: '/partials/account/partial-ztxg.html',   //主题修改
         controller: 'ZtxgCtrl as ztxgVm'
       })
       .state('casesDetail', {
         url: '/casesDetail/:id',
-        templateUrl: '/partials/home/partial-casesDetail.html',  //公司案例列表详情页
+        templateUrl: '/partials/account/partial-casesDetail.html',  //公司案例列表详情页
         controller: 'CasesDetailCtrl as casesdetailVm'
       })
       .state('qyzy', {
         url: '/qyzy',
-        templateUrl: '/partials/home/partial-qyzy.html',  //企业资源
+        templateUrl: '/partials/account/partial-qyzy.html',  //企业资源
         controller: 'QyzyCtrl as qyzyVm'
       })
       .state('qyzy.qyzz', {
         url: '/qyzz',
-        templateUrl: '/partials/home/partial-qyzz.html',  //企业资质
+        templateUrl: '/partials/account/partial-qyzz.html',  //企业资质
         controller: 'QyzzCtrl as qyzzVm'
       })
       .state('qyzy.qyry', {
         url: '/qyry',
-        templateUrl: '/partials/home/partial-qyry.html',  //企业荣誉
+        templateUrl: '/partials/account/partial-qyry.html',  //企业荣誉
         controller: 'QyryCtrl as qyryVm'
       })
       .state('qyzy.gzhj', {
         url: '/gzhj',
-        templateUrl: '/partials/home/partial-gzhj.html',  //工作环境
+        templateUrl: '/partials/account/partial-gzhj.html',  //工作环境
         controller: 'GzhjCtrl as gzhjVm'
       })
       .state('qyzy.syztt', {
         url: '/syztt',
-        templateUrl: '/partials/home/partial-syztt.html',  //首页主题图
+        templateUrl: '/partials/account/partial-syztt.html',  //首页主题图
         controller: 'SyzttCtrl as syzttVm'
       })
       .state('email', {
         url: '/email',
-        templateUrl: '/partials/home/partial-email.html',  //站内信
+        templateUrl: '/partials/account/partial-email.html',  //站内信
         controller: 'EmailCtrl as emailVm'
       })
       .state('email.inbox', {
         url: '/inbox',
-        templateUrl: '/partials/home/email/partial-inbox.html',  //站内信
+        templateUrl: '/partials/account/email/partial-inbox.html',  //站内信
         controller: 'InboxCtrl as inboxVm'
       })
       .state('email.outbox', {
         url: '/outbox',
-        templateUrl: '/partials/home/email/partial-outbox.html',  //站内信
+        templateUrl: '/partials/account/email/partial-outbox.html',  //站内信
         controller: 'OutboxCtrl as outboxVm'
       })
       .state('email.write', {
         url: '/write',
-        templateUrl: '/partials/home/email/partial-write.html',  //站内信
+        templateUrl: '/partials/account/email/partial-write.html',  //站内信
         controller: 'WriteCtrl as writeVm'
       })
       .state('email.detail', {
         url: '/detail/:id',
-        templateUrl: '/partials/home/email/partial-emailDetail.html',  //站内信
+        templateUrl: '/partials/account/email/partial-emailDetail.html',  //站内信
         controller: 'EmailDetCtrl as emailDetVm'
       })
       .state('kjrz', {
         url: '/kjrz',
-        templateUrl: '/partials/home/kjrz/partial-kjrz.html',  //认证体系
+        templateUrl: '/partials/account/kjrz/partial-kjrz.html',  //认证体系
         controller: 'KjrzCtrl as kjrzVm'
       })
       .state('kjrzlist', {
         url: '/kjrzlist',
-        templateUrl: '/partials/home/kjrz/partial-kjrz-list.html',
+        templateUrl: '/partials/account/kjrz/partial-kjrz-list.html',
         controller: 'KjrzListCtrl as kjrzlistVm'
       })
       .state('addresslist', {
         url: '/addresslist',
-        templateUrl: '/partials/home/addressList/addresslist.html',
+        templateUrl: '/partials/account/addressList/addresslist.html',
         controller: 'AddressCtrl as addressVm'
       })
       .state('addressedit', {
         url: '/addressedit/:id',
-        templateUrl: '/partials/home/addressList/addressedit.html',
+        templateUrl: '/partials/account/addressList/addressedit.html',
         controller: 'AddressEditCtrl as addresseditVm'
       })
       .state('gsdt', {
         url: '/gsdt',
-        templateUrl: '/partials/home/partial-gsdt.html',
+        templateUrl: '/partials/account/partial-gsdt.html',
         controller: 'GsdtCtrl as gsdtVm'
       })
       .state('gsdt.fb', {
         url: '/fb',
-        templateUrl: '/partials/home/gsdt/partials-gsdtfb.html',
+        templateUrl: '/partials/account/gsdt/partials-gsdtfb.html',
         controller: 'GsdtFbCtrl as gsdtfbVm'
       })
       .state('gsdt.list', {
         url: '/list',
-        templateUrl: '/partials/home/gsdt/partials-gsdtlist.html',
+        templateUrl: '/partials/account/gsdt/partials-gsdtlist.html',
         controller: 'GsdtlistCtrl as gsdtlistVm'
       })
       .state('ptoc', {
         url: '/ptoc',
-        templateUrl: '/partials/home/partial-ptoc.html',
+        templateUrl: '/partials/account/partial-ptoc.html',
         controller: 'PersonToCompanyCtrl as persontocompanyVm'
       })
       .state('gslc', {
         url: '/gslc',
-        templateUrl: '/partials/home/partial-gslc.html',
+        templateUrl: '/partials/account/partial-gslc.html',
         controller: 'GslcCtrl as gslcVm'
       });
   }])
