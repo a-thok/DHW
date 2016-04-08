@@ -12,7 +12,7 @@ export default function WlCtrl($http, $stateParams) {
     }else {
       console.log(3)
       $http.post('/Sys/rshop/OrderSeller/Send', para).success(function() {
-        document.location.href = '#/seller';
+        document.location.href = '#/seller/all';
       })
     }
   }

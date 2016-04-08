@@ -73,7 +73,7 @@ export default function FbCtrl($http, $scope) {
     }
     for (var i = 0, len = vm.photos.length; i < len; i++) {
       if (vm.photos[i].url) {
-        vm.data.content.push(vm.photos[i].url);
+        vm.data.content.push(vm.photos[i].url + '_947x474.jpg');
       }
     }
     vm.data.pcode = vm.data.code.code;
@@ -82,6 +82,7 @@ export default function FbCtrl($http, $scope) {
     vm.data.type = angular.toJson(vm.data.type)
     var para = Object.assign({}, vm.data);
     delete para.code;
+    para.img = para.img + '_185x121.jpg'
     $http.post('/Sys/rshop/Trademark/Add', para).success(function() {
       window.location.href = '#/splb/all';
     })

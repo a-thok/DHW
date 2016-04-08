@@ -1,6 +1,6 @@
 import { dhw } from '../../../data/data.js'
 
-export default function BuyerFykCtrl() {
+export default function BuyerFykCtrl($http) {
   let vm = this;
   vm.list = [
     { name: '商标图片', key: 'img', width: '15%', img: true },
