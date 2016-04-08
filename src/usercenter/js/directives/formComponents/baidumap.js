@@ -34,57 +34,57 @@ export default function baidumap() {
       `;
     },
     controller: ['$scope', '$attrs', '$http', function ($scope, $attrs, $http) {
-        var detailaddress = document.getElementById("detailaddress");
-       var pointall;
-       var mapcity1;
-        // 有用的代码
-        // 百度地图API功能
-        var map = new BMap.Map("allmap");
-        var point = new BMap.Point(116.331398, 39.897445);
-        map.centerAndZoom(point, 12);
-        // 创建地址解析器实例
-        var myGeo = new BMap.Geocoder();
-        // 将地址解析结果显示在地图上,并调整地图视野
-        var address;
-        setTimeout(() => {
-            mapcity1 = $scope.$parent[$attrs.vm].mapcity;
-           address = $scope.$parent[$attrs.vm].address1;
-           
-          myGeo.getPoint(address, function (point) {
-            if (point) {
-              pointall = point.lng + ',' + point.lat;
-              $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
-              map.centerAndZoom(point, 16);
-              map.addOverlay(new BMap.Marker(point));
-            } else {
-              
-            }
-          }, mapcity1);
-        },100);
-          
-  detailaddress.onblur = function() {
-       address = detailaddress.value;
-       mapcity1 = $scope.$parent[$attrs.vm].mapcity;
-       myGeo.getPoint(address, function (point) {
-            if (point) {
-              pointall = point.lng + ',' + point.lat;
-              $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
-              map.centerAndZoom(point, 16);
-              map.addOverlay(new BMap.Marker(point));
-            } else {
-              alert("您选择地址没有解析到结果!");
-            }
-          }, mapcity1);
-  }
-        function showMark(e) {
-          map.clearOverlays();
-          var pointone = e.point;
-          pointall = pointone.lng + ',' + pointone.lat;
-          $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
-          map.addOverlay(new BMap.Marker(pointone));
+      var detailaddress = document.getElementById('detailaddress');
+      var pointall;
+      var mapcity1;
+      var newAddress;
+      var address;
+      // 百度地图API功能
+      var map = new BMap.Map('allmap');
+      var point = new BMap.Point(116.331398, 39.897445);
+      map.centerAndZoom(point, 12);
+      var options = {
+        renderOptions: { map: map },
+        onSearchComplete: function (result) {
+          //console.log(result.wr[0].point);
+           // 将搜索的结果给后台数据
+          if (result.wr.length !== 0) {
+            var resutltpoint = result.wr[0].point;
+            pointall = resutltpoint.lng + ',' + resutltpoint.lat;
+            $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
+          }
         }
-        map.addEventListener('click', showMark);
-        map.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放
+      };
+      var local = new BMap.LocalSearch(map, options);
+      // 首次加载问题
+      setTimeout(() => {
+        mapcity1 = $scope.$parent[$attrs.vm].mapcity;
+        address = $scope.$parent[$attrs.vm].address1;
+        console.log(mapcity1);
+        // 拼凑成新的地址
+        newAddress = mapcity1 + address;
+        local.search(newAddress);
+      }, 700);
+
+      detailaddress.onblur = function () {
+        // 读取详细地址
+        address = detailaddress.value;
+        // 读取市
+        mapcity1 = $scope.$parent[$attrs.vm].mapcity;
+        // 拼凑成新的地址
+        newAddress = mapcity1 + address;
+        local.search(newAddress);
+      };
+      // 点击事件获取坐标
+      function showMark(e) {
+        map.clearOverlays();
+        var pointone = e.point;
+        pointall = pointone.lng + ',' + pointone.lat;
+        $scope.$parent[$attrs.vm].data.addrBDMap = pointall;
+        map.addOverlay(new BMap.Marker(pointone));
+      }
+      map.addEventListener('click', showMark);
+      map.enableScrollWheelZoom(true);     // 开启鼠标滚轮缩放
     }],
     controllerAs: 'vm'
   };

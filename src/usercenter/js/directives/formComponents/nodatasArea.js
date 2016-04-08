@@ -51,10 +51,6 @@ export default function nodatasArea() {
         if (draft) {
           s.prov = draft.province.name;
           s.citym = draft.city.name;
-          if ($attrs.map) {
-            s.$parent[$attrs.vm].mapcity = s.citym;
-            console.log(s.$parent[$attrs.vm].mapcity);
-          }
           s.country = draft.district.name;
           s.area = draft;
         }
@@ -110,7 +106,7 @@ export default function nodatasArea() {
         };
         $('.selectCont').hide();
       };
-      //设置县 区的model值
+      // 设置县 区的model值
       s.setCountry = function (countrys) {
         s.country = countrys.name;
         s.district = { code: countrys.code, name: s.country };
@@ -119,6 +115,28 @@ export default function nodatasArea() {
           city: s.city,
           district: s.district
         };
+        if ($attrs.map) {
+          var map = new BMap.Map('allmap');
+          var options = {
+            renderOptions: { map: map },
+            onSearchComplete: function (result) {
+            // console.log(result);
+            // 将搜索的结果给后台数据
+              if (result.wr.length !== 0) {
+                var resutltpoint = result.wr[0].point;
+                var pointall = resutltpoint.lng + ',' + resutltpoint.lat;
+                s.$parent[$attrs.vm].data.addrBDMap = pointall;
+              }
+            }
+          };
+          var local = new BMap.LocalSearch(map, options);
+          // 取得详细地址
+          var address = s.$parent[$attrs.vm].data.addr;
+          s.$parent[$attrs.vm].mapcity = s.country;
+          var newAddressb = s.country + address;
+          local.search(newAddressb);
+          map.enableScrollWheelZoom(true);
+        }
         $('.selectCont').hide();
       };
       // 显示下拉框的行为
