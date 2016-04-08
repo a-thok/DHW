@@ -32,6 +32,9 @@ export default function JlylCtrl(s, h, $location) {
       //定义类型和内容
       var _type = items[i].type;
       var _content = items[i].content;
+      if (_content === null) {
+        continue;
+      }
       // 把内容插入对应的对象或数组
       if (_type == 7) { // 技能评价
         s[obj_names[_type - 1]].push({});
