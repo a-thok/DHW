@@ -60,7 +60,8 @@
           <label class="formLabel" for="">
             附件下载
           </label>
-          <span class="readSpan"><a href="{{ cyfbdetailVm.data.savaaddr === 'NaN' ? '1' : '2'}}" target="_self">附件下载</a></span>
+          <span class="readSpan" ng-if="cyfbdetailVm.data.savaaddr !== NaN"><a href="{{ cyfbdetailVm.data.savaaddr === NaN ? 'javascript:void(0)' : cyfbdetailVm.data.savaaddr}}">附件下载</a></span>
+          <span class="readSpan" ng-if="cyfbdetailVm.data.savaaddr === NaN">无附件可下载</span>
    </div>
   
    <div input-text
@@ -87,7 +88,7 @@
     data-label="说明"
     data-name="intro"
     data-form="cyfbdetailForm"
-    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\-\:\；\,\，\.\!\、\。\：\;\'']{4,200}$/"
+    data-pattern=""
     data-disabled="true"
   ></div>
 </form>

@@ -17,15 +17,16 @@ export default function CompanyCtrl($http) {
   vm.mapcity = '';
   vm.address1 = '';
   function fail() {
-        vm.isSubmitSuccess = false;
-        vm.isDisabled = false;
-    }
+    vm.isSubmitSuccess = false;
+    vm.isDisabled = false;
+  }
   
   
-  vm.getDraft = function(fn) {
+  vm.getDraft = function (fn) {
     $http.post('/UserAccount/Company').success(function(data) {
       fn(data.result.area);
-      vm.mapcity = angular.fromJson(data.result.area).city.name;
+      vm.mapcity = angular.fromJson(data.result.area).district.name;
+      // console.log(vm.mapcity);
       vm.address1 = data.result.addr;
       if (data.result.business) {
         vm.businessTemp = angular.fromJson(data.result.business);
