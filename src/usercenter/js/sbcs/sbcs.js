@@ -230,7 +230,7 @@ app
   .controller('SellerDfhCtrl',[SellerDfhCtrl])
   .controller('SellerAllCtrl',[SellerAllCtrl])
   .controller('SellerDfkCtrl',[SellerDfkCtrl])
-  .controller('SellerDsbCtrl',[SellerDsbCtrl])
+  .controller('SellerDsbCtrl',['$http', SellerDsbCtrl])
   .controller('SellerFykCtrl',[SellerFykCtrl])
   .controller('SellerQrCtrl',[SellerQrCtrl])
   .controller('SellerScCtrl',[SellerScCtrl])

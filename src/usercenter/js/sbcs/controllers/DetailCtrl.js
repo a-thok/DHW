@@ -10,7 +10,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
     vm.data = data.result;
     for (var i = 0, len = JSON.parse(data.result.content).length; i < len; i++) {
       vm.photos.push({})
-      vm.photos[i].url = JSON.parse(data.result.content)[i];
+      vm.photos[i].url = data.result.content[i];
       if (vm.data.tradetype === 1) {
         $('#tradetype_zr').attr('checked', 'checked')
       }

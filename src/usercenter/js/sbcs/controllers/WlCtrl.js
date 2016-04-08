@@ -7,7 +7,7 @@ export default function WlCtrl($http, $stateParams) {
     if ($stateParams.type === '1') {
       console.log(2)
       $http.post('/sys/rshop/OrderBuyer/UploadData', para).success(function() {
-        document.location.href = '#/buyer';
+        document.location.href = '#/buyer/all';
       })
     }else {
       console.log(3)
