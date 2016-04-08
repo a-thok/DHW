@@ -1,4 +1,4 @@
-export default function SellerDsbCtrl() {
+export default function SellerDsbCtrl($http) {
   let vm = this;
   vm.list = [
     { name: '商标图片', key: 'img', width: '15%', img: true },

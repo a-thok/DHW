@@ -241,7 +241,7 @@ app
   .controller('BuyerDfhCtrl',[BuyerDfhCtrl])
   .controller('BuyerAllCtrl',[BuyerAllCtrl])
   .controller('BuyerDfkCtrl',['$http', BuyerDfkCtrl])
-  .controller('BuyerDsbCtrl',[BuyerDsbCtrl])
+  .controller('BuyerDsbCtrl',['$http', BuyerDsbCtrl])
   .controller('BuyerFykCtrl',['$http', BuyerFykCtrl])
   .controller('BuyerQrCtrl',['$http', BuyerQrCtrl])
   .controller('BuyerScCtrl',[BuyerScCtrl])
