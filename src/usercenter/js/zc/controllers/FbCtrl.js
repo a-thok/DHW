@@ -38,21 +38,39 @@ export default function FbCtrl($scope, $http, $state, $location) {
   // 获取草稿和验证
   $scope.getDraft = function (minor, fn) {
     // 获取草稿
-    $http.post('/AppDraft/GetSub', {
-      type: 'crowdfunding',
-      mainmark: $scope.mainmark,
-      minor: minor
-    }).success((data) => {
-      fn(data.result.content);
-    });
-    // 获取验证
-    $http.post('/AppDraft/GetSub', {
-      type: 'crowdfunding',
-      mainmark: $scope.mainmark,
-      minor: 'isvalid'
-    }).success((data) => {
-      $.extend($scope.isValid, data.result.content);
-    });
+    // 这是为了暂时解决 路由为 /fb/project 等无法及时获取到 mainmark的方法
+    setTimeout(() => {
+      $http.post('/AppDraft/GetSub', {
+        type: 'crowdfunding',
+        mainmark: $scope.mainmark,
+        minor: minor
+      }).success((data) => {
+        fn(data.result.content);
+      });
+      // 获取验证
+      $http.post('/AppDraft/GetSub', {
+        type: 'crowdfunding',
+        mainmark: $scope.mainmark,
+        minor: 'isvalid'
+      }).success((data) => {
+        $.extend($scope.isValid, data.result.content);
+      });
+    }, 800);
+    // $http.post('/AppDraft/GetSub', {
+    //   type: 'crowdfunding',
+    //   mainmark: $scope.mainmark,
+    //   minor: minor
+    // }).success((data) => {
+    //   fn(data.result.content);
+    // });
+    // // 获取验证
+    // $http.post('/AppDraft/GetSub', {
+    //   type: 'crowdfunding',
+    //   mainmark: $scope.mainmark,
+    //   minor: 'isvalid'
+    // }).success((data) => {
+    //   $.extend($scope.isValid, data.result.content);
+    // });
   };
   // 保存草稿功能-提交草稿和验证
   $scope.saveDraft = function (currentName, direction, isManual) {
@@ -116,8 +134,9 @@ export default function FbCtrl($scope, $http, $state, $location) {
     }).success((d) => {
       if (d.success) {
         window.location.href = '#/hasfb';
+        alert('提交成功，等待审核');
       } else {
-        alert('发布失败');
+        alert('网络繁忙，发布失败，请重新尝试');
       }
     });
   };
@@ -154,12 +173,17 @@ export default function FbCtrl($scope, $http, $state, $location) {
     });
   }());
   var para = $location.search();
+  var path = $location.path();
+  console.log(path);
+  console.log(para);
   if (para.id) {
+    $scope.mainmark = $location.search().id;
     if ($location.path() === '/fb/') {
       $location.path('/fb/basic').search(para);
     }
   } else {
     $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success((data) => {
+      $location.search('id=' + data.result.mainmark);
       $scope.mainmark = data.result.mainmark;
     });
   }
