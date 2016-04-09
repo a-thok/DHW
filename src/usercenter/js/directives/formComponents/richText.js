@@ -4,6 +4,7 @@ import angular from 'angular';
 export default function richText() {
   return {
     require: 'ngModel',
+    scope: true,
     replace: true,
     template: function (elem, attrs) {
       return `
@@ -68,6 +69,11 @@ export default function richText() {
         editor.destroy();
       });
       editor.create();
+      // editor.$txt.html(scope.$parent[attrs.vm]);
+      // console.log(ngModel.$viewValue);
+      ngModel.$render = function () {
+        editor.$txt.html(ngModel.$viewValue);
+      };
     }
   };
 }

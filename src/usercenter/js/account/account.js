@@ -54,6 +54,7 @@ import GsdtCtrl from './controllers/GsdtCtrl.js';
 import YqljCtrl from './controllers/YqljCtrl.js';
 import GsdtFbCtrl from './controllers/GsdtControllers/GsdtFbCtrl.js';
 import GsdtlistCtrl from './controllers/GsdtControllers/GsdtlistCtrl.js';
+import GsdtEditCtrl from './controllers/GsdtControllers/GsdtEditCtrl.js';
 // 会计认证体系
 import KjrzCtrl from './controllers/KjrzControllers/KjrzCtrl.js';
 import KjrzListCtrl from './controllers/KjrzControllers/KjrzListCtrl.js';
@@ -243,6 +244,12 @@ app
         templateUrl: '/partials/account/partial-gsdt.html',
         controller: 'GsdtCtrl as gsdtVm'
       })
+      // 公司动态信息修改
+      .state('gsdtedit', {
+        url: '/gsdtedit/:id',
+        templateUrl: '/partials/account/partial-gsdtedit.html',
+        controller: 'GsdtEditCtrl as gsdteditVm'
+      })
       .state('gsdt.fb', {
         url: '/fb',
         templateUrl: '/partials/account/gsdt/partials-gsdtfb.html',
@@ -285,6 +292,7 @@ app
   .controller('GsdtCtrl', ['$http', GsdtCtrl])
   .controller('GsdtFbCtrl', ['$http', GsdtFbCtrl])
   .controller('GsdtlistCtrl', ['$http', GsdtlistCtrl])
+  .controller('GsdtEditCtrl', ['$http', '$stateParams', GsdtEditCtrl])
   // 公司历程
   .controller('GslcCtrl', ['$http', GslcCtrl])
   // 会计认证体系控制器
