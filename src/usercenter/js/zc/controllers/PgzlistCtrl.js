@@ -1,8 +1,10 @@
 // 个人关注列表控制器
+import { dhw } from '../../data/data.js';
 export default function PgzlistCtrl($http) {
   var vm = this;
+  vm.dhw = dhw;
   vm.list = [
-     { name: '项目标题', key: 'title', width: '30%', link: 'http://zc.dreamhiway.com/cpzcDetail/p', linkkey: 'fpid' },
+     { name: '项目标题', key: 'title', width: '30%', link: true, linkkey: 'fpid' },
      { name: '项目类型', key: 'name', width: '20%' },
      { name: '项目状态', key: 'status', width: '20%' },
     {
