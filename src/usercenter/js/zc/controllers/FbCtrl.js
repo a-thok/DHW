@@ -14,15 +14,17 @@ export default function FbCtrl($scope, $http, $state, $location) {
   // 草稿数据
   $scope.draft = {};
   // 验证数据
-  $scope.isValid = {};
+  $scope.isValid = {
+    return: true
+  };
   // 验证方法
   $scope.setValid = function (current, async) {
     var isValid = true;
-    $('.isValid').each(() => {
-      if ($(this).is('input[disabled]')) {
+    // $('.isValid').each(() => {
+      if ( $('.isValid').is('input[disabled]')) {
         isValid = false;
       }
-    });
+    // });
     if (async) {
       $scope.$apply(() => {
         $scope.isValid[current] = isValid;
@@ -68,7 +70,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
       // 提交验证
       $scope.setValid(current);
       var isValid = $.extend({}, $scope.isValid);
-      isValid = angular.toJson(isValid)
+      isValid = angular.toJson(isValid);
       $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: 'isvalid', content: isValid }).success(() => {
         // 成功
       });
@@ -153,8 +155,9 @@ export default function FbCtrl($scope, $http, $state, $location) {
   }());
   var para = $location.search();
   if (para.id) {
-    if ($location.path() === '/fb/')
+    if ($location.path() === '/fb/') {
       $location.path('/fb/basic').search(para);
+    }
   } else {
     $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success((data) => {
       $scope.mainmark = data.result.mainmark;

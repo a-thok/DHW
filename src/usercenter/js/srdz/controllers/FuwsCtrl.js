@@ -17,11 +17,11 @@ export default function FuwsCtrl($http) {
       if (d.success) {
         vm.isSubmitSuccess = true;
       } else {
-        vm.errorMsg = "网络延迟，提交失败，请重试"
+        vm.errorMsg = '网络延迟，提交失败，请重试';
         fail();
       }
       vm.showModal = true;
-    }).error(function () {
+    }).error(function() {
       fail();
       vm.showModal = true;
     })

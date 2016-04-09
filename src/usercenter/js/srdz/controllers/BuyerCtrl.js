@@ -1,6 +1,5 @@
-export default function BuyerCtrl () {
+export default function BuyerCtrl() {
   var vm = this;
-  
   vm.listTabs = [
     {
       name: '全部订单',

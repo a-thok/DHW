@@ -113,7 +113,7 @@
             <button class="btnNormal" type="button" ng-click="isEdit[$index] = !isEdit[$index];setValid('payback')" ng-disabled="formPayback.$invalid">保存</button>
           </div>
           <!--用来判断页面是否填写正确的隐藏按钮-->
-          <input class="isValid isValid{{$index}}" type="hidden" ng-disabled="formPayback.$invalid">
+          <input class="isValid" type="hidden" ng-disabled="formPayback.$invalid">
         </form>
       </div>
       <!--编辑 结束-->
