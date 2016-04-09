@@ -1,12 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>用户中心 - 梦高速</title>
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
   <link rel="stylesheet" href="/css/usercenter.css">
 </head>
+
 <body>
-  
+
+  <!--通用顶栏 开始-->
+  <div class="siteNav">
+
+  </div>
+  <!--通用顶栏 结束-->
+
+  <!--个人中心导航栏 开始-->
+  <div class="ucNav">
+    <div class="ucNav_wrap clearfix">
+      <div class="ucNav_logo">
+
+      </div>
+      <ul class="ucNav_list" nav-slide>
+        <li class="ucNav_list_item ucNav_list_item--slider"></li>
+        <a href="#">
+          <li class="ucNav_list_item ucNav_list_item--active">首页</li>
+        </a>
+        <a href="#">
+          <li class="ucNav_list_item">人才招聘</li>
+        </a>
+        <a href="#">
+          <li class="ucNav_list_item">众筹</li>
+        </a>
+        <a href="#">
+          <li class="ucNav_list_item">众创空间</li>
+        </a>
+        <li class="ucNav_list_item ucNav_list_item--all" show-all-modules>
+          <div class="ucNav_list_item--all_text">所有服务<i class="ucNav_list_item--all_arrow"></i></div>
+          <ul class="ucNav_list_item--all_list">
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon kjfw"></i>
+                <span class="ucNav_list_item--all_list_item_text">会计服务</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon rczp"></i>
+                <span class="ucNav_list_item--all_list_item_text">人才招聘</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zchou"></i>
+                <span class="ucNav_list_item--all_list_item_text">众筹</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zckj"></i>
+                <span class="ucNav_list_item--all_list_item_text">众创空间</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon cysj"></i>
+                <span class="ucNav_list_item--all_list_item_text">创意设计</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon srdz"></i>
+                <span class="ucNav_list_item--all_list_item_text">私人定制</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zbao"></i>
+                <span class="ucNav_list_item--all_list_item_text">众包</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon cqbh"></i>
+                <span class="ucNav_list_item--all_list_item_text">产保护</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon zxsj"></i>
+                <span class="ucNav_list_item--all_list_item_text">转型升级</span>
+              </a>
+            </li>
+            <li class="ucNav_list_item--all_list_item">
+              <a href="#">
+                <i class="ucNav_list_item--all_list_item_icon gsss"></i>
+                <span class="ucNav_list_item--all_list_item_text">公司上市</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="ucNav_search">
+        <label class="ucNav_search_select">搜索
+          <!--<ul class="ucNav_search_select_list">
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+          </ul>-->
+        </label>
+        <input class="ucNav_search_input" id="ucSearch" name="ucSearch" type="text">
+        <label class="ucNav_search_btn"></label>
+      </div>
+      <div switch-type data-curl="zhxx/company" data-purl="pzhxx/person"></div>
+    </div>
+  </div>
+  <!--个人中心导航栏 结束-->
+
+  <!--内容区开始-->
+  <div class="person_content clearfix">
+    <!--左侧栏开始-->
+    <div class="person_left">
+      <div class="person_left_xinxi clearfix">
+        <img class="person_left_xinxi-pic" src="/img/person-touxiang.png" alt="touxiang">
+        <div class="person_left_xinxi-detail">
+          <p class="person_name">admin</p>
+          <p class="person_message">账户信息></p>
+        </div>
+        <div class="person_phone">
+          <p>手机号码：<span class="person_phonenumber">1355***081</span></p>
+          <p class="person_change">更换绑定</p>
+        </div>
+      </div>
+      <ul class="person_left_zhuangtai clearfix">
+        <li class="person_left_zhuangtai-item">
+          <span class="guanzhu_number">1560</span>关注
+        </li>
+        <li class="person_left_zhuangtai-item">
+          <span class="shoucang_number">158</span>收藏
+        </li>
+        <li class="person_left_zhuangtai-item">
+          <span class="dongtai_number">50</span>动态
+        </li>
+      </ul>
+      <div class="person_left_gongneng">
+        <h2>常用功能</h2>
+        <ul>
+          <li class="person_left_gongneng_usermessage gongneng_current">账户信息</li>
+          <li class="person_left_gongneng_email">站内信</li>
+          <li class="person_left_gongneng_change">账号转换</li>
+        </ul>
+      </div>
+      <div class="person_left_fuwu">
+        <h2>我的服务</h2>
+        <ul>
+          <li class="fuwu_kuaiji">
+            <a href="#"><i></i>会计服务</a>
+          </li>
+          <li class="fuwu_rencai">
+            <a href="#"><i></i>人才招聘</a>
+          </li>
+          <li class="fuwu_zckj">
+            <a href="#"><i></i>众创空间</a>
+          </li>
+          <li class="fuwu_zhongbao">
+            <a href="#"><i></i>威客众包</a>
+          </li>
+          <li class="fuwu_zhongchou">
+            <a href="#"><i></i>产品众筹</a>
+          </li>
+          <li class="fuwu_srdz">
+            <a href="#"><i></i>私人订制</a>
+          </li>
+          <li class="fuwu_cysj">
+            <a href="#"><i></i>创意设计</a>
+          </li>
+          <li class="fuwu_cqbh">
+            <a href="#"><i></i>产权保护</a>
+          </li>
+          <li class="fuwu_shangshi">
+            <a href="#"><i></i>公司上市</a>
+          </li>
+          <li class="fuwu_zxsj">
+            <a href="#"><i></i>转型设计</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--左侧栏结束-->
+    <!--中间部分开始-->
+    <div class="person_middle">
+      <div class="person_middle_project clearfix">
+        <div class="person_middle_project-l">
+          <h3>我的项目</h3>
+          <ul class="clearfix">
+            <li>
+              <a href="#">人才招聘（23）</a>
+            </li>
+            <li>
+              <a href="#">众<span></span>筹（05）</a>
+            </li>
+            <li>
+              <a href="#">众<span></span>包（03）</a>
+            </li>
+            <li>
+              <a href="#">创意设计（16）s</a>
+            </li>
+            <li>
+              <a href="#">私人订制（09）</a>
+            </li>
+          </ul>
+          <button class="project_changebtn">修改账号设置</button>
+          <ul class="person_middle_project_jincheng">
+            <i></i>
+            <li>发布需求</li>
+            <li>服务商匹配</li>
+            <li>选择满意的服务</li>
+            <li>验收工作并付款</li>
+          </ul>
+        </div>
+        <div class="person_middle_project-r">
+          <ul class="clearfix">
+            <li class="project_shouru">收入<span class="project_income">￥0.00</span></li>
+            <li class="project_zhichu">支出<span class="project_spending">￥0.00</span></li>
+          </ul>
+          <p>梦高速网上交易由支付宝提供支付担保！资金安全有保障！</p>
+          <img src="img/ZHIFUBAO.png" alt="支付宝">
+        </div>
+      </div>
+      <div class="person_middle_guess clearfix">
+        <div class="person_middle_guess-detail">
+          <div class="clearfix">
+            <h3>猜你喜欢</h3>
+            <span class="person_middle_guess_change"><i></i>换一换</span>
+          </div>
+          <ul class="clearfix">
+            <li>
+              <a href="#"><img src="img/02.png" alt="photo"></a>
+            </li>
+            <li>
+              <a href="#"><img src="img/02.png" alt="photo"></a>
+            </li>
+            <li>
+              <a href="#"><img src="img/02.png" alt="photo"></a>
+            </li>
+            <li>
+              <a href="#"><img src="img/02.png" alt="photo"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="person_middle_more clearfix">
+        <div class="person_middle_help">
+          <h3>帮助<span>></span></h3>
+          <ul>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="person_middle_news">
+          <h3>官方新闻<span>></span></h3>
+          <ul>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+            <li>
+              <a href="#">石狮首批10家市级众创空间授牌<span>2016/03/17</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--中间部分结束-->
+    <!--右侧栏开始-->
+    <div class="person_right">
+      <div class="person_right_gonggao">
+        <div class="gonggao_head clearfix">
+          <h3>公告</h3>
+          <span>11-20 星期五</span>
+        </div>
+        <ul class="clearfix">
+          <li>
+            <a class="gonggao_first" href="#">- 热烈祝贺梦高速上市成功！！！</a></li>
+          <li>
+            <a href="#">- 热烈祝贺梦高速上市成功！！！</a>
+          </li>
+          <li>
+            <a href="#">- 热烈祝贺梦高速上市成功！！！</a>
+          </li>
+          <li>
+            <a href="#">- 热烈祝贺梦高速上市成功！！！</a>
+          </li>
+          <li>
+            <a href="#">- 热烈祝贺梦高速上市成功！！！</a>
+          </li>
+          <li>
+            <a href="#">- 热烈祝贺梦高速上市成功！！！</a>
+          </li>
+        </ul>
+      </div>
+      <div class="person_right_huodong">
+        <h3>热门活动</h3>
+        <ul class="clearfix">
+          <li>
+            <a href="#"><img src="img/01.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/01.png" alt=""></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--右侧栏结束-->
+  </div>
+  <!--内容区结束-->
+
+  <!--<script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/webuploader.nolog.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/js/angular.js"></script>-->
+  <script src="/js/home.js"></script>
+
+
 </body>
+
 </html>
