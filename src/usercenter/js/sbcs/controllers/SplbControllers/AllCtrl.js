@@ -8,5 +8,5 @@ export default function AllCtrl() {
     { name: '购买价格', key: 'price', width: '15%' },
     { name: '转让价格', key: 'sellprice', width: '10%' },
     { name: '交易形式', key: 'tradetypeName', width: '10%' },
-  ]
+  ];
 }

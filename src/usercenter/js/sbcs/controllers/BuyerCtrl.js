@@ -37,5 +37,5 @@ export default function BuyerCtrl() {
     //   name: '已取消',
     //   url: '.yqx',
     // },
-  ]
+  ];
 }

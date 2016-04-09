@@ -7,11 +7,10 @@ export default function BuyerQrCtrl($http) {
     { name: '状态', key: 'stateName', width: '15%' },
     { name: '订单金额', key: 'totalFee', width: '15%' },
     { name: '交易形式', key: 'tradetypeName', width: '10%' },
-  ]
+  ];
   vm.confirm = (id) => {
-    $http.post('/sys/rshop/OrderBuyer/CertificateConfirm', {id: id}).success(() => {
+    $http.post('/sys/rshop/OrderBuyer/CertificateConfirm', { id: id }).success(() => {
       location.reload();
-    })
-  }
-  
+    });
+  };
 }
