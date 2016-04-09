@@ -6,13 +6,11 @@ export default function PygzCtrl($http) {
     { name: '项目类型', key: 'name', width: '20%', },
     { name: '价格', key: 'price', width: '20%' }
   ];
-  vm.cancel = ((cancalID) => {
+  vm.cancel = (cancalID) => {
     $http.post('/SrdzGz/AttentionDel', { id: cancalID }).success((d) => {
       if (d.success) {
         location.reload();
-      } else {
-        
       }
     });
-  });
+  };
 }

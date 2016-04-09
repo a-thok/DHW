@@ -49,6 +49,10 @@ export default function MainCtrl() {
       active: false
     }
   ];
+<<<<<<< HEAD
+=======
+
+>>>>>>> e46effdb153db88fc166c5b49880d89241314c17
   let cookies = {};
   document.cookie.split('; ').forEach(item => {
     let arr = item.split('=');
@@ -58,6 +62,10 @@ export default function MainCtrl() {
     vm.accountType = cookies.accountType;
     vm.logintype = cookies.logintype;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e46effdb153db88fc166c5b49880d89241314c17
   vm.routes = {
     title: '常用功能',
     items: vm.logintype == 1 ? vm.routes_p : vm.routes_c

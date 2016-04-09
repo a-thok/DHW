@@ -22,5 +22,5 @@ export default function SellererCtrl() {
       name: '待评价',
       url: '.dpj',
     },
-  ]
+  ];
 }

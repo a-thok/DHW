@@ -5,7 +5,9 @@ import angular from 'angular';
 
 // 依赖模块
 import '../directives/listComponents.js';
+
 import '../directives/modalComponents.js';   // 表单信息提示弹框
+
 import '../directives/formComponents.js';
 
 // 指令

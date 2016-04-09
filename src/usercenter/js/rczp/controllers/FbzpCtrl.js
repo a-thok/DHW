@@ -5,6 +5,7 @@ import {
   education
 } from '../../data/data.js';
 import $ from 'jquery';
+import angular from 'angular';
 export default function FbzpCrtl($http) {
   var vm = this;
   var para = {};

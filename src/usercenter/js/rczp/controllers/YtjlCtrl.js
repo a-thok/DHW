@@ -1,8 +1,6 @@
 export default function YtjlCtrl($http) {
   var vm = this;
-  vm.para = {
-    
-  };
+  vm.para = {};
   vm.list = [
      { name: '职位名称', key: 'position', width: '20%' },
      { name: '薪资', key: 'money', width: '20%' },

@@ -3,7 +3,7 @@ export default function ListdetailCtrl($scope, $http, $location) {
   var vm = this;
   var id = $location.search().id;
   var loaddata = () => {
-    $http.post('/CpzcList/List_Detail',{id:id}).success((d) => {
+    $http.post('/CpzcList/List_Detail', { id: id }).success((d) => {
       if (d.success) {
         vm.detail = {
           data: { text: d.result.project.text,
@@ -12,7 +12,7 @@ export default function ListdetailCtrl($scope, $http, $location) {
         };
         vm.project = {
           data: { city: d.result.project.city,
-                        daysum: d.result.project.daysum ,
+                        daysum: d.result.project.daysum,
                         diytag: d.result.project.diytag,
                         frontpic: d.result.project.frontpic,
                         money: d.result.project.money,

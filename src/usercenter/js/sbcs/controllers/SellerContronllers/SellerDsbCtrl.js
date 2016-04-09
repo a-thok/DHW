@@ -8,10 +8,10 @@ export default function SellerDsbCtrl($http) {
     { name: '购买价格', key: 'price', width: '10%' },
     { name: '转让价格', key: 'sellprice', width: '10%' },
     { name: '交易形式', key: 'tradetypeName', width: '10%' },
-  ]
+  ];
   vm.report = (project_id) => {
-    $http.post('/Sys/rshop/OrderSeller/Report', {id: project_id}).success(() => {
+    $http.post('/Sys/rshop/OrderSeller/Report', { id: project_id }).success(() => {
       location.reload();
-    })
-  }
+    });
+  };
 }

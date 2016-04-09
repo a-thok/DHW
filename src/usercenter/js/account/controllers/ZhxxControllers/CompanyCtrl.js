@@ -1,4 +1,6 @@
 // 企业账号---公司信息控制器
+import angular from 'angular';
+import $ from 'jquery';
 import {
   companynum,
   companytrade,
@@ -20,10 +22,8 @@ export default function CompanyCtrl($http) {
     vm.isSubmitSuccess = false;
     vm.isDisabled = false;
   }
-  
-  
   vm.getDraft = function (fn) {
-    $http.post('/UserAccount/Company').success(function(data) {
+    $http.post('/UserAccount/Company').success((data) => {
       fn(data.result.area);
       vm.mapcity = angular.fromJson(data.result.area).district.name;
       // console.log(vm.mapcity);
@@ -38,51 +38,51 @@ export default function CompanyCtrl($http) {
         }
       }
       $.extend(vm.data, data.result);
-    })
-  }
-  //添加业务范围与添加福利
-  vm.addBusiness = function() {
+    });
+  };
+  // 添加业务范围与添加福利
+  vm.addBusiness = function () {
     vm.businessTemp.push({});
   };
-  vm.addFuli = function() {
+  vm.addFuli = function () {
     vm.fuliTemp.push({});
   };
-  //手机号码是否可见
-  vm.isVisible = function(elem) {
+  // 手机号码是否可见
+  vm.isVisible = function (elem) {
     if ($(elem).is(':checked')) {
       vm.data.phonevisible = true;
     } else {
       vm.data.phonevisible = false;
     }
-  }
+  };
   // 保存数据
-  vm.submit = function() {
+  vm.submit = function () {
     var content = vm.draft.basic();
     var para = $.extend(vm.data, content);
     para.business = [];
-    para.fuli = []
+    para.fuli = [];
     for (var i = 0, len = vm.businessTemp.length; i < len; i++) {
       para.business.push(vm.businessTemp[i]);
     }
     para.business = angular.toJson(para.business);
-    for (var j = 0, len = vm.fuliTemp.length; j < len; j++) {
+    for (var j = 0, leng = vm.fuliTemp.length; j < leng; j++) {
       if (j < vm.fuliTemp.length - 1) {
-        para.fuli += vm.fuliTemp[j].value + ","
+        para.fuli += vm.fuliTemp[j].value + ',';
       } else {
-        para.fuli += vm.fuliTemp[j].value
+        para.fuli += vm.fuliTemp[j].value;
       }
     }
-    $http.post('/UserAccount/CompanyEdit', para).success(function(d) {
+    $http.post('/UserAccount/CompanyEdit', para).success((d) => {
       if (d.success) {
         vm.isSubmitSuccess = true;
-      }else {
-        vm.errorMsg = res.msg;
+      } else {
+        vm.errorMsg = d.msg;
         fail();
       }
       vm.showModal = true;
     }).error(() => {
-       fail();
-       vm.showModal = true;
+      fail();
+      vm.showModal = true;
     });
-  }
+  };
 }

@@ -1,6 +1,6 @@
 export default function FuwsCtrl($http) {
   var vm = this;
-  vm.data = {}
+  vm.data = {};
   vm.submitText = '提交';
   vm.isDisabled = false;
   function fail() {
@@ -9,7 +9,7 @@ export default function FuwsCtrl($http) {
     vm.isDisabled = false;
   }
   // var para = $.extend({},vm.data);
-  vm.submit = (() => {
+  vm.submit = () => {
     var para = $.extend({}, vm.data);
     vm.submitText = '提交中';
     vm.isDisabled = true;
@@ -21,9 +21,9 @@ export default function FuwsCtrl($http) {
         fail();
       }
       vm.showModal = true;
-    }).error(function() {
+    }).error(() => {
       fail();
       vm.showModal = true;
-    })
-  })
+    });
+  };
 }

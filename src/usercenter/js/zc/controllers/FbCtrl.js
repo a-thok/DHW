@@ -61,7 +61,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
     if (currentName !== 'ProjectLaunch.preview') {
       var current = currentName.split('.')[1];
       var content = $scope.draft[current]();
-      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(()=> {
+      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(() => {
         if (isManual) {
           $('.saveTip-' + current).text('保存成功');
         }

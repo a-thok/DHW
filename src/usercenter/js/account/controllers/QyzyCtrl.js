@@ -4,19 +4,19 @@ export default function QyzyCtrl() {
   vm.listTabs = [
     {
       name: '企业资质',
-      url : '.qyzz'
+      url: '.qyzz'
     },
     {
-      name : '企业荣誉',
-      url : '.qyry'
+      name: '企业荣誉',
+      url: '.qyry'
     },
     {
-      name : '工作环境',
-      url : '.gzhj'
+      name: '工作环境',
+      url: '.gzhj'
     },
     {
-      name : '首页主题图',
-      url : '.syztt'
+      name: '首页主题图',
+      url: '.syztt'
     }
-  ]
+  ];
 }
