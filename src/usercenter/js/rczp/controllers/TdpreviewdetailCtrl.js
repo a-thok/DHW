@@ -61,7 +61,7 @@ export default function TdpreviewdetailCtrl($http, $scope, $location) {
           }
         }
       }
-      setTimeout(function() {
+      setTimeout(() => {
         $('.rsm_form').hide();
         $('.rsm_result').show();
       });

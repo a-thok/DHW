@@ -1,6 +1,6 @@
-export default function MainCtrl($location) {
+export default function MainCtrl() {
   var vm = this;
-  //公司
+  // 公司
   vm.routes_c = [
     {
       url: 'cfb',
@@ -18,12 +18,12 @@ export default function MainCtrl($location) {
       active: false
     },
     {
-      url : 'cytglist',
-      text : '已投递项目',
-      active : false
+      url: 'cytglist',
+      text: '已投递项目',
+      active: false
     }
   ];
-  //个人
+  // 个人
   vm.routes_p = [
     {
       url: 'pfb',
@@ -38,30 +38,29 @@ export default function MainCtrl($location) {
     {
       url: 'pgz',
       text: '已收藏项目',
-      active:false
+      active: false
     },
     {
-      url : 'cytglist',
-      text : '已投递项目',
-      active : false
+      url: 'cytglist',
+      text: '已投递项目',
+      active: false
     }
   ];
-  
-  let cookies = {}
+  let cookies = {};
   document.cookie.split('; ').forEach(item => {
-    let arr = item.split('=')
-    cookies[arr[0]] = arr[1]
-  })
+    let arr = item.split('=');
+    cookies[arr[0]] = arr[1];
+  });
   if (cookies.accountType) {
-    vm.accountType = cookies.accountType
-    vm.logintype = cookies.logintype
+    vm.accountType = cookies.accountType;
+    vm.logintype = cookies.logintype;
   }
-  
+
   vm.routes = {
     title: '常用功能',
-    items: vm.logintype == 1 ? vm.routes_p :vm.routes_c
+    items: vm.logintype == 1 ? vm.routes_p : vm.routes_c
   };
-  
+
   // vm.routes = {
   //   title: '创意设计',
   //   items:  vm.routes_p.concat(vm.routes_c)

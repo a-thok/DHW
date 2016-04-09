@@ -23,7 +23,7 @@ export default function PreviewCtrl(s, h) {
         switch (minor) {
           case 'basic':
             var ptid = $(this)[0].content.showPersonal ? $(this)[0].content.dataP.ptid : $(this)[0].content.dataC.ptid;
-            s.ptid = s.zstype[ptid]
+            s.ptid = s.zstype[ptid];
             break;
           case 'project':
             if (s.project.data.diytag) {

@@ -36,7 +36,7 @@ export default function ProjectCtrl(s) {
       province: s.province,
       city: s.city,
       district: s.district
-    }
+    };
   };
 
   // 取得市信息
@@ -60,7 +60,7 @@ export default function ProjectCtrl(s) {
   s.setCountry = function (countrys) {
     s.data.country = countrys.name;
 
-    s.district = { code: countrys.code, name: s.data.country }
+    s.district = { code: countrys.code, name: s.data.country };
     s.data.area = {
       province: s.province,
       city: s.city,

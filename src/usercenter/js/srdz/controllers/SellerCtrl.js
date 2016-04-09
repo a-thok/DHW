@@ -1,6 +1,5 @@
-export default function SellererCtrl () {
+export default function SellererCtrl() {
   var vm = this;
-  
   vm.listTabs = [
     {
       name: '全部订单',
@@ -23,5 +22,5 @@ export default function SellererCtrl () {
       name: '待评价',
       url: '.dpj',
     },
-  ]
+  ];
 }

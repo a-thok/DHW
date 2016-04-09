@@ -8,5 +8,5 @@ export default function buyerDpjCtrl() {
     { name: '状态', key: 'stateName', width: '15%' },
     { name: '订单金额', key: 'total_fee', width: '10%' },
     { name: '下单日期', key: 'date', width: '10%' },
-  ]
+  ];
 }

@@ -6,9 +6,7 @@ export default function PersonToCompanyCtrl($http) {
   vm.companynature = companynature;
   vm.data = {};
   vm.draft = {};
-  vm.getDraft = function () {
-    
-  };
+  vm.getDraft = function () {};
   // 判断企业类型
   $http.post('/LoginService/Certify').success((d) => {
     vm.AccountTyp = d.result.AccountType;

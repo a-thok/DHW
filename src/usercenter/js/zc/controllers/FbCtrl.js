@@ -59,7 +59,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
     if (currentName !== 'ProjectLaunch.preview') {
       var current = currentName.split('.')[1];
       var content = $scope.draft[current]();
-      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(()=> {
+      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(() => {
         if (isManual) {
           $('.saveTip-' + current).text('保存成功');
         }
@@ -68,7 +68,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
       // 提交验证
       $scope.setValid(current);
       var isValid = $.extend({}, $scope.isValid);
-      isValid = angular.toJson(isValid)
+      isValid = angular.toJson(isValid);
       $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: 'isvalid', content: isValid }).success(() => {
         // 成功
       });
@@ -153,8 +153,9 @@ export default function FbCtrl($scope, $http, $state, $location) {
   }());
   var para = $location.search();
   if (para.id) {
-    if ($location.path() === '/fb/')
+    if ($location.path() === '/fb/') {
       $location.path('/fb/basic').search(para);
+    }
   } else {
     $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success((data) => {
       $scope.mainmark = data.result.mainmark;

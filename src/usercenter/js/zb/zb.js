@@ -16,13 +16,6 @@ import MainCtrl from './controllers/MainCtrl.js';
 import FbCtrl from './controllers/FbCtrl.js';
 import ScCtrl from './controllers/ScCtrl.js';
 import YfbCtrl from './controllers/YfbCtrl.js';
-
-
-
-
-
-
-
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 
 app
@@ -64,6 +57,4 @@ app
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
   .controller('ScCtrl', [ScCtrl]) // 收藏控制器
   .controller('YfbCtrl', ['$http', YfbCtrl]);
-  
 export default app;
- 

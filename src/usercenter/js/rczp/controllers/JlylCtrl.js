@@ -6,7 +6,7 @@ export default function JlylCtrl(s, h, $location) {
   s.show = {};
 
   // 读取数据
-  h.post('/HRFbjl/GetDetail').success(function(data) {
+  h.post('/HRFbjl/GetDetail').success((data) => {
     // 取得简历ID
     s.resumeID = data.result.ent.resumeID;
     s.photo = data.result.ent.photo;
@@ -29,7 +29,7 @@ export default function JlylCtrl(s, h, $location) {
     var items = data.result.items;
     // 循环获取的数据
     for (var i = 0; i < items.length; i++) {
-      //定义类型和内容
+      // 定义类型和内容
       var _type = items[i].type;
       var _content = items[i].content;
       // 把内容插入对应的对象或数组
@@ -53,21 +53,20 @@ export default function JlylCtrl(s, h, $location) {
           s.show[obj_name] = true;
       }
     }
-    setTimeout(function() {
+    setTimeout(() => {
       $('.rsm_result').show();
     });
-
   });
   s.JobID = $location.search().JobID;
   // s.table = $location.search().table;
-  s.tzcg = function() {
-    $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success(function(d) {
+  s.tzcg = function () {
+    $.post('/HRDelivery/Delivery', { JobID: s.JobID, ResumeID: s.resumeID }).success((d) => {
       if (d.success) {
-        alert("投递成功,点击可跳转到已投简历列表");
-        $location.href = "#/ytjl";
+        alert('投递成功,点击可跳转到已投简历列表');
+        $location.href = '#/ytjl';
       } else {
         alert(d.msg);
       }
     });
-  }
+  };
 }
