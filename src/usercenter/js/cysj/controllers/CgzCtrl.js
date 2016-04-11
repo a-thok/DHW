@@ -1,7 +1,9 @@
+import { dhw } from '../../data/data.js';
 export default function CgzCtrl($http) {
   var vm = this;
+  vm.dhw = dhw;
   vm.list = [
-    { name: '项目标题', key: 'title', width: '40%' },
+    { name: '项目标题', key: 'title', width: '40%', link: true, linkkey: 'id' },
     { name: '结束时间', key: 'endtime', width: '30%' },
     { name: '收藏时间', key: 'collecttime', width: '20%' }
   ];

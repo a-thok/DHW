@@ -32,7 +32,6 @@ export default function MainCtrl() {
       active: false
     }
   ];
-
   vm.routes_p = [
     {
       url: 'cygz',
@@ -50,7 +49,6 @@ export default function MainCtrl() {
       active: false
     }
   ];
-
   let cookies = {};
   document.cookie.split('; ').forEach(item => {
     let arr = item.split('=');
@@ -60,7 +58,6 @@ export default function MainCtrl() {
     vm.accountType = cookies.accountType;
     vm.logintype = cookies.logintype;
   }
-
   vm.routes = {
     title: '常用功能',
     items: vm.logintype == 1 ? vm.routes_p : vm.routes_c

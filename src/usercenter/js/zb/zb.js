@@ -29,9 +29,9 @@ app
       }
     });
     // 根据个人中心类型，判断默认加载哪个路由
-    $urlRouterProvider.otherwise(logintype === 1 ? '/fb' : '/fb');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/sc' : '/fb');
 
-    $urlRouterProvider.otherwise('/fb');
+    // $urlRouterProvider.otherwise('/fb');
     $stateProvider
     .state('fb', {
       url: '/fb',

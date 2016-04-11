@@ -1,14 +1,16 @@
 export const dhw = {
-  imgurl: 'http://192.168.2.10:82/img/',
-  imguploadurl: 'http://192.168.2.10:82/uploadimg',
+
+  imgurl: 'http://192.168.2.10:82/img/', 
+  imguploadurl: 'http://192.168.2.10:82/uploadimg', 
   imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
-  mainurl: '//localhost:8085/',
+  mainurl: '//localhost:8085/', 
   staticurl: 'http://192.168.2.10:81',
-  urlmain: '//localhost:8085/',
-  urlcdn: '//192.168.2.10:81/',
-  urlzc: '//localhost:8088/',
-  urlkj: '//localhost:8087/',
-  urlhr: '//localhost:8086/',
+  urlmain: '//localhost:8085/', 
+  urlcdn: '//192.168.2.10:81/', 
+  urlzc: '//localhost:8088/', 
+  urlkj: '//localhost:8087/', 
+  urlhr: '//localhost:8086/', 
+
   urlzckj: '//localhost:8091/',
   urlzb: '//localhost:8090/',
   urldiy: '//localhost:8092/',
@@ -16,10 +18,10 @@ export const dhw = {
   urlcqbh: '//localhost:8094/',
   urlzxsj: '//localhost:8095/',
   urlgsss: '//localhost:8096/',
-  urlfj: 'http://192.168.2.10:82/file/',
-  urlimg: 'http://192.168.2.10:82/img/',
+  urlfj: 'http://192.168.2.10:82/file/', 
+  urlimg: 'http://192.168.2.10:82/img/', 
   urlfjupload: 'http://192.168.2.10:82/uploadfj'
-};
+}
 // export const dhw = {
 //   imgurl: 'http://upload.dreamhiway.com/img/',
 //   imguploadurl: 'http://upload.dreamhiway.com/uploadimg',
