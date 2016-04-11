@@ -1,0 +1,50 @@
+<form name="albumForm">
+  <div select-simple
+  data-vm="albumVm"
+  data-form="albumForm"
+  data-label="所属活动"
+  data-name="events"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item for item in albumVm.activity"
+  ></div>
+  <div input-text
+  data-form="albumForm"
+  data-vm="albumVm"
+  data-label="标题"
+  data-name="title"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写标题'
+  data-pattern=""
+  ></div>
+  <div web-uploader
+  data-vm="albumVm"
+  data-label="图片"
+  data-name="img"
+  data-required="true"
+  data-key="personphoto"
+  data-size="180x150"
+  ng-model="albumVm.data.img"
+  ></div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 是否可见</label>
+    <span class="formInputSet_radioWrap"><input type="radio" name="negotiable" id="negotiable_yes">是</span>
+    <span class="formInputSet_radioWrap"><input type="radio" name="negotiable" id="negotiable_no">否</span>
+  </div>
+  <div rich-text
+  data-vm="gsdtalbumVm"
+  data-label="产品描述"
+  data-name="txt"
+  data-required="true"
+  data-keyname="uc"
+  data-size="800x800"
+  ng-model="albumVm.data.txt"
+   ></div>
+   <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-click="albumVm.submit()">提交</button>
+    </div>
+  </div>
+</form>

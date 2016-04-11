@@ -84,6 +84,11 @@ export default function MainCtrl() {
       url: 'ptoc',
       text: '账号转换',
       active: false
+    },
+    {
+      url: 'album',
+      text: '相册',
+      active: false
     }
     // {
     //   url: 'addresslist',

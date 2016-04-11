@@ -60,6 +60,8 @@ import AddressCtrl from './controllers/AddressControllers/AddressCtrl.js';
 import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js';
 // 个人转企业用户
 import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
+// 相册
+import AlbumCtrl from './controllers/AlbumCtrl.js';
 // 企业发展历程发布
 import GslcCtrl from './controllers/GslcCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents']);
@@ -260,6 +262,11 @@ app
         url: '/gslc',
         templateUrl: '/partials/account/partial-gslc.html',
         controller: 'GslcCtrl as gslcVm'
+      })
+      .state('album', {
+        url: '/album',
+        templateUrl: '/partials/account/partial-album.html',
+        controller: 'AlbumCtrl as albumVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -313,4 +320,6 @@ app
   .controller('OutboxCtrl', ['$http', '$scope', OutboxCtrl])
   .controller('InboxCtrl', ['$http', InboxCtrl])
   .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
-  .controller('EmailDetCtrl', EmailDetCtrl);
+  .controller('EmailDetCtrl', EmailDetCtrl)
+  // 相册
+  .controller('AlbumCtrl', AlbumCtrl);
