@@ -5,7 +5,7 @@ const compiler = webpack(config);
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use('/', express.static(path.join(__dirname, './public')));
+app.use('/', express.static(path.join(__dirname, './')));
 app.set('port', (process.env.PORT || 8080));
 
 const webpackDevMiddleware = require('webpack-dev-middleware');

@@ -31,7 +31,7 @@
 @import 'zhongbao.css';
 /*个人中心首页*/
 @import 'indexinfo.css';
-@import 'home.css';
+/*@import 'home.css';*/
 /*站内信*/
 @import 'email.css';
 @import 'readonly.css';
@@ -657,16 +657,16 @@ body {
 
 .person_middle_project-l li {
   float: left;
-  margin: 28px 0 0 20px;
+  margin: 28px 0 0 0;
   font-size: 14px;
   color: #0b73bb;
 }
 .person_middle_project-l a {
+  display: inline-block;
+  width: 120px;
   text-decoration: none;
   color: #0b73bb;
-}
-.person_middle_project-l span {
-  margin-left: 30px;
+  text-align: center;
 }
 .project_changebtn {
   width: 140px;
