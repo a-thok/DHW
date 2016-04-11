@@ -12,8 +12,9 @@ module.exports = {
     'uc.zb': [path.join(__dirname, './src/usercenter/js//zb/zb.js')],
     'uc.zc': [path.join(__dirname, './src/usercenter/js/zc/zc.js')],
     'uc.zckj': [path.join(__dirname, './src/usercenter/js/zckj/zckj.js')],
-    'uc.sbcs':[path.join(__dirname, './src/usercenter/js/sbcs/sbcs.js')],
-    'order':[path.join(__dirname, './src/usercenter/js/order/order.js')],  // 订单填写地址页面,不属于个人中心模块
+    'uc.sbcs': [path.join(__dirname, './src/usercenter/js/sbcs/sbcs.js')],
+    home: [path.join(__dirname, './src/usercenter/js/home/home.js')], // 个人中心首页
+    order: [path.join(__dirname, './src/usercenter/js/order/order.js')],  // 订单填写地址页面,不属于个人中心模块
   },
   output: {
     path: path.join(__dirname, '/dist/'),
