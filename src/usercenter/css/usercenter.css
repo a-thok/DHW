@@ -657,13 +657,13 @@ body {
 
 .person_middle_project-l li {
   float: left;
-  margin: 28px 0 0 0;
+  margin: 28px 0 0 20px;
   font-size: 14px;
   color: #0b73bb;
 }
 .person_middle_project-l a {
   display: inline-block;
-  width: 120px;
+  width: 102px;
   text-decoration: none;
   color: #0b73bb;
   text-align: center;
@@ -768,9 +768,23 @@ body {
   margin-bottom: 5px;
   border: 1px solid #e5e5e5;
 }
-.person_middle_guess-detail li img {
+.person_middle_guess a {
+  text-decoration: none;
+}
+.person_middle_guess-pic {
   width: 162px;
-  height: 222px;
+  height: 170px;
+}
+.person_middle_guess-price {
+  padding-left:4px;
+  color: #ff4d42;
+}
+.person_middle_guess-num {
+  padding-left: 6px;
+  color: #959b9f;
+}
+.person_middle_guess-ttl {
+  color: #0658ad;
 }
 .person_middle_help,
 .person_middle_news {
