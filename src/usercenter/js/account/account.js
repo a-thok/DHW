@@ -332,4 +332,4 @@ app
   .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
-  .controller('AlbumCtrl', AlbumCtrl);
+  .controller('AlbumCtrl', ['$http', AlbumCtrl]);
