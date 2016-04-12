@@ -493,7 +493,14 @@ body {
     top: -28px;
     left: 63px;
 }
-
+/*公司历程增加的删除按钮*/
+.gslcdel_part .btn {
+  cursor: pointer;
+  display: none
+}
+.gslcdel_part:hover .btn {
+  display: inline-block;
+}
 
 
 /*个人中心首页*/
