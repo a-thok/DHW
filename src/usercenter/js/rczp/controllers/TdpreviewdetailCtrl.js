@@ -25,6 +25,10 @@ export default function TdpreviewdetailCtrl($http, $scope, $location) {
         $scope.data = d.result.content.root.resume;
         $scope.photo = d.result.photo;
         for (var i = 0; i < $scope.data.length; i++) {
+          var _content = $scope.data[i].Content;
+          if (_content === null) {
+            continue;
+          }
           switch ($scope.data[i].TypeID) {
             case '1':
               $scope.infoTemp = $scope.data[i].Content.root.data;
