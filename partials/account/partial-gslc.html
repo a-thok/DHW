@@ -1,0 +1,35 @@
+<!--公司发展历程信息提交页面-->
+<div class="headway-wrap" style="width: 600px;padding-left: 276px;margin-top: 30px;margin-bottom:50px">
+  <ul style="border-left: 3px solid #f1f1f1;padding-left: 14px;">
+    <li style="position:relative;margin-bottom:40px" ng-repeat="item in gslcVm.dtlist">
+      <div class="clearfix gslcdel_part">
+        <p style="width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;float: left;">{{ item.title }}</p>
+        <span class="btn" style="width:13px;height:13px;background:url('../../src/usercenter/img/closeBtn.png');float: left;margin-top: 3px;"
+        ng-click="gslcVm.del(index, item.id)"></span>
+      </div>
+      <div class="headway-date">{{ item.date }} <i style="right: -14px;"></i></div>
+    </li>
+  </ul>
+</div>
+<form name="GslcForm" ng-submit="gslcVm.submit()">  
+  <div input-text
+  data-form="GslcForm"
+  data-vm="gslcVm"
+  data-label="事件标题"
+  data-name="title"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写事件标题'
+  data-pattern=""
+  ></div>
+  <div calendar
+  data-switch="false"
+  data-vm="gslcVm"
+  data-label="事件时间"
+  data-name="date"
+  data-required="true"
+  ></div>
+  <div class="formGourp formGourp--submit clearfix">
+        <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="GslcForm.$invalid" />
+  </div>
+</form>
