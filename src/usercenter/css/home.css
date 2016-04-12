@@ -136,6 +136,9 @@
 .fuwu_zxsj i {
   background: url(../img/logo.png) no-repeat 0 -234px;
 }
+.fuwu_sbcs i {
+  background: url(../img/sbcs-2.png) no-repeat;
+}
 /*中间部分*/
 .person_middle {
   float: left;

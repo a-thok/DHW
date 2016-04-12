@@ -180,6 +180,9 @@ body {
   &.gsss {
     background-position: 0 -260px;
   }
+  &.sbcs {
+    background: url(../img/sbcs.png) no-repeat;
+  }
 }
 .ucNav_list_item--all_list_item_text {
   

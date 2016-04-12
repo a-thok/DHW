@@ -19,7 +19,7 @@ export const dhw = {
   urlfj: 'http://192.168.2.10:82/file/',
   urlimg: 'http://192.168.2.10:82/img/',
   urlfjupload: 'http://192.168.2.10:82/uploadfj'
-}
+};
 // export const dhw = {
 //   imgurl: 'http://upload.dreamhiway.com/img/',
 //   imguploadurl: 'http://upload.dreamhiway.com/uploadimg',
