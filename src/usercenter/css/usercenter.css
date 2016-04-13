@@ -883,39 +883,11 @@ body {
   height: 192px;
 }
 
-
-
-.moreMessage_item {
-  margin-left: 15px;
-  margin-bottom: 16px;
-  color: #409cff;
-}
-.moreMessage_item a {
-  display: inline-block;
-  width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  text-decoration: none;
-  color: #409cff;
-}
-.moreMessage_item span {
-  float: right;
-  padding: 0;
-}
-.person_left_gongneng_item {
-  height: 38px;
-  line-height: 38px;
-  padding-left: 18px;
-  cursor: pointer; 
-}
-.person_left_gongneng_item a {
-  color: #000;
-}
-.person_name {
-  width: 60px;
-  margin-bottom: 10px;
+.person_middle_guess-ttl {
+  width: 162px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  color: #0658ad;
+  line-height: 30px;
 }
