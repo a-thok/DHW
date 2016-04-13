@@ -34,6 +34,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 16px;
 }
 .person_name,
 .person_message {
@@ -48,6 +49,7 @@
   cursor: pointer;
 }
 .person_change a {
+  text-decoration: none;
   color: #027cff;
 }
 .person_left_zhuangtai-item {
@@ -80,7 +82,8 @@
 .person_left_gongneng_email {
   padding-left: 25px;
 }
-.person_left_gongneng_item {
+.person_left_gongneng_item a {
+  text-decoration: none;
   color: #000;
 }
 .gongneng_current {
@@ -339,10 +342,7 @@
   color: #409cff;
 }
 .moreMessage_item span {
-  float: left;
-}
-.person_middle_more li span {
-  padding-left: 65px;
+  float: right;
 }
 /*右侧栏*/
 .person_right {
