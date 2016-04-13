@@ -24,8 +24,18 @@ import colpickDirective from './formComponents/colpickDirective.js';
 import fileUploader from './formComponents/fileUploader.js';
 // 百度地图
 import baidumap from './formComponents/baidumap.js';
-let app = angular.module('formComponents', []);
+let app = angular.module('formComponents', ['ngJcrop']);
 app
+  .config(function(ngJcropConfigProvider) {
+     // Used to differ the uplaod example
+    ngJcropConfigProvider.setJcropConfig('upload', {
+      bgColor: 'black',
+      bgOpacity: 0.4,
+      aspectRatio: 1,
+      maxWidth: 300,
+      maxHeight: 300
+    });
+  })
   // input text类型
   .directive('inputText', inputText)
   // textarea

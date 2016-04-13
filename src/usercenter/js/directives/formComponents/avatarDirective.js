@@ -6,7 +6,7 @@ export default function avatarDirective() {
   return {
     scope: true,
     replace: true,
-    template: function () {
+    template: function() {
       return `
         <form>
       <div class="avatarWrap">
@@ -17,8 +17,11 @@ export default function avatarDirective() {
         <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc" data-size="600x600" bind-img>上传头像</span>
       </div>
       <div ng-show="data.logo">
-        <div class="avatarUpload clearfix">
-          <img id="avatarImg" ng-show="data.logo" ng-src="{{data.logo ? dhw.imgurl + data.logo + '_600x600' + '.jpg' : ''}}" alt="用户头像">
+        <div class="avatarUpload clearfix"
+           ng-jcrop="obj.src"
+           ng-jcrop-config-name="upload"
+           selection="obj.selection"
+           thumbnail="obj.thumbnail">
           <div class="avatarPre">
             <img ng-src="{{data.logo ? dhw.imgurl + data.logo + '_600x600' + '.jpg' : ''}}" id="preview">
           </div>
@@ -30,8 +33,12 @@ export default function avatarDirective() {
     </form>
       `;
     },
-    controller: ['$scope', '$http', function (s, h) {
+    controller: ['$scope', '$http', function(s, h) {
       s.dhw = dhw;
+      // var ieMode = document.documentMode;
+      // var isIE = !!window.ActiveXObject;
+      // var isIE8 = isIE && ieMode == 8;
+      // var isIE9 = isIE && ieMode == 9;
       s.data = {
         x: 0,
         y: 0,
@@ -41,51 +48,77 @@ export default function avatarDirective() {
       h.post('/UserAccount/Img').success((data) => {
         s.avatar = data.result.logo;
       });
-      $(function () {
-        $('#avatarImg').Jcrop({
-          allowSelect: true,
-          allowMove: true,
-          allowResize: true,
-          onChange: showPreview,
-          onSelect: showPreview,
-          aspectRatio: 1
-        });
-        function showPreview(coords) {
-          s.data.x = coords.x;
-          s.data.y = coords.y;
-          s.data.w = coords.h;
-          s.data.h = coords.w;
-          var rx = 100 / coords.w;
-          var ry = 100 / coords.h;
-          $('#preview').css({
-            width: Math.round(rx * 600) + 'px',
-            height: Math.round(ry * 600) + 'px',
-            marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-            marginTop: '-' + Math.round(ry * coords.y) + 'px'
-          });
-        }
-      });
+      // $(function () {
+      //   $('#avatarImg').Jcrop({
+      //     allowSelect: true,
+      //     allowMove: true,
+      //     allowResize: true,
+      //     onChange: showPreview,
+      //     onSelect: showPreview,
+      //     aspectRatio: 1
+      //   });
+      //   function showPreview(coords) {
+      //     s.data.x = coords.x;
+      //     s.data.y = coords.y;
+      //     s.data.w = coords.h;
+      //     s.data.h = coords.w;
+      //     var rx = 100 / coords.w;
+      //     var ry = 100 / coords.h;
+      //     $('#preview').css({
+      //       width: Math.round(rx * 600) + 'px',
+      //       height: Math.round(ry * 600) + 'px',
+      //       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+      //       marginTop: '-' + Math.round(ry * coords.y) + 'px'
+      //     });
+      //   }
+      // });
+      s.obj = { src: '', selection: [], thumbnail: true };
+
+      // console.log(s.obj.selection);
+
       s.$watch('data.logo', (oldValue, newValue) => {
         var url = dhw.imgurl + s.data.logo + '_600x600' + '.jpg';
         if (s.data.logo) {
           $('.jcrop-holder').find('img').attr('ng-src', url);
           $('.jcrop-holder').find('img').attr('src', url);
+          s.obj.src = url;
         }
       });
 
-      s.submit = function () {
+      s.submit = function() {
+        console.log(1);
+        s.data.x = s.obj.selection[0];
+        s.data.y = s.obj.selection[1];
+        s.data.w = s.obj.selection[4];
+        s.data.h = s.obj.selection[5];
         var params = $.extend({}, s.data);
-        params.logo = params.logo + '_600x600';
+
+        params.logo = (params.logo + '_600x600');
         params.t = '100x100';
         params.action = 'cut';
-        $.post(dhw.imgcuturl, params, (data) => {
+        $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
+          // console.log('我是后台返回的数据' + data);
           s.$apply(() => {
             s.avatar = data.path + '100x100.jpg';
             s.data.logo = '';
           });
-          h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success(() => {
+          h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
+            if (d.success) {
+              console.log(1);
+            }
           });
-        }, 'json');
+        });
+        // $.post(dhw.imgcuturl, params, (data) => {
+        //   s.$apply(() => {
+        //     s.avatar = data.path + '100x100.jpg';
+        //     s.data.logo = '';
+        //   });
+        //   h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
+        //     if (d.success) {
+        //       console.log(1);
+        //     }
+        //   });
+        // }, 'json');
       };
     }]
   };
