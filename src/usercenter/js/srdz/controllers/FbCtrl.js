@@ -28,7 +28,7 @@ export default function FbCtrl($http) {
     // 循环规格数组s.skuTemp，把数据放入规格para.sku
     for (var i = 0; i < vm.skuTemp.length; i++) {
       var content = vm.skuTemp[i].content;
-      if (content[content.length - 1] == ';') {
+      if (content[content.length - 1] == ';' || content[content.length - 1] == '；') {
         content = content.substring(0, content.length - 2);
       }
       para.sku[vm.skuTemp[i].name] = content.split(';');
