@@ -6,7 +6,7 @@ export default function avatarDirective() {
   return {
     scope: true,
     replace: true,
-    template: function() {
+    template: function () {
       return `
         <form>
       <div class="avatarWrap">
@@ -33,7 +33,7 @@ export default function avatarDirective() {
     </form>
       `;
     },
-    controller: ['$scope', '$http', function(s, h) {
+    controller: ['$scope', '$http', function (s, h) {
       s.dhw = dhw;
       var ieMode = document.documentMode;
       var isIE = !!window.ActiveXObject;
@@ -85,7 +85,8 @@ export default function avatarDirective() {
         }
       });
 
-      s.submit = function() {
+      s.submit = function () {
+        console.log(1);
         s.data.x = s.obj.selection[0];
         s.data.y = s.obj.selection[1];
         s.data.w = s.obj.selection[4];
@@ -95,8 +96,8 @@ export default function avatarDirective() {
         params.logo = (params.logo + '_600x600');
         params.t = '100x100';
         params.action = 'cut';
-        if (isIE8 || isIE9) {
-          $.getJSON(dhw.imgcuturl + '?callbak=?', params, function(data) {
+        if (isIE8 || isIE9 || true) {
+          $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
             console.log('我是后台返回的数据' + data);
             s.$apply(() => {
               s.avatar = data.path + '100x100.jpg';
