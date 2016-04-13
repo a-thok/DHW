@@ -6,7 +6,7 @@ export default function avatarDirective() {
   return {
     scope: true,
     replace: true,
-    template: function () {
+    template: function() {
       return `
         <form>
       <div class="avatarWrap">
@@ -33,8 +33,12 @@ export default function avatarDirective() {
     </form>
       `;
     },
-    controller: ['$scope', '$http', function (s, h) {
+    controller: ['$scope', '$http', function(s, h) {
       s.dhw = dhw;
+      var ieMode = document.documentMode;
+      var isIE = !!window.ActiveXObject;
+      var isIE8 = isIE && ieMode == 8;
+      var isIE9 = isIE && ieMode == 9;
       s.data = {
         x: 0,
         y: 0,
@@ -69,9 +73,9 @@ export default function avatarDirective() {
       //   }
       // });
       s.obj = { src: '', selection: [], thumbnail: true };
-      
+
       // console.log(s.obj.selection);
-      
+
       s.$watch('data.logo', (oldValue, newValue) => {
         var url = dhw.imgurl + s.data.logo + '_600x600' + '.jpg';
         if (s.data.logo) {
@@ -81,23 +85,42 @@ export default function avatarDirective() {
         }
       });
 
-      s.submit = function () {
+      s.submit = function() {
         s.data.x = s.obj.selection[0];
         s.data.y = s.obj.selection[1];
         s.data.w = s.obj.selection[4];
         s.data.h = s.obj.selection[5];
         var params = $.extend({}, s.data);
-        params.logo = params.logo + '_600x600';
+
+        params.logo = (params.logo + '_600x600');
         params.t = '100x100';
         params.action = 'cut';
-        $.post(dhw.imgcuturl, params, (data) => {
-          s.$apply(() => {
-            s.avatar = data.path + '100x100.jpg';
-            s.data.logo = '';
+        if (isIE8 || isIE9) {
+          $.getJSON(dhw.imgcuturl + '?callbak=?', params, function(data) {
+            console.log('我是后台返回的数据' + data);
+            s.$apply(() => {
+              s.avatar = data.path + '100x100.jpg';
+              s.data.logo = '';
+            });
+            h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
+              if (d.success) {
+                console.log(1);
+              }
+            });
           });
-          h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success(() => {
-          });
-        }, 'json');
+        } else {
+          $.post(dhw.imgcuturl, params, (data) => {
+            s.$apply(() => {
+              s.avatar = data.path + '100x100.jpg';
+              s.data.logo = '';
+            });
+            h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
+              if (d.success) {
+                console.log(1);
+              }
+            });
+          }, 'json');
+        }
       };
     }]
   };
