@@ -40,14 +40,15 @@ export default function webUploader() {
       let $pick = elem.find('.filePicker');
       let $img = elem.find('img');
       let $result = elem.find('.formUploadImg_result');
-      let keyword = '';
-      if (attrs.haskeyword) {
-        keyword = attrs.keyword;
-      }
+      // let keyword = "dd";
+      // if (attrs.haskeyword) {
+      //   console.log(1);
+      //   keyword = attrs.keyword;
+      // }
       let uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-        server: dhw.imguploadurl + '?key=' + attrs.key + '&t=' + attrs.size + '&keyword=' + keyword,
+        server: dhw.imguploadurl + '?key=' + attrs.key + '&t=' + attrs.size + '&keyword=' + attrs.sy,
         pick: $pick[0],
         accept: {
           title: 'Images',
