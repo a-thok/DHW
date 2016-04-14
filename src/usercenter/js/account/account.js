@@ -66,13 +66,10 @@ import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js
 import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 // 相册
 import AlbumCtrl from './controllers/AlbumCtrl.js';
-<<<<<<< HEAD
 // 提现
 import TxCtrl from './controllers/TxCtrl.js';
-=======
 // 银行卡绑定
 import CardCtrl from './controllers/CardCtrl.js';
->>>>>>> 08b8f9a1608a4642a826b7fad9565d75a31969fb
 // 企业发展历程发布
 import GslcCtrl from './controllers/GslcCtrl.js';
 // 账户提现
@@ -297,7 +294,6 @@ app
         templateUrl: '/partials/account/partial-album.html',
         controller: 'AlbumCtrl as albumVm'
       })
-<<<<<<< HEAD
       .state('money', {
         url: '/money',
         templateUrl: '/partials/account/partial-money.html',          // 账户提现
@@ -305,14 +301,13 @@ app
       })
       .state('tx', {
         url: '/tx',
-        templateUrl: '/partials/account/partial-tx.html',          // 账户提现
+        templateUrl: '/partials/account/partial-tx.html',
         controller: 'TxCtrl as txVm'
-=======
+      })
       .state('card', {
         url: '/card',
         templateUrl: '/partials/account/partial-card.html',
         controller: 'CardCtrl as cardVm'
->>>>>>> 08b8f9a1608a4642a826b7fad9565d75a31969fb
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -370,10 +365,7 @@ app
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
   .controller('AlbumCtrl', ['$http', AlbumCtrl])
-<<<<<<< HEAD
   // 账户提现
   .controller('MoneyCtrl', ['$http', MoneyCtrl])
-  .controller('TxCtrl', ['$http', TxCtrl]);
-=======
+  .controller('TxCtrl', ['$http', TxCtrl])
   .controller('CardCtrl', ['$http', CardCtrl]);
->>>>>>> 08b8f9a1608a4642a826b7fad9565d75a31969fb
