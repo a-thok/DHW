@@ -8,7 +8,7 @@ export default function CardCtrl($http) {
   vm.submit = () => {
     var para = Object.assign({}, vm.data);
     $http.post('/sys/user/card/add', para).success(() => {
-      console.log(para);
+      window.location.href = '#/money';
     });
   };
 }
