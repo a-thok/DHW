@@ -9,6 +9,7 @@ import '../directives/listComponents.js';
 import '../directives/modalComponents.js';   // 表单信息提示弹框
 
 import '../directives/formComponents.js';
+import '../directives/pagination.js';
 
 // 指令
 
@@ -65,9 +66,13 @@ import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js
 import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 // 相册
 import AlbumCtrl from './controllers/AlbumCtrl.js';
+// 提现
+import TxCtrl from './controllers/TxCtrl.js';
 // 企业发展历程发布
 import GslcCtrl from './controllers/GslcCtrl.js';
-let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop']);
+// 账户提现
+import MoneyCtrl from './controllers/MoneyCtrl.js';
+let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop', 'ui.bootstrap.pagination']);
 app
   .config(function (ngJcropConfigProvider) {
      // Used to differ the uplaod example
@@ -286,6 +291,16 @@ app
         url: '/album',
         templateUrl: '/partials/account/partial-album.html',
         controller: 'AlbumCtrl as albumVm'
+      })
+      .state('money', {
+        url: '/money',
+        templateUrl: '/partials/account/partial-money.html',          // 账户提现
+        controller: 'MoneyCtrl as moneyVm'
+      })
+      .state('tx', {
+        url: '/tx',
+        templateUrl: '/partials/account/partial-tx.html',          // 账户提现
+        controller: 'TxCtrl as txVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -342,4 +357,7 @@ app
   .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
-  .controller('AlbumCtrl', ['$http', AlbumCtrl]);
+  .controller('AlbumCtrl', ['$http', AlbumCtrl])
+  // 账户提现
+  .controller('MoneyCtrl', ['$http', MoneyCtrl])
+  .controller('TxCtrl', ['$http', TxCtrl]);
