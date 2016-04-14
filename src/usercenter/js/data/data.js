@@ -23,7 +23,6 @@ export const dhw = {
 // export const dhw = {
 //   imgurl: 'http://upload.dreamhiway.com/img/',
 //   imguploadurl: 'http://upload.dreamhiway.com/uploadimg',
-//   fileuploadurl: 'http://upload.dreamhiway.com/uploadfj',
 //   imgcuturl: 'http://upload.dreamhiway.com/imagecut.ashx',
 //   mainurl: '//www.dreamhiway.com/',
 //   staticurl: 'http://cdn.dreamhiway.com',
