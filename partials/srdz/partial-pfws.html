@@ -1,4 +1,13 @@
-<form name="pfuwusForm" ng-submit="fusVm.submit()">
+<div class="content_t_t " ng-if="fusVm.state === 1">
+    <p>审核不通过，请重新申请</p>
+</div>
+<div class="list_item_none" ng-if="fusVm.state === 2" ng-cloak>
+  您已申请为服务商
+</div>
+<div class="list_item_none" ng-if="fusVm.state === 0" ng-cloak>
+  您已提交申请，等待审核
+</div>
+<form name="pfuwusForm" ng-submit="fusVm.submit()" ng-if="fusVm.state === 1 || fusVm.state === 4">
     <div input-text
     data-switch="false"
     data-vm="fusVm"
@@ -29,7 +38,7 @@
     data-tip='请填写手机号码'
     data-error="手机号码不合法"
   ></div>
-        <div input-text
+   <div input-text
     data-switch="false"
     data-vm="fusVm"
     data-label="地址信息"

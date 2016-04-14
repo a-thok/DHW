@@ -38,6 +38,7 @@
 @import 'shangbiao.css';
 @import 'order.css';
 @import 'home.css';
+@import 'money.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
@@ -883,17 +884,3 @@ body {
   height: 192px;
 }
 
-.person_middle_guess-ttl {
-  width: 162px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  color: #0658ad;
-  line-height: 30px;
-}
-.card_title {
-  margin: 21px 32px;
-  font-size: 17px;
-  font-weight: 100;
-  color: #333;
-}
