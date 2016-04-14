@@ -14,7 +14,14 @@ export default function richText() {
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
             </label>
             <div class="formGourp_editor_text">
-             <textarea id="editor" ng-model="${attrs.vm}.data.${attrs.name}" ng-required="${attrs.required}" style="min-height:400px;max-height:500px;"></textarea>
+             <textarea id="editor"
+             ${
+               attrs.repeatitem ?
+               'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
+               :
+               'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
+             }
+             ng-required="${attrs.required}" style="min-height:400px;max-height:500px;"></textarea>
             </div>
           </div>
         </div>

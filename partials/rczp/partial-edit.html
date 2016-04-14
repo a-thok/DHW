@@ -82,7 +82,7 @@
     data-error="职位名称必须在2-10个字符之间,不能包含特殊字符"
     data-editapi="/HRZpxxFb/Edit"
   ></div>
-  <div text-area
+  <!--<div text-area
     data-switch="false"
     data-vm="editVm"
     data-label="职位描述"
@@ -93,7 +93,16 @@
     data-tip='请填写此职位的描述'
     data-error="职位名称必须在4-200个字符之间,不能包含特殊字符"
     data-editapi="/HRZpxxFb/Edit"
-  ></div>
+  ></div>-->
+    <div rich-text
+      data-vm="editVm"
+      data-label="职位描述"
+      data-name="detail"
+      data-required="true"
+      data-keyname="uc"
+      data-size="800x800"
+      ng-model="editVm.data.detail"
+   ></div>
   <div input-text
     data-switch="false"
     data-vm="editVm"

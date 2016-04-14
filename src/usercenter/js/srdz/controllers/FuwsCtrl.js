@@ -26,4 +26,7 @@ export default function FuwsCtrl($http) {
       vm.showModal = true;
     });
   };
+  $http.post('/ServiceInfo/ServerState').success((d) => {
+    vm.state = d.result.state;
+  });
 }

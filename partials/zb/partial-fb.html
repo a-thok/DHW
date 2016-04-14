@@ -86,7 +86,7 @@
         data-repeatitem="mission"
         data-pattern=""
         ></div>
-        <div text-area
+        <!--<div text-area
         data-vm="fbVm"
         data-form="zbForm"
         data-label="任务需求描述"
@@ -96,6 +96,16 @@
         data-tip='请填写任务需求'
         data-repeatitem="mission"
         data-pattern=""
+        ></div>-->
+        <div rich-text
+          data-vm="fbVm"
+          data-label="任务需求描述"
+          data-name="mirequire"
+          data-required="true"
+          data-keyname="zb"
+          data-size="300x300"
+          data-repeatitem="mission"
+          ng-model="fbVm.data.mirequire"
         ></div>
         <div input-text
         data-vm="fbVm"
