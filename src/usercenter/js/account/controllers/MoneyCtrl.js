@@ -25,5 +25,8 @@ export default function MoneyCtrl($http) {
   };
   vm.tx = function () {
     window.location.href = '#/tx';
-  }
+  };
+  vm.bck = function () {
+    window.location.href = '#/card';
+  };
 }

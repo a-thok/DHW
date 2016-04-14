@@ -83,15 +83,15 @@
   font-weight: 500;
   font-size: 18px;
 }
-table {
+.transaction table {
   border-collapse: collapse;
 }
-thead {
+.transaction thead {
   line-height: 40px;
   font-size: 18px;
   font-weight: 500;
 }
-tbody {
+.transaction tbody {
   font-size: 16px;
   line-height: 35px;
   text-align: center;

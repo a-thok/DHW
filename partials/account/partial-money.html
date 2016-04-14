@@ -3,7 +3,7 @@
     <h1 class="balance_ttl">账户余额</h1>
     <div class="balance_amount">
       <p>￥<span>{{ moneyVm.balace }}</span></p>
-      <button class="balance_amount_tx" ng-click="moneyVm.tx()">提 现</button><button>银行卡</button>
+      <button class="balance_amount_tx" ng-click="moneyVm.tx()">提 现</button><button ng-click="moneyVm.bck()">银行卡</button>
     </div>
     <ul class="balance_right">
       <li class="balance_right_item balance_right_item_l">
