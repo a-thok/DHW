@@ -22,7 +22,7 @@
       data-tip='请填写项目名称'
       data-error="请填写2-20个字符"
   ></div>
-   <div text-area
+   <!--<div text-area
       data-switch="false"
       data-vm="pfbVm"
       data-label="需求说明"
@@ -32,7 +32,16 @@
       data-pattern=""
       data-tip='请输入需求描述'
       data-error="需求描述必须在2-250个字符之间"
-    ></div>
+    ></div>-->
+    <div rich-text
+      data-vm="pfbVm"
+      data-label="需求说明"
+      data-name="info"
+      data-required="true"
+      data-keyname="uc"
+      data-size="300x300"
+      ng-model="pfbVm.data.info"
+   ></div>
     <div input-text
       data-switch="false"
       data-vm="pfbVm"
