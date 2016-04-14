@@ -1,4 +1,4 @@
-export default function buyerDshCtrl() {
+export default function buyerDshCtrl($http) {
   var vm = this;
   vm.list = [
     { name: '项目图片', key: 'productlmg', width: '15%', img: true },
@@ -9,4 +9,9 @@ export default function buyerDshCtrl() {
     { name: '订单金额', key: 'total_fee', width: '10%' },
     { name: '下单日期', key: 'date', width: '10%' },
   ];
+  vm.confirm = function (number) {
+    $http.post('/SrdzOrderBuyer/Affirm', { number: number }).success(() => {
+      console.log(1);
+    });
+  };
 }

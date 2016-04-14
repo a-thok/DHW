@@ -67,8 +67,18 @@ import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 import AlbumCtrl from './controllers/AlbumCtrl.js';
 // 企业发展历程发布
 import GslcCtrl from './controllers/GslcCtrl.js';
-let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents']);
+let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop']);
 app
+  .config(function (ngJcropConfigProvider) {
+     // Used to differ the uplaod example
+    ngJcropConfigProvider.setJcropConfig('upload', {
+      bgColor: 'black',
+      bgOpacity: 0.4,
+      aspectRatio: 1,
+      maxWidth: 300,
+      maxHeight: 300
+    });
+  })
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // 从cookie获取当前个人中心类型（企业或个人）
     let logintype;
