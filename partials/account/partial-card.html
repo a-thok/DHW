@@ -1,46 +1,66 @@
 <h2 class="card_title">修改银行卡信息</h2>
 <div input-text
   data-switch="false"
-  data-vm="CardVm"
-  data-name="compay"
+  data-vm="cardVm"
+  data-name="name"
   data-required="true"
-  data-form="CardForm"
+  data-form="cardForm"
   data-label="真实姓名"
   data-pattern=""
   data-tip=""
 ></div>
 <div input-text
   data-switch="false"
-  data-vm="CardVm"
-  data-name="compay"
+  data-vm="cardVm"
+  data-name="idCard"
   data-required="true"
-  data-form="CardForm"
+  data-form="cardForm"
   data-label="身份证号"
   data-pattern=""
   data-tip=""
 ></div>
 <div input-text
   data-switch="false"
-  data-vm="CardVm"
-  data-name="compay"
+  data-vm="cardVm"
+  data-name="cardNumber"
   data-required="true"
-  data-form="CardForm"
+  data-form="cardForm"
   data-label="银行卡号"
   data-pattern=""
   data-tip=""
 ></div>
 <div input-text
   data-switch="false"
-  data-vm="CardVm"
-  data-name="compay"
+  data-vm="cardVm"
+  data-name="bankName"
   data-required="true"
-  data-form="CardForm"
+  data-form="cardForm"
+  data-label="所属银行名称"
+  data-pattern=""
+  data-tip=""
+></div>
+<div input-text
+  data-switch="false"
+  data-vm="cardVm"
+  data-name="openBank"
+  data-required="false"
+  data-form="cardForm"
+  data-label="开户行"
+  data-pattern=""
+  data-tip=""
+></div>
+<div input-text
+  data-switch="false"
+  data-vm="cardVm"
+  data-name="phone"
+  data-required="true"
+  data-form="cardForm"
   data-label="手机号"
   data-pattern=""
   data-tip=""
 ></div>
 <div class="formSet clearfix">
   <div class="formSetWrap">
-    <button class="formBtn formBtn--submit" type="button" ng-click="albumVm.submit()">提交</button>
+    <button class="formBtn formBtn--submit" type="button" ng-click="cardVm.submit()">提交</button>
   </div>
 </div>
