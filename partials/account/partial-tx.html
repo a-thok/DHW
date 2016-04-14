@@ -1,0 +1,38 @@
+<form name="TxForm" autocomplete="off">
+  <input style="width:1px;height:1px;border:0" type="text" name="fakeusernameremembered"/>
+  <input style="width:1px;height:1px;border:0" type="password" name="fakepasswordremembered"/>
+  <div class="formGourp clearfix ng-scope">
+    <label class="formLabel"><span class="formRequired">*</span>银行卡</label>
+    <div class="formGroup_edit bankCard">
+      <span class="bankName">{{ txVm.bankName }}</span>尾号
+      <span>{{ txVm.cardNumber }}</span>
+      <span class="crad_kj">快捷</span>
+      <i class="tomorrow"></i>
+    </div>
+  </div>
+  <div input-text
+  data-form="TxForm"
+  data-vm="txVm"
+  data-label="提现金额"
+  data-name="money"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写商标名称'
+  data-pattern=""
+  ></div>
+  <div pass-word
+  data-form="TxForm"
+  data-vm="txVm"
+  data-label="密码确认"
+  data-name="pwd"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写密码'
+  data-pattern=""
+  ></div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-click="txVm.submit()">提交</button>
+    </div>
+  </div>
+</form>

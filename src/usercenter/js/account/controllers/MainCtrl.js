@@ -66,6 +66,11 @@ export default function MainCtrl() {
       url: 'gslc',
       text: '公司历程',
       active: false
+    },
+    {
+      url: 'money',
+      text: '财富中心',
+      active: false
     }
   ];
 
@@ -88,6 +93,11 @@ export default function MainCtrl() {
     {
       url: 'album',
       text: '相册',
+      active: false
+    },
+    {
+      url: 'money',
+      text: '财富中心',
       active: false
     }
     // {
