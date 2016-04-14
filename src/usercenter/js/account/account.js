@@ -65,6 +65,8 @@ import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js
 import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 // 相册
 import AlbumCtrl from './controllers/AlbumCtrl.js';
+// 银行卡绑定
+import CardCtrl from './controllers/CardCtrl.js';
 // 企业发展历程发布
 import GslcCtrl from './controllers/GslcCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop']);
@@ -286,6 +288,11 @@ app
         url: '/album',
         templateUrl: '/partials/account/partial-album.html',
         controller: 'AlbumCtrl as albumVm'
+      })
+      .state('card', {
+        url: '/card',
+        templateUrl: '/partials/account/partial-card.html',
+        controller: 'CardCtrl as cardVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -342,4 +349,5 @@ app
   .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
-  .controller('AlbumCtrl', ['$http', AlbumCtrl]);
+  .controller('AlbumCtrl', ['$http', AlbumCtrl])
+  .controller('CardCtrl', ['$http', CardCtrl]);
