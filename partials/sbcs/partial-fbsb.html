@@ -36,6 +36,16 @@
       <span class="multipleSelect_type" ng-repeat="item in fbVm.secType" ng-click="fbVm.typeSelect($event, item)">{{item.name}}</span>
     </div>
   </div>
+  <div text-area
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="服务范围"
+  data-name="services"
+  data-required="true"
+  data-tip="请填写服务范围"
+  data-switch="false"
+  data-pattern=""
+  ></div>
   <div input-text
   data-form="fbForm"
   data-vm="fbVm"
