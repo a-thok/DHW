@@ -11,7 +11,7 @@ export default function CyfbCtrl($http) {
   ];
   vm.zjtg = function (project_id) {
     $http.post('/order/diy/add', { projectID: project_id }).success((data) => {
-      window.location.href = dhw.urldiy + 'order/diy/pay2/' + data.result.number;
+      window.location.href = dhw.urlmain + 'order/diy/pay2/' + data.result.number;
     });
   };
   vm.complete = function (id) {
