@@ -17,7 +17,7 @@ export default function CompanyCtrl($http) {
   vm.draft = {};
   vm.fuliT = {};
   vm.mapcity = '';
-  vm.address1 = '';
+  // vm.address1 = '';
   function fail() {
     vm.isSubmitSuccess = false;
     vm.isDisabled = false;
@@ -27,7 +27,7 @@ export default function CompanyCtrl($http) {
       fn(data.result.area);
       vm.mapcity = angular.fromJson(data.result.area).district.name;
       // console.log(vm.mapcity);
-      vm.address1 = data.result.addr;
+      // vm.address1 = data.result.addr;
       if (data.result.business) {
         vm.businessTemp = angular.fromJson(data.result.business);
       }

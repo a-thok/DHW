@@ -5,11 +5,13 @@ import {
   education
 } from '../../../data/data.js';
 import $ from 'jquery';
+import angular from 'angular';
 export default function EditCtrl($http, $stateParams, $location) {
   var vm = this;
   vm.draft = {};
   vm.data = {};
   var para = {};
+  vm.mapcity = '';
   vm.statemc = $location.search().statemc;
   vm.submitText = '提交';
   vm.isDisabled = false;
@@ -29,7 +31,7 @@ export default function EditCtrl($http, $stateParams, $location) {
     $http.post('/HRZpxxFb/Detail', { id: id }).success((d) => {
       if (d.success) {
         vm.data = d.result.model;
-
+        vm.mapcity = angular.fromJson(d.result.area).district.name;
         fn(d.result.area);
       }
     });

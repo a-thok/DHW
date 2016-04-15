@@ -14,7 +14,7 @@ export default function baidumap() {
                 ng-model="${attrs.vm}.data.${attrs.name}"
                 ng-pattern="${attrs.pattern}"
                 ng-required="${attrs.required}"
-                ng-blur="${attrs.vm}.getAddress()"
+                ng-keyup="${attrs.vm}.getAddress()"
               >
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
@@ -59,12 +59,13 @@ export default function baidumap() {
       // 首次加载问题
       setTimeout(() => {
         mapcity1 = $scope.$parent[$attrs.vm].mapcity;
-        address = $scope.$parent[$attrs.vm].address1;
+        address = $scope.$parent[$attrs.vm].data.addr;
         console.log(mapcity1);
         // 拼凑成新的地址
         newAddress = mapcity1 + address;
+        console.log(newAddress);
         local.search(newAddress);
-      }, 700);
+      }, 800);
 
       $scope.$parent[$attrs.vm].getAddress = function () {
         // 读取详细地址
