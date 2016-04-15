@@ -1,0 +1,97 @@
+<form name="cyfbdetailForm">
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="项目名称"
+    data-name="title"
+    data-required="true"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="投稿人姓名"
+    data-name="name"
+    data-required="true"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="用户账户类型"
+    data-name="type"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="投稿时间"
+    data-name="time"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="地址"
+    data-name="address"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <!--<div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="附件地址"
+    data-name="savaaddr"
+    data-required="true"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>-->
+  <div class="formGourp clearfix">
+          <label class="formLabel" for="">
+            附件下载
+          </label>
+          <span class="readSpan" ng-if="cyfbdetailVm.data.savaaddr !== NaN"><a href="{{ cyfbdetailVm.data.savaaddr === NaN ? 'javascript:void(0)' : cyfbdetailVm.data.savaaddr}}">附件下载</a></span>
+          <span class="readSpan" ng-if="cyfbdetailVm.data.savaaddr === NaN">无附件可下载</span>
+   </div>
+  
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="报价"
+    data-name="quote"
+    data-form="cyfbdetailForm"
+    data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,10}$/"
+    data-disabled="true"
+  ></div>
+   <div input-text
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="工作周期"
+    data-name="worktime"
+    data-form="cyfbdetailForm"
+    data-pattern=""
+    data-disabled="true"
+  ></div>
+   <div text-area
+    data-switch="false"
+    data-vm="cyfbdetailVm"
+    data-label="说明"
+    data-name="intro"
+    data-form="cyfbdetailForm"
+    data-pattern=""
+    data-disabled="true"
+  ></div>
+</form>
+<div class="return_btn">
+  <a  href="#/pyfb">返回</a>
+</div>

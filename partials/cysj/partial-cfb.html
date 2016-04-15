@@ -1,0 +1,128 @@
+<!--公司项目发布功能-->
+  <div ng-show="!cfbVm.hasCompanyCerfity && !cfbVm.hasPersonCerfity" class="list_item_none">您未实名认证，无法发布需求<br/>
+      <a href="//www.dreamhiway.com/CenterAuth/Auth"  style="text-decoration:none;">马上验证</a>
+  </div>
+<form name="cfbForm" ng-submit="cfbVm.submit()" ng-show="cfbVm.hasCompanyCerfity || cfbVm.hasPersonCerfity">  
+ <div select-simple
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="项目类型"
+      data-name="type"
+      data-options="item.name for item in cfbVm.brand"
+      data-required="true"
+  ></div>
+  <div input-text
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="项目名称"
+      data-name="title"
+      data-required="true"
+      data-form="cfbForm"
+      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,20}$/"
+      data-tip='请填写项目名称'
+      data-error="请填写2-20个字符"
+  ></div>
+   <!--<div text-area
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="需求说明"
+      data-name="info"
+      data-required="true"
+      data-form="cfbForm"
+      data-pattern=""
+      data-tip='请输入需求描述'
+      data-error="需求描述必须在2-250个字符之间"
+    ></div>-->
+    <div rich-text
+      data-vm="cfbVm"
+      data-label="需求说明"
+      data-name="info"
+      data-required="true"
+      data-keyname="uc"
+      data-size="300x300"
+      ng-model="cfbVm.data.info"
+   ></div>
+    <div input-text
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="项目周期"
+      data-name="xmzq"
+      data-required="true"
+      data-form="cfbForm"
+      data-pattern="/^[1-9]\d*$/"
+      data-tip='请填写项目周期'
+      data-error="请填写大于0的数字"
+  ></div>  
+    <div calendar
+        data-switch="false"
+        data-vm="cfbVm"
+        data-label="截止日期"
+        data-name="endtime"
+        data-required="true"
+    ></div>
+     <div input-text
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="悬赏金额"
+      data-name="money"
+      data-required="true"
+      data-form="cfbForm"
+      data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
+      data-tip='请填写价格'
+      data-error="价格格式错误或超出限制"
+  ></div>
+    <div class="content_t_t ">
+        <p>如需上传多个文件，请在本地进行压缩后上传</p>
+     </div>
+     <div file-uploader
+        data-vm="cfbVm"
+        data-form="cfbForm"
+        data-label="附件"
+        data-name="attachment_orgin"
+        data-pathname="attachment"
+        data-keyname="diy"
+        data-required="true"
+        ></div> 
+     <!--交易模式-->
+      <div class="formSet clearfix">
+        <label class="formLabel"><span class="formSet_required">*</span> 交易模式</label>
+        <input type="hidden" ng-model="cfbVm.data.transaction" required>
+        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="cfbVm.selectTrans($event, 0)"></i> 悬赏模式</span>
+        <span class="formInputSet_radioWrap"><i class="formInputSet_radio" ng-click="cfbVm.selectTrans($event, 1)"></i> 投标模式</span>
+      </div>
+     
+   
+  <div input-text
+      data-switch="false"
+      data-vm="cfbVm"
+      data-label="联系电话"
+      data-name="phone"
+      data-required="true"
+      data-form="cfbForm"
+      data-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+      data-tip='请填写联系电话'
+      data-error="电话格式错误或超出限制"
+  >
+  <button class="formSet_input_btn" type="button">获取验证码</button>
+</div>  
+  
+  
+  
+     <div class="formSet formSet-agreement clearfix">
+     <div class="formSetWrap">
+        <label class="formLabel"><span class="formSet_required">*</span></label>
+        <p class="formGroup_edit">
+          <input class="agreement" type="checkbox" ng-model="cfbVm.data.agreement" required>
+          <label>是否同意《<a href="#">梦高速众包服务协议</a>》</label>
+        </p>
+     </div>
+   </div>
+   <div class="formGourp formGourp--submit clearfix">
+     <input class="formBtn formBtn--submit" type="submit" value="{{cfbVm.submitText}}"
+      ng-disabled="cfbForm.$invalid || cfbVm.isDisabled">
+   </div>
+ </form>  
+  <div modal
+      data-vm = "cfbVm"
+      data-url="/cyfb"
+   ></div>

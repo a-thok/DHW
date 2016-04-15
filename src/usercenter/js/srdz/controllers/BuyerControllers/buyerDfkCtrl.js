@@ -1,4 +1,4 @@
-import { dhw } from '../../../data/data.js'
+import { dhw } from '../../../data/data.js';
 
 export default function buyerDfkCtrl() {
   var vm = this;
@@ -10,6 +10,6 @@ export default function buyerDfkCtrl() {
     { name: '状态', key: 'stateName', width: '15%' },
     { name: '订单金额', key: 'total_fee', width: '10%' },
     { name: '下单日期', key: 'date', width: '10%' },
-  ]
+  ];
   vm.dhw = dhw;
 }

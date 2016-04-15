@@ -7,5 +7,5 @@ export default function BuyerDsbCtrl() {
     { name: '状态', key: 'stateName', width: '15%' },
     { name: '订单金额', key: 'totalFee', width: '15%' },
     { name: '交易形式', key: 'tradetypeName', width: '10%' },
-  ]
+  ];
 }

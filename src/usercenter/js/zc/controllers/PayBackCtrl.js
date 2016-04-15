@@ -8,7 +8,7 @@ export default function PayBackCtrl(s) {
     hb: [{ type: 1 }]
   };
   // 视图数据
-  s.isEdit = [true]
+  s.isEdit = [true];
 
   // 载入草稿和验证
   s.$parent.getDraft('payback', (draft) => {

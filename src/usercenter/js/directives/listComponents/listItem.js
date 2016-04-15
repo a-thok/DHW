@@ -7,6 +7,8 @@ export default function listItem() {
         <li>
           <div class="list_item_date">
             <i class="list_item_del" ng-if="${attrs.del}" ng-click="vm.delItem(${attrs.delkey})"></i>
+            <i class="list_item_del" ng-if="${attrs.delytjl}" ng-click="vm.delYtjl(${attrs.delkey})"></i>
+            <i class="list_item_del" ng-if="${attrs.delresume}" ng-click="vm.delResume(${attrs.userid},${attrs.jobid})"></i>
             <span ng-show="${attrs.toptxt}">${attrs.datekeytxt} : {{item.${attrs.datekey}}}</span>
             <span ng-if="${attrs.return}"><a href="${attrs.returnurl}">sdfsdf</a></span>
           </div>
@@ -32,7 +34,7 @@ export default function listItem() {
                  <a ng-if="item.states !==2" href="javascript:;">审核未通过<br>无法查看</a>
               </span>
               <span ng-if="${attrs.projectname} === 2">
-                 <a ng-if="item.statemc === 0" href="${attrs.editurl}{{item.ddid}}">查看详情</a>
+                 <a ng-if="item.statemc === 0" href="${attrs.editurl}{{item.ddid}}">查看详情<br></a>
                  <a ng-if="item.statemc !== 0" href="javascript:;">已删除<br>无法查看</a>
               </span>
              <span ng-if="${attrs.projectname} === 3">

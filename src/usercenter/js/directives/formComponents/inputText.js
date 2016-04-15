@@ -16,7 +16,7 @@ export default function inputText() {
               <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
             </div>
             <div class="formGroup_edit"  ng-show="!vm.isPlain">
-              <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="text" ng-disabled="${attrs.disabled}"
+              <input class="formInput" autocomplete="off" id="${attrs.name}" name="${attrs.name}" type="text" ng-disabled="${attrs.disabled}"
                 ${
                   attrs.repeatitem ?
                   'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'

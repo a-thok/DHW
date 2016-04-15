@@ -5,20 +5,22 @@ export default function replaymodal() {
     template: function (elem, attrs) {
       return `
       <div>
+       <form name="commentForm">
         <div class="replay_box" ng-style="style">
           <div class="replay_content">
             <span class="box_close" ng-click="vm.close()"></span>
             <div class="replay_area">
-              <textarea name="" id="" cols="30" rows="10" ng-model="${attrs.vm}.data.${attrs.name}"></textarea>
+              <textarea name="" id="" cols="30" rows="10" ng-model="${attrs.vm}.data.${attrs.name}" required></textarea>
               <span class="replay_num">500字</span>
               <div class="form-footer clearfix">
-                <button type="button" class="confirm_btn" ng-click="vm.submit()">确认</button>
+                <button type="button" class="confirm_btn formBtn--submit" ng-click="vm.submit()" ng-disabled="commentForm.$invalid">确认</button>
               </div>
             </div>
             <span class="replay-arrow1"></span>
             <span class="replay-arrow2"></span>
           </div>
         </div>
+       </form>
        </div>
       `;
     },

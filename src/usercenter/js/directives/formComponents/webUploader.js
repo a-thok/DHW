@@ -26,7 +26,7 @@ export default function webUploader() {
             <div class="formUploadImg clearfix">
               <div class="formUploadImg_preview">
                 <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="!${attrs.isrepeatitem}">
-                <img ng-src="{{${attrs.repeatitem}.${attrs.name} ? dhw.imgurl + ${attrs.repeatitem}.${attrs.name} + '_${attrs.size}' + '.jpg' : ''}}" ng-if="${attrs.isrepeatitem}">
+                <img ng-src="{{${attrs.repeatitem}.${attrs.name} ? dhw.imgurl + ${attrs.repeatitem}.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="${attrs.isrepeatitem}">
                 <span class="formUploadImg_result"></span>
               </div>
               <div class="filePicker" id="filePicker">选择图片</div>
@@ -40,11 +40,15 @@ export default function webUploader() {
       let $pick = elem.find('.filePicker');
       let $img = elem.find('img');
       let $result = elem.find('.formUploadImg_result');
-
+      // let keyword = "dd";
+      // if (attrs.haskeyword) {
+      //   console.log(1);
+      //   keyword = attrs.keyword;
+      // }
       let uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-        server: dhw.imguploadurl + '?key=' + attrs.key + '&t=' + attrs.size,
+        server: dhw.imguploadurl + '?key=' + attrs.key + '&t=' + attrs.size + '&keyword=' + attrs.sy,
         pick: $pick[0],
         accept: {
           title: 'Images',

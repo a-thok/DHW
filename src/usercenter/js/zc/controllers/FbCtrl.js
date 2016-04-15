@@ -14,15 +14,17 @@ export default function FbCtrl($scope, $http, $state, $location) {
   // 草稿数据
   $scope.draft = {};
   // 验证数据
-  $scope.isValid = {};
+  $scope.isValid = {
+    return: true
+  };
   // 验证方法
   $scope.setValid = function (current, async) {
     var isValid = true;
-    $('.isValid').each(() => {
-      if ($(this).is('input[disabled]')) {
+    // $('.isValid').each(() => {
+      if ( $('.isValid').is('input[disabled]')) {
         isValid = false;
       }
-    });
+    // });
     if (async) {
       $scope.$apply(() => {
         $scope.isValid[current] = isValid;
@@ -36,21 +38,39 @@ export default function FbCtrl($scope, $http, $state, $location) {
   // 获取草稿和验证
   $scope.getDraft = function (minor, fn) {
     // 获取草稿
-    $http.post('/AppDraft/GetSub', {
-      type: 'crowdfunding',
-      mainmark: $scope.mainmark,
-      minor: minor
-    }).success((data) => {
-      fn(data.result.content);
-    });
-    // 获取验证
-    $http.post('/AppDraft/GetSub', {
-      type: 'crowdfunding',
-      mainmark: $scope.mainmark,
-      minor: 'isvalid'
-    }).success((data) => {
-      $.extend($scope.isValid, data.result.content);
-    });
+    // 这是为了暂时解决 路由为 /fb/project 等无法及时获取到 mainmark的方法
+    setTimeout(() => {
+      $http.post('/AppDraft/GetSub', {
+        type: 'crowdfunding',
+        mainmark: $scope.mainmark,
+        minor: minor
+      }).success((data) => {
+        fn(data.result.content);
+      });
+      // 获取验证
+      $http.post('/AppDraft/GetSub', {
+        type: 'crowdfunding',
+        mainmark: $scope.mainmark,
+        minor: 'isvalid'
+      }).success((data) => {
+        $.extend($scope.isValid, data.result.content);
+      });
+    }, 800);
+    // $http.post('/AppDraft/GetSub', {
+    //   type: 'crowdfunding',
+    //   mainmark: $scope.mainmark,
+    //   minor: minor
+    // }).success((data) => {
+    //   fn(data.result.content);
+    // });
+    // // 获取验证
+    // $http.post('/AppDraft/GetSub', {
+    //   type: 'crowdfunding',
+    //   mainmark: $scope.mainmark,
+    //   minor: 'isvalid'
+    // }).success((data) => {
+    //   $.extend($scope.isValid, data.result.content);
+    // });
   };
   // 保存草稿功能-提交草稿和验证
   $scope.saveDraft = function (currentName, direction, isManual) {
@@ -59,7 +79,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
     if (currentName !== 'ProjectLaunch.preview') {
       var current = currentName.split('.')[1];
       var content = $scope.draft[current]();
-      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(()=> {
+      $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: current, content: content }).success(() => {
         if (isManual) {
           $('.saveTip-' + current).text('保存成功');
         }
@@ -68,7 +88,7 @@ export default function FbCtrl($scope, $http, $state, $location) {
       // 提交验证
       $scope.setValid(current);
       var isValid = $.extend({}, $scope.isValid);
-      isValid = angular.toJson(isValid)
+      isValid = angular.toJson(isValid);
       $http.post('/AppDraft/SaveSub', { type: 'crowdfunding', mainmark: $scope.mainmark, minor: 'isvalid', content: isValid }).success(() => {
         // 成功
       });
@@ -114,8 +134,9 @@ export default function FbCtrl($scope, $http, $state, $location) {
     }).success((d) => {
       if (d.success) {
         window.location.href = '#/hasfb';
+        alert('提交成功，等待审核');
       } else {
-        alert('发布失败');
+        alert('网络繁忙，发布失败，请重新尝试');
       }
     });
   };
@@ -152,11 +173,17 @@ export default function FbCtrl($scope, $http, $state, $location) {
     });
   }());
   var para = $location.search();
+  var path = $location.path();
+  console.log(path);
+  console.log(para);
   if (para.id) {
-    if ($location.path() === '/fb/')
+    $scope.mainmark = $location.search().id;
+    if ($location.path() === '/fb/') {
       $location.path('/fb/basic').search(para);
+    }
   } else {
     $http.post('/AppDraft/GetMainmark', { type: 'crowdfunding', minor: 'basic' }).success((data) => {
+      $location.search('id=' + data.result.mainmark);
       $scope.mainmark = data.result.mainmark;
     });
   }

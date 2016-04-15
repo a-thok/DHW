@@ -51,10 +51,6 @@ export default function nodatasArea() {
         if (draft) {
           s.prov = draft.province.name;
           s.citym = draft.city.name;
-          if ($attrs.map) {
-            s.$parent[$attrs.vm].mapcity = s.citym;
-            console.log(s.$parent[$attrs.vm].mapcity);
-          }
           s.country = draft.district.name;
           s.area = draft;
         }
@@ -110,7 +106,7 @@ export default function nodatasArea() {
         };
         $('.selectCont').hide();
       };
-      //设置县 区的model值
+      // 设置县 区的model值
       s.setCountry = function (countrys) {
         s.country = countrys.name;
         s.district = { code: countrys.code, name: s.country };
@@ -119,6 +115,10 @@ export default function nodatasArea() {
           city: s.city,
           district: s.district
         };
+        if ($attrs.map) {
+          s.$parent[$attrs.vm].mapcity = s.country;
+          s.$parent[$attrs.vm].getAddress();
+        }
         $('.selectCont').hide();
       };
       // 显示下拉框的行为

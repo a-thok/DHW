@@ -1,6 +1,6 @@
 export default function FuwsCtrl($http) {
   var vm = this;
-  vm.data = {}
+  vm.data = {};
   vm.submitText = '提交';
   vm.isDisabled = false;
   function fail() {
@@ -9,7 +9,7 @@ export default function FuwsCtrl($http) {
     vm.isDisabled = false;
   }
   // var para = $.extend({},vm.data);
-  vm.submit = (() => {
+  vm.submit = () => {
     var para = $.extend({}, vm.data);
     vm.submitText = '提交中';
     vm.isDisabled = true;
@@ -17,13 +17,16 @@ export default function FuwsCtrl($http) {
       if (d.success) {
         vm.isSubmitSuccess = true;
       } else {
-        vm.errorMsg = "网络延迟，提交失败，请重试"
+        vm.errorMsg = '网络延迟，提交失败，请重试';
         fail();
       }
       vm.showModal = true;
-    }).error(function () {
+    }).error(() => {
       fail();
       vm.showModal = true;
-    })
-  })
+    });
+  };
+  $http.post('/ServiceInfo/ServerState').success((d) => {
+    vm.state = d.result.state;
+  });
 }

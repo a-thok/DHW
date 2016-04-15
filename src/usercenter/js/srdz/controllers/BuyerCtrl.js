@@ -1,6 +1,5 @@
-export default function BuyerCtrl () {
+export default function BuyerCtrl() {
   var vm = this;
-  
   vm.listTabs = [
     {
       name: '全部订单',
@@ -23,5 +22,5 @@ export default function BuyerCtrl () {
       name: '待评价',
       url: '.dpj',
     },
-  ]
+  ];
 }

@@ -27,7 +27,7 @@ export default function fileUpLoader() {
       var uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-        server: dhw.fileuploadurl + '?key=' + attrs.keyname,
+        server: dhw.urlfjupload + '?key=' + attrs.keyname,
         pick: elem.find('.picker')[0],
         resize: false
       });

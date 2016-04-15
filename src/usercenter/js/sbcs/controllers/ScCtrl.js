@@ -6,5 +6,5 @@ export default function ScCtrl() {
     { name: '分类名称', key: 'pcodeName', width: '15%' },
     { name: '使用范围', key: 'type', width: '20%' },
     { name: '购买价格', key: 'price', width: '15%' },
-  ]
+  ];
 }

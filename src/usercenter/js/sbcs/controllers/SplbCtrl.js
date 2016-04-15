@@ -17,5 +17,5 @@ export default function SplbCtrl() {
       name: '有效',
       url: '.yx',
     }
-  ]
+  ];
 }

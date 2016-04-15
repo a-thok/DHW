@@ -1,4 +1,4 @@
-export default function SellerDsbCtrl() {
+export default function SellerDsbCtrl($http) {
   let vm = this;
   vm.list = [
     { name: '商标图片', key: 'img', width: '15%', img: true },
@@ -8,10 +8,10 @@ export default function SellerDsbCtrl() {
     { name: '购买价格', key: 'price', width: '10%' },
     { name: '转让价格', key: 'sellprice', width: '10%' },
     { name: '交易形式', key: 'tradetypeName', width: '10%' },
-  ]
+  ];
   vm.report = (project_id) => {
-    $http.post('/order/rshop1/add', {id: project_id}).success(() => {
-      location.replace(location.href);
-    })
-  }
+    $http.post('/Sys/rshop/OrderSeller/Report', { id: project_id }).success(() => {
+      location.reload();
+    });
+  };
 }

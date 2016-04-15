@@ -25,43 +25,47 @@ export default function TdpreviewdetailCtrl($http, $scope, $location) {
         $scope.data = d.result.content.root.resume;
         $scope.photo = d.result.photo;
         for (var i = 0; i < $scope.data.length; i++) {
+          // var _content = $scope.data[i].Content;
+          // if (_content === null) {
+          //   continue;
+          // }
           switch ($scope.data[i].TypeID) {
             case '1':
-              $scope.infoTemp = $scope.data[i].Content.root.data;
+              $scope.infoTemp = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               $scope.show.info = true;
               break;
             case '2':
-              $scope.educations = $scope.data[i].Content.root.data;
+              $scope.educations = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               break;
             case '3':
-              $scope.internships = $scope.data[i].Content.root.data;
+              $scope.internships = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               break;
             case '4':
-              $scope.projects = $scope.data[i].Content.root.data;
+              $scope.projects = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               $scope.show.project = true;
               break;
             case '5':
-              $scope.presentations = $scope.data[i].Content.root.data;
+              $scope.presentations = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               $scope.show.presentation = true;
               break;
             case '7':
-              $scope.evaluations = $scope.data[i].Content.root.data;
+              $scope.evaluations = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               $scope.show.evaluation = true;
               break;
             case '8':
-              $scope.usernameTemp = $scope.data[i].Content.root.data;
+              $scope.usernameTemp = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               break;
             case '9':
-              $scope.userintroTemp = $scope.data[i].Content.root.data;
+              $scope.userintroTemp = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               break;
             case '10':
-              $scope.expectations = $scope.data[i].Content.root.data;
+              $scope.expectations = $scope.data[i].Content.root === null ? '' : $scope.data[i].Content.root.data;
               $scope.show.expectation = true;
               break;
           }
         }
       }
-      setTimeout(function() {
+      setTimeout(() => {
         $('.rsm_form').hide();
         $('.rsm_result').show();
       });

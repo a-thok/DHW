@@ -5,6 +5,7 @@ export default function commentmodal() {
     replace: true,
     template: function (elem, attrs) {
       return `
+       <form name="replayForm">
         <div class="comment_modal" ng-show="${attrs.vm}.isshow">
           <div class="comment_bg"></div>
           <div class="comment_area">
@@ -80,15 +81,16 @@ export default function commentmodal() {
                 <div class="comment_col coment_col_pj clearfix">
                   <label for="" class="comment_label">评价内容 :</label>
                   <div class="comment_content">
-                    <textarea name="" id="" cols="30" rows="10" ng-model="${attrs.vm}.data.${attrs.about}"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" ng-model="${attrs.vm}.data.${attrs.about}" required></textarea>
                   </div>
                 </div>
                 <div class="comment_btn">
-                    <button type="button" class="btn" ng-click="${attrs.vm}.${attrs.postcomment}">发布评论</button>
+                    <button type="button" class="btn formBtn--submit" ng-click="${attrs.vm}.${attrs.postcomment}" ng-disabled="replayForm.$invalid">发布评论</button>
                 </div>
               </div>
             </div>
           </div>
+         </form>
       `;
     },
     controller: ['$scope', '$attrs', function ($scope, $attrs) {

@@ -21,7 +21,7 @@ export default function DetailCtrl(s) {
     isEdit: true,
   };
   // 文本（与图像）视图数据
-  s.isEdit = [false, false]
+  s.isEdit = [false, false];
 
   // 载入草稿和验证
   s.$parent.getDraft('detail', (draft) => {
@@ -84,7 +84,7 @@ export default function DetailCtrl(s) {
     // 存储要删除的项的下标
     s.modal.index = index ? index : null;
   };
-  s.del = function() {
+  s.del = function () {
     // 删除一项回报
     s.data.text.splice(s.modal.index, 1);
     // 删除对应的视图数据

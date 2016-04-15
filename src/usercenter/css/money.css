@@ -1,0 +1,133 @@
+.person_middle_guess-ttl {
+  width: 162px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #0658ad;
+  line-height: 30px;
+}
+.card_title {
+  margin: 21px 32px;
+  font-size: 17px;
+  font-weight: 100;
+  color: #333;
+}
+
+
+/*账户提现 暂时*/
+.wealth {
+  width: 925px;
+  margin: 50px auto 0;
+}
+.balance {
+  width: 900px;
+  padding: 10px;
+  background-color: #faf3dd;
+  border: 1px solid #f2e5bd;
+}
+.balance_ttl {
+  margin-top: 0;
+  font-weight: 500;
+  font-size: 20px;
+}
+.balance_amount {
+  float: left;
+  margin-left: 60px;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.balance_amount p {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ff6520;
+}
+.balance_amount button {
+  width: 55px;
+  height: 25px;
+  margin-top: 15px;
+  font-size: 12px;
+}
+.balance_amount_tx {
+  margin-right: 10px;
+}
+.balance_right {
+  float: right;
+  margin-top: -20px;
+  margin-right: 20px;
+  color: #666;
+}
+.balance_right_item {
+  padding: 15px 80px;
+  font-size: 16px;
+  text-align: center;
+}
+.balance_right_item_l {
+  float: left;
+  padding-left: 10px;
+  border-right: 1px solid #7F7F7F;
+}
+.balance_right_item_r {
+  float: right;
+  padding-right: 10px;
+}
+.balance_right_ttl {
+  margin-bottom: 45px;
+}
+.transaction {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.transaction_ttl {
+  padding-left: 15px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.transaction table {
+  border-collapse: collapse;
+}
+.transaction thead {
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.transaction tbody {
+  font-size: 16px;
+  line-height: 35px;
+  text-align: center;
+}
+.transaction_time {
+  color: #4985BC;
+}
+.positive {
+  color: #1BD41F;
+}
+.negative {
+  color: #FF9650;
+}
+.page {
+  margin-top: 30px;
+  text-align: center;
+}
+.bankCard {
+  position: relative;
+  width: 600px;
+  padding: 10px 20px;
+  border: 1px solid #cadae9;
+  font-size: 12px;
+}
+.bankName {
+  margin-right: 10px;
+}
+.crad_kj {
+  color: #fff;
+  background-color: #73A6CB;
+}
+.tomorrow {
+  position: absolute;
+  top: 10px;
+  left: 240px;
+  width: 33px;
+  height: 16px;
+  background: url(../img/1.1.png) no-repeat;
+}

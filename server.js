@@ -5,7 +5,7 @@ const compiler = webpack(config);
 const express = require('express');
 const path = require('path');
 const app = express();
-app.use('/', express.static(path.join(__dirname, './public')));
+app.use('/', express.static(path.join(__dirname, './')));
 app.set('port', (process.env.PORT || 8080));
 
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -23,7 +23,7 @@ app.use(webpackHotMiddleware(compiler));
 
 const proxy = require('proxy-middleware');
 const url = require('url');
-app.use('/', proxy(url.parse('http://192.168.2.145:8085/')));
+app.use('/', proxy(url.parse('http://192.168.2.17:8085/')));
 
 app.listen(app.get('port'), (err) => {
   if (err) {

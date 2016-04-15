@@ -16,13 +16,6 @@ import MainCtrl from './controllers/MainCtrl.js';
 import FbCtrl from './controllers/FbCtrl.js';
 import ScCtrl from './controllers/ScCtrl.js';
 import YfbCtrl from './controllers/YfbCtrl.js';
-
-
-
-
-
-
-
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 
 app
@@ -36,9 +29,9 @@ app
       }
     });
     // 根据个人中心类型，判断默认加载哪个路由
-    $urlRouterProvider.otherwise(logintype === 1 ? '/fb' : '/fb');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/sc' : '/fb');
 
-    $urlRouterProvider.otherwise('/fb');
+    // $urlRouterProvider.otherwise('/fb');
     $stateProvider
     .state('fb', {
       url: '/fb',
@@ -64,6 +57,4 @@ app
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
   .controller('ScCtrl', [ScCtrl]) // 收藏控制器
   .controller('YfbCtrl', ['$http', YfbCtrl]);
-  
 export default app;
- 

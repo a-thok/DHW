@@ -17,7 +17,7 @@ export default function HasfbCtrl() {
     { name: '项目类型', key: 'projectType', width: '15%' },
     { name: '项目状态', key: 'Status', width: '15%' },
     {
-      name: '筹资进度', 
+      name: '筹资进度',
       key:
       [
         { zid: '目标 :',

@@ -1,6 +1,6 @@
 export default function MainCtrl() {
   var vm = this;
-  //公司
+  // 公司
   vm.routes_c = [
     {
       url: 'fb',
@@ -18,7 +18,7 @@ export default function MainCtrl() {
       active: false
     }
   ];
-  //个人账户
+  // 个人账户
   vm.routes_p = [
     {
       url: 'sc',
@@ -26,25 +26,21 @@ export default function MainCtrl() {
       active: false
     }
   ];
-  
-  let cookies = {}
+  let cookies = {};
   document.cookie.split('; ').forEach(item => {
-    let arr = item.split('=')
-    cookies[arr[0]] = arr[1]
-  })
+    let arr = item.split('=');
+    cookies[arr[0]] = arr[1];
+  });
   if (cookies.accountType) {
-    vm.accountType = cookies.accountType
-    vm.logintype = cookies.logintype
+    vm.accountType = cookies.accountType;
+    vm.logintype = cookies.logintype;
   }
-  
   vm.routes = {
     title: '常用功能',
-    items: vm.logintype == 1 ? vm.routes_p :vm.routes_c
+    items: vm.logintype == 1 ? vm.routes_p : vm.routes_c
   };
-  
   // vm.routes = {
   //   title: '常用功能',
   //   items: vm.routes_p.concat(vm.routes_c)
   // };
-  
 }

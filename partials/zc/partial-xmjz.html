@@ -1,0 +1,26 @@
+            <div class="headway-wrap" style="width: 600px;padding-left: 276px;margin-top: 30px;margin-bottom:50px">
+              <ul style="border-left: 3px solid #f1f1f1;padding-left: 14px;">
+                <li style="position:relative;margin-bottom:40px" ng-repeat="item in propresVm.dtlist">
+                  <div>
+                    <p>{{ item.jzms }}</p>
+                  </div>
+                  <div class="headway-date">{{ item.fbsj }} <i style="right: -14px;"></i></div>
+                </li>
+              </ul>
+            </div>
+<form name="PropresForm" ng-submit="propresVm.submit()">
+    <div text-area
+      data-switch="false"
+      data-vm="propresVm"
+      data-label="进展描述"
+      data-name="txt"
+      data-required="true"
+      data-form="PropresForm"
+      data-pattern=""
+      data-tip='请输入进展描述'
+      data-error="进展描述必须在2-250个字符之间"
+    ></div>
+    <div class="formGourp formGourp--submit clearfix">
+        <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="PropresForm.$invalid" />
+    </div>
+</form>

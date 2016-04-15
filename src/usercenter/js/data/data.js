@@ -1,14 +1,14 @@
 export const dhw = {
-  imgurl: 'http://192.168.2.10:82/img/', 
-  imguploadurl: 'http://192.168.2.10:82/uploadimg', 
+  imgurl: 'http://192.168.2.10:82/img/',
+  imguploadurl: 'http://192.168.2.10:82/uploadimg',
   imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
-  mainurl: '//localhost:8085/', 
+  mainurl: '//localhost:8085/',
   staticurl: 'http://192.168.2.10:81',
-  urlmain: '//localhost:8085/', 
-  urlcdn: '//192.168.2.10:81/', 
-  urlzc: '//localhost:8088/', 
-  urlkj: '//localhost:8087/', 
-  urlhr: '//localhost:8086/', 
+  urlmain: '//localhost:8085/',
+  urlcdn: '//192.168.2.10:81/',
+  urlzc: '//localhost:8088/',
+  urlkj: '//localhost:8087/',
+  urlhr: '//localhost:8086/',
   urlzckj: '//localhost:8091/',
   urlzb: '//localhost:8090/',
   urldiy: '//localhost:8092/',
@@ -16,14 +16,13 @@ export const dhw = {
   urlcqbh: '//localhost:8094/',
   urlzxsj: '//localhost:8095/',
   urlgsss: '//localhost:8096/',
-  urlfj: 'http://192.168.2.10:82/file/', 
-  urlimg: 'http://192.168.2.10:82/img/', 
+  urlfj: 'http://192.168.2.10:82/file/',
+  urlimg: 'http://192.168.2.10:82/img/',
   urlfjupload: 'http://192.168.2.10:82/uploadfj'
-}
+};
 // export const dhw = {
 //   imgurl: 'http://upload.dreamhiway.com/img/',
 //   imguploadurl: 'http://upload.dreamhiway.com/uploadimg',
-//   fileuploadurl: 'http://upload.dreamhiway.com/uploadfj',
 //   imgcuturl: 'http://upload.dreamhiway.com/imagecut.ashx',
 //   mainurl: '//www.dreamhiway.com/',
 //   staticurl: 'http://cdn.dreamhiway.com',
@@ -45,7 +44,6 @@ export const dhw = {
 // };
 
 
-
 export const jobCategory = ['不限', '全职', '兼职', '实习'];
 export const salary = ['2k以下', '2k-5k', '5k-10k', '10k-15k', '15k-25k', '25k-50k', '50k以上', '面议'];
 export const exprience = ['不限', '应届毕业生', '一年以下', '1-3年', '3-5年', '5-10年', '10年以上'];
@@ -61,7 +59,7 @@ export const companytrade = [
 { name: '汽车·制造', value: 5 },
 { name: '医疗·化工', value: 6 },
 { name: '会计', value: 7 }
-]
+];
 export const companynature = [
   { name: '政府机关/事业单位', value: '政府机关/事业单位' },
   { name: '国营', value: '国营' },
@@ -80,9 +78,9 @@ export const typeids = [
       { id: 7, text: '生活' },
       { id: 8, text: '其他' }
 ];
-//私人定制
+// 私人定制
 export const category = [{ id: '1', name: '创意定制' }, { id: '2', name: '企业定制' }, { id: '3', name: '找代加工' }, { id: '4', name: '礼品定制' }, { id: '5', name: 'logo定制' }, { id: '6', name: '制服定制' }, { id: '7', name: '3D打印设备定制' }, { id: '8', name: '智能设备硬件加工' }];
-//创意设计品牌
+// 创意设计品牌
 export const brand = [
   { id: '2', name: 'logo设计' },
   { id: '3', name: '名片设计' },
@@ -118,7 +116,7 @@ export function getTrade($http, cb) {
 }
 /*
 控制器里用法
-  getTrade($http, (res) => 
+  getTrade($http, (res) =>
     vm.trade = res.result
   );
 */

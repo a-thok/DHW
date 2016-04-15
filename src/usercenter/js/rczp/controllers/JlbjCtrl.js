@@ -3,16 +3,16 @@ import angular from 'angular';
 export default function JlbjCtrl(s, h, $location) {
   s.dhw = window.dhw;
 
-  $(function() {
+  $(() => {
     /** 表单取消删除 **/
     $('.rsmM_box').on('click', '.delCancel', function () {
       $(this).parents('.rsm_form_ctrl_model').hide();
     });
-    $('.rsmM_box').on('click', '.rsm_form_ctrl_model', function (event) {
+    $('.rsmM_box').on('click', '.rsm_form_ctrl_model', (event) => {
       var e = event || window.event;
       e.stopPropagation();
     });
-    $('.rsmM_box').on('click', '.rsm_form_ctrl_delete', function (event) {
+    $('.rsmM_box').on('click', '.rsm_form_ctrl_delete', (event) => {
       var e = event || window.event;
       e.stopPropagation();
     });
@@ -30,12 +30,12 @@ export default function JlbjCtrl(s, h, $location) {
       isListVisible ? list.hide() : list.show();
     });
     // 点击外部任意地方关闭下拉菜单
-    $(document).click(function() {
+    $(document).click(() => {
       $('.rsm_select_lists').hide();
       // 关闭表单删除框
       $('.rsm_form_ctrl_model').hide();
     });
-    $('.rsmM_box').on('click', '.rsm_select_lists', function (event) {
+    $('.rsmM_box').on('click', '.rsm_select_lists', (event) => {
       var e = event || window.event;
       e.stopPropagation();
     });
@@ -93,7 +93,7 @@ export default function JlbjCtrl(s, h, $location) {
       $(this).siblings('.rsmS_item').addClass('hover');
     }).mouseout(function () {
       $(this).siblings('.rsmS_item').removeClass('hover');
-    })
+    });
     $('.rsmS_item_btn').click(function () {
       if ($(this).hasClass('add')) {
         $(this).siblings('.rsmS_item').trigger('click');
@@ -111,7 +111,7 @@ export default function JlbjCtrl(s, h, $location) {
   /** 数据交互 **/
 
   // 读取数据
-  h.post('/HRFbjl/GetDetail').success(function (data) {
+  h.post('/HRFbjl/GetDetail').success((data) => {
     // 取得简历ID
     s.resumeID = data.result.ent.resumeID;
     s.photo = data.result.ent.photo;
@@ -137,6 +137,9 @@ export default function JlbjCtrl(s, h, $location) {
       // 定义类型和内容
       var _type = items[i].type;
       var _content = items[i].content;
+      if (_content === null) {
+        continue;
+      }
       // 把内容插入对应的对象或数组
       if (_type == 7) { // 技能评价
         s[obj_names[_type - 1]].push({});
@@ -165,7 +168,7 @@ export default function JlbjCtrl(s, h, $location) {
     s.getPercentage();
 
     // 隐藏所有表单，显示所有展示
-    setTimeout(function () {
+    setTimeout(() => {
       $('.rsm_form').hide();
       $('.rsm_result').show();
     });
@@ -178,12 +181,12 @@ export default function JlbjCtrl(s, h, $location) {
     // 保存数据
     if (boxID == 'intent') {
       para.situation = s.intentTemp.situation;
-      $.post('/HRFbjl/SaveDetail', para, function () {
+      $.post('/HRFbjl/SaveDetail', para, () => {
       });
     } else {
-      para.type = parseInt(s[boxID].type);
+      para.type = parseInt(s[boxID].type, 10);
       para.content = s[boxID].content;
-      $.post('/HRFbjl/SaveDetailSub', para, function () {
+      $.post('/HRFbjl/SaveDetailSub', para, () => {
       });
     }
   };
@@ -281,9 +284,9 @@ export default function JlbjCtrl(s, h, $location) {
     var para = {};
     para.resumeID = s.resumeID;
     para.situation = s.intentTemp.situation;
-    $.post('/HRFbjl/SaveDetail', para, function () {
-    })
-  }
+    $.post('/HRFbjl/SaveDetail', para, () => {
+    });
+  };
 
   // 删除
   s.del = function (event) {
@@ -306,14 +309,14 @@ export default function JlbjCtrl(s, h, $location) {
   s.delSider = function (rsmArray, typeNum) {
     s[rsmArray] = [];
     // 如果是技能评价，把skills数组恢复默认状态
-    if (rsmArray = 'evaluations') {
+    if (rsmArray === 'evaluations') {
       s.skills = [{}];
     }
     // 存储数据
     var para = {};
     para.resumeID = s.resumeID;
     para.type = typeNum;
-    $.post('/HRFbjl/DelDetailSub', para, function () {
+    $.post('/HRFbjl/DelDetailSub', para, () => {
     });
   };
   // 编辑时，清空输入框里的名字和介绍的默认值
@@ -328,59 +331,59 @@ export default function JlbjCtrl(s, h, $location) {
   /** 定义各个盒子的数据 **/
   // 盒子显示与隐藏
   s.show = {
-    'info': false,
-    'project': false,
-    'presentation': false,
-    'expectation': false,
-    'evaluation': false
+    info: false,
+    project: false,
+    presentation: false,
+    expectation: false,
+    evaluation: false
   };
   // 名字
   s.username = {
-    'type': 8
+    type: 8
   };
   s.usernameTemp = {
-    'name': '请输入姓名'
+    name: '请输入姓名'
   };
   // 介绍
   s.userintro = {
-    'type': 9
+    type: 9
   };
   s.userintroTemp = {
-    'intro': '请介绍你自己'
+    intro: '请介绍你自己'
   };
   // 基本信息
   s.info = {
-    'type': 1
+    type: 1
   };
   s.infoTemp = {};
   // 实习经历
   s.internship = {
-    'type': 3
+    type: 3
   };
   s.internships = [];
   // 教育经历
   s.education = {
-    'type': 2
+    type: 2
   };
   s.educations = [];
   // 项目经验
   s.project = {
-    'type': 4
+    type: 4
   };
   s.projects = [];
   // 自我描述
   s.presentation = {
-    'type': 5
+    type: 5
   };
   s.presentations = [];
   // 期望工作
   s.expectation = {
-    'type': 10
+    type: 10
   };
   s.expectations = [];
   // 技能评价
   s.evaluation = {
-    'type': 7
+    type: 7
   };
   s.evaluations = [];
   s.skills = [{}];
@@ -394,10 +397,10 @@ export default function JlbjCtrl(s, h, $location) {
     } else {
       s.skills.splice(index, 1);
     }
-  }
+  };
   // 求职意向
   s.intentTemp = {
-    'situation': '我目前已离职，可快速到岗'
+    situation: '我目前已离职，可快速到岗'
   };
 
   /** 简历完成度 **/

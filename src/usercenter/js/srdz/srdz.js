@@ -38,8 +38,7 @@ import DetailCtrl from './controllers/DetailCtrl.js'; // 物流保存
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 
 app
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // 从cookie获取当前个人中心类型（企业或个人）
     let logintype;
     let cookies = document.cookie.split('; ');
@@ -146,8 +145,7 @@ app
         url: '/detail/:number',
         templateUrl: '/partials/srdz/partial-detail.html',
         controller: 'DetailCtrl as detailVm'
-      })
-
+      });
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)

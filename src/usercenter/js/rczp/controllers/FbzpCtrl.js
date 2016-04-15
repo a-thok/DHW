@@ -5,6 +5,7 @@ import {
   education
 } from '../../data/data.js';
 import $ from 'jquery';
+import angular from 'angular';
 export default function FbzpCrtl($http) {
   var vm = this;
   var para = {};
@@ -25,7 +26,8 @@ export default function FbzpCrtl($http) {
   vm.getDraft = function (fn) {
     $http.post('/HRZpxxFb/GetArea').success((d) => {
       fn(d.result[0].area);
-      vm.mapcity = angular.fromJson(data.result[0].area).city.name
+      vm.mapcity = angular.fromJson(d.result[0].area).district.name;
+      console.log(vm.mapcity);
     });
   };
   vm.showModal = false;
@@ -47,6 +49,6 @@ export default function FbzpCrtl($http) {
     }).error(() => {
       fail();
       vm.showModal = true;
-    })
-  }
+    });
+  };
 }

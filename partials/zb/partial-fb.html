@@ -1,0 +1,245 @@
+  <div class="list_item_none" ng-if="!fbVm.hasCompanyCerfity && !fbVm.hasPersonCerfity" ng-cloak>
+     请先进行实名认证<br/><a href="//www.dreamhiway.com/CenterAuth/Auth" style="text-decoration:none;">马上验证</a>
+  </div>
+  <!--项目基本信息 开始-->
+<form name="zbForm" ng-if="fbVm.hasCompanyCerfity || fbVm.hasPersonCerfity" ng-cloak>  
+  <div>
+    <div class="zbFormBox">
+      <h2 class="zbFormBox_ttl">项目基本信息<i></i></h2>
+      <div input-text
+      data-form="zbForm"
+      data-vm="fbVm"
+      data-label="项目标题"
+      data-name="title"
+      data-required="true"
+      data-switch="false"
+      data-tip='请填写此标题'
+      data-pattern=""
+      ></div>
+      <div input-text
+      data-form="zbForm"
+      data-vm="fbVm"
+      data-label="项目总金额"
+      data-name="totalfin"
+      data-required="true"
+      data-switch="false"
+      data-tip='请填写金额'
+      data-error="请输入大于0的金额,最多两位小数"
+      data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
+      ></div>
+      <div input-text
+      data-form="zbForm"
+      data-vm="fbVm"
+      data-label="项目周期"
+      data-name="procycle"
+      data-required="true"
+      data-switch="false"
+      data-tip='请填写项目周期'
+      data-error="请输入大于0的天数"
+      data-pattern="/^[1-9]\d*$/"
+      ></div>
+      <!--截止日期 开始-->
+      <div calendar
+      data-vm="fbVm"
+      data-label="截止日期"
+      data-name="endtime"
+      data-required="true"
+      data-switch="false"
+      ></div>
+      <!--截止日期 结束-->
+      <div text-area
+      data-vm="fbVm"
+      data-form="zbForm"
+      data-label="项目简介"
+      data-name="intro"
+      data-required="true"
+      data-switch="false"
+      data-tip='请填写项目简介'
+      data-pattern=""
+      ></div>
+      <div select-simple
+      data-vm="fbVm"
+      data-form="zbForm"
+      data-label="项目类型"
+      data-name="typeid"
+      data-required="true"
+      data-switch="false"
+      data-part="text"
+      data-options="item.id as item.name for item in fbVm.type"
+      ></div>
+    </div>
+    <!--项目基本信息 结束-->
+    <!--任务发布 开始-->
+    <div class="zbFormBox">
+      <h2 class="zbFormBox_ttl">任务发布<i></i></h2>
+      <div ng-repeat="mission in fbVm.items">
+        <div class="mission_title">
+          <h3>任务{{$index+1}}</h3></div>
+        <div input-text
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="任务名称"
+        data-name="missionna"
+        data-required="true"
+        data-tip='请填写任务名称'
+        data-switch="false"
+        data-repeatitem="mission"
+        data-pattern=""
+        ></div>
+        <div text-area
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="任务需求描述"
+        data-name="mirequire"
+        data-required="true"
+        data-switch="false"
+        data-tip='请填写任务需求'
+        data-repeatitem="mission"
+        data-pattern=""
+        ></div>
+        <!--<div rich-text
+          data-vm="fbVm"
+          data-label="任务需求描述"
+          data-name="mirequire"
+          data-required="true"
+          data-keyname="zb"
+          data-size="300x300"
+          data-repeatitem="mission"
+          ng-model="fbVm.data.mirequire"
+        ></div>-->
+        <div input-text
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="任务单价"
+        data-name="unitprice"
+        data-required="true"
+        data-error="请输入大于0的单价，最多2两位小数"
+        data-repeatitem="mission"
+        data-switch="false"
+        data-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/"
+        ></div>
+        <div input-text
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="技能要求"
+        data-name="requireski"
+        data-required="true"
+        data-repeatitem="mission"
+        data-tip='请填写技能要求'
+        data-switch="false"
+        data-pattern=""
+        ></div>
+        <div class="content_t_t ">
+          <p>如需上传多个文件，请在本地进行压缩后上传</p>
+        </div>
+        <div file-uploader
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="附件"
+        data-name="attachment_orgin"
+        data-pathname="attachment"
+        data-required="true"
+        data-repeatitem="mission"
+        data-keyname="zb"
+        ></div>
+        <div input-text
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="所需人数"
+        data-name="mipnum"
+        data-required="true"
+        data-tip='请填写所需人数'
+        data-error="请输入大于0的人数"
+        data-repeatitem="mission"
+        data-switch="false"
+        data-pattern="/^[1-9]\d*$/"
+        ></div>
+        <div input-text
+        data-vm="fbVm"
+        data-form="zbForm"
+        data-label="完成时间"
+        data-name="miday"
+        data-required="true"
+        data-tip='请填写完成时间'
+        data-error="请输入大于0的天数"
+        data-repeatitem="mission"
+        data-switch="false"
+        data-pattern="/^[1-9]\d*$/"
+        ></div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"></label>
+            <button class="submitBtn" type="button" ng-hide="$index==0" ng-click="fbVm.del($index)">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="formSet clearfix ">
+      <span class="formSet_addMore" ng-click="fbVm.items.push({})">+继续添加新的任务</span>
+    </div>
+    <!--任务发布 结束-->
+    <!--个人信息 开始-->
+    <div class="zbFormBox ">
+      <h2 class="zbFormBox_ttl ">个人信息<i></i></h2>
+      <div class="content_t_t ">
+        <p>请务必填写您的真实信息,需求发布后,我们会根据此信息与你联系</p>
+      </div>
+      <div input-text
+      data-vm="fbVm"
+      data-form="zbForm"
+      data-label="姓名"
+      data-name="realname"
+      data-required="true"
+      data-tip='请填写姓名'
+      data-switch="false"
+      data-pattern=""
+      ></div>
+      <div input-text
+      data-vm="fbVm"
+      data-form="zbForm"
+      data-label="联系电话"
+      data-name="phone"
+      data-required="true"
+      data-tip='请填写联系电话'
+      data-error="请输入正确的联系电话"
+      data-switch="false"
+      data-pattern="/^1\d{10}$/"
+      ></div>
+      <div input-text
+      data-vm="fbVm"
+      data-form="zbForm"
+      data-label="邮箱"
+      data-name="email"
+      data-required="true"
+      data-tip='请填写联系电话'
+      data-error="请输入正确的邮箱"
+      data-switch="false"
+      data-pattern=""
+      ></div>
+      <div class="formSet formInputSet-check ">
+        <label class="formLabel "></label>
+        <input type="checkbox" ng-model="data.smrz ">需要实名认证
+      </div>
+      <div class="formSet formInputSet-check ">
+        <label class="formLabel "></label>
+        <input type="checkbox" ng-model="data.sjrz ">需要手机验证
+      </div>
+      <div class="formSet clearfix">
+        <label class="formLabel "><span class="formSet_required ">*</span></label>
+        <div class="chechboxSet">
+          <input class="checkbox" type="checkbox" ng-model="data.sftyxy" id="sftyxy" required><span class="agreement_text">是否同意《<a class="agreementLink" href="">梦高速众包服务协议</a>》</span>
+        </div>
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <button class="submitBtn" type="button" ng-disabled="zbForm.$invalid || fbVm.isDisabled" ng-click="fbVm.submit()">提交</button>
+      </div>
+    </div>
+    <!--个人信息 结束-->
+</form>
+</div>
+<div modal
+     data-vm = "fbVm"
+     data-url="/yfb"
+></div>

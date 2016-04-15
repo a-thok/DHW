@@ -8,7 +8,7 @@ export default function bindImg() {
       let uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-        server: dhw.imguploadurl + '?key=' + attr.keyname + '&t=' + attr.size,
+        server: dhw.imguploadurl + '?key=' + attr.keyname + '&t=' + (attr.size || ''),
         pick: element[0],
         accept: {
           title: 'Images',

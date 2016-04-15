@@ -31,10 +31,10 @@ import DfhCtrl from './controllers/ListControllers/DfhCtrl.js';
 import DpjCtrl from './controllers/ListControllers/DpjCtrl.js';
 // 卖家订单
 import SellerCtrl from './controllers/SellerCtrl.js';
-import SyshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
-import SdshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
-import SdfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
-import SallCtrl from './controllers/sellerControllers/s_AllCtrl.js';
+import s_YshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
+import s_DshCtrl from './controllers/sellerControllers/s_DshCtrl.js';
+import s_DfhCtrl from './controllers/sellerControllers/s_DfhCtrl.js';
+import s_AllCtrl from './controllers/sellerControllers/s_AllCtrl.js';
 // 物流保存
 import WlCtrl from './controllers/WlCtrl.js';
 import FbCtrl from './controllers/FbCtrl.js';
@@ -43,7 +43,8 @@ import DetailCtrl from './controllers/DetailCtrl.js';
 import PayBackCtrl from './controllers/PayBackCtrl.js';
 import ProjectCtrl from './controllers/ProjectCtrl.js';
 import PreviewCtrl from './controllers/PreviewCtrl.js';
-
+// 项目进展发布
+import PropresCtrl from './controllers/PropresCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router',
   'listComponents', 'formComponents', 'ui.bootstrap.pagination']);
 app
@@ -158,17 +159,17 @@ app
       .state('seller.dfh', {
         url: '/dfh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-dfh.html',
-        controller: 'SdfhCtrl as s_DfhVm'
+        controller: 's_DfhCtrl as s_DfhVm'
       })
       .state('seller.dsh', {
         url: '/dsh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-dsh.html',
-        controller: 'SdshCtrl as s_DshVm'
+        controller: 's_DshCtrl as s_DshVm'
       })
       .state('seller.ysh', {
         url: '/ysh',
         templateUrl: '/partials/zc/sellerorder/partial-seller-ysh.html',
-        controller: 'SyshCtrl as s_YshVm'
+        controller: 's_YshCtrl as s_YshVm'
       })
       .state('listdetail', {
         url: '/listdetail',
@@ -179,6 +180,12 @@ app
         url: '/ssxz',
         templateUrl: '/partials/zc/partial-ssxz.html',
         controller: 'SsCtrl as ssVm'
+      })
+      // 项目进展发布
+      .state('xmjz', {
+        url: '/xmjz/:id',
+        templateUrl: '/partials/zc/partial-xmjz.html',
+        controller: 'PropresCtrl as propresVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -199,12 +206,14 @@ app
   .controller('DpjCtrl', [DpjCtrl])
   // 卖家订单
   .controller('SellerCtrl', ['$stateParams', SellerCtrl])
-  .controller('s_DshCtrl', ['$scope', SdshCtrl])
-  .controller('s_DfhCtrl', ['$scope', SdfhCtrl])
-  .controller('s_YshCtrl', ['$scope', SyshCtrl])
-  .controller('s_AllCtrl', ['$scope', SallCtrl])
+  .controller('s_DshCtrl', ['$scope', s_DshCtrl])
+  .controller('s_DfhCtrl', ['$scope', s_DfhCtrl])
+  .controller('s_YshCtrl', ['$scope', s_YshCtrl])
+  .controller('s_AllCtrl', ['$scope', s_AllCtrl])
   // 物流保存
   .controller('WlCtrl', ['$http', WlCtrl])
+  // 项目进展发布
+  .controller('PropresCtrl', ['$http', '$stateParams', PropresCtrl])
 
   .controller('FbCtrl', ['$scope', '$http', '$state', '$location', FbCtrl])
   .controller('BaseCtrl', ['$scope', '$http', BaseCtrl])

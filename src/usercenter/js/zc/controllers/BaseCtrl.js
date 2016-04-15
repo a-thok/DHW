@@ -23,7 +23,7 @@ export default function BaseCtrl(s) {
       which_data = 'dataC';
     }
     return which_data;
-  }
+  };
 
   // 载入草稿和验证
   s.$parent.$watch('mainmark', (newValue) => {
@@ -66,7 +66,7 @@ export default function BaseCtrl(s) {
       province: s.province,
       city: s.city,
       district: s.district
-    }
+    };
   };
   // 取得县区的信息
   s.setCity = function (citys) {
@@ -76,8 +76,8 @@ export default function BaseCtrl(s) {
     s.country = s.countrys[0].name;
     s.citym = citys.name;
 
-    s.city = { code: citys.code, name: citys.name }
-    s.district = { code: s.countrys[0].code, name: s.country }
+    s.city = { code: citys.code, name: citys.name };
+    s.district = { code: s.countrys[0].code, name: s.country };
 
     s.dataP.area = {
       province: s.province,
@@ -93,8 +93,8 @@ export default function BaseCtrl(s) {
       province: s.province,
       city: s.city,
       district: s.district
-    }
-  }
+    };
+  };
 
   // 项目类型
   s.zctypes = [

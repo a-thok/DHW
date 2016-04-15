@@ -16,6 +16,7 @@ export default function addPhoto() {
                    data-size="${attrs.size}"
                    data-repeatitem="${attrs.repeatitem}"
                    data-isrepeatitem="${attrs.isrepeatitem}"
+                   data-sy="${attrs.sy}"
                    ng-model="${attrs.model}"
               ></div>
               <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="vm.delphoto($index)">删除</button>         

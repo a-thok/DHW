@@ -1,0 +1,58 @@
+<div class="wealth">
+  <div class="balance clearfix">
+    <h1 class="balance_ttl">账户余额</h1>
+    <div class="balance_amount">
+      <p>￥<span>{{ moneyVm.balace }}</span></p>
+      <button class="balance_amount_tx" ng-click="moneyVm.tx()">提 现</button><button ng-click="moneyVm.bck()">银行卡</button>
+    </div>
+    <ul class="balance_right">
+      <li class="balance_right_item balance_right_item_l">
+        <p class="balance_right_ttl">账户总支出</p>
+        <p class="balance_right_money">￥<span>{{ moneyVm.expense }}</span></p>
+      </li>
+      <li class="balance_right_item balance_right_item_r">
+        <p class="balance_right_ttl">账户总收入</p>
+        <p class="balance_right_money">￥<span>{{ moneyVm.income }}</span></p>
+      </li>
+    </ul>
+  </div>
+  <div class="transaction">
+    <h1 class="transaction_ttl">最近交易记录</h1>
+    <table>
+      <colgroup>
+        <col style="width:195px">
+          <col style="width:520px">
+            <col style="width:205px">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>交易明细</th>
+          <th>金额</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tra in moneyVm.transaction">
+          <td class="transaction_time">{{ tra.tradeTime }}</td>
+          <td>{{ tra.tradeName }}</td>
+          <td class="transaction_money">{{ tra.money }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page">
+      <div class="pagination" uib-pagination
+        boundary-links="true"
+        total-items="moneyVm.total"
+        items-per-page="5"
+        max-size="10"
+        force-ellipses="true"
+        previous-text="&lsaquo;"
+        next-text="&rsaquo;"
+        first-text="&laquo;"
+        last-text="&raquo;"
+        ng-model="moneyVm.page"
+        ng-change="moneyVm.pageChanged()"
+      ></div>
+    </div>
+  </div>
+</div>
