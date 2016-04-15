@@ -33,7 +33,7 @@
   <div class="formGourp clearfix">
     <label class="formLabel"><span class="formRequired">*</span>核定使用范围</label>
     <div class="multipleSelect">
-      <span class="multipleSelect_type" ng-repeat="item in fbVm.secType" ng-click="fbVm.typeSelect($event, item)">{{item.name}}</span>
+      <span class="multipleSelect_type" ng-repeat="item in fbVm.secType" ng-click="fbVm.typeSelect($event, item)">{{ item.code }} {{item.name}}</span>
     </div>
   </div>
   <div text-area
@@ -117,25 +117,25 @@
   ng-model="fbVm.data.img"
   ></div>
   <div class="formGourp clearfix">
-    <div ng-repeat="photo in fbVm.photos" class="addphoto">
-      <div web-uploader 
-      data-vm="fbVm"
-      data-label="描述"
-      data-name="url"
-      data-required="true"
-      data-size="947x474"
-      data-key="rshop"
-      data-isrepeatitem="true"
-      data-repeatitem="photo"
-      ng-model="photo.url"
-      ></div>
-      <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>         
-    </div>
+  <div ng-repeat="photo in fbVm.photos" class="addphoto">
+    <div web-uploader 
+    data-vm="fbVm"
+    data-label="描述"
+    data-name="url"
+    data-required="true"
+    data-size="947x474"
+    data-key="rshop"
+    data-isrepeatitem="true"
+    data-repeatitem="photo"
+    ng-model="photo.url"
+    ></div>
+    <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>         
+  </div>
   </div>
   <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="fbVm.addphoto()" type="button">添加新图片</button>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-click="fbVm.submit()">提交</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid" ng-click="fbVm.submit()">提交</button>
     </div>
   </div>
 </form>

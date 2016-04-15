@@ -10,7 +10,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   });
   $http.post('/Sys/rshop/Trademark/Get', { id: id }).success((data) => {
     vm.data = data.result;
-    for (var i = 0, len = JSON.parse(data.result.content).length; i < len; i++) {
+    for (var i = 0, len = data.result.content.length; i < len; i++) {
       vm.photos.push({});
       vm.photos[i].url = data.result.content[i];
       if (vm.data.tradetype === 1) {
@@ -26,6 +26,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
         $('#negotiable_no').attr('checked', 'checked');
       }
     }
+    // 取得二级分类
     for (i = 0, len = vm.type.length; i < len; i++) {
       if (data.result.pcode === vm.type[i].code) {
         vm.data.code = vm.type[i];
