@@ -56,7 +56,7 @@
    <!--提交按钮指令需要重写-->
      <div class="formGourp formGourp--submit clearfix">
   <input class="formBtn formBtn--submit" type="submit" value="提交"
-      ng-disabled="gsfwForm.$invalid">
+      ng-disabled="gsfwForm.$invalid || gsfwVm.isDisabled">
 </div>
 </form>
 

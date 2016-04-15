@@ -9,7 +9,7 @@ export default function MainCtrl() {
     },
     {
       url: 'gsfu',
-      text: '公司服务',
+      text: '添加公司服务',
       active: false
     },
     {

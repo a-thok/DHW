@@ -14,7 +14,7 @@ export default function avatarDirective() {
         <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传100*100规格的图片</div>
       </div>
       <div class="avatarWrap_upload_btn">
-        <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc" data-size="600x600" bind-img>上传头像</span>
+        <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
       </div>
       <div ng-show="data.logo">
         <div class="avatarUpload clearfix"
@@ -23,7 +23,7 @@ export default function avatarDirective() {
            selection="obj.selection"
            thumbnail="obj.thumbnail">
           <div class="avatarPre">
-            <img ng-src="{{data.logo ? dhw.imgurl + data.logo + '_600x600' + '.jpg' : ''}}" id="preview">
+            <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
           </div>
         </div>
         <div class="formSet formSet-avatar clearfix">
@@ -42,8 +42,8 @@ export default function avatarDirective() {
       s.data = {
         x: 0,
         y: 0,
-        w: 192,
-        h: 192
+        w: 100,
+        h: 100
       };
       h.post('/UserAccount/Img').success((data) => {
         s.avatar = data.result.logo;
@@ -77,7 +77,7 @@ export default function avatarDirective() {
       // console.log(s.obj.selection);
 
       s.$watch('data.logo', (oldValue, newValue) => {
-        var url = dhw.imgurl + s.data.logo + '_600x600' + '.jpg';
+        var url = dhw.imgurl + s.data.logo + '.jpg';
         if (s.data.logo) {
           $('.jcrop-holder').find('img').attr('ng-src', url);
           $('.jcrop-holder').find('img').attr('src', url);
@@ -87,13 +87,15 @@ export default function avatarDirective() {
 
       s.submit = function () {
         console.log(1);
-        s.data.x = s.obj.selection[0];
-        s.data.y = s.obj.selection[1];
-        s.data.w = s.obj.selection[4];
-        s.data.h = s.obj.selection[5];
+        if (s.obj.selection[0] && s.obj.selection[1] && s.obj.selection[4] && s.obj.selection[5]) {
+          s.data.x = s.obj.selection[0];
+          s.data.y = s.obj.selection[1];
+          s.data.w = s.obj.selection[4];
+          s.data.h = s.obj.selection[5];
+        }
         var params = $.extend({}, s.data);
 
-        params.logo = (params.logo + '_600x600');
+        params.logo = (params.logo);
         params.t = '100x100';
         params.action = 'cut';
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
