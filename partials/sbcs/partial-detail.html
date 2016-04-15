@@ -36,6 +36,16 @@
       <span class="multipleSelect_type" id="ss" ng-repeat="item in detailVm.secType" ng-click="detailVm.typeSelect($event, item)">{{item.name}}</span>
     </div>
   </div>
+  <div text-area
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="服务范围"
+  data-name="services"
+  data-required="true"
+  data-tip="请填写服务范围"
+  data-switch="false"
+  data-pattern=""
+  ></div>
   <div input-text
   data-form="fbForm"
   data-vm="detailVm"
@@ -102,7 +112,7 @@
   data-label="logo图片"
   data-name="img"
   data-required="true"
-  data-key="uc"
+  data-key="rshop"
   data-size="185x121"
   ng-model="detailVm.data.img"
   ></div>
@@ -114,7 +124,7 @@
       data-name="url"
       data-required="true"
       data-size="947x474"
-      data-key="uc"
+      data-key="rshop"
       data-isrepeatitem="true"
       data-repeatitem="photo"
       ng-model="photo.url"
@@ -125,7 +135,7 @@
   <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="detailVm.addphoto()" type="button">添加新图片</button>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-click="detailVm.submit()">提交</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid" ng-click="detailVm.submit()">提交</button>
     </div>
   </div>
 </form>
