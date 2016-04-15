@@ -13,16 +13,6 @@
 <div input-text
   data-switch="false"
   data-vm="cardVm"
-  data-name="idCard"
-  data-required="true"
-  data-form="cardForm"
-  data-label="身份证号"
-  data-pattern=""
-  data-tip=""
-></div>
-<div input-text
-  data-switch="false"
-  data-vm="cardVm"
   data-name="cardNumber"
   data-required="true"
   data-form="cardForm"
@@ -30,15 +20,14 @@
   data-pattern=""
   data-tip=""
 ></div>
-<div input-text
+<div select-simple
   data-switch="false"
   data-vm="cardVm"
   data-name="bankName"
   data-required="true"
   data-form="cardForm"
   data-label="所属银行名称"
-  data-pattern=""
-  data-tip=""
+  data-options="item for item in cardVm.cardList"
 ></div>
 <div input-text
   data-switch="false"
@@ -47,16 +36,6 @@
   data-required="false"
   data-form="cardForm"
   data-label="开户行"
-  data-pattern=""
-  data-tip=""
-></div>
-<div input-text
-  data-switch="false"
-  data-vm="cardVm"
-  data-name="phone"
-  data-required="true"
-  data-form="cardForm"
-  data-label="手机号"
   data-pattern=""
   data-tip=""
 ></div>
