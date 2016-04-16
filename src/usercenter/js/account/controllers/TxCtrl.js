@@ -5,6 +5,7 @@ export default function TxCtrl($http) {
     vm.bankName = data.result.bankName;
     vm.cardNumber = data.result.cardNumber;
     vm.data.bcid = data.result.id;
+    vm.data.limit = data.result.limit;
   });
   vm.submit = function () {
     var para = Object.assign({}, vm.data);
