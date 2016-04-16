@@ -15,7 +15,7 @@ export default function GfbCtrl($http) {
     vm.isDisabled = false;
   }
   vm.category = category;
-
+  vm.hideModal = () => {vm.showModal = false; setTimeout(function(){location.reload();}, 500); };
   vm.addSku = function () {
     vm.skuTemp.push({});
   };

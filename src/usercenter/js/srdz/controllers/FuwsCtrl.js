@@ -8,6 +8,7 @@ export default function FuwsCtrl($http) {
     vm.submitText = '提交';
     vm.isDisabled = false;
   }
+  vm.hideModal = () => {vm.showModal = false; setTimeout(function(){location.reload();}, 500); };
   // var para = $.extend({},vm.data);
   vm.submit = () => {
     var para = $.extend({}, vm.data);

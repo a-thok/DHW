@@ -20,6 +20,7 @@ export default function EditCtrl($http, $stateParams, $location) {
     vm.submitText = '提交';
     vm.isDisabled = false;
   }
+  vm.hideModal = () => {vm.showModal = false; setTimeout(function(){location.reload();}, 500); };
   vm.jobCategory = jobCategory;
   vm.salary = salary;
   vm.exprience = exprience;
