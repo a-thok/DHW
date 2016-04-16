@@ -99,6 +99,16 @@ export default function MainCtrl() {
       url: 'money',
       text: '财富中心',
       active: false
+    },
+    {
+      url: 'article',
+      text: '文章发布',
+      active: false
+    },
+    {
+      url: 'wzlb',
+      text: '文章列表',
+      active: false
     }
     // {
     //   url: 'addresslist',

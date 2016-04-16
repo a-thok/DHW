@@ -45,6 +45,8 @@ import BuyerYqxCtrl from './controllers/BuyerControllers/BuyerYqxCtrl.js';
 import WlCtrl from './controllers/WlCtrl.js';
 // 详情页
 import DetailCtrl from './controllers/DetailCtrl.js';
+// 快速发布
+import KsfbCtrl from './controllers/KsfbCtrl.js';
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'ui.bootstrap.pagination']);
 
@@ -206,6 +208,11 @@ app
              url: '/sc',
              templateUrl: '/partials/sbcs/partial-sc.html',
              controller: 'ScCtrl as scVm'
+           })
+           .state('ksfb', {
+             url: '/ksfb',
+             templateUrl: '/partials/sbcs/partial-ksfb.html',
+             controller: 'KsfbCtrl as ksfbVm'
            });
   }])
   .directive('showAllModules', showAllModules)
@@ -245,4 +252,6 @@ app
   // 物流
   .controller('WlCtrl', ['$http', '$stateParams', WlCtrl])
   // 详情页
-  .controller('DetailCtrl', ['$scope', '$http', '$stateParams', DetailCtrl]);
+  .controller('DetailCtrl', ['$scope', '$http', '$stateParams', DetailCtrl])
+  // 快速发布
+  .controller('KsfbCtrl', ['$http', KsfbCtrl]);

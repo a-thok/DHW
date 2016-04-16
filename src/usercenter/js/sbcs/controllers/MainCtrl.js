@@ -33,6 +33,11 @@ export default function MainCtrl() {
       active: false
     },
     {
+      url: 'ksfb',
+      text: '快速发布',
+      active: false
+    },
+    {
       url: 'splb.all',
       text: '商品列表',
       active: false
