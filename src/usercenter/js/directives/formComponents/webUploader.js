@@ -54,7 +54,9 @@ export default function webUploader() {
           title: 'Images',
           extensions: 'gif,jpg,jpeg,bmp,png',
           mimeTypes: 'image/*'
-        }
+        },
+        resize: false,
+        compress: false
       });
       // 添加图片
       uploader.on('fileQueued', (file) => {
