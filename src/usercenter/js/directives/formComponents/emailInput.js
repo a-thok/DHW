@@ -1,6 +1,6 @@
 import partialController from './partialController.js';
 
-export default function inputText() {
+export default function emailInput() {
   return {
     replace: true,
     scope: true,
@@ -24,23 +24,21 @@ export default function inputText() {
                   'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
                 }
                 ng-pattern="${attrs.pattern}"
-                ng-required="${attrs.required}"
-                ng-blur=""
+                ng-required="true"
+                ng-focus="formTip=true"
+                ng-blur="error=false"
+                ng-keyup="error=true"
               >
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
               <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
             </div>
           </div>
-          <label class="formTip formTip--error"
-            ng-show="${attrs.form}.${attrs.name}.$invalid && !${attrs.form}.${attrs.name}.$error.required"
+          <label class="formTip"
+            ng-show="${attrs.form}.${attrs.name}.$invalid && !${attrs.form}.${attrs.name}.$error.required && error"
           >
-            <span class="formTip_text">${attrs.error}</span>
+            <span class="formTip_text">${attrs.tip}</span>
           </label>
-          <label class="formTip formTip--error"
-            ng-show="${attrs.form}.${attrs.name}.$dirty && ${attrs.form}.${attrs.name}.$error.required"
-          >
-            <span class="formTip_text">${attrs.label}不能为空</span>
-          </label>
+   
         </div>
       `;
     },

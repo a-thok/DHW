@@ -1,6 +1,7 @@
 import angular from 'angular';
 
 import inputText from './formComponents/inputText.js';
+import emailInput from './formComponents/emailInput.js';
 import textArea from './formComponents/textArea.js';
 import selectSimple from './formComponents/selectSimple.js';
 import selectDoubleNumbers from './formComponents/selectDoubleNumbers.js';
@@ -29,6 +30,7 @@ let app = angular.module('formComponents', []);
 app
   // input text类型
   .directive('inputText', inputText)
+  .directive('emailInput', emailInput)
   // textarea
   .directive('textArea', textArea)
   // 普通下拉选择
