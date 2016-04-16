@@ -33,9 +33,24 @@ export default function MainCtrl() {
     }
   ];
   vm.routes_p = [
+     {
+      url: 'gfb',
+      text: '发布项目',
+      active: false
+    },
     {
       url: 'cygz',
       text: '已关注项目',
+      active: false
+    },
+    {
+      url: 'gyfb',
+      text: '已发布项目查询',
+      active: false
+    },
+    {
+      url: 'gfws',
+      text: '申请为服务商',
       active: false
     },
     {
@@ -47,7 +62,7 @@ export default function MainCtrl() {
       url: 'buyer.all',
       text: '买家订单列表',
       active: false
-    }
+    },
   ];
   let cookies = {};
   document.cookie.split('; ').forEach(item => {

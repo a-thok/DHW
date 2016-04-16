@@ -1,6 +1,6 @@
 export const dhw = {
   imgurl: 'http://192.168.2.10:82/img/',
-  imguploadurl: 'http://192.168.2.17:3746/uploadimg',
+  imguploadurl: 'http://192.168.2.10:82/uploadimg',
   imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
   mainurl: '//localhost:8085/',
   staticurl: 'http://192.168.2.10:81',

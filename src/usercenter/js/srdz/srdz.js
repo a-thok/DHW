@@ -33,7 +33,10 @@ import SellerDshCtrl from './controllers/SellerControllers/SellerDshCtrl';
 import SellerYshCtrl from './controllers/SellerControllers/SellerYshCtrl';
 import WlCtrl from './controllers/WlCtrl.js'; // 物流保存
 import DetailCtrl from './controllers/DetailCtrl.js'; // 物流保存
-
+// 个人版
+import GfbCtrl from './controllers/GfbCtrl.js';
+import GyfbCtrl from './controllers/GyfbCtrl.js';
+import GfwsCtrl from './controllers/GfwsCtrl.js';
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'formComponents', 'modalComponents', 'listComponents', 'ui.bootstrap.pagination']);
 
@@ -48,7 +51,7 @@ app
       }
     });
     // 根据个人中心类型，判断默认加载哪个路由
-    $urlRouterProvider.otherwise(logintype === 1 ? '/cygz' : '/pfb');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/gfb' : '/pfb');
     // $urlRouterProvider.otherwise('/pfb');
     $stateProvider
       .state('pfb', {
@@ -145,6 +148,22 @@ app
         url: '/detail/:number',
         templateUrl: '/partials/srdz/partial-detail.html',
         controller: 'DetailCtrl as detailVm'
+      })
+      // 个人版
+      .state('gfb', {
+        url: '/gfb',
+        templateUrl: '/partials/srdz/partial-gfb.html',
+        controller: 'GfbCtrl as gfbVm'
+      })
+      .state('gyfb', {
+        url: '/gyfb',
+        templateUrl: '/partials/srdz/partial-gyfb.html',
+        controller: 'GyfbCtrl as gyfbVm'
+      })
+      .state('gfws', {
+        url: '/gfws',
+        templateUrl: '/partials/srdz/partial-gfws.html',
+        controller: 'GfwsCtrl as gfwsVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -159,6 +178,10 @@ app
   .controller('PygzCtrl', ['$http', PygzCtrl])
   .controller('BuyerCtrl', ['$http', BuyerCtrl])
   .controller('SellerCtrl', ['$http', SellerCtrl])
+  // 个人版
+  .controller('GfbCtrl', ['$http', GfbCtrl])
+  .controller('GyfbCtrl', [GyfbCtrl])
+  .controller('GfwsCtrl', ['$http', GfwsCtrl])
   // 买家订单
   .controller('BuyerAllCtrl', ['$http', BuyerAllCtrl])
   .controller('BuyerDfhCtrl', ['$http', BuyerDfhCtrl])
