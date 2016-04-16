@@ -10,25 +10,27 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   });
   $http.post('/Sys/rshop/Trademark/Get', { id: id }).success((data) => {
     vm.data = data.result;
-    for (var i = 0, len = data.result.content.length; i < len; i++) {
-      vm.photos.push({});
-      vm.photos[i].url = data.result.content[i];
-      if (vm.data.tradetype === 1) {
-        $('#tradetype_zr').attr('checked', 'checked');
+    if (data.result.content) {
+      for (var i = 0, len = data.result.content.length; i < len; i++) {
+        vm.photos.push({});
+        vm.photos[i].url = data.result.content[i];
       }
-      if (vm.data.tradetype === 2) {
-        $('#tradetype_sq').attr('checked', 'checked');
-      }
-      if (vm.data.negotiable === 1) {
-        $('#negotiable_yes').attr('checked', 'checked');
-      }
-      if (vm.data.negotiable === 2) {
-        $('#negotiable_no').attr('checked', 'checked');
-      }
+    }
+    if (parseInt(vm.data.tradetype, 10) === 1) {
+      $('#tradetype_zr').attr('checked', 'checked');
+    }
+    if (parseInt(vm.data.tradetype, 10) === 2) {
+      $('#tradetype_sq').attr('checked', 'checked');
+    }
+    if (parseInt(vm.data.negotiable, 10) === 1) {
+      $('#negotiable_yes').attr('checked', 'checked');
+    }
+    if (parseInt(vm.data.negotiable, 10) === 2) {
+      $('#negotiable_no').attr('checked', 'checked');
     }
     // 取得二级分类
     for (i = 0, len = vm.type.length; i < len; i++) {
-      if (data.result.pcode === vm.type[i].code) {
+      if (vm.type[i].code === data.result.pcode) {
         vm.data.code = vm.type[i];
         vm.secType = vm.type[i].types;
       }
@@ -36,7 +38,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
     setTimeout(() => {
       for (var i = 0, len = vm.data.type.length; i < len; i++) {
         for (var j = 0, leng = $('.multipleSelect_type').length; j < leng; j++) {
-          if ($('.multipleSelect_type').eq(j).text() === vm.data.type[i].name) {
+          if ($('.multipleSelect_type').eq(j).text() === vm.data.type[i].code) {
             $('.multipleSelect_type').eq(j).addClass('multipleSelect_type-selected');
           }
         }

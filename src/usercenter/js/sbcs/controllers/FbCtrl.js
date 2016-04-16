@@ -61,33 +61,32 @@ export default function FbCtrl($http, $scope) {
   // 提交数据
   vm.submit = function () {
     vm.data.content = [];
-    // if ($('#tradetype_zr').is(':checked')) {
-    //   vm.data.tradetype = 1;
-    // }
-    // if ($('#tradetype_sq').is(':checked')) {
-    //   vm.data.tradetype = 2;
-    // }
-    // if ($('#negotiable_yes').is(':checked')) {
-    //   vm.data.negotiable = 1;
-    // }
-    // if ($('#negotiable_no').is(':checked')) {
-    //   vm.data.negotiable = 2;
-    // }
+    if ($('#tradetype_zr').is(':checked')) {
+      vm.data.tradetype = 1;
+    }
+    if ($('#tradetype_sq').is(':checked')) {
+      vm.data.tradetype = 2;
+    }
+    if ($('#negotiable_yes').is(':checked')) {
+      vm.data.negotiable = 1;
+    }
+    if ($('#negotiable_no').is(':checked')) {
+      vm.data.negotiable = 2;
+    }
     for (var i = 0, len = vm.photos.length; i < len; i++) {
       if (vm.photos[i].url) {
         vm.data.content.push(vm.photos[i].url + '_947x474.jpg');
       }
     }
-    console.log(vm.data.content);
-    // vm.data.pcode = vm.data.code.code;
-    // vm.data.pcodeName = vm.data.code.name;
-    // vm.data.content = angular.toJson(vm.data.content);
-    // vm.data.type = angular.toJson(vm.data.type);
-    // var para = Object.assign({}, vm.data);
-    // delete para.code;
-    // para.img = para.img + '_185x121.jpg';
-    // $http.post('/Sys/rshop/Trademark/Add', para).success(() => {
-    //   // window.location.href = '#/splb/all';
-    // });
+    vm.data.pcode = vm.data.code.code;
+    vm.data.pcodeName = vm.data.code.name;
+    vm.data.content = angular.toJson(vm.data.content);
+    vm.data.type = angular.toJson(vm.data.type);
+    var para = Object.assign({}, vm.data);
+    delete para.code;
+    para.img = para.img + '_185x121.jpg';
+    $http.post('/Sys/rshop/Trademark/Add', para).success(() => {
+      window.location.href = '#/splb/all';
+    });
   };
 }

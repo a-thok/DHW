@@ -74,6 +74,11 @@ import CardCtrl from './controllers/CardCtrl.js';
 import GslcCtrl from './controllers/GslcCtrl.js';
 // 账户提现
 import MoneyCtrl from './controllers/MoneyCtrl.js';
+// 文章页面
+import ArticleCtrl from './controllers/ArticleCtrl.js';
+import WzlbCtrl from './controllers/WzlbCtrl.js';
+import WzxqCtrl from './controllers/WzxqCtrl.js';
+
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop', 'ui.bootstrap.pagination']);
 app
   .config(function (ngJcropConfigProvider) {
@@ -308,6 +313,21 @@ app
         url: '/card',
         templateUrl: '/partials/account/partial-card.html',
         controller: 'CardCtrl as cardVm'
+      })
+      .state('article', {
+        url: '/article',
+        templateUrl: '/partials/account/partial-article.html',
+        controller: 'ArticleCtrl as articleVm'
+      })
+      .state('wzlb', {
+        url: '/wzlb',
+        templateUrl: '/partials/account/partial-wzlb.html',
+        controller: 'WzlbCtrl as wzlbVm'
+      })
+      .state('wzxq', {
+        url: '/wzxq/:id',
+        templateUrl: '/partials/account/partial-wzxq.html',
+        controller: 'WzxqCtrl as wzxqVm'
       });
   }])
   .directive('showAllModules', showAllModules)
@@ -368,4 +388,8 @@ app
   // 账户提现
   .controller('MoneyCtrl', ['$http', MoneyCtrl])
   .controller('TxCtrl', ['$http', TxCtrl])
-  .controller('CardCtrl', ['$http', CardCtrl]);
+  .controller('CardCtrl', ['$http', CardCtrl])
+  // 文章页面
+  .controller('ArticleCtrl', ['$http', ArticleCtrl])
+  .controller('WzlbCtrl', ['$http', WzlbCtrl])
+  .controller('WzxqCtrl', ['$http', '$stateParams', WzxqCtrl]);

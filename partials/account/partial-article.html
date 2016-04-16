@@ -1,0 +1,32 @@
+<form name="articleForm">
+  <div input-text
+  data-vm="articleVm"
+  data-form="articleForm"
+  data-label="标题"
+  data-required="true"
+  data-name="title"
+  data-pattern=""
+  ></div>
+  <div select-simple
+  data-vm="articleVm"
+  data-form="articleForm"
+  data-label="类型"
+  data-required="true"
+  data-name="type"
+  data-options="item.id as item.type for item in articleVm.type"
+  ></div>
+  <div rich-text
+  data-vm="articleVm"
+  data-label="产品描述"
+  data-name="txt"
+  data-required="true"
+  data-keyname="uc"
+  data-size=""
+  ng-model="articleVm.data.txt"
+  ></div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="articleForm.$invalid" ng-click="articleVm.submit()">提交</button>
+    </div>
+  </div>
+</form>
