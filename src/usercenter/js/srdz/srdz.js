@@ -131,8 +131,8 @@ app
         templateUrl: '/partials/srdz/SellerOrder/partial-seller-dsh.html',
         controller: 'SellerDshCtrl as sellerDshVm'
       })
-      .state('seller.ysh', {
-        url: '/ysh',
+      .state('seller.dpj', {
+        url: '/dpj',
         templateUrl: '/partials/srdz/SellerOrder/partial-seller-ysh.html',
         controller: 'SellerYshCtrl as sellerYshVm'
       })
