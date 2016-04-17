@@ -17,6 +17,10 @@ export default function ZhxxCtrl() {
     {
       name: '工作经验',
       url: '.experience'
+    },
+    {
+      name: '账户设置',
+      url: '.setting'
     }
   ];
 }

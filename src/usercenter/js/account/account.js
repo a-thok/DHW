@@ -51,6 +51,7 @@ import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
 import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js';
 import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
 import avatarCtrl from './controllers/ZhxxControllers/avatarCtrl.js';  // 上传头像
+import SettingCtrl from './controllers/ZhxxControllers/SettingCtrl.js'; //个人账户设置
 import GsdtCtrl from './controllers/GsdtCtrl.js';
 import YqljCtrl from './controllers/YqljCtrl.js';
 import GsdtFbCtrl from './controllers/GsdtControllers/GsdtFbCtrl.js';
@@ -122,6 +123,11 @@ app
         url: '/experience',
         templateUrl: '/partials/account/partial-zhxx-experience.html',  // 公司账号--工作经历
         controller: 'WorkCtrl as workVm'
+      })
+      .state('zhxx.setting', {
+        url: '/setting',
+        templateUrl: '/partials/account/partial-zhxx-setting.html',  // 公司账号--账户设置
+        controller: 'SettingCtrl as settingVm'
       })
       .state('pzhxx', {
         url: '/pzhxx',
@@ -355,6 +361,7 @@ app
   .controller('PersonToCompanyCtrl', ['$http', PersonToCompanyCtrl])
   // 公司账号
   .controller('WorkCtrl', WorkCtrl)
+  .controller('SettingCtrl', ['$http', SettingCtrl])
   .controller('CompanyCtrl', ['$http', CompanyCtrl])
   .controller('YqljCtrl', ['$http', YqljCtrl])
   // 站内信
