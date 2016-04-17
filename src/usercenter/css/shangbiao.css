@@ -43,3 +43,45 @@
 .sbcslisttabs li {
   width: 83px;
 }
+.ksfb_table {
+  margin: 80px auto 0;
+  text-align: center;
+}
+.ksfb_table input {
+  height: 28px;
+  text-align: right;
+}
+.ksfb_table thead tr {
+  height: 40px;
+  color: #666;
+  background-color: #F5F6FA;
+  font-size: 16px;
+}
+.ksfb_table tbody tr {
+  height: 150px;
+}
+.ksfb_table tbody img {
+  width: 100px;
+  height: 75px;
+}
+.ksfb_table .searchBtn {
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 3px;
+  margin-left: 5px;
+  color: #fff;
+  background-color: #337AB7;
+}
+.priceInput {
+  width: 50px;
+  margin-right: 5px;
+}
+.prompt {
+  position: absolute;
+  top: 0;
+  left: 35px;
+  margin: 20px;
+  color: #337AB7;
+  font-size: 14px;
+}

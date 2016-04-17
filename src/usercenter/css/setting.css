@@ -1,0 +1,217 @@
+/*账户设置*/
+.zhsz_content {
+  position: relative;
+  width: 530px;
+  height: 360px;
+  margin: 40px 175px;
+}
+.zhsz_user,
+.zhsz_password,
+.zhsz_phone,
+.zhsz_email {
+  height: 70px;
+  margin-bottom: 10px;
+}
+.zhsz_content span {
+  display: block;
+  font-size: 15px;
+  
+}
+.zhsz_uesr-n,
+.zhsz_password-n,
+.zhsz_phone-n,
+.zhsz_email-n {
+  float: left;
+  width: 80px;
+  text-align: center;
+  color: #999;
+}
+.zhsz_detail {
+  float: left;
+  width: 305px;
+  margin-left: 30px;
+  color: #999;
+}
+.user_change,
+.password_change,
+.phone_change,
+.email_change {
+  float: right;
+  color: #4985bc;
+  cursor: pointer;
+}
+/*弹窗*/
+.change_pupop {
+  /*display: none;*/
+  position: absolute;
+  width: 450px;
+  margin: -335px 225px;
+  background-color: #fff;
+}
+.changge_pupop_head {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+.changge_pupop_head h1 {
+  float: left;
+  height: 40px;
+  margin: 0 20px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333;
+}
+.close_pupop {
+  float: right;
+  margin-right: 20px;
+  font-size: 15px;
+  color: #a9b7b7;
+  cursor: pointer;
+}
+.change_pupop_content {
+  margin-top: 20px;
+}
+.change_pupop_content-n {
+  margin-top: 20px;
+  height: 60px;
+}
+.change_pupop_prompt {
+  text-align: center;
+}
+.user_old-name {
+  margin: 30px 24px;
+  font-size: 14px;
+  color: #333;
+}
+.user_new-name {
+  margin-left: 24px;
+}
+.user_new_input {
+  width: 220px;
+  height: 38px;
+  padding-left: 14px;
+  border: 1px solid #ccc;
+}
+.user_change_check {
+  width: 78px;
+  height: 38px;
+  margin-left: 25px;
+  font-size: 12px;
+  border: 1px solid #589bff;
+  background-color: #fff;
+}
+.user_change_warning {
+  margin-left: 92px;
+  font-size: 12px;
+  color: #f00;
+}
+.btn_ok {
+  width: 370px;
+  height: 38px;
+  margin: 14px 45px;
+  text-align: center;
+  color: #fff;
+  border: 0;
+  background-color: #2e82ff;
+}
+.change_pupop_footer {
+  width: 380px;
+  height: 70px;
+  margin: 10px 35px;
+  border-top: 1px solid #ccc;
+}
+.change_pupop_footer p {
+  margin: 16px 0;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+}
+.new_password {
+  margin-left: 40px;
+  margin-right: 16px;
+}
+.new_passwd_deter {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.passwd_input {
+  margin: 10px 0 15px 0;
+}
+.new_passwd_input,
+.new_passwd_input-again {
+  width: 306px;
+  height: 38px;
+  padding-left: 14px;
+}
+.emai_input {
+  width: 368px;
+  height: 38px;
+  margin: 16px 40px 10px;
+  padding-left: 14px;
+  border: 1px xsolid #ccc;
+}
+.yzm_input {
+  width: 234px;
+  height: 38px;
+  margin: 16px 10px 10px 40px;
+  padding-left: 14px;
+  border: 1px solid #ccc; 
+}
+.send_btn {
+  width: 108px;
+  height: 38px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.phone_number {
+  width: 368px;
+  height: 38px;
+  line-height: 38px;
+  margin-top: 16px;
+  margin-left: 40px;
+  font-size: 10px;
+  color: #999;
+  border: 1px solid #ccc;
+}
+.phone_leader {
+ margin-left: 12px; 
+ margin-right: 12px;
+}
+.jiantou {
+  position: relative;
+  height: 10px;
+  width: 10px;
+  margin: 15px 0;
+  transition: transform  0.25s ease 0s;
+}
+.jiantou em,
+.jiantou span {
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+}
+.jiantou em {
+  top: 7px;
+  border-top-color:#ccc; 
+}
+.jiantou span {
+  top: 5px;
+  border-top-color: #fff;
+}
+.fengexian {
+  margin-left: 25px;
+  border-left: 1px solid #ccc;
+}
+.phone_input {
+  float: right;
+  width: 266px;
+  height: 38px;
+  padding-left: 22px;
+  border: 0;
+}
+.btn_ok:disabled {
+  background-color: #ccc;
+  color: #fff;
+}
