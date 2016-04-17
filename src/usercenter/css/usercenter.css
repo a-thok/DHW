@@ -709,21 +709,11 @@ body {
 }
 .person_middle_project-r {
   float: left;
-  width: 336px;
+  width: 326px;
   height: 230px;
   margin-top: 6px;
+  padding: 5px;
   border: 1px solid #dcdcdc;
-}
-.person_middle_project-r ul {
-  width: 320px;
-  height: 140px;
-  margin: 8px;
-  border: 1px solid #cadaea;
-}
-.person_middle_project-r li {
-  float: left;
-  width: 138px;
-  margin-top: 35px;
 }
 .project_shouru,
 .project_zhichu {
@@ -745,7 +735,6 @@ body {
 .person_middle_project-r img {
   width: 62px;
   height: 25px;
-  margin: 18px 0 0 235px;
 }
 .person_middle_guess-detail {
   width: 682px;

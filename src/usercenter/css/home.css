@@ -79,14 +79,8 @@
   padding-left: 18px;
   cursor: pointer; 
 }
-.person_left_gongneng_email {
-  padding-left: 25px;
-}
-.person_left_gongneng_item a {
-  text-decoration: none;
-  color: #000;
-}
-.gongneng_current {
+.gongneng_current,
+.person_left_gongneng_item:hover {
   color: #fff;
   background-color: #409cff;
 }
@@ -190,7 +184,7 @@
   width: 140px;
   height: 35px;
   line-height: 35px;
-  margin: 30px 0 25px 120px;
+  margin: 30px 0 25px 20px;
   color: #fff;
   text-align: center;
   border: 0;
@@ -231,18 +225,11 @@
   width: 138px;
   margin-top: 35px;
 }
-.project_shouru,
-.project_zhichu {
-  padding-left: 20px;
-}
 .project_income,
 .project_spending {
   display: block;
   margin-top: 33px;
   padding-left: 48px;
-}
-.project_shouru {
-  border-right: 1px solid #cadae9;
 }
 .person_middle_project-r p {
   text-align: center;
@@ -396,4 +383,34 @@
 .person_right_huodong li img{
   width: 238px;
   height: 192px;
+}
+.home_balance {
+  width: 325px;
+  height: 145px;
+  border: 1px solid #CADAEA;
+}
+.home_balance_ttl {
+  padding: 40px 0 0 40px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.balance_money {
+  display: inline-block;
+  width: 150px;
+  margin-right: 10px;
+  font-size: 26px;
+  color: #ff6520;
+  text-align: right;
+}
+.balance_tx {
+  width: 55px;
+  height: 23px;
+  margin-left: 20px;
+  font-size: 12px;
+  color: #666;
+}
+.balance_ck {
+  color: #0088CC;
+  margin-left: 20px;
+  text-decoration: none;
 }
