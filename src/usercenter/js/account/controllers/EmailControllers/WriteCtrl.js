@@ -1,9 +1,12 @@
 import $ from 'jquery';
-export default function WriteCtrl($http, $location) {
+export default function WriteCtrl($http, $stateParams) {
   var vm = this;
   vm.data = {};
-  if ($location.search().to) {
-    vm.data.to = $location.search().to;
+  if ($stateParams.name) {
+    vm.data.to = $stateParams.name;
+    setTimeout(function () {
+      $('.reciever input').attr('readonly', 'readonly');
+    });
   }
   var para;
   vm.send = function () {
