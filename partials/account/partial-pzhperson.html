@@ -73,12 +73,50 @@
     data-tip='请填写此邮箱'
     data-error="邮箱格式不正确"
   ></div>
-  <div btn-submit
+   <div input-text
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="个性签名"
+    data-name="signature"
+    data-required="false"
+    data-form="pzhpersonForm"
+    data-pattern="/^.{2,100}$/"
+    data-tip='请填写此个性签名'
+    data-error="2-50个字之间"
+  ></div>
+   <!--<div input-text
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="自我描述"
+    data-name="describe"
+    data-required="true"
+    data-form="pzhpersonForm"
+    data-pattern=""
+    data-tip='请填写此自我描述'
+    data-error="格式不正确"
+  ></div>-->
+    <div text-area
+    data-switch="false"
+    data-vm="pzhpersonVm"
+    data-label="自我描述"
+    data-name="describe"
+    data-required="false"
+    data-form="pzhpersonForm"
+    data-pattern="/^.{2,500}$/"
+    data-tip='请填写此自我描述'
+    data-error="2-250个字"
+  ></div>
+  <!--<div btn-submit
       data-vm="pzhpersonVm"
       data-form="pzhpersonForm"
       data-api="/UserAccount/Edit"
       data-isfbzp="false"
-    ></div>
+    ></div>-->
+       <!--提交按钮指令需要重写-->
+     <div class="formGourp formGourp--submit clearfix">
+  <input class="formBtn formBtn--submit" type="submit" value="提交"
+      ng-disabled="pzhpersonForm.$invalid || pzhpersonVm.isDisabled">
+</div>
 </form>  
 
   <div modal
