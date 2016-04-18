@@ -47,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loaders: ['url?limit=10000&name=img/uc/[name].[ext]?[hash:7]', 'image-webpack?{progressive:true, optimizationLevel: 7, pngquant: {quality: "65-90", speed: 4}}']
+        loaders: ['url?limit=10000&name=img/uc/[name].[ext]?[hash:7]']
       }
     ]
   },

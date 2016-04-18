@@ -3,6 +3,8 @@ const config = require('./webpack.base.js');
 
 config.output.publicPath = '//cdn.dreamhiway.com/static/';
 
+config.module.loaders[3].loader = 'file?name=img/uc/[name].[ext]?[hash:7]';
+
 config.devtool = 'source-map';
 
 // config.plugins = (config.plugins || []).concat([
