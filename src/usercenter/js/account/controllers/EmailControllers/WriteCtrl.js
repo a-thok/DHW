@@ -1,9 +1,9 @@
 import $ from 'jquery';
-export default function WriteCtrl($http, $stateParams) {
+export default function WriteCtrl($http, $localtion) {
   var vm = this;
   vm.data = {};
-  if ($stateParams.name) {
-    vm.data.to = $stateParams.name;
+  if ($localtion.search().to) {
+    vm.data.to = $localtion.search().to;
     setTimeout(function () {
       $('.reciever input').attr('readonly', 'readonly');
     });

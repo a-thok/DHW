@@ -240,7 +240,7 @@ app
         controller: 'OutboxCtrl as outboxVm'
       })
       .state('email.write', {
-        url: '/write/:name',
+        url: '/write',
         templateUrl: '/partials/account/email/partial-write.html',  // 站内信
         controller: 'WriteCtrl as writeVm'
       })
@@ -388,7 +388,7 @@ app
   .controller('EmailCtrl', ['$http', '$stateParams', '$scope', EmailCtrl])
   .controller('OutboxCtrl', ['$http', '$scope', OutboxCtrl])
   .controller('InboxCtrl', ['$http', InboxCtrl])
-  .controller('WriteCtrl', ['$http', '$stateParams', WriteCtrl])
+  .controller('WriteCtrl', ['$http', '$localtion', WriteCtrl])
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
   .controller('AlbumCtrl', ['$http', AlbumCtrl])
