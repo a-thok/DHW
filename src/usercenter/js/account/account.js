@@ -67,6 +67,8 @@ import AddressEditCtrl from './controllers/AddressControllers/AddressEditCtrl.js
 import PersonToCompanyCtrl from './controllers/PersonToCompanyCtrl.js';
 // 相册
 import AlbumCtrl from './controllers/AlbumCtrl.js';
+// 相册列表
+import AlbumListCtrl from './controllers/AlbumListCtrl.js';
 // 提现
 import TxCtrl from './controllers/TxCtrl.js';
 // 银行卡绑定
@@ -300,6 +302,11 @@ app
         templateUrl: '/partials/account/partial-album.html',
         controller: 'AlbumCtrl as albumVm'
       })
+      .state('albumList', {
+        url: '/albumList',
+        templateUrl: '/partials/account/partial-albumList.html',
+        controller: 'AlbumListCtrl as albumListVm'
+      })
       .state('money', {
         url: '/money',
         templateUrl: '/partials/account/partial-money.html',          // 账户提现
@@ -372,6 +379,8 @@ app
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
   .controller('AlbumCtrl', ['$http', AlbumCtrl])
+  // 相册列表
+  .controller('AlbumListCtrl', ['$http', AlbumListCtrl])
   // 账户提现
   .controller('MoneyCtrl', ['$http', MoneyCtrl])
   .controller('TxCtrl', ['$http', TxCtrl])
