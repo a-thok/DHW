@@ -99,7 +99,13 @@ export default function MainCtrl() {
       url: 'money',
       text: '财富中心',
       active: false
+    },
+    {
+      url: 'albumList',
+      text: '相册列表',
+      active: false
     }
+    
     // {
     //   url: 'addresslist',
     //   text: '收货地址管理',
