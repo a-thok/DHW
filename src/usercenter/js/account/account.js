@@ -10,7 +10,7 @@ import '../directives/modalComponents.js';   // 表单信息提示弹框
 
 import '../directives/formComponents.js';
 import '../directives/pagination.js';
-
+// test
 // 指令
 
 import showAllModules from '../directives/userCenter/showAllModules.js';
