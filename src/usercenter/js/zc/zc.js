@@ -29,6 +29,7 @@ import DshCtrl from './controllers/ListControllers/DshCtrl.js';
 import DfkCtrl from './controllers/ListControllers/DfkCtrl.js';
 import DfhCtrl from './controllers/ListControllers/DfhCtrl.js';
 import DpjCtrl from './controllers/ListControllers/DpjCtrl.js';
+import AllCtrl from './controllers/ListControllers/AllCtrl.js';
 // 卖家订单
 import SellerCtrl from './controllers/SellerCtrl.js';
 import s_YshCtrl from './controllers/sellerControllers/s_YshCtrl.js';
@@ -141,6 +142,11 @@ app
         templateUrl: '/partials/zc/buyerorder/partial-orderlist-dsh.html',
         controller: 'DshCtrl as dshVm'
       })
+      .state('orderlist.all', {
+        url: '/all',
+        templateUrl: '/partials/zc/buyerorder/partial-orderlist-all.html',
+        controller: 'AllCtrl as allVm'
+      })
       .state('orderlist.dpj', {
         url: '/dpj',
         templateUrl: '/partials/zc/buyerorder/partial-orderlist-dpj.html',
@@ -204,6 +210,7 @@ app
   .controller('DfkCtrl', [DfkCtrl])
   .controller('DfhCtrl', [DfhCtrl])
   .controller('DpjCtrl', [DpjCtrl])
+  .controller('AllCtrl', [AllCtrl])
   // 卖家订单
   .controller('SellerCtrl', ['$stateParams', SellerCtrl])
   .controller('s_DshCtrl', ['$scope', s_DshCtrl])

@@ -41,7 +41,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'orderlist.dfk',
+      url: 'orderlist.all',
       text: '订单列表',
       active: false
     }
