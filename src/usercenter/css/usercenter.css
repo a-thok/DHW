@@ -290,6 +290,8 @@ body {
 .ucContent {
   display: table-cell;
   width: 9999px;
+  /*width: 1035px;
+  overflow: hidden;*/
 }
 .ucContent.ng-enter {
   animation: scaleUp .7s;
