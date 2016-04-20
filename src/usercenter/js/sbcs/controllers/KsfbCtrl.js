@@ -4,6 +4,7 @@ export default function KsfbCtrl($http) {
   var vm = this;
   vm.dhw = dhw;
   vm.promptShow = false;
+  vm.isRepeat = false;
   vm.search = function () {
     vm.promptShow = true;
     $http.post('/Sys/rshop/TrademarkFast/get', { regNo: vm.data.regNo }).success((data) => {
@@ -15,6 +16,7 @@ export default function KsfbCtrl($http) {
     });
   };
   vm.submit = function () {
+    vm.isRepeat = true;
     var para = {
       regNo: vm.data.regNo,
       sellprice: vm.data.sellprice
@@ -26,6 +28,7 @@ export default function KsfbCtrl($http) {
           window.location.href = '#/splb/all';
         }
       } else {
+        vm.isRepeat = false;
         alert(data.msg);
       }
     });

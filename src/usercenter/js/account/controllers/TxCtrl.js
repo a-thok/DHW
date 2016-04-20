@@ -1,7 +1,11 @@
 export default function TxCtrl($http) {
   var vm = this;
   vm.data = {};
+  vm.isCard = false;
   $http.post('/sys/user/Cash/GetCard').success((data) => {
+    if(Object.keys(data.result).length !== 0) {
+      vm.isCard = true;
+    }
     vm.bankName = data.result.bankName;
     vm.cardNumber = data.result.cardNumber;
     vm.data.bcid = data.result.id;

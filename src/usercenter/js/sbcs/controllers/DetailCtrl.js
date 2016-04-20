@@ -4,6 +4,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   var vm = this;
   vm.data = {};
   vm.photos = [];
+  vm.isRepeat = true;
   var id = $stateParams.id;
   $http.post('/dict/trademarktype').success((data) => {
     vm.type = data.result;
@@ -95,6 +96,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
 
   // 提交数据
   vm.submit = function () {
+    vm.isRepeat = true;
     vm.data.content = [];
     if ($('#tradetype_zr').is(':checked')) {
       vm.data.tradetype = 1;
@@ -120,6 +122,10 @@ export default function DetailCtrl($scope, $http, $stateParams) {
     var para = Object.assign({}, vm.data);
     delete para.code;
     para.img = para.img + '_185x121.jpg';
-    $http.post('/Sys/rshop/Trademark/Edit', para).success(() => { });
+    $http.post('/Sys/rshop/Trademark/Edit', para).success((data) => {
+      if (data.success === false) {
+        vm.isRepeat = false;
+      }
+     });
   };
 }

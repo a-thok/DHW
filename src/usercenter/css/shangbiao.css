@@ -73,6 +73,9 @@
   color: #fff;
   background-color: #337AB7;
 }
+.searchBtn:disabled {
+  background-color: #ccc;
+}
 .priceInput {
   width: 50px;
   margin-right: 5px;

@@ -24,7 +24,7 @@
       <td>{{ ksfbVm.data.pcode }}</td>
       <td><img ng-src="{{ksfbVm.data.img ? ksfbVm.dhw.urlimg + ksfbVm.data.img  : '' }}" alt=""></td>
       <td><input class="priceInput" type="text" ng-model="ksfbVm.data.sellprice"></td>
-      <td><button class="searchBtn" ng-click="ksfbVm.submit()">发布</button></td>
+      <td><button class="searchBtn" ng-click="ksfbVm.submit()" ng-disabled="ksfbVm.isRepeat">发布</button></td>
     </tr>
   </tbody>
 </table>

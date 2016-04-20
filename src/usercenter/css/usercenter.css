@@ -288,10 +288,10 @@ body {
 
 /* 内容 */
 .ucContent {
-  display: table-cell;
-  width: 9999px;
-  /*width: 1035px;
-  overflow: hidden;*/
+  /*display: table-cell;
+  width: 9999px;*/
+  width: 1035px;
+  overflow: hidden;
 }
 .ucContent.ng-enter {
   animation: scaleUp .7s;
@@ -508,4 +508,18 @@ body {
 }
 .gslcdel_part:hover .btn {
   display: inline-block;
+}
+
+
+.bindCard {
+  height: 34px;
+  width: 180px;
+  padding-left: 40px;
+  border: 1px solid #ccc;
+}
+.bindCard a {
+  color: #337ab7;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 34px;
 }

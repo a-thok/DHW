@@ -135,7 +135,7 @@
   <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="detailVm.addphoto()" type="button">添加新图片</button>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid" ng-click="detailVm.submit()">提交</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid && detailVm.isRepeat" ng-click="detailVm.submit()">提交</button>
     </div>
   </div>
 </form>

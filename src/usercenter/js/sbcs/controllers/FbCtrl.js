@@ -4,6 +4,7 @@ export default function FbCtrl($http, $scope) {
   var vm = this;
   vm.data = {};
   vm.photos = [{}];
+  vm.isRepeat = true;
   vm.addphoto = function () {
     if (vm.photos.length < 5) {
       vm.photos.push({});
@@ -60,6 +61,7 @@ export default function FbCtrl($http, $scope) {
 
   // 提交数据
   vm.submit = function () {
+  vm.isRepeat = true;
     vm.data.content = [];
     if ($('#tradetype_zr').is(':checked')) {
       vm.data.tradetype = 1;
@@ -85,8 +87,13 @@ export default function FbCtrl($http, $scope) {
     var para = Object.assign({}, vm.data);
     delete para.code;
     para.img = para.img + '_185x121.jpg';
-    $http.post('/Sys/rshop/Trademark/Add', para).success(() => {
-      window.location.href = '#/splb/all';
+    $http.post('/Sys/rshop/Trademark/Add', para).success((data) => {
+      if (data.success === true) {
+        window.location.href = '#/splb/all';
+      } else {
+        vm.isRepeat = false;
+      }
+      
     });
   };
 }
