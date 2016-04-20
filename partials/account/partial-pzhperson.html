@@ -109,6 +109,12 @@
     data-tip='请填写此自我描述'
     data-error="2-250个字"
   ></div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 是否成为服务商</label>
+    <input type="hidden" ng-model="pzhpersonVm.data.partne" required>
+       <span class="formInputSet_radioWrap"><i class="formInputSet_radio formInputSet_radio_one" ng-click="pzhpersonVm.selectTrans($event, true)"></i> 是</span>
+       <span class="formInputSet_radioWrap"><i class="formInputSet_radio formInputSet_radio_two" ng-click="pzhpersonVm.selectTrans($event, false)"></i> 否</span>
+  </div>
   <!--<div btn-submit
       data-vm="pzhpersonVm"
       data-form="pzhpersonForm"
