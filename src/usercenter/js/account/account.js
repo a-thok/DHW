@@ -387,7 +387,7 @@ app
   .controller('EmailCtrl', ['$http', '$stateParams', '$scope', EmailCtrl])
   .controller('OutboxCtrl', ['$http', '$scope', OutboxCtrl])
   .controller('InboxCtrl', ['$http', InboxCtrl])
-  .controller('WriteCtrl', ['$http', '$localtion', WriteCtrl])
+  .controller('WriteCtrl', ['$http', '$location', WriteCtrl])
   .controller('EmailDetCtrl', EmailDetCtrl)
   // 相册
   .controller('AlbumCtrl', ['$http', AlbumCtrl])

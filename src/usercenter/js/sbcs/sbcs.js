@@ -61,7 +61,7 @@ app
       }
     });
     // 根据个人中心类型，判断默认加载哪个路由
-    $urlRouterProvider.otherwise(logintype === 1 ? '/pgzlist' : '/fb/basic');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/sc' : '/sc');
     $urlRouterProvider.otherwise('/fb/basic');
     $stateProvider
            .state('splb', {
