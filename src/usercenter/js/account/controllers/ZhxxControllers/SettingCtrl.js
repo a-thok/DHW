@@ -4,8 +4,12 @@ export default function SettingCtrl($http) {
   vm.data = {};
   vm.nameShow = false;
   vm.passwdShow = false;
+  vm.phoneShow = false;
+  vm.emailShow = false;
   vm.able = true;
   vm.pwd_ok = true;
+  vm.phone_able = true;
+  vm.email_able = true;
   // 用户名弹窗显示
   vm.user = function () {
     vm.nameShow = true;
@@ -14,10 +18,21 @@ export default function SettingCtrl($http) {
   vm.passwd = function () {
     vm.passwdShow = true;
   };
+  //手机弹窗显示
+  vm.phone = function () {
+    vm.phoneShow = true;
+  }
+  //邮箱弹窗显示
+  vm.email = function () {
+    vm.emailShow = true;
+  }
+
   // 关闭弹窗
   vm.close = function () {
     vm.nameShow = false;
     vm.passwdShow = false;
+    vm.phoneShow = false;
+    vm.emailShow = false;
   };
   // 检测用户名
   vm.conf = function () {
@@ -64,4 +79,56 @@ export default function SettingCtrl($http) {
       }
     }
   };
-}
+  //检测手机号码
+  vm.sendpyzm = function () {
+    $http.post('/UserAccount/BindingPhoneGetVerify', { phone: vm.data.phone }).success(function (data) {
+      if (data.result.code === 1) {
+        vm.phone_able = true;
+        alert('该手机已绑定其他帐号，请勿重复使用！')
+      }
+      else {
+        vm.phone_able = false;
+      }
+    });
+  };
+  //绑定手机号码
+  vm.phoneSubmit = function () {
+    $http.post('/UserAccount/BindingPhone', { phone: vm.data.phone, mobile_code: vm.data.mobile_code }).success(function () {
+      if (data.result.success === false) {
+        vm.data.mobile_code = '';
+        alert(data.result.msg);
+      } else {
+        alert('手机绑定成功！');
+        vm.data = '';
+        vm.phoneShow = false;
+      }
+    });
+  };
+  //检测邮箱
+  vm.sendeyzm = function () {
+    $http.post('/UserAccount/BindingEmailAdd', { emailaddress: vm.data.emailaddress }).success(function (data) {
+      if (data.result.code === 1) {
+        vm.email_able = true;
+        alert('该邮箱已绑定其他帐号，请勿重复使用！')
+      }
+      else {
+        vm.email_able = false;
+      }
+    });
+  };
+  //绑定邮箱
+  vm.emailSubmit = function () {
+    $http.post('/UserAccount/BindingEmailList', { emailaddress: vm.data.emailaddress, guid: vm.data.guid }).success(function (data) {
+      console.log(data)
+      if (data.result.success === false) {
+        vm.data.guid = '';
+        alert(data.result.msg);
+      } else {
+        alert('邮箱绑定成功！');
+        vm.data = '';
+        vm.emailShow = false;
+      }
+    });
+  };
+};
+

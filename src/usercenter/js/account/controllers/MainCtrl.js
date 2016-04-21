@@ -108,8 +108,13 @@ export default function MainCtrl() {
     {
       url: 'wzlb',
       text: '文章列表',
+    },
+    {
+      url: 'albumList',
+      text: '相册列表',
       active: false
     }
+    
     // {
     //   url: 'addresslist',
     //   text: '收货地址管理',
