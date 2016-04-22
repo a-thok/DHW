@@ -24,6 +24,11 @@ export default function MainCtrl() {
       url: 'sc',
       text: '我的收藏',
       active: false
+    },
+    {
+      url: 'yjd',
+      text: '我的单子',
+      active: false
     }
   ];
   let cookies = {};

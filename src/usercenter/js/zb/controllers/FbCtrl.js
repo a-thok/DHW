@@ -14,6 +14,14 @@ export default function FbCtrl($http) {
     sjrz: false,
   };
   vm.items = [{}];
+  // 添加任务
+  vm.add = () => {
+    if (vm.items.length > 6) {
+      alert('请勿添加超过六条');
+    } else {
+      vm.items.push({});
+    }
+  };
   vm.selectType = function (typeNum) {
     vm.data.typeid = typeNum;
   };
