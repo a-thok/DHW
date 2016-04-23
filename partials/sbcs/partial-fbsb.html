@@ -67,12 +67,13 @@
   data-switch="false"
   data-vm="fbVm"
   data-label="结束专用时间"
+  data-required="false"
   data-name="date2"
   data-required="true"
   data-issecond="true"
   ></div>
   <div  class="formSet clearfix">
-    <label class="formLabel"><span class="formSet_required">*</span> 商标形式</label>
+    <label class="formLabel">商标形式</label>
     <span class="formSet_span">中文个数</span><select class="formSelect_small" ng-model="fbVm.data.cnNum" ng-options="item for item in fbVm.count"></select>
     <span class="formSet_span">英文个数</span><select class="formSelect_small" ng-model="fbVm.data.enNum" ng-options="item for item in fbVm.count"></select>
     <span class="formSet_span">数字个数</span><select class="formSelect_small" ng-model="fbVm.data.nuNum" ng-options="item for item in fbVm.count"></select>
@@ -122,20 +123,19 @@
     data-vm="fbVm"
     data-label="描述"
     data-name="url"
-    data-required="true"
     data-size="947x474"
     data-key="rshop"
     data-isrepeatitem="true"
     data-repeatitem="photo"
     ng-model="photo.url"
     ></div>
-    <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>         
+    <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>
   </div>
   </div>
   <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="fbVm.addphoto()" type="button">添加新图片</button>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid && fbVm.isRepeat" ng-click="fbVm.submit()">提交</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid || fbVm.isRepeat" ng-click="fbVm.submit()">提交</button>
     </div>
   </div>
 </form>

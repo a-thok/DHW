@@ -4,7 +4,7 @@ export default function DetailCtrl($scope, $http, $stateParams) {
   var vm = this;
   vm.data = {};
   vm.photos = [];
-  vm.isRepeat = true;
+  vm.isRepeat = false;
   var id = $stateParams.id;
   $http.post('/dict/trademarktype').success((data) => {
     vm.type = data.result;
@@ -123,9 +123,15 @@ export default function DetailCtrl($scope, $http, $stateParams) {
     delete para.code;
     para.img = para.img + '_185x121.jpg';
     $http.post('/Sys/rshop/Trademark/Edit', para).success((data) => {
-      if (data.success === false) {
+      if (data.success === true) {
+        var conf = confirm('提交成功');
+        if (conf === true) {
+          window.location.href = '#/splb/all';
+        }
+      } else {
         vm.isRepeat = false;
+        alert(data.msg);
       }
-     });
+    });
   };
 }
