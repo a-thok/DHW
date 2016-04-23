@@ -74,33 +74,62 @@ export default function list() {
     controller: ['$http', '$attrs', '$window', '$scope', function ($http, $attrs, $window, $scope) {
       var vm = this;
       vm.dhw = dhw;
+      var id;
+      var getData;
       let params;
       if (!$attrs.params) {
         params = {};
       } else {
         params = JSON.parse($attrs.params);
       }
-      let getData = (pageIndex) => {
-        $http.post($attrs.api, Object.assign({}, {
-          pageIndex: pageIndex,
-          pageSize: 5,
-          id: parseInt($scope.$parent[$attrs.vm].id)
-        }, params)).success(res => {
-          vm.total = res.result.total;
-          if (res.result.data) {
-            vm.data = res.result.data;
-          } else {
-            vm.data = res.result;
-          }
-        });
-      };
+      if ($attrs.vm === 'gyzVm') {
+        setTimeout(() => {
+          $scope.$parent[$attrs.vm].getData = (pageIndex) => {
+            $http.post($attrs.api, Object.assign({}, {
+              pageIndex: pageIndex,
+              pageSize: 5,
+              id: $scope.$parent[$attrs.vm].id
+            }, params)).success(res => {
+              vm.total = res.result.total;
+              if (res.result.data) {
+                vm.data = res.result.data;
+              } else {
+                vm.data = res.result;
+              }
+            });
+          };
+          $scope.$parent[$attrs.vm].getData(1);
+        }, 500);
+      } else {
+        getData = (pageIndex) => {
+          $http.post($attrs.api, Object.assign({}, {
+            pageIndex: pageIndex,
+            pageSize: 5,
+            id: $scope.$parent[$attrs.vm].id
+          }, params)).success(res => {
+            vm.total = res.result.total;
+            if (res.result.data) {
+              vm.data = res.result.data;
+            } else {
+              vm.data = res.result;
+            }
+          });
+        };
+        getData(1);
+      }
 
-      getData(1);
-
-      vm.pageChanged = () => {
-        getData(vm.currentPage);
-        $window.scrollTo(0, 0);
-      };
+      // getData(1);
+      if ($attrs.vm === 'gyzVm') {
+        vm.pageChanged = () => {
+          $scope.$parent[$attrs.vm].getData(vm.currentPage);
+          $window.scrollTo(0, 0);
+        };
+      } else {
+        vm.pageChanged = () => {
+          getData(vm.currentPage);
+          $window.scrollTo(0, 0);
+        };
+      }
       // 删除功能
       vm.delItem = (key) => {
         if (confirm('您真的确定要删除此条数据吗？')) {
@@ -149,7 +178,7 @@ export default function list() {
         return function (subject) {
           return objectToStringFn.call(subject) === arrayToStringResult;
         };
-      }());
+      } ());
     }],
     controllerAs: 'vm'
   };

@@ -16,6 +16,9 @@ import MainCtrl from './controllers/MainCtrl.js';
 import FbCtrl from './controllers/FbCtrl.js';
 import ScCtrl from './controllers/ScCtrl.js';
 import YfbCtrl from './controllers/YfbCtrl.js';
+
+import GyzCtrl from './controllers/GyzCtrl.js';
+import YjdCtrl from './controllers/YjdCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 
 app
@@ -47,6 +50,17 @@ app
       url: '/yfb',
       templateUrl: '/partials/zb/partial-yfb.html',
       controller: 'YfbCtrl as yfbVm'
+    })
+    // 查看雇佣者
+    .state('gyz', {
+      url: '/gyz/:id',
+      templateUrl: '/partials/zb/partial-gyz.html',
+      controller: 'GyzCtrl as gyzVm'
+    })
+    .state('yjd', {
+      url: '/yjd',
+      templateUrl: '/partials/zb/partial-yjd.html',
+      controller: 'YjdCtrl as yjdVm'
     });
   }])
   .directive('showAllModules', showAllModules)
@@ -54,7 +68,9 @@ app
   .directive('sideBar', sideBar)
   .directive('switchType', switchType)
   .controller('MainCtrl', [MainCtrl])
+  .controller('YjdCtrl', [YjdCtrl])
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
   .controller('ScCtrl', [ScCtrl]) // 收藏控制器
-  .controller('YfbCtrl', ['$http', YfbCtrl]);
+  .controller('YfbCtrl', ['$http', YfbCtrl])
+  .controller('GyzCtrl', ['$http', '$stateParams', GyzCtrl]);
 export default app;

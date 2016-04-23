@@ -1,0 +1,18 @@
+<!--众包雇佣者管理页面-->
+<div zb-tabs 
+     data-repeat="item in gyzVm.listTabs"
+     data-vm="gyzVm"
+>
+</div>
+<!--<div ui-view></div>-->
+<div list
+     data-vm="gyzVm"
+     data-api="/zbfb/ZbDetail"
+     data-datekeytxt="发布时间"
+     data-datekey="time"
+     data-operate="true"
+     data-operation="雇佣"
+     data-editurl="javascript:;"
+     data-func="gy(item.id)"
+     data-projectname="false"
+></div>

@@ -7,12 +7,14 @@ import checkList from './listComponents/checkList.js';
 import checkListitem from './listComponents/checkListitem.js';
 import replaylist from './listComponents/replaylist.js';
 import replaylistItem from './listComponents/replaylistItem.js';
+import zbTabs from './listComponents/zbTabs.js';
 
 
 let app = angular.module('listComponents', []);
 app
   // 头部列表
   .directive('listTabs', listTabs)
+  .directive('zbTabs', zbTabs)
   .directive('list', list)
   .directive('listItem', listItem)
   .directive('checkList', checkList)
