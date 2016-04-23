@@ -1,30 +1,34 @@
-<table class="ksfb_table">
-  <colgroup>
-    <col style="width:300px">
-    <col style="width:150px">
-    <col style="width:100px">
-    <col style="width:200px">
-    <col style="width:150px">
-    <col style="width:100px">
-  </colgroup>
-  <thead>
-    <tr>
-      <th>商标注册号</th>
-      <th>商标名</th>
-      <th>商标分类</th>
-      <th>商标图片</th>
-      <th>商标价格</th>
-      <th>操作</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="position:relative"><input ng-model="ksfbVm.data.regNo" type="text"><button class="searchBtn" ng-click="ksfbVm.search()">查询</button><p class="prompt" ng-show="ksfbVm.promptShow">查询结果较慢,请您耐心等候</p></td>
-      <td>{{ ksfbVm.data.name }}</td>
-      <td>{{ ksfbVm.data.pcode }}</td>
-      <td><img ng-src="{{ksfbVm.data.img ? ksfbVm.dhw.urlimg + ksfbVm.data.img  : '' }}" alt=""></td>
-      <td><input class="priceInput" type="text" ng-model="ksfbVm.data.sellprice"></td>
-      <td><button class="searchBtn" ng-click="ksfbVm.submit()" ng-disabled="ksfbVm.isRepeat">发布</button></td>
-    </tr>
-  </tbody>
-</table>
+<form name="ksfbForm">
+  <table class="ksfb_table">
+    <colgroup>
+      <col style="width:300px">
+      <col style="width:150px">
+      <col style="width:100px">
+      <col style="width:200px">
+      <col style="width:150px">
+      <col style="width:100px">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>商标注册号</th>
+        <th>商标名</th>
+        <th>商标分类</th>
+        <th>商标图片</th>
+        <th>商标价格</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="position:relative"><input ng-model="ksfbVm.data.regNo" type="text"><button class="searchBtn" type="button" ng-click="ksfbVm.search()">查询</button>
+          <p class="prompt" ng-show="ksfbVm.promptShow">查询结果较慢,请您耐心等候</p>
+        </td>
+        <td>{{ ksfbVm.data.name }}</td>
+        <td>{{ ksfbVm.data.pcode }}</td>
+        <td><img ng-src="{{ksfbVm.data.img ? ksfbVm.dhw.urlimg + ksfbVm.data.img  : '' }}" alt=""></td>
+        <td><input class="priceInput" type="text" ng-model="ksfbVm.data.sellprice" required></td>
+        <td><button class="searchBtn" ng-click="ksfbVm.submit()" ng-disabled="ksfbVm.isRepeat || ksfbVm.isSearch || ksfbForm.$invalid">发布</button></td>
+      </tr>
+    </tbody>
+  </table>
+</form>

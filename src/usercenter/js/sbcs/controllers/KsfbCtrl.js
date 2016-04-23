@@ -5,13 +5,16 @@ export default function KsfbCtrl($http) {
   vm.dhw = dhw;
   vm.promptShow = false;
   vm.isRepeat = false;
+  vm.isSearch = true;
   vm.search = function () {
     vm.promptShow = true;
+    vm.isSearch = false;
     $http.post('/Sys/rshop/TrademarkFast/get', { regNo: vm.data.regNo }).success((data) => {
       if (data.success === true) {
         vm.data = data.result;
       } else {
         alert(data.msg);
+        vm.data.regNo = '';
       }
     });
   };
