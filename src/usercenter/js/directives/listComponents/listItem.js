@@ -42,6 +42,13 @@ export default function listItem() {
                 <b ng-if="item.pj !== 3">未面试<br/>无法评论</b>
                 <a ng-if="item.pj === 3" href="javascript:;" ng-click="${attrs.vm}.${attrs.commentfunc}">${attrs.commentop}</a>
               </span>
+              <span ng-if="${attrs.projectname} === 4">
+                 <a ng-if="item.state === 1" href="${attrs.editurl}{{item.ddid}}">去发货<br></a>
+              </span>
+              <span ng-if="${attrs.projectname} === 5">
+                 <a ng-if="item.state === 0" href="${attrs.editurl}{{item.number}}">去付款<br></a>
+                 <a ng-if="item.state === 3" href="javascript:;">去评价<br></a>
+              </span>
               <span ng-if="${attrs.operate2}">
                 <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>
               </span>

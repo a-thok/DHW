@@ -4,7 +4,7 @@ export default function FbCtrl($http, $scope) {
   var vm = this;
   vm.data = {};
   vm.photos = [{}];
-  vm.isRepeat = true;
+  vm.isRepeat = false;
   vm.addphoto = function () {
     if (vm.photos.length < 5) {
       vm.photos.push({});
