@@ -73,7 +73,7 @@
   background: url(../img/del_button.png) no-repeat 0 -70px;
 }
 .list_item_box {
-  height: 100px;
+  /*height: 100px;*/
   padding: 20px 10px;
   overflow: hidden;
   line-height: 28px;

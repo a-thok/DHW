@@ -47,6 +47,9 @@ export default function list() {
                 data-commentfunc="${attrs.commentfunc}"
                 data-userid="${attrs.userid}"
                 data-jobid="${attrs.jobid}"
+                data-preview="${attrs.preview}"
+                data-previewurl="${attrs.previewurl}"
+                data-previewtext="${attrs.previewtext}"
               list-item>
               </li>
             </ul>
