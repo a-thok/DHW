@@ -8,7 +8,7 @@ export default function PyfbCtrl($http) {
     { name: '项目名称', key: 'title', width: '20%' },
     { name: '悬赏金额', key: 'money', width: '20%' },
     { name: '交易模式', key: 'transaction', width: '20%' },
-    { name: '状态', key: 'type', width: '10%' },
+    { name: '状态', key: 'status', width: '10%' },
   ];
   vm.zjtg = function (project_id) {
     $http.post('/order/diy/add', { projectID: project_id }).success((data) => {
