@@ -99,7 +99,7 @@ export const brand = [
   { id: '20', name: '标签设计' },
   { id: '21', name: '易拉宝品设计' },
   { id: '22', name: '户外广告设计' },
-  { id: '23', name: '其它' },
+  { id: '24', name: '其它' },
 ];
 export const type = [
   { id: 1, name: '开发众包' },
