@@ -2,7 +2,6 @@ import 'trumbowyg/dist/ui/trumbowyg.css';
 import 'trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css';
 
 import angular from 'angular';
-
 // 依赖模块
 import '../directives/listComponents.js';
 
