@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     usercenter: [path.join(__dirname, './src/usercenter/css/usercenter.css')],
+    mengyunjie: [path.join(__dirname, './src/myj/css/myj.css')],
     'uc.account': [path.join(__dirname, './src/usercenter/js/account/account.js')],
     'uc.rczp': [path.join(__dirname, './src/usercenter/js/rczp/rczp.js')],
     'uc.cysj': [path.join(__dirname, './src/usercenter/js/cysj/cysj.js')],
@@ -15,6 +16,7 @@ module.exports = {
     'uc.sbcs': [path.join(__dirname, './src/usercenter/js/sbcs/sbcs.js')],
     home: [path.join(__dirname, './src/usercenter/js/home/home.js')], // 个人中心首页
     order: [path.join(__dirname, './src/usercenter/js/order/order.js')],  // 订单填写地址页面,不属于个人中心模块
+    myj: [path.join(__dirname, './src/myj/js/main.js')]
   },
   output: {
     path: path.join(__dirname, '/dist/'),
