@@ -11,10 +11,15 @@ Object.keys(config.entry).forEach((name, i) => {
 
 config.output.publicPath = '/';
 
-config.devtool = 'eval-source-map';
+config.devtool = 'source-map';
 
 config.plugins = (config.plugins || []).concat([
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compress: {
+  //     warnings: false
+  //   }
+  // })
 ]);
 
 module.exports = config;

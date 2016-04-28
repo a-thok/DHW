@@ -1,10 +1,11 @@
+// import $ from 'jquery';
 import angular from 'angular';
 
-export default angular.module('ngJcrop', [])
+let app = angular.module('ngJcrop', []);
 
-  .constant('FileReader', FileReader)
+  // app.constant('FileReader', FileReader)
 
-  .constant('ngJcroptDefaultConfig', {
+  app.constant('ngJcroptDefaultConfig', {
     widthLimit: 1000,
     heightLimit: 1000,
     previewImgStyle: { 'width': '100px', 'height': '100px', 'overflow': 'hidden', 'margin-left': '5px' },
@@ -90,41 +91,41 @@ export default angular.module('ngJcrop', [])
 
   }])
 
-  .directive('ngJcropInput', function() {
+  // .directive('ngJcropInput', function() {
 
-    return {
-      restrict: 'A',
-      controller: 'JcropInputController'
-    };
+  //   return {
+  //     restrict: 'A',
+  //     controller: 'JcropInputController'
+  //   };
 
-  })
+  // })
 
-  .controller('JcropInputController', ['$rootScope', '$element', '$scope', 'FileReader',
-    function($rootScope, $element, $scope, FileReader) {
+  // .controller('JcropInputController', ['$rootScope', '$element', '$scope', 'FileReader',
+  //   function($rootScope, $element, $scope, FileReader) {
 
-      if ($element[0].type !== 'file') {
-        throw new Error('ngJcropInput directive must be placed with an input[type="file"]');
-      }
+  //     if ($element[0].type !== 'file') {
+  //       throw new Error('ngJcropInput directive must be placed with an input[type="file"]');
+  //     }
 
-      $scope.onFileReaderLoad = function(ev) {
-        $rootScope.$broadcast('JcropChangeSrc', ev.target.result);
-        $element[0].value = '';
-      };
+  //     $scope.onFileReaderLoad = function(ev) {
+  //       $rootScope.$broadcast('JcropChangeSrc', ev.target.result);
+  //       $element[0].value = '';
+  //     };
 
-      $scope.setImage = function(image) {
-        var reader = new FileReader();
-        reader.onload = $scope.onFileReaderLoad;
-        reader.readAsDataURL(image);
-      };
+  //     $scope.setImage = function(image) {
+  //       var reader = new FileReader();
+  //       reader.onload = $scope.onFileReaderLoad;
+  //       reader.readAsDataURL(image);
+  //     };
 
-      $scope.onChange = function(ev) {
-        var image = ev.currentTarget.files[0];
-        $scope.setImage(image);
-      };
+  //     $scope.onChange = function(ev) {
+  //       var image = ev.currentTarget.files[0];
+  //       $scope.setImage(image);
+  //     };
 
-      $element.on('change', $scope.onChange);
+  //     $element.on('change', $scope.onChange);
 
-    }])
+  //   }])
 
   .controller('JcropController', ['$scope', '$element', 'ngJcropConfig',
     function($scope, $element, ngJcropConfig) {
@@ -356,5 +357,6 @@ export default angular.module('ngJcrop', [])
           scope.previewImg.hide();
         }
       });
-
     }]);
+    
+export default app;

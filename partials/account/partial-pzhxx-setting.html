@@ -1,0 +1,119 @@
+<!--账户设置-->
+<div class="zhsz_content">
+  <div class="zhsz_user clearfix">
+    <span class="zhsz_uesr-n">用户名修改</span>
+    <span class="zhsz_detail">用于提升账户的安全性和信任级别。</span>
+    <span class="user_change" ng-click="psettingVm.user()">修改</span>
+  </div>
+  <div class="zhsz_password clearfix">
+    <span class="zhsz_password-n">登录密码</span>
+    <span class="zhsz_detail">安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并长度超过6位以上的密码。</span>
+    <span class="password_change" ng-click="psettingVm.passwd()">修改</span>
+  </div>
+  <div class="zhsz_phone clearfix">
+    <span class="zhsz_phone-n">绑定手机</span>
+    <span class="zhsz_detail">绑定手机后，您即可享受梦高速丰富的手机服务，如手机找回密码等。</span>
+    <span class="phone_change" ng-click="psettingVm.phone()">修改</span>
+  </div>
+  <div class="zhsz_email clearfix">
+    <span class="zhsz_email-n">绑定邮箱</span>
+    <span class="zhsz_detail">绑定邮箱后，您即可享受梦高速丰富的邮箱服务，如邮箱找回密码等。</span>
+    <span class="email_change"ng-click="psettingVm.email()">修改</span>
+  </div>
+</div>
+<!--弹窗-->
+<!--更改用户名-->
+<div class="change_pupop" ng-show="psettingVm.nameShow">
+  <div class="changge_pupop_head clearfix">
+    <h1>更改用户名</h1>
+    <span class="close_pupop" ng-click="psettingVm.close()">×</span>
+  </div>
+  <div class="change_pupop_content">
+    <p class="change_pupop_prompt">经检测，你的账号当前处于安全状态，请放心操作！</p>
+    <!--<p class="user_old-name">原用户名： <span>放荡不羁</span></p>-->
+    <div class="change_pupop_content-n">
+    <label class="user_new-name">新用户名：</label>
+    <input class="user_new_input" type="text" ng-model="psettingVm.data.newName">
+    <button class="user_change_check" ng-click="psettingVm.conf()">检测是否可用</button>
+    <p class="user_change_warning" ng-show="psettingVm.rightName">用户名已存在</p>
+    </div>
+    <button class="btn_ok" ng-disabled="psettingVm.able" ng-click="psettingVm.submit()">确定</button>
+  </div>
+  <div class="change_pupop_footer">
+    <p>安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并且长度超过6位以上的密码。</p>
+  </div>
+</div>
+<!--修改密码-->
+<div class="change_pupop" ng-show="psettingVm.passwdShow">
+  <div class="changge_pupop_head clearfix">
+    <h1>更改登录密码</h1>
+    <span class="close_pupop" ng-click="psettingVm.close()">×</span>
+  </div>
+  <form name="pwdForm">
+    <div class="change_pupop_content">
+      <p class="change_pupop_prompt">经检测，你的账号当前处于安全状态，请放心操作！</p>
+      <div class="passwd_input">
+        <label class="new_password">旧密码</label>
+        <input class="new_passwd_input" type="password" ng-model="psettingVm.data.oldpwd" required>
+      </div>
+      <div class="passwd_input">
+        <label class="new_password">新密码</label>
+        <input class="new_passwd_input" type="password" ng-model="psettingVm.data.newpwd" required>
+      </div>
+      <div class="passwd_input">
+        <label class="new_passwd_deter">确认新密码</label>
+        <input class="new_passwd_input-again" type="password" ng-model="psettingVm.data.pwd_again" required>
+      </div>
+      <button class="btn_ok" ng-disabled="pwdForm.$invalid" ng-click="psettingVm.pwdSubmit()">确定</button>
+    </div>
+  </form>
+  <div class="change_pupop_footer">
+    <p>安全性高的密码可以使账号更安全。建议您定期更换密码，且设置一个包含数字和字母，并且长度超过6位以上的密码。</p>
+  </div>
+</div>
+
+<!--绑定手机-->
+<div class="change_pupop" ng-show="psettingVm.phoneShow">
+  <div class="changge_pupop_head clearfix">
+    <h1>更换绑定手机</h1>
+    <span class="close_pupop" ng-click="psettingVm.close()">×</span>
+  </div>
+  <form name="phoneForm">
+    <div class="change_pupop_content">
+      <p class="change_pupop_prompt">请输入您要绑定的手机号码，绑定后即可使用该手机享受所有梦高速的的手机服务</p>
+      <div class="phone_number clearfix">
+        <span class="phone_leader">+86</span>
+        <i class="jiantou"><em></em><span></span></i>
+        <span class="fengexian"></span>
+        <input class="phone_input" type="text" placeholder="输入手机号码" ng-model="psettingVm.data.phone" required>
+      </div>
+      <input class="yzm_input" type="text" placeholder="手机验证码" ng-model="psettingVm.data.mobile_code" required>
+      <button class="send_btn" ng-click="psettingVm.sendpyzm()">发送验证码</button>
+      <button class="btn_ok" ng-disabled="psettingVm.phone_able" ng-click="psettingVm.phoneSubmit()">确定</button>
+    </div>
+  </form>
+  <div class="change_pupop_footer">
+    <p>*您可使用此绑定手机找回密码及登录<br> *请勿随意泄露邮箱地址，以防被不法分子利用，骗取账号信息
+    </p>
+  </div>
+</div>
+<!--绑定邮箱-->
+<div class="change_pupop" ng-show="psettingVm.emailShow">
+  <div class="changge_pupop_head clearfix">
+    <h1>更换绑定邮箱</h1>
+    <span class="close_pupop" ng-click="psettingVm.close()">×</span>
+  </div>
+  <form name="emailForm">
+    <div class="change_pupop_content">
+      <p class="change_pupop_prompt">请输入您要绑定的邮箱地址，绑定后即可使用该邮箱登录所有梦高速产品</p>
+      <input class="emai_input" type="text" placeholder="请输入有效的邮箱地址" ng-model="psettingVm.data.emailaddress" required>
+      <input class="yzm_input" type="text" placeholder="邮箱验证码"  ng-model="psettingVm.data.guid" required>
+      <button class="send_btn" ng-click="psettingVm.sendeyzm()">发送验证码</button>
+      <button class="btn_ok" ng-disabled="psettingVm.email_able" ng-click="psettingVm.emailSubmit()">确定</button>
+    </div>
+  </form>
+  <div class="change_pupop_footer">
+    <p>*您可使用此绑定邮箱找回密码及登录<br> *请勿随意泄露邮箱地址，以防被不法分子利用，骗取账号信息
+    </p>
+  </div>
+</div>

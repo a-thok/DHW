@@ -43,6 +43,7 @@ import PzhxxCtrl from './controllers/PzhxxCtrl.js';
 import PzhpersonCtrl from './controllers/PzhxxControllers/PzhpersonCtrl.js';
 import PzhxxEduCtrl from './controllers/PzhxxControllers/PzhxxEduCtrl.js';
 import PzhxxWorkCtrl from './controllers/PzhxxControllers/PzhxxWorkCtrl.js';
+import PsettingCtrl from './controllers/PzhxxControllers/PsettingCtrl.js';
 import pavatarCtrl from './controllers/PzhxxControllers/pavatarCtrl.js';  // 个人账户上传头像
 // 企业版
 import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
@@ -82,7 +83,7 @@ import WzxqCtrl from './controllers/WzxqCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop', 'ui.bootstrap.pagination']);
 app
   .config(function (ngJcropConfigProvider) {
-     // Used to differ the uplaod example
+    // Used to differ the uplaod example
     ngJcropConfigProvider.setJcropConfig('upload', {
       bgColor: 'black',
       bgOpacity: 0.4,
@@ -157,6 +158,11 @@ app
         url: '/experience',
         templateUrl: '/partials/account/partial-pzhxx-experience.html',  // 个人账号--工作经历
         controller: 'PzhxxWorkCtrl as pzhxxworkVm'
+      })
+      .state('pzhxx.psetting', {
+        url: '/psetting',
+        templateUrl: '/partials/account/partial-pzhxx-setting.html',  // 公司账号--账户设置
+        controller: 'PsettingCtrl as psettingVm'
       })
       .state('gsfu', {
         url: '/gsfu',
@@ -384,6 +390,7 @@ app
   .controller('PzhxxWorkCtrl', PzhxxWorkCtrl)
   .controller('EducationCtrl', ['$http', EducationCtrl])
   .controller('PersonToCompanyCtrl', ['$http', PersonToCompanyCtrl])
+  .controller('PsettingCtrl', ['$http', PsettingCtrl])
   // 公司账号
   .controller('WorkCtrl', WorkCtrl)
   .controller('SettingCtrl', ['$http', SettingCtrl])

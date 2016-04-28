@@ -49,7 +49,8 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         loaders: ['url?limit=10000&name=img/uc/[name].[ext]?[hash:7]']
       }
-    ]
+    ],
+    // noParse: ['./src/usercenter/js/directives/jcrop.js']
   },
   plugins: [
     new ExtractTextPlugin('css/[name].css'),

@@ -16,6 +16,10 @@ export default function PzhxxCtrl() {
     {
       name: '工作经验',
       url: '.experience'
+    },
+    {
+      name: '账户设置',
+      url: '.psetting'
     }
 
   ];
