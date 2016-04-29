@@ -1,0 +1,150 @@
+.common_head {
+  width: 100%;
+  border-bottom: 2px solid #32ae9f;
+}
+.shangpin .myjnav_area {
+  display: none;
+}
+.myjContent {
+  width: 1200px;
+  margin: 30px auto;
+}
+.filterBox_dl {
+  padding: 20px 0;
+  border: 1px solid #c8b7c4;
+}
+.filterBox_dl-last {
+  border-top: 0;
+}
+.filterBox_item {
+  float: left;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filterBox_dl dt {
+  width: 90px;
+  margin-right: 20px;
+  text-align: right;
+}
+.filterBox_item-current {
+  background-color: #2aa899;
+  color: #fff;
+}
+.filter-orderBy {
+  height: 33px;
+  padding: 1px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #e7dae3;
+}
+.orderBy_ul {
+  float: left;
+  height: 33px;
+}
+.orderBy_item {
+  position: relative;
+  float: left;
+  height: 33px;
+  padding: 0 30px;
+  line-height: 33px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.orderBy_item i{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 10px;
+  height: 15px;
+  background: url(../img/arrow.png) no-repeat;
+}
+.orderBy_item-current i {
+  background: url(../img/arrow.png) no-repeat;
+}
+.spTotal {
+  float: right;
+  height: 33px;
+  margin-right: 15px;
+  line-height: 33px;
+  font-size: 14px;
+}
+.spTotal span {
+  color: #ff0000;
+}
+.orderBy_item-current {
+  color: #2aa899;
+  background-color: #fff;
+}
+.commodity_l {
+  float: left;
+  width: 900px;
+  margin-right: -20px;
+}
+.commodity_item {
+  float: left;
+  width: 260px;
+  height: 425px;
+  padding: 0 5px;
+  border: 1px solid #beabbb;
+  margin-right: 25px;
+  margin-bottom: 20px;
+}
+.commodity_item_t {
+  margin-bottom: 25px;
+}
+.commodity_item_t img,
+.commodity_r img {
+  width: 260px;
+  height: 260px;
+}
+.commodity_item_b {
+  padding: 0 5px;
+}
+.commodity_item_price_l {
+  float: left;
+  font-size: 36px;
+  color: #c17d06;
+}
+.commodity_item_price_r {
+  float: right;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #999;
+}
+.commodity_item_ttl {
+  width: 260px;
+  margin-bottom: 45px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 18px;
+}
+.commodity_item_area {
+  font-size: 14px;
+  color: #666;
+}
+.commodity_item_area_l {
+  float: left;
+}
+.commodity_item_area_r {
+  float: right;
+}
+.commodity_r {
+  float: right;
+  width: 270px;
+  padding: 0 10px;
+  border: 1px solid #beabbb;
+}
+.commodity_r .commodity_item {
+  float: inherit;
+  height: auto;
+  border: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.commodity_r .commodity_item_ttl {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
