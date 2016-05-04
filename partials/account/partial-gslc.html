@@ -11,7 +11,15 @@
     </li>
   </ul>
 </div>
-<form name="GslcForm" ng-submit="gslcVm.submit()">  
+<form name="GslcForm" ng-submit="gslcVm.submit()" style="height:500px">
+  <div calendar
+  data-switch="false"
+  data-vm="gslcVm"
+  data-label="事件时间"
+  data-name="date"
+  data-gslc="true"
+  data-required="true"
+  ></div>  
   <div input-text
   data-form="GslcForm"
   data-vm="gslcVm"
@@ -21,14 +29,6 @@
   data-switch="false"
   data-tip='请填写事件标题'
   data-pattern=""
-  ></div>
-  <div calendar
-  data-switch="false"
-  data-vm="gslcVm"
-  data-label="事件时间"
-  data-name="date"
-  data-gslc="true"
-  data-required="true"
   ></div>
   <div class="formGourp formGourp--submit clearfix">
         <input class="formBtn formBtn--submit" type="submit" value="提交" ng-disabled="GslcForm.$invalid" />
