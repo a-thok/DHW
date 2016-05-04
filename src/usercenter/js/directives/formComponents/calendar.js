@@ -144,11 +144,13 @@ export default function calendar() {
         }
       };
       // 是否小于当前日
-      vm.isEarlierDate = (date) => {
-        if (vm.year === vm._year && +vm.month - 1 === vm._month && +date < vm._date) {
-          return true;
-        }
-      };
+      if (!$attrs.gslc) {
+        vm.isEarlierDate = (date) => {
+          if (vm.year === vm._year && +vm.month - 1 === vm._month && +date < vm._date) {
+            return true;
+          }
+        };
+      }
       // 选择日
       vm.selectDate = (e, date) => {
         if (e.target.className.indexOf('disabled') === -1) {
