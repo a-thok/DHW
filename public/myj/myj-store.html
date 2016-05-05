@@ -7,6 +7,33 @@
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/lib/jquery.Jcrop.min.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
+  
+  <script type="text/html" id="store">
+  {{each data as store}}
+  <div class="myj_store_list clearfix">
+    <div class="myj_store_touxiang">
+      <img src="{{store.logo}}" alt="logo">
+    </div>
+    <div class="myj_store_detail">
+      <p class="myj_store_name">{{store.name}}</p>
+      <p class="myj_store_approve">商家认证：
+        <i class="store_approve_icon"></i>
+        <i class="store_approve_pic"></i>
+      </p>
+      <dl class="myj_store_serve clearfix">
+        <dt>主营服务：</dt>
+        <dd>{{store.myjBusiness}}</dd>
+      </dl>
+      <p class="myj_store_address">店铺地址：<span>{{store.cityName}}</span><span>{{store.addr}}</span></p>
+    </div>
+    <div class="myj_store_show">
+      {{each store.images as img}}
+      <img src="{{img}}" alt="">
+      {{/each}}
+    </div>
+  </div>
+  {{/each}}
+  </script>
 </head>
 
 <body>
@@ -50,104 +77,16 @@
   </div>
   <!--主内容区开始-->
   <div class="myj_content">
-    <div class="myj_store_list clearfix">
-      <div class="myj_store_touxiang">
-        <img src="../../src/myj/img/67.png" alt="logo">
-      </div>
-      <div class="myj_store_detail">
-        <p class="myj_store_name">加点优送</p>
-        <p class="myj_store_approve">商家认证：
-          <i class="store_approve_icon"></i>
-          <i class="store_approve_pic"></i>
-        </p>
-        <dl class="myj_store_serve clearfix">
-          <dt>主营服务：</dt>
-          <dd>饮料</dd>
-          <dd>红酒</dd>
-          <dd>烧酒</dd>
-        </dl>
-        <p class="myj_store_address">店铺地址：<span>重庆 广昌于江二路（颐和花园店）</span></p>
-      </div>
-      <div class="myj_store_show">
-        <img src="../../src/myj/img/67.png" alt="">
-        <img src="../../src/myj/img/67.png" alt="">
-        <img src="../../src/myj/img/67.png" alt="">
-      </div>
-    </div>
-    <div class="myj_store_list clearfix">
-      <div class="myj_store_touxiang">
-        <img src="../../src/myj/img/67.png" alt="logo">
-      </div>
-      <div class="myj_store_detail">
-        <p class="myj_store_name">加点优送</p>
-        <p class="myj_store_approve">商家认证：
-          <i class="store_approve_icon"></i>
-          <i class="store_approve_pic"></i>
-        </p>
-        <dl class="myj_store_serve clearfix">
-          <dt>主营服务：</dt>
-          <dd>饮料</dd>
-          <dd>红酒</dd>
-          <dd>烧酒</dd>
-        </dl>
-        <p class="myj_store_address">店铺地址：<span>重庆 广昌于江二路（颐和花园店）</span></p>
-      </div>
-      <div class="myj_store_show">
-        <img src="../../src/myj/img/67.png" alt="">
-        <img src="../../src/myj/img/67.png" alt="">
-
-      </div>
-    </div>
-     <div class="myj_store_list clearfix">
-      <div class="myj_store_touxiang">
-        <img src="../../src/myj/img/67.png" alt="logo">
-      </div>
-      <div class="myj_store_detail">
-        <p class="myj_store_name">加点优送</p>
-        <p class="myj_store_approve">商家认证：
-          <i class="store_approve_icon"></i>
-          <i class="store_approve_pic"></i>
-        </p>
-        <dl class="myj_store_serve clearfix">
-          <dt>主营服务：</dt>
-          <dd>饮料</dd>
-          <dd>红酒</dd>
-          <dd>烧酒</dd>
-        </dl>
-        <p class="myj_store_address">店铺地址：<span>重庆 广昌于江二路（颐和花园店）</span></p>
-      </div>
-      <div class="myj_store_show">
-        <img src="../../src/myj/img/67.png" alt="">
-        <img src="../../src/myj/img/67.png" alt="">
-
-      </div>
-    </div>
-     <div class="myj_store_list clearfix">
-      <div class="myj_store_touxiang">
-        <img src="../../src/myj/img/67.png" alt="logo">
-      </div>
-      <div class="myj_store_detail">
-        <p class="myj_store_name">加点优送</p>
-        <p class="myj_store_approve">商家认证：
-          <i class="store_approve_icon"></i>
-          <i class="store_approve_pic"></i>
-        </p>
-        <dl class="myj_store_serve clearfix">
-          <dt>主营服务：</dt>
-          <dd>饮料</dd>
-          <dd>红酒</dd>
-          <dd>烧酒</dd>
-        </dl>
-        <p class="myj_store_address">店铺地址：<span>重庆 广昌于江二路（颐和花园店）</span></p>
-      </div>
-      <div class="myj_store_show">
-        <img src="../../src/myj/img/67.png" alt="">
-        <img src="../../src/myj/img/67.png" alt="">
-
-      </div>
-    </div>
+    
   </div>
+  <div class="pagination"></div>
   <!--主内容区结束-->
+
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/template.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.paging.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.loaddata.js"></script>
+  <script src="/js/myj.js"></script>
 </body>
 
 </html>

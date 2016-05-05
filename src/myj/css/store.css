@@ -99,6 +99,10 @@
   margin: 18px;
   border: 1px solid #ccc;
 }
+.myj_store_touxiang img {
+  width: 140px;
+  height: 140px;
+}
 .myj_store_detail {
   float: left;
   margin: 20px 6px;
@@ -149,6 +153,8 @@
   margin: 18px;
 }
 .myj_store_show img {
+  width: 140px;
+  height: 140px;
   margin: 0 0 0 24px;
   border: 1px solid #ccc;
 }

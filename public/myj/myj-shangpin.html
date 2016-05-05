@@ -5,7 +5,25 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
+  <link rel="stylesheet" href="//cdn.dreamhiway.com/fonts/iconfont.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
+  
+  <script type="text/html" id="shangpin">
+    {{each data as sp}}
+    <li class="commodity_item">
+      <div class="commodity_item_t">
+        <img src="{{sp.image}}" alt="">
+      </div>
+      <div class="commodity_item_b">
+        <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>{{sp.price}}</span></span><span class="commodity_item_price_r">门店价: ¥<span>{{sp.storePrice}}</span></span>
+        </p>
+        <p class="commodity_item_ttl">{{sp.name}}</p>
+        <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>{{sp.compay}}</span>]</span> <span class="commodity_item_area_r"><span>{{sp.cityName}} </span> <span> {{sp.districtName}}</span></span>
+        </p>
+      </div>
+    </li>
+    {{/each}}
+  </script>
 </head>
 
 <body>
@@ -17,7 +35,7 @@
       </div>
       <div class="search_m">
         <div class="clearfix">
-          <input class="search_input" type="text"><button class="search_btn">搜商品</button><button class="search_btn">搜店铺</button>
+          <input class="search_input" type="text"><button class="search_btn search_sp">搜商品</button><button class="search_btn search_dp">搜店铺</button>
         </div>
         <ul class="clearfix">
           <li class="hot_item"><a href="">连衣裙</a></li>
@@ -128,62 +146,14 @@
     <!--分类栏 结束-->
     <div class="filter-orderBy clearfix">
       <ul class="orderBy_ul clearfix">
-        <li class="orderBy_item orderBy_item-current">综合排序</li>
-        <li class="orderBy_item">价格<i></i></li>
-        <li class="orderBy_item">发布时间<i></i></li>
+        <li class="orderBy_item orderBy_item_default  orderBy_item-current">综合排序</li>
+        <li class="orderBy_item orderBy_item_price">价格<i></i></li>
+        <li class="orderBy_item orderBy_item_time">发布时间<i></i></li>
       </ul>
       <p class="spTotal">找到相关商品<span>2900</span>件</p>
     </div>
     <div class="commodity clearfix">
       <ul class="commodity_l clearfix">
-        <li class="commodity_item">
-          <div class="commodity_item_t">
-            <img src="../../src/myj/img/shangpin1.png" alt="">
-          </div>
-          <div class="commodity_item_b">
-            <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>550</span></span><span class="commodity_item_price_r">门店价: ¥<span>500</span></span>
-            </p>
-            <p class="commodity_item_ttl">海鲜大餐</p>
-            <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>五鑫海鲜酒楼</span>]</span> <span class="commodity_item_area_r"><span>泉州市 </span>              <span> 石狮市</span></span>
-            </p>
-          </div>
-        </li>
-        <li class="commodity_item">
-          <div class="commodity_item_t">
-            <img src="../../src/myj/img/shangpin1.png" alt="">
-          </div>
-          <div class="commodity_item_b">
-            <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>550</span></span><span class="commodity_item_price_r">门店价: ¥<span>500</span></span>
-            </p>
-            <p class="commodity_item_ttl">海鲜大餐</p>
-            <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>五鑫海鲜酒楼</span>]</span> <span class="commodity_item_area_r"><span>泉州市 </span>              <span> 石狮市</span></span>
-            </p>
-          </div>
-        </li>
-        <li class="commodity_item">
-          <div class="commodity_item_t">
-            <img src="../../src/myj/img/shangpin1.png" alt="">
-          </div>
-          <div class="commodity_item_b">
-            <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>550</span></span><span class="commodity_item_price_r">门店价: ¥<span>500</span></span>
-            </p>
-            <p class="commodity_item_ttl">海鲜大餐</p>
-            <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>五鑫海鲜酒楼</span>]</span> <span class="commodity_item_area_r"><span>泉州市 </span>              <span> 石狮市</span></span>
-            </p>
-          </div>
-        </li>
-        <li class="commodity_item">
-          <div class="commodity_item_t">
-            <img src="../../src/myj/img/shangpin1.png" alt="">
-          </div>
-          <div class="commodity_item_b">
-            <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>550</span></span><span class="commodity_item_price_r">门店价: ¥<span>500</span></span>
-            </p>
-            <p class="commodity_item_ttl">海鲜大餐</p>
-            <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>五鑫海鲜酒楼</span>]</span> <span class="commodity_item_area_r"><span>泉州市 </span>              <span> 石狮市</span></span>
-            </p>
-          </div>
-        </li>
       </ul>
       <div class="commodity_r">
         <ul>
@@ -238,8 +208,12 @@
         </ul>
       </div>
     </div>
+    <div class="pagination"></div>
   </div>
   <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/template.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.paging.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.loaddata.js"></script>
   <script src="/js/myj.js"></script>
 </body>
 

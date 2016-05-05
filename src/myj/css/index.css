@@ -148,7 +148,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 3680px;
+  width: 7680px;
   height: 450px;
 }
 .slide_item {
@@ -170,17 +170,6 @@
 }
 .slider .slider-current {
   background: url(../img/iconad.png) no-repeat;
-}
-.myjnews {
-  position: absolute;
-  right: 0;
-  bottom: -430px;
-  width: 230px;
-  height: 400px;
-  padding: 0 10px;
-  background: rgba(255, 255, 255, 0.4);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ffffff',endColorstr='#66ffffff');
-  z-index: 10;
 }
 .news_ttl {
   margin: 15px 0 25px;
@@ -346,7 +335,7 @@
 }
 .myj_content_ttl_r li {
   float: left;
-  height: 23px;
+  height: 22px;
   padding: 10px 0;
   cursor: pointer;
 }
@@ -418,4 +407,76 @@
   line-height: 24px;
   font-size: 12px;
   color: #999;
+}
+
+.myj_main {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.fixDiv {
+  position: absolute;
+  top: -20px;
+  left: -70px;
+  border: 1px solid #cebcca;
+}
+.fixDiv span {
+  display: inline-block;
+  width: 38px;
+  height: 40px;
+  border-bottom: 1px solid #cebcca;
+  font-size: 14px;
+  line-height: 40px;
+  background-color: #66b7bf;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.fixUl {
+  width: 38px;
+}
+.fixUl_item {
+  width: 38px;
+  height: 38px;
+  border-bottom: 1px solid #cebcca;
+  background: url(../img/shouye-icon.png) no-repeat;
+  cursor: pointer;
+}
+.fsj {
+  background-position: 0 -38px;
+}
+.smdq {
+  background-position: 0 -152px;
+}
+.yswh {
+  background-position: 0 -190px;
+}
+.msj {
+  background-position: 0 -76px;
+}
+.rycs {
+  background-position: 0 -114px;
+}
+.flj {
+  background-position: 0 0;
+}
+.qt {
+  background-position: 0 -228px;
+  border-bottom: 0;
+}
+.zxdt {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1200px;
+  margin-left: -600px;
+}
+.myjnews {
+  float: right;
+  height: 400px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ffffff',endColorstr='#66ffffff');
+  z-index: 10;
 }
