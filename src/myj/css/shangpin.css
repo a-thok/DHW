@@ -28,6 +28,9 @@
   margin-right: 20px;
   text-align: right;
 }
+.filterBox_item a {
+  color: #000;
+}
 .filterBox_item-current {
   background-color: #2aa899;
   color: #fff;
