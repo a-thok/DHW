@@ -1,6 +1,7 @@
 import shangpin from './shangpin.js';
 import index from './index.js';
 import store from './store.js';
+import second from './second.js';
 
 // 图片
 import '../img/yun-logo.png'
@@ -18,7 +19,7 @@ import '../img/4(1).png'
 import '../img/5.png'
 import '../img/5(1).png'
 import '../img/6.png'
-import '../img/touxiang.png'
+import '../img/touxiang.jpg'
 import '../img/detailicon.png'
 import '../img/146180764424451556.jpg'
 import '../img/146180765044139282.jpg'
@@ -31,13 +32,14 @@ import '../img/146193066525328754.jpg'
 // import home from './js/home.js';
 // import detail from './js/detail.js';
 
-const pathname = window.location.pathname;
 
-if (pathname === '/public/myj/myj-index.html') {
+if (pagekey === 'index') {
   index();
-} else if (pathname === '/public/myj/myj-shangpin.html') {
+} else if (pagekey === 'product') {
   shangpin();
-} else if (pathname === '/public/myj/myj-store.html') {
+} else if (pagekey === 'store') {
   store();
+} else if (pagekey === 'index2') {
+  second();
 }
 
