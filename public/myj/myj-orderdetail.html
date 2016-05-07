@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦云街订单填写</title>
+  <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
+  <link rel="stylesheet" href="/css/mengyunjie.css">
+</head>
+
+<body>
+  <div class="order_detail">
+    <div class="order_pay_method">
+      <span class="pay_method_title">支付方式</span>
+      <div class="order_pay_chose clearfix">
+        <div class="order_pay_to">
+          <input type="radio" name="paymethod">
+          <span>到店支付</span>
+          <span class="pay_sy">手续费:<i class="pay_sy_offline">0.00</i></span>
+        </div>
+        <div class="order_pay_to">
+          <input type="radio" name="paymethod">
+          <span>支付宝</span>
+          <span class="pay_sy">手续费:<i class="pay_sy_online">0.00</i></span>
+        </div>
+      </div>
+      <span class="pay_method_title">商品清单</span>
+      <div class="order_pay_list">
+        <!--订单头部-->
+        <div class="order_pay_list_title clearfix">
+          <ul>
+            <li class="order_pay_list_spinfo">商品信息</li>
+            <li class="order_pay_list_money">单价</li>
+            <li class="order_pay_list_num">数量</li>
+            <li class="order_pay_list_finace">金额(元)</li>
+          </ul>
+        </div>
+        <!--订单头部结束-->
+        <!--订单列表开始-->
+        <div>
+          <ul>
+            <li>
+              <span class="dp">店铺：<span>深圳数码相机专卖店</span></span>
+              <ul>
+                <li class="commodity_list">
+                  <dl class="clearfix">
+                    <dd class="commodity_list_info">
+                      <img src="../../src/myj/img/yun-logo.png" alt="" class="commodity_list_pic">
+                      <span>佳能(Canon)LEGRIA HF R56 数码摄像机(红色)约328万像素</span>
+                    </dd>
+                    <dd class="commodity_list_money">￥2879.10</dd>
+                    <dd class="commodity_list_num">1</dd>
+                    <dd class="commodity_list_finance">￥2879.10</dd>
+                  </dl>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!--订单列表结束-->
+      </div>
+      <span class="pay_method_payAll">结算信息</span>
+      <!--结算操作开始-->
+      <div class="pay_to clearfix">
+        <div class="pay_to_fr">
+          <div class="pay_to_intro">
+            <span>商品<span class="pay_to_num">1</span>件</span>
+            <span>商品金额: ￥<span class="pay_to_money">2879.10</span>元</span>
+          </div>
+          <div class="pay_to_intro">
+            应付总金额：￥<span class="pay_to_finance">2879.10</span>
+          </div>
+          <div class="pay_to_btn clearfix">
+            <a href="javascript:;" class="back_shopcart">返回购物车</a>
+            <a href="javascript:;" class="submit_order">提交</a>
+          </div>
+        </div>
+      </div>
+      <!--结算操作结束-->
+    </div>
+
+
+    <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+</body>
+
+</html>
