@@ -100,6 +100,9 @@
   margin-bottom: 15px;
   cursor: pointer;
 }
+.myjnav_area li a {
+  color: #fff;
+}
 .myjnav_m {
   float: left;
   margin-top: 20px;
@@ -396,6 +399,9 @@
   white-space: nowrap;
   font-size: 14px;
 }
+.myj_content_item h1 a {
+  color: #000;
+}
 .myj_content_item_price {
   height: 25px;
   line-height: 25px;
@@ -467,7 +473,7 @@
 }
 .zxdt {
   position: absolute;
-  top: 0;
+  top: 30px;
   left: 50%;
   width: 1200px;
   margin-left: -600px;

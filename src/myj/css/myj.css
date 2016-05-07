@@ -2,6 +2,7 @@
 @import './store.css';
 @import './shangpin.css';
 @import './second.css';
+@import './detail.css';
 
 .pagination {
   margin-top: 24px;
