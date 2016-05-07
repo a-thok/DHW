@@ -119,7 +119,7 @@
         <span class="skuTip" ng-show="!abc">点击下方按钮添加业务范围</span>
         <ul class="formSetWrap formSetWrap-sku clearfix">
           <li class="skuItem clearfix" ng-repeat="myj in companyVm.myjbusinessTemp">
-            <input class="formSet_input formSet_input-extrasmall" type="text" ng-model="myj.myjname" required>
+            <input class="formSet_input formSet_input-extrasmall" type="text" ng-model="myj.name" required>
             <button class="formSet_input_btn del" type="button" ng-click="companyVm.myjbusinessTemp.splice($index, 1)">删除</button>
           </li>
         </ul>
