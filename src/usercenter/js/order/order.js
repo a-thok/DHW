@@ -53,17 +53,6 @@ $.post('/useraddr/list').success((data) => {
 });
 
 // 默认地址与发票的选择
-
-$('.invoice').click(() => {
-  var index = $(this).index();
-  $('.invoice i').removeClass('selected_icon').eq(index).addClass('selected_icon');
-  if ($('.notNeed_invo').hasClass('selected_icon')) {
-    $('.invoiceInput').attr('disabled', 'disabled');
-  }
-  if ($('.need_invo').hasClass('selected_icon')) {
-    $('.invoiceInput').removeAttr('disabled');
-  }
-});
 $('.address_tem').on('mouseover', '.areaSelect', function () {
   $(this).addClass('selected_addr');
 });
@@ -82,7 +71,7 @@ $('.address_tem').on('click', '.areaSelect', function () {
 // var provinces = [];
 var cities = [];
 var counties = [];
-$.getJSON(dhw.urlmain + '/Dict/city2?callback=?', (data) => {
+$.getJSON('http://192.168.2.145:8085/Dict/city2?callback=?', (data) => {
   var provinces = data.result;
   // 循环取得省
   for (var i = 0, pLen = provinces.length; i < pLen; i++) {
@@ -92,10 +81,10 @@ $.getJSON(dhw.urlmain + '/Dict/city2?callback=?', (data) => {
     $('.addr_province').append(html);
   }
   // 循环取得市
-  $('.addr_province li').click(() => {
+  $('.addr_province').find('li').click(function () {
     cities = [];
     $('.addr_city').empty();
-    var province = $(this).html();
+    var province = $(this).text();
     $('#province').val(province);
     for (var i = 0, len = provinces.length; i < len; i++) {
       if (province === provinces[i].name) {
