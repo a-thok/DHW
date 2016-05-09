@@ -8,7 +8,7 @@ export default function GyzCtrl($http, $stateParams) {
     { name: '接单人', key: 'name', width: '10%' },
     { name: '联系方式', key: 'contact', width: '20%' },
     { name: '投标内容', key: 'content', width: '30%' },
-    { name: '附件下载', key: 'attachment_orgin', linkkey: 'attachment', link: true, width: '20%' },
+    { name: '附件下载', key: 'attachment_origin', linkkey: 'attachment', link: true, width: '20%' },
     { name: '状态', key: 'state', width: '10%' }
   ];
   var fpid = $stateParams.id;
