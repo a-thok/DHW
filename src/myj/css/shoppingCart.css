@@ -1,0 +1,147 @@
+.shoppingCrat {
+  width: 1200px;
+  margin: 30px auto 0;
+}
+.shoppingCrat_ttl {
+  margin-bottom: 30px;
+}
+.shoppingCrat_ttl h1 {
+  float: left;
+  width: 150px;
+  height: 35px;
+  margin: 0;
+  font-size: 24px;
+}
+.shoppingStep {
+  float: right;
+  height: 35px;
+  width: 990px;
+  line-height: 35px;
+  background-color: #f3ebf0;
+}
+.shoppingStep_item {
+  float: left;
+  width: 330px;
+  text-align: center;
+}
+.shoppingStep_item-current {
+  color: #83a641;
+  background-color: #dfceda;
+}
+.shoppingCrat_cont {
+  border: 1px solid #dbcad6;
+}
+.shoppingCrat_store_ttl {
+  border-bottom: 1px solid #dbcad6;
+  background-color: #f5eff4;
+}
+.shoppingCrat_store_ttl_item {
+  float: left;
+  height: 45px;
+  padding: 0 10px;
+  line-height: 45px;
+  text-align: center;
+}
+.shoppingCrat_store_ttl_item a {
+  color: #c51e04;
+}
+.shoppingCrat_storeName {
+  height: 50px;
+  border-bottom: 1px solid #dbcad6;
+}
+.shoppingCrat_storeName p {
+  float: left;
+  margin-left: 20px;
+  line-height: 50px;
+}
+.deleteAll {
+  float: right;
+  margin-right: 35px;
+  color: #2aa899;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 50px;
+}
+.shoppingCrat_item {
+  display: table;
+}
+.shoppingCrat_commodity {
+ display: table-row; 
+}
+.shoppingCrat_commodity_item {
+  display: table-cell;
+  height: 90px;
+  padding: 0 10px;
+  border-bottom: 1px solid #dbcad6;
+  text-align: center;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.shoppingCrat_commodity_item img {
+  width: 65px;
+  height: 65px;
+  border: 1px solid #dbcad6;
+  margin-top: 12px;
+}
+.redWord {
+  color: #c51e04;
+}
+.shoppingCrat_commodity_reduce,
+.shoppingCrat_commodity_add {
+  display: inline-block;
+  width: 20px;
+  height: 25px;
+  background-color: #f1e8ee;
+  cursor: pointer;
+  line-height: 25px;
+}
+.shoppingCrat_commodity_reduce {
+  border-right: 1px solid #dbcad6;  
+}
+.shoppingCrat_commodity_add {
+  border-left: 1px solid #dbcad6;  
+}
+.shoppingCrat_commodity_input {
+  width: 30px;
+  height: 25px;
+  border: 0;
+  text-align: center;
+  line-height: 25px;
+}
+.shoppingCrat_commodity_count {
+  height: 25px;
+  width: 72px;
+  border: 1px solid #dbcad6;  
+  overflow: hidden;
+}
+.toPay,
+.totalCount,
+.selectedCommodity {
+  float: right;
+  line-height: 50px;
+}
+.toPay {
+  width: 120px;
+  height: 50px;
+  color: #fff;
+  background-color: #2aa899;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+}
+.totalCount,
+.selectedCommodity {
+  margin-right: 20px;
+}
+.shoppingCart_return {
+  margin-top: 65px;
+  text-align: right;
+}
+.returnBtn {
+  width: 120px;
+  height: 45px;
+  border: 1px solid #2aa899;
+  color: #2aa899;
+  background-color: #fff;
+  font-size: 14px;
+}

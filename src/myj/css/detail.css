@@ -199,9 +199,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
-  font-size: 18px;
 }
 .storeName a {
+  color: #000;
+  font-size: 18px;
+}
+.storeDetail_letter {
   display: inline-block;
   width: 23px;
   height: 19px;
@@ -220,6 +223,12 @@
   margin-right: 5px;
   color: #333;
   text-align: right;
+}
+.storeDetail_label i {
+  display: inline-block;
+  width: 18px;
+  height: 16px;
+  background: url(../img/detailicon.png) no-repeat 0 -45px;
 }
 .map {
   width: 180px;
