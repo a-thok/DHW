@@ -11,17 +11,59 @@
 <body>
   <div class="shoppingCrat">
     <!--购物车头部 开始-->
-    <div class="shoppingCrat_ttl">
+    <div class="shoppingCrat_ttl clearfix">
       <h1>我的购物车</h1>
-      <ul>
-        <li>1.放入购物车</li>
-        <li>2.填写订单信息</li>
-        <li>3.支付/确认订单</li>
+      <ul class="shoppingStep clearfix">
+        <li class="shoppingStep_item shoppingStep_item-current">1.放入购物车</li>
+        <li class="shoppingStep_item">2.填写订单信息</li>
+        <li class="shoppingStep_item">3.支付/确认订单</li>
       </ul>
     </div>
     <!--购物车头部 结束-->
     <div class="shoppingCrat_cont">
-      
+      <ul class="shoppingCrat_store">
+        <li class="shoppingCrat_store_item">
+          <ul class="shoppingCrat_store_ttl clearfix">
+            <li class="shoppingCrat_store_ttl_item" style="width: 70px;"><a href="">全选</a></li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 70px;">商品图片</li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 528px;">商品名称</li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 100px;">单价</li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 80px;">数量</li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 100px;">金额</li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 110px;">操作</li>
+          </ul>
+          <div class="shoppingCrat_storeName clearfix">
+            <p>店铺 : <span>测试</span></p>
+            <span class="deleteAll">全部删除</span>
+          </div>
+          <ul>
+            <li class="shoppingCrat_item">
+              <ul class="shoppingCrat_commodity clearfix">
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input type="checkbox"></li>
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
+                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
+                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span>2222.22</span></li>
+                <li class="shoppingCrat_commodity_item" style="width: 80px;">
+                  <div class="shoppingCrat_commodity_count">
+                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
+                      value="1"><span class="shoppingCrat_commodity_add">+</span>
+                  </div>
+                </li>
+                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span>2222.22</span></li>
+                <li class="shoppingCrat_commodity_item" style="width: 110px;">删除</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clearfix">
+            <a class="toPay" href="">立即结算</a>
+            <p class="totalCount">商品总金额 : <span class="redWord">2222.22</span> 元</p>
+            <p class="selectedCommodity">已选择商品 <span class="redWord"> 0</span> 件</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="shoppingCart_return">
+      <button class="returnBtn">返回购物</button>
     </div>
   </div>
 </body>
