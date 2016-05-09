@@ -19,6 +19,8 @@ import YfbCtrl from './controllers/YfbCtrl.js';
 
 import GyzCtrl from './controllers/GyzCtrl.js';
 import YjdCtrl from './controllers/YjdCtrl.js';
+// 公司账号 -- 已接单
+import CyjdCtrl from './controllers/CyjdCtrl.js';
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 
 app
@@ -61,6 +63,11 @@ app
       url: '/yjd',
       templateUrl: '/partials/zb/partial-yjd.html',
       controller: 'YjdCtrl as yjdVm'
+    })
+    .state('cyjd', {
+      url: '/cyjd',
+      templateUrl: '/partials/zb/partial-cyjd.html',
+      controller: 'CyjdCtrl as cyjdVm'
     });
   }])
   .directive('showAllModules', showAllModules)
@@ -69,6 +76,8 @@ app
   .directive('switchType', switchType)
   .controller('MainCtrl', [MainCtrl])
   .controller('YjdCtrl', [YjdCtrl])
+  // 公司账号 已接单
+  .controller('CyjdCtrl', [CyjdCtrl])
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
   .controller('ScCtrl', [ScCtrl]) // 收藏控制器
   .controller('YfbCtrl', ['$http', YfbCtrl])

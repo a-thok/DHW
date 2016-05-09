@@ -16,6 +16,11 @@ export default function MainCtrl() {
       url: 'sc',
       text: '我的收藏',
       active: false
+    },
+    {
+      url: 'cyjd',
+      text: '我的单子',
+      active: false
     }
   ];
   // 个人账户
