@@ -24,4 +24,20 @@ export default function detail() {
       }
     })
   })
+  //收藏
+  $('.commodityShare_collection').click(function () {
+    if ($('.commodityShare_collection').hasClass('cancel')) {
+      alert("已收藏");
+      return false;
+    }
+    else {
+      $.post('/Product/Collect', {
+        productid: productid
+      }).success(function () {
+      var txt = "已收藏";
+      $('.commodityShare_collection a').text(txt)
+      $('.commodityShare_collection').addClass('cancel');
+      })
+    }
+  })
 }
