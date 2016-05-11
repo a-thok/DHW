@@ -14,6 +14,7 @@ import switchType from '../directives/userCenter/switchType.js';
 import MainCtrl from './controllers/MainCtrl.js'
 import FbCtrl from './controllers/FbCtrl.js'
 import DetailCtrl from './controllers/DetailCtrl.js'
+import ScCtrl from './controllers/ScCtrl.js'
 import YfbCtrl from './controllers/YfbCtrl.js'
 import YfbAllCtrl from './controllers/yfb/YfbAllCtrl.js'
 import YfbBtgCtrl from './controllers/yfb/YfbBtgCtrl.js'
@@ -44,6 +45,11 @@ app
         url: '/detail/:id',
         templateUrl: '/partials/myj/partial-detail.html',
         controller: 'DetailCtrl as detailVm'
+      })
+      .state('sc', {
+        url: '/sc',
+        templateUrl: '/partials/myj/partial-sc.html',
+        controller: 'ScCtrl as scVm'
       })
       .state('yfb', {
         url: '/yfb',
@@ -79,6 +85,7 @@ app
   
   .controller('MainCtrl', ['$location', MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl])
+  .controller('ScCtrl', ['$http', ScCtrl])
   .controller('DetailCtrl', ['$http', '$stateParams', DetailCtrl])
   .controller('YfbCtrl', [YfbCtrl])
   .controller('YfbAllCtrl', [YfbAllCtrl])
