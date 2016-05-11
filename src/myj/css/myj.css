@@ -4,6 +4,7 @@
 @import './second.css';
 @import './detail.css';
 @import './orderdetail.css';
+@import './shoppingCart.css';
 .pagination {
   margin-top: 24px;
   margin-bottom: 100px;

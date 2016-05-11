@@ -6,6 +6,9 @@
   <title>云梦街 - 购物车</title>
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
+  <script>
+    pagekey = 'shoppingCart'
+  </script>
 </head>
 
 <body>
@@ -22,9 +25,9 @@
     <!--购物车头部 结束-->
     <div class="shoppingCrat_cont">
       <ul class="shoppingCrat_store">
-        <li class="shoppingCrat_store_item">
+        <li class="shoppingCrat_store_item" data-ddid="10">
           <ul class="shoppingCrat_store_ttl clearfix">
-            <li class="shoppingCrat_store_ttl_item" style="width: 70px;"><a href="">全选</a></li>
+            <li class="shoppingCrat_store_ttl_item" style="width: 70px;"><a class="selectAll" href="javascript:;">全选</a></li>
             <li class="shoppingCrat_store_ttl_item" style="width: 70px;">商品图片</li>
             <li class="shoppingCrat_store_ttl_item" style="width: 528px;">商品名称</li>
             <li class="shoppingCrat_store_ttl_item" style="width: 100px;">单价</li>
@@ -37,26 +40,58 @@
             <span class="deleteAll">全部删除</span>
           </div>
           <ul>
-            <li class="shoppingCrat_item">
+            <li class="shoppingCrat_item" data-id="1">
               <ul class="shoppingCrat_commodity clearfix">
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input type="checkbox"></li>
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
                 <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
                 <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
-                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span>2222.22</span></li>
+                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
                 <li class="shoppingCrat_commodity_item" style="width: 80px;">
                   <div class="shoppingCrat_commodity_count">
                     <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
                       value="1"><span class="shoppingCrat_commodity_add">+</span>
                   </div>
                 </li>
-                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span>2222.22</span></li>
-                <li class="shoppingCrat_commodity_item" style="width: 110px;">删除</li>
+                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
+                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
+              </ul>
+            </li>
+            <li class="shoppingCrat_item" data-id="1">
+              <ul class="shoppingCrat_commodity clearfix">
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
+                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
+                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
+                <li class="shoppingCrat_commodity_item" style="width: 80px;">
+                  <div class="shoppingCrat_commodity_count">
+                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
+                      value="1"><span class="shoppingCrat_commodity_add">+</span>
+                  </div>
+                </li>
+                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
+                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
+              </ul>
+            </li>
+            <li class="shoppingCrat_item" data-id="1">
+              <ul class="shoppingCrat_commodity clearfix">
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
+                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
+                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
+                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
+                <li class="shoppingCrat_commodity_item" style="width: 80px;">
+                  <div class="shoppingCrat_commodity_count">
+                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
+                      value="1"><span class="shoppingCrat_commodity_add">+</span>
+                  </div>
+                </li>
+                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
+                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
               </ul>
             </li>
           </ul>
           <div class="clearfix">
             <a class="toPay" href="">立即结算</a>
-            <p class="totalCount">商品总金额 : <span class="redWord">2222.22</span> 元</p>
+            <p class="totalCount">商品总金额 : <span class="redWord">0</span> 元</p>
             <p class="selectedCommodity">已选择商品 <span class="redWord"> 0</span> 件</p>
           </div>
         </li>
@@ -66,6 +101,9 @@
       <button class="returnBtn">返回购物</button>
     </div>
   </div>
+  
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="/js/myj.js"></script>
 </body>
 
 </html>

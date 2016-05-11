@@ -14,6 +14,7 @@ module.exports = {
     'uc.zc': [path.join(__dirname, './src/usercenter/js/zc/zc.js')],
     'uc.zckj': [path.join(__dirname, './src/usercenter/js/zckj/zckj.js')],
     'uc.sbcs': [path.join(__dirname, './src/usercenter/js/sbcs/sbcs.js')],
+    'uc.myj': [path.join(__dirname, './src/usercenter/js/myj/myj.js')],
     home: [path.join(__dirname, './src/usercenter/js/home/home.js')], // 个人中心首页
     order: [path.join(__dirname, './src/usercenter/js/order/order.js')],  // 订单填写地址页面,不属于个人中心模块
     myj: [path.join(__dirname, './src/myj/js/main.js')]
