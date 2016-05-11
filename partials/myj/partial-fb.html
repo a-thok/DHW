@@ -1,0 +1,99 @@
+<form name="fbForm">
+  <div web-uploader
+  data-vm="fbVm"
+  data-label="商品主图1"
+  data-name="img1"
+  data-required="true"
+  data-key="o2o"
+  data-size="400x400"
+  ng-model="fbVm.data.img1"
+  ></div>
+  <div web-uploader
+  data-vm="fbVm"
+  data-label="商品主图2"
+  data-name="img2"
+  data-key="o2o"
+  data-size="400x400"
+  ng-model="fbVm.data.img2"
+  ></div>
+  <div web-uploader
+  data-vm="fbVm"
+  data-label="商品主图3"
+  data-name="img3"
+  data-key="o2o"
+  data-size="400x400"
+  ng-model="fbVm.data.img3"
+  ></div>
+  <div web-uploader
+  data-vm="fbVm"
+  data-label="商品主图4"
+  data-name="img4"
+  data-key="o2o"
+  data-size="400x400"
+  ng-model="fbVm.data.img4"
+  ></div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="产品标题"
+  data-name="name"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写产品标题'
+  data-pattern=""
+  ></div>
+    <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="门店价"
+  data-name="storePrice"
+  data-required="true"
+  data-switch="false"
+  data-pattern=""
+  ></div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="价格"
+  data-name="price"
+  data-required="true"
+  data-switch="false"
+  data-tip='请填写价格'
+  data-pattern=""
+  ></div>
+  <div select-simple
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="分类"
+  data-name="type"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item.id as item.name for item in fbVm.type"
+  ></div>
+  <div ng-repeat="photo in fbVm.photos" class="addphoto">
+    <div web-uploader 
+    data-vm="fbVm"
+    data-label="产品描述"
+    data-name="url"
+    data-size="960x960"
+    data-key="o2o"
+    data-isrepeatitem="true"
+    data-repeatitem="photo"
+    ng-model="photo.url"
+    ></div>
+    <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>
+  </div>
+  <div class="formSetWrap clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span></label>
+    <p class="formGroup_edit">
+      <input class="agreement" ng-model="fbvm.data.agree" type="checkbox" required>
+      <label>是否同意《<a href="http://www.dreamhiway.com/Xieyi/cysjxieyi.html">梦高速创意设计服务协议</a>》</label>
+    </p>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid" ng-click="fbVm.submit()">提交</button>
+    </div>
+  </div>
+</form>

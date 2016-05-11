@@ -2,6 +2,8 @@ import shangpin from './shangpin.js';
 import index from './index.js';
 import store from './store.js';
 import second from './second.js';
+import detail from './detail.js';
+import shoppingCart from './shoppingCart.js';
 
 // 图片
 import '../img/yun-logo.png'
@@ -41,5 +43,9 @@ if (pagekey === 'index') {
   store();
 } else if (pagekey === 'index2') {
   second();
+} else if (pagekey === 'detail') {
+  detail();
+} else if (pagekey === 'shoppingCart') {
+  shoppingCart();
 }
 
