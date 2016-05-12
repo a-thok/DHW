@@ -234,6 +234,7 @@ body {
  * 个人中心主内容
  */
 .ucMain {
+  height: 1660px;
   margin-top: 10px;
 }
 .ucSidebar,
