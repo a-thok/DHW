@@ -15,11 +15,11 @@ config.devtool = 'source-map';
 
 config.plugins = (config.plugins || []).concat([
   new webpack.HotModuleReplacementPlugin(),
-  // new webpack.optimize.UglifyJsPlugin({
-  //   compress: {
-  //     warnings: false
-  //   }
-  // })
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  })
 ]);
 
 module.exports = config;

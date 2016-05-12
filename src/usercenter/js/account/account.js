@@ -80,18 +80,8 @@ import ArticleCtrl from './controllers/ArticleCtrl.js';
 import WzlbCtrl from './controllers/WzlbCtrl.js';
 import WzxqCtrl from './controllers/WzxqCtrl.js';
 
-let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop', 'ui.bootstrap.pagination']);
+let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ui.bootstrap.pagination']);
 app
-  .config(function (ngJcropConfigProvider) {
-    // Used to differ the uplaod example
-    ngJcropConfigProvider.setJcropConfig('upload', {
-      bgColor: 'black',
-      bgOpacity: 0.4,
-      aspectRatio: 1,
-      maxWidth: 300,
-      maxHeight: 300
-    });
-  })
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // 从cookie获取当前个人中心类型（企业或个人）
     let logintype;

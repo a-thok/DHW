@@ -17,23 +17,18 @@ export default function avatarDirective() {
         <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
       </div>
       <div ng-show="data.logo">
-        <div class="avatarUpload clearfix"
-           ng-jcrop="obj.src"
-           ng-jcrop-config-name="upload"
-           selection="obj.selection"
-           thumbnail="obj.thumbnail">
+          <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="image">
           <div class="avatarPre">
             <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
           </div>
-        </div>
-        <div class="formSet formSet-avatar clearfix">
+        <div class="">
           <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
         </div>
       </div>
     </form>
       `;
     },
-    controller: ['$scope', '$http', function (s, h) {
+    controller: ['$scope', '$http', '$timeout', function (s, h, $timeout) {
       s.dhw = dhw;
       // var ieMode = document.documentMode;
       // var isIE = !!window.ActiveXObject;
@@ -72,27 +67,33 @@ export default function avatarDirective() {
       //     });
       //   }
       // });
-      s.obj = { src: '', selection: [], thumbnail: true };
 
-      // console.log(s.obj.selection);
 
       s.$watch('data.logo', (oldValue, newValue) => {
-        var url = dhw.imgurl + s.data.logo + '.jpg';
+        //var url = dhw.imgurl + s.data.logo + '.jpg';
         if (s.data.logo) {
-          $('.jcrop-holder').find('img').attr('ng-src', url);
-          $('.jcrop-holder').find('img').attr('src', url);
-          s.obj.src = url;
+          // $('.jcrop-holder').find('img').attr('ng-src', url);
+          // $('.jcrop-holder').find('img').attr('src', url);
+          // s.obj.src = url;
+          $timeout(function () {
+            $('#image').cropper({
+              aspectRatio: 16 / 9,
+              crop: function (e) {
+                console.log(e.x);
+                console.log(e.y);
+                console.log(e.width);
+                console.log(e.height);
+                console.log(e.rotate);
+                console.log(e.scaleX);
+                console.log(e.scaleY);
+              }
+            })
+          })
         }
       });
 
       s.submit = function () {
-        console.log(1);
-        if (s.obj.selection[0] && s.obj.selection[1] && s.obj.selection[4] && s.obj.selection[5]) {
-          s.data.x = s.obj.selection[0];
-          s.data.y = s.obj.selection[1];
-          s.data.w = s.obj.selection[4];
-          s.data.h = s.obj.selection[5];
-        }
+
         var params = $.extend({}, s.data);
 
         params.logo = (params.logo);
@@ -110,17 +111,6 @@ export default function avatarDirective() {
             }
           });
         });
-        // $.post(dhw.imgcuturl, params, (data) => {
-        //   s.$apply(() => {
-        //     s.avatar = data.path + '100x100.jpg';
-        //     s.data.logo = '';
-        //   });
-        //   h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
-        //     if (d.success) {
-        //       console.log(1);
-        //     }
-        //   });
-        // }, 'json');
       };
     }]
   };
