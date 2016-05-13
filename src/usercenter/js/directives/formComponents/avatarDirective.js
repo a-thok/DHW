@@ -17,11 +17,13 @@ export default function avatarDirective() {
         <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
       </div>
       <div ng-show="data.logo">
-          <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="image">
-          <div class="avatarPre">
-            <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
+          <div style="width:500px;overflow:hidden;margin: 20px;">
+            <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="image">
           </div>
-        <div class="">
+          <div class="avatarPre">
+            
+          </div>
+        <div style="margin: 34px;text-align:center">
           <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
         </div>
       </div>
@@ -30,10 +32,6 @@ export default function avatarDirective() {
     },
     controller: ['$scope', '$http', '$timeout', function (s, h, $timeout) {
       s.dhw = dhw;
-      // var ieMode = document.documentMode;
-      // var isIE = !!window.ActiveXObject;
-      // var isIE8 = isIE && ieMode == 8;
-      // var isIE9 = isIE && ieMode == 9;
       s.data = {
         x: 0,
         y: 0,
@@ -43,59 +41,26 @@ export default function avatarDirective() {
       h.post('/UserAccount/Img').success((data) => {
         s.avatar = data.result.logo;
       });
-      // $(function () {
-      //   $('#avatarImg').Jcrop({
-      //     allowSelect: true,
-      //     allowMove: true,
-      //     allowResize: true,
-      //     onChange: showPreview,
-      //     onSelect: showPreview,
-      //     aspectRatio: 1
-      //   });
-      //   function showPreview(coords) {
-      //     s.data.x = coords.x;
-      //     s.data.y = coords.y;
-      //     s.data.w = coords.h;
-      //     s.data.h = coords.w;
-      //     var rx = 100 / coords.w;
-      //     var ry = 100 / coords.h;
-      //     $('#preview').css({
-      //       width: Math.round(rx * 600) + 'px',
-      //       height: Math.round(ry * 600) + 'px',
-      //       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-      //       marginTop: '-' + Math.round(ry * coords.y) + 'px'
-      //     });
-      //   }
-      // });
-
-
       s.$watch('data.logo', (oldValue, newValue) => {
-        //var url = dhw.imgurl + s.data.logo + '.jpg';
+        // var url = dhw.imgurl + s.data.logo + '.jpg';
         if (s.data.logo) {
-          // $('.jcrop-holder').find('img').attr('ng-src', url);
-          // $('.jcrop-holder').find('img').attr('src', url);
-          // s.obj.src = url;
+          // 解决初始化不能及时出现裁剪框
           $timeout(function () {
             $('#image').cropper({
               aspectRatio: 16 / 9,
               crop: function (e) {
-                console.log(e.x);
-                console.log(e.y);
-                console.log(e.width);
-                console.log(e.height);
-                console.log(e.rotate);
-                console.log(e.scaleX);
-                console.log(e.scaleY);
+                s.data.x = parseInt(e.x, 10);
+                s.data.y = parseInt(e.y, 10);
+                s.data.w = parseInt(e.width, 10);
+                s.data.y = parseInt(e.height, 10);
               }
-            })
-          })
+            });
+          });
         }
       });
 
       s.submit = function () {
-
         var params = $.extend({}, s.data);
-
         params.logo = (params.logo);
         params.t = '100x100';
         params.action = 'cut';
