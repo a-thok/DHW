@@ -60,10 +60,8 @@ export default function baidumap() {
       setTimeout(() => {
         mapcity1 = $scope.$parent[$attrs.vm].mapcity;
         address = $scope.$parent[$attrs.vm].data.addr;
-        console.log(mapcity1);
         // 拼凑成新的地址
         newAddress = mapcity1 + address;
-        console.log(newAddress);
         local.search(newAddress);
       }, 800);
 

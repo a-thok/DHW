@@ -150,7 +150,7 @@
   <!--个人中心主内容 结束-->
 
   <!--通用底栏 开始-->
-  <div class="footer">
+  <div class="footer" style="height:65px">
 
   </div>
   <!--通用底栏 结束-->
@@ -167,18 +167,26 @@
   <!--<script src="/js/common.js"></script>-->
   <script src="/js/uc.account.js"></script>
   <script>
-    $('.user_cookie').on('click', function(e) {
-     var arr =  document.cookie.split(';');
-     for(var i = 0; i<arr.length; i++ ) {
-       var coo = arr[i].split('=')[0];
-       if(coo === 'accountType') {
-         console.log(1);
-         return;
-       } else {
-         console.log(2)
-       }
-     }
-    })
+    var footerHeight = 0;
+    var footerTop = 0;
+    var $footer = $(".footer");
+    function positionFooter() {
+				footerHeight = $footer.height();
+				footerTop = ($(window).scrollTop() + $(window).height() - footerHeight)+"px";
+				if ( $(document.body).height() < $(window).height()) {
+						$footer.css({
+							position: "absolute",
+              top: footerTop
+					  })
+					} else {
+						$footer.css({
+							position: "static"
+						});
+					}
+				}
+			  positionFooter();
+        // console.log($(document).height(), window.innerHeight)
+				$(window).scroll(positionFooter).resize(positionFooter);
   </script>
 </body>
 
