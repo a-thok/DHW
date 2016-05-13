@@ -21,17 +21,33 @@
     isCoporate: true
   };
   </script>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+    .user_cookie {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      margin-bottom: -65px;
+    }
+    .ucContent  {
+      padding-bottom: 95px; 
+    }
+    .footer {
+      margin: 0;
+    }
+
+  </style>
 </head>
 
 <body>
-  <!--通用顶栏 开始-->
-  <div class="siteNav">
-
-  </div>
-  <!--通用顶栏 结束-->
-
   <!--个人中心导航栏 开始-->
   <div class="user_cookie">
+    <div class="siteNav" style="height:30px">
+
+    </div>
     <div class="ucNav">
       <div class="ucNav_wrap clearfix">
         <div class="ucNav_logo">
@@ -166,28 +182,6 @@
   <script src="//cdn.dreamhiway.com/static/lib/ng-jcrop.js"></script>
   <!--<script src="/js/common.js"></script>-->
   <script src="/js/uc.account.js"></script>
-  <script>
-    var footerHeight = 0;
-    var footerTop = 0;
-    var $footer = $(".footer");
-    function positionFooter() {
-				footerHeight = $footer.height();
-				footerTop = ($(window).scrollTop() + $(window).height() - footerHeight)+"px";
-				if ( $(document.body).height() < $(window).height()) {
-						$footer.css({
-							position: "absolute",
-              top: footerTop
-					  })
-					} else {
-						$footer.css({
-							position: "static"
-						});
-					}
-				}
-			  positionFooter();
-        // console.log($(document).height(), window.innerHeight)
-				$(window).scroll(positionFooter).resize(positionFooter);
-  </script>
 </body>
 
 </html>
