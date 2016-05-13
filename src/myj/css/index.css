@@ -393,11 +393,13 @@
   width: 239px;
   height: 25px;
   margin: 0;
+  padding-left: 10px;
   line-height: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 14px;
+  color: #444;
 }
 .myj_content_item h1 a {
   color: #000;
@@ -405,12 +407,14 @@
 .myj_content_item_price {
   height: 25px;
   line-height: 25px;
+  padding-left: 10px;
   font-size: 16px;
   color: #fe5842;
 }
 .myj_content_item_jg {
   height: 24px;
   line-height: 24px;
+  padding-left: 10px;
   font-size: 12px;
   color: #999;
 }
