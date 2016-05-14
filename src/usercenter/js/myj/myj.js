@@ -20,6 +20,21 @@ import YfbAllCtrl from './controllers/yfb/YfbAllCtrl.js'
 import YfbBtgCtrl from './controllers/yfb/YfbBtgCtrl.js'
 import YfbDshCtrl from './controllers/yfb/YfbDshCtrl.js'
 import YfbTgCtrl from './controllers/yfb/YfbTgCtrl.js'
+// 买家订单
+import BuyerCtrl from './controllers/BuyerCtrl.js'
+import BuyerallCtrl from './controllers/buyercontrollers/BuyerallCtrl.js'
+import BuyercloseCtrl from './controllers/buyercontrollers/BuyercloseCtrl.js'
+import BuyerdfkCtrl from './controllers/buyercontrollers/BuyerdfkCtrl.js'
+import BuyerdshCtrl from './controllers/buyercontrollers/BuyerdshCtrl.js'
+import BuyerjywcCtrl from './controllers/buyercontrollers/BuyerjywcCtrl.js'
+// 卖家订单
+import SellerCtrl from './controllers/SellerCtrl.js'
+import SellerallCtrl from './controllers/sellercontrollers/SellerallCtrl.js'
+import SellercloseCtrl from './controllers/sellercontrollers/SellercloseCtrl.js'
+import SellerdfkCtrl from './controllers/sellercontrollers/SellerdfkCtrl.js'
+import SellerdshCtrl from './controllers/sellercontrollers/SellerdshCtrl.js'
+import SellerjywcCtrl from './controllers/sellercontrollers/SellerjywcCtrl.js'
+
 
 
 
@@ -76,6 +91,61 @@ app
         templateUrl: '/partials/myj/yfb/partial-yfb-tg.html',
         controller: 'YfbTgCtrl as yfbTgVm'
       })
+      .state('buyer', {
+        url: '/buyer',
+        templateUrl: '/partials/myj/partial-buyer.html',
+        controller: 'BuyerCtrl as buyerVm'
+      })
+      .state('buyer.all', {
+        url: '/all',
+        templateUrl: '/partials/myj/buyer/partial-buyer-all.html',
+        controller: 'BuyerallCtrl as allVm'
+      })
+      .state('buyer.dfk', {
+        url: '/dfk',
+        templateUrl: '/partials/myj/buyer/partial-buyer-dfk.html',
+        controller: 'BuyerdfkCtrl as dfkVm'
+      })
+      .state('buyer.dsh', {
+        url: '/dsh',
+        templateUrl: '/partials/myj/buyer/partial-buyer-dsh.html',
+        controller: 'BuyerdshCtrl as dshVm'
+      })
+      .state('buyer.jywc', {
+        url: '/jywc',
+        templateUrl: '/partials/myj/buyer/partial-buyer-jywc.html',
+        controller: 'BuyerjywcCtrl as jywcVm'
+      })
+      .state('seller', {
+        url: '/seller',
+        templateUrl: '/partials/myj/partial-seller.html',
+        controller: 'SellerCtrl as sellerVm'
+      })
+      .state('seller.all', {
+        url: '/all',
+        templateUrl: '/partials/myj/seller/partial-seller-all.html',
+        controller: 'SellerallCtrl as allVm'
+      })
+      .state('seller.dfk', {
+        url: '/dfk',
+        templateUrl: '/partials/myj/seller/partial-seller-dfk.html',
+        controller: 'SellerdfkCtrl as dfkVm'
+      })
+      .state('seller.dsh', {
+        url: '/dsh',
+        templateUrl: '/partials/myj/seller/partial-seller-dsh.html',
+        controller: 'SellerdshCtrl as dshVm'
+      })
+      .state('seller.jywc', {
+        url: '/jywc',
+        templateUrl: '/partials/myj/seller/partial-seller-jywc.html',
+        controller: 'SellerjywcCtrl as jywcVm'
+      })
+      .state('seller.close', {
+        url: '/close',
+        templateUrl: '/partials/myj/seller/partial-seller-close.html',
+        controller: 'SellercloseCtrl as closeVm'
+      })
 
   }])
   .directive('showAllModules', showAllModules)
@@ -92,5 +162,19 @@ app
   .controller('YfbBtgCtrl', [YfbBtgCtrl])
   .controller('YfbDshCtrl', [YfbDshCtrl])
   .controller('YfbTgCtrl', [YfbTgCtrl])
+  // 买家订单
+  .controller('BuyerCtrl', [BuyerCtrl])
+  .controller('BuyerallCtrl', ['$http', BuyerallCtrl])
+  .controller('BuyercloseCtrl', ['$http', BuyercloseCtrl])
+  .controller('BuyerdfkCtrl', ['$http', BuyerdfkCtrl])
+  .controller('BuyerdshCtrl', ['$http', BuyerdshCtrl])
+  .controller('BuyerjywcCtrl', ['$http', BuyerjywcCtrl])
+  // 卖家订单
+  .controller('SellerCtrl', [SellerCtrl])
+  .controller('SellerallCtrl', ['$http', SellerallCtrl])
+  .controller('SellercloseCtrl', ['$http', SellercloseCtrl])
+  .controller('SellerdfkCtrl', ['$http', SellerdfkCtrl])
+  .controller('SellerdshCtrl', ['$http', SellerdshCtrl])
+  .controller('SellerjywcCtrl', ['$http', SellerjywcCtrl]);
 
 export default app;

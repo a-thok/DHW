@@ -8,6 +8,7 @@ import checkListitem from './listComponents/checkListitem.js';
 import replaylist from './listComponents/replaylist.js';
 import replaylistItem from './listComponents/replaylistItem.js';
 import zbTabs from './listComponents/zbTabs.js';
+import orderList from './listComponents/orderList.js';
 
 
 let app = angular.module('listComponents', []);
@@ -20,7 +21,8 @@ app
   .directive('checkList', checkList)
   .directive('checkListitem', checkListitem)
   .directive('replaylist', replaylist)
-  .directive('replaylistItem', replaylistItem);
+  .directive('replaylistItem', replaylistItem)
+  .directive('orderList', orderList);
 
 
 export default app;
