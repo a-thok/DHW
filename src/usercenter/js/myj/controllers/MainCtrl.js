@@ -8,7 +8,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'buyer',
+      url: 'buyer.all',
       text: '买家订单',
       active: false
     }
@@ -26,7 +26,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'seller',
+      url: 'seller.all',
       text: '卖家订单',
       active: false
     },

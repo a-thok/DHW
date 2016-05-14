@@ -40,6 +40,7 @@
 @import 'home.css';
 @import 'money.css';
 @import 'setting.css';
+@import 'orderList.css';
 /* angular闪烁 */
 [ng-cloak] {
   display: none !important;
