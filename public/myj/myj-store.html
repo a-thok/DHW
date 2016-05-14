@@ -7,80 +7,161 @@
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/lib/jquery.Jcrop.min.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
-  
+
   <script type="text/html" id="store">
-  {{each data as store}}
-  <div class="myj_store_list clearfix">
-    <div class="myj_store_touxiang">
-      <img src="{{store.logo}}" alt="logo">
+    {{each data as store}}
+    <div class="myj_store_list clearfix">
+      <div class="myj_store_touxiang">
+        <img src="{{store.logo}}" alt="logo">
+      </div>
+      <div class="myj_store_detail">
+        <p class="myj_store_name">{{store.name}}</p>
+        <p class="myj_store_approve">商家认证：
+          <i class="store_approve_icon"></i>
+          <i class="store_approve_pic"></i>
+        </p>
+        <dl class="myj_store_serve clearfix">
+          <dt>主营服务：</dt>
+          <dd>{{store.myjBusiness}}</dd>
+        </dl>
+        <p class="myj_store_address">店铺地址：<span>{{store.cityName}}</span><span>{{store.addr}}</span></p>
+      </div>
+      <div class="myj_store_show">
+        {{each store.images as img}}
+        <img src="{{img}}" alt=""> {{/each}}
+      </div>
     </div>
-    <div class="myj_store_detail">
-      <p class="myj_store_name">{{store.name}}</p>
-      <p class="myj_store_approve">商家认证：
-        <i class="store_approve_icon"></i>
-        <i class="store_approve_pic"></i>
-      </p>
-      <dl class="myj_store_serve clearfix">
-        <dt>主营服务：</dt>
-        <dd>{{store.myjBusiness}}</dd>
-      </dl>
-      <p class="myj_store_address">店铺地址：<span>{{store.cityName}}</span><span>{{store.addr}}</span></p>
-    </div>
-    <div class="myj_store_show">
-      {{each store.images as img}}
-      <img src="{{img}}" alt="">
-      {{/each}}
-    </div>
-  </div>
-  {{/each}}
+    {{/each}}
   </script>
 </head>
 
 <body>
-  <div class="myj_sort_choose">
-    <div class="sort_choose_area clearfix">
-      <span>选择区域:</span>
-      <dl class="clearfix">
-        <dt>全部</dt>
-        <dl>沈阳</dl>
-        <dl>大连</dl>
-        <dl>鞍山</dl>
-        <dl>抚顺</dl>
-        <dl>本溪</dl>
-        <dl>丹东</dl>
-        <dl>锦州</dl>
-        <dl>营口</dl>
-        <dl>阜新</dl>
-        <dl>辽阳</dl>
-        <dl>盘锦</dl>
-        <dl>铁岭</dl>
-        <dl>朝阳</dl>
-        <dl>葫芦岛</dl>
+  <!--公用头部 开始-->
+  <div class="common_head">
+    <div class="search clearfix">
+      <div class="search_l">
+        <img src="../../src/myj/img/yun-logo.png" alt="">
+      </div>
+      <div class="search_m">
+        <div class="clearfix">
+          <input class="search_input" type="text"><button class="search_btn search_sp">搜商品</button><button class="search_btn search_dp">搜店铺</button>
+        </div>
+        <ul class="clearfix">
+          <li class="hot_item"><a href="">连衣裙</a></li>
+          <li class="hot_item"><a href="">智能手机</a></li>
+          <li class="hot_item"><a href="">T恤男</a></li>
+          <li class="hot_item"><a href="">商务包</a></li>
+          <li class="hot_item"><a href="">女鞋</a></li>
+          <li class="hot_item"><a href="">茶具</a></li>
+          <li class="hot_item"><a href="">丝袜</a></li>
+          <li class="hot_item"><a href="">实木床</a></li>
+        </ul>
+      </div>
+      <div class="search_r">
+        <a href=""><img src="../../src/myj/img/gouwuche.png" alt=""></a>
+        <span>0</span>
+        <i></i>
+      </div>
+    </div>
+    <div class="myjnav clearfix shangpin">
+      <div class="myjnav_l">
+        <i></i> 全国
+        <ul class="myjnav_area">
+          <li>北京</li>
+          <li>浙江</li>
+          <li>海南</li>
+          <li>天津</li>
+          <li>安徽</li>
+          <li>重庆</li>
+          <li>河北</li>
+          <li>福建</li>
+          <li>四川</li>
+          <li>山西</li>
+          <li>江西</li>
+          <li>贵州</li>
+          <li>内蒙古</li>
+          <li>山东</li>
+          <li>云南</li>
+          <li>辽宁</li>
+          <li>河南</li>
+          <li>西藏</li>
+          <li>吉林</li>
+          <li>湖北</li>
+          <li>陕西</li>
+          <li>黑龙江</li>
+          <li>湖南</li>
+          <li>甘肃</li>
+          <li>上海</li>
+          <li>广东</li>
+          <li>青海</li>
+          <li>江苏</li>
+          <li>广西</li>
+          <li>宁夏</li>
+          <li>香港</li>
+          <li>澳门</li>
+          <li>新疆</li>
+          <li>台湾</li>
+        </ul>
+      </div>
+      <ul class="myjnav_m clearfix">
+        <li class="myjnav_m_item myjnav_m_item-current">
+          <a href="">首页</a><i></i>
+        </li>
+        <li class="myjnav_m_item myjnav_m_item-hot">
+          <a href="">服饰街</a><i></i>
+        </li>
+        <li class="myjnav_m_item myjnav_m_item-new">
+          <a href="">数码电器城</a><i></i>
+        </li>
+        <li class="myjnav_m_item">
+          <a href="">艺术文化馆</a><i></i>
+        </li>
+        <li class="myjnav_m_item">
+          <a href="">美食街</a><i></i>
+        </li>
+        <li class="myjnav_m_item">
+          <a href="">日用超市</a><i></i>
+        </li>
+        <li class="myjnav_m_item">
+          <a href="">辅料街</a><i></i>
+        </li>
+      </ul>
+      <div class="myjnav_m_r">
+        <a href=""><img src="../../src/myj/img/ruzhu.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <!--公用头部 结束-->
+  <div class="myjContent">
+    <div class="filterBox">
+      <dl class="filterBox_dl areaSelect clearfix">
+        <dt class="filterBox_item">选择区域 :</dt>
+        <dd class="filterBox_item filterBox_item-current">全部</dd>
+        <dd class="filterBox_item">沈阳</dd>
+        <dd class="filterBox_item">大连</dd>
+      </dl>
+      <dl class="filterBox_dl filterBox_dl-last clearfix">
+        <dt class="filterBox_item">类型 :</dt>
+        <dd class="filterBox_item filterBox_item-current">全部</dd>
+        <dd class="filterBox_item">服饰街</dd>
+        <dd class="filterBox_item">数码电器城</dd>
+        <dd class="filterBox_item">艺术文化馆</dd>
+        <dd class="filterBox_item">美食街</dd>
+        <dd class="filterBox_item">日用超市</dd>
+        <dd class="filterBox_item">辅料街</dd>
       </dl>
     </div>
-    <div class="sort_choose_style">
-      <span>类型:</span>
-      <dl class="clearfix">
-        <dt>全部</dt>
-        <dl>服饰街</dl>
-        <dl>数码电器城</dl>
-        <dl>艺术文化馆</dl>
-        <dl>美食街</dl>
-        <dl>日用超市</dl>
-        <dl>辅料街</dl>
-      </dl>
+    <div class="myj_result clearfix">
+      <span class="paixu_all">综合排序</span>
+      <p class="store_result">找到相关店铺<span class="store_rsult_num">18</span>家</p>
     </div>
+    <!--主内容区开始-->
+    <div class="myj_content">
+
+    </div>
+    <div class="pagination"></div>
+    <!--主内容区结束-->
   </div>
-  <div class="myj_result clearfix">
-    <span class="paixu_all">综合排序</span>
-    <p class="store_result">找到相关店铺<span class="store_rsult_num">18</span>家</p>
-  </div>
-  <!--主内容区开始-->
-  <div class="myj_content">
-    
-  </div>
-  <div class="pagination"></div>
-  <!--主内容区结束-->
 
   <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
   <script src="//cdn.dreamhiway.com/static/lib/template.js"></script>
