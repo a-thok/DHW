@@ -65,11 +65,22 @@
   data-vm="fbVm"
   data-form="fbForm"
   data-label="分类"
-  data-name="type"
+  data-name="firType"
   data-required="true"
   data-switch="false"
   data-part="text"
   data-options="item.id as item.name for item in fbVm.type"
+  data-onchange="change()"
+  ></div>
+  <div select-simple
+  data-vm="fbVm"
+  data-form="fbForm"
+  data-label="二级分类"
+  data-name="secType"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item.id as item.name for item in fbVm.secType"
   ></div>
   <div ng-repeat="photo in fbVm.photos" class="addphoto">
     <div web-uploader 
@@ -83,6 +94,7 @@
     ng-model="photo.url"
     ></div>
     <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="fbVm.delphoto($index)">删除</button>
+    <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="fbVm.addphoto()" type="button">添加新图片</button>
   </div>
   <div class="formSetWrap clearfix">
     <label class="formLabel"><span class="formSet_required">*</span></label>

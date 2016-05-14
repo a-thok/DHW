@@ -71,6 +71,16 @@
   data-part="text"
   data-options="item.id as item.name for item in detailVm.type"
   ></div>
+  <div select-simple
+  data-vm="detailVm"
+  data-form="fbForm"
+  data-label="二级分类"
+  data-name="secType"
+  data-required="true"
+  data-switch="false"
+  data-part="text"
+  data-options="item.id as item.name for item in detailVm.secType"
+  ></div>
   <div ng-repeat="photo in detailVm.photos" class="addphoto">
     <div web-uploader 
     data-vm="detailVm"

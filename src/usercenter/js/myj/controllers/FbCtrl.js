@@ -1,12 +1,31 @@
 export default function FbCtrl($http) {
   var vm = this;
   vm.data = {};
+  vm.secType;
   vm.photos = [{}];
   vm.data.images = [];
   vm.data.content = [];
+  vm.addphoto = function () {
+    if (vm.photos.length < 5) {
+      vm.photos.push({});
+    } else {
+      alert('最多只能上传5张图片！');
+    }
+  };
+
+  vm.delphoto = function (index) {
+    vm.photos.splice(index, 1);
+  };
   $http.post('/Sys/o2o/Product/type').success((data) => {
     vm.type = data.result;
   })
+  vm.change = function () {
+    for (var i = 0, len = vm.type.length; i < len; i ++) {
+      if (vm.data.firType === vm.type[i].id) {
+        vm.secType = vm.type[i].items;
+      }
+    }
+  }
   vm.submit = function () {
     vm.data.images.push(vm.data.img1)
     if (vm.data.img2) {
@@ -23,12 +42,13 @@ export default function FbCtrl($http) {
         vm.data.content.push(vm.photos[i].url + '_960x960.jpg');
       }
     }
-    delete vm.data.img1, vm.data.img2, vm.data.img3, vm.data.img4;
     var para = Object.assign({}, vm.data);
+    para.type = para.firType + para.secType;
+    delete para.img1, para.img2, para.img3, para.img4, para.secType, para.firType;
     para.imagesize = '60x60_400x400';
     $http.post('/Sys/o2o/Product/add', para).success((data) => {
       if (data.success === true) {
-        console.log(1);
+        location.href = '#/yfb/all'
       } else {
         alert(data.msg)
       }
