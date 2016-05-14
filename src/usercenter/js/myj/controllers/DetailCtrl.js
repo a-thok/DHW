@@ -1,6 +1,7 @@
 export default function DetailCtrl($http, $stateParams) {
   var vm = this;
   var id = $stateParams.id;
+  vm.photos = [];
   $http.post('/Sys/o2o/Product/type').success((data) => {
     vm.type = data.result;
   })
@@ -14,6 +15,12 @@ export default function DetailCtrl($http, $stateParams) {
     for (var i = 0, len = vm.type.length; i < len; i++) {
       if (vm.data.firType === vm.type[i].id) {
         vm.secType = vm.type[i].items;
+      }
+    }
+    if (data.result.content) {
+      for (var i = 0, len = data.result.content.length; i < len; i++) {
+        vm.photos.push({});
+        vm.photos[i].url = data.result.content[i];
       }
     }
   })
