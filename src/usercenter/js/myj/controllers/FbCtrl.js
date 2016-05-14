@@ -43,8 +43,7 @@ export default function FbCtrl($http) {
       }
     }
     var para = Object.assign({}, vm.data);
-    para.type = para.firType + para.secType;
-    delete para.img1, para.img2, para.img3, para.img4, para.secType, para.firType;
+    delete para.img1, para.img2, para.img3, para.img4, para.firType;
     para.imagesize = '60x60_400x400';
     $http.post('/Sys/o2o/Product/add', para).success((data) => {
       if (data.success === true) {
