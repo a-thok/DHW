@@ -50,10 +50,13 @@ export default function listItem() {
                  <a ng-if="item.state === 3" href="javascript:;">去评价<br></a>
               </span>
               <span ng-if="${attrs.operate2}">
-                <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}</br></a>
+                <a href="${attrs.editurl2}" ng-click="${attrs.vm}.${attrs.func2}">${attrs.operation2}<br/></a>
               </span>
               <span ng-if="${attrs.operate3}">
-                <a href="${attrs.editurl3}" ng-click="${attrs.vm}.${attrs.func3}">${attrs.operation3}</a>
+                <a href="${attrs.editurl3}" ng-click="${attrs.vm}.${attrs.func3}">${attrs.operation3}<br/></a>
+              </span>
+              <span ng-if="${attrs.operate4}">
+                 <a ng-if=" item.status < 2" href="javascript:;" ng-click="${attrs.vm}.${attrs.func4}">资金拖管<br/></a>
               </span>
             </li>
             <li ng-if="${attrs.orderstate}" class="list_item_box" style="width:15%">

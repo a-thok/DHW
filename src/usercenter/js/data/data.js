@@ -79,7 +79,7 @@ export const typeids = [
       { id: 8, text: '其他' }
 ];
 // 私人定制
-export const category = [{ id: '1', name: '创意定制' }, { id: '2', name: '企业定制' }, { id: '3', name: '找代加工' }, { id: '4', name: '礼品定制' }, { id: '5', name: 'logo定制' }, { id: '6', name: '制服定制' }, { id: '7', name: '3D打印设备定制' }, { id: '8', name: '智能设备硬件加工' }];
+export const category = [{ id: '4', name: '礼品定制' }, { id: '5', name: 'logo定制' }, { id: '6', name: '制服定制' }, { id: '7', name: '3D打印设备定制' }, { id: '8', name: '智能设备硬件加工' }];
 // 创意设计品牌
 export const brand = [
   { id: '2', name: 'logo设计' },

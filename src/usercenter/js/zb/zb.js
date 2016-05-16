@@ -79,7 +79,7 @@ app
   // 公司账号 已接单
   .controller('CyjdCtrl', [CyjdCtrl])
   .controller('FbCtrl', ['$http', FbCtrl]) // 发布项目控制器
-  .controller('ScCtrl', [ScCtrl]) // 收藏控制器
+  .controller('ScCtrl', ['$http', ScCtrl]) // 收藏控制器
   .controller('YfbCtrl', ['$http', YfbCtrl])
   .controller('GyzCtrl', ['$http', '$stateParams', GyzCtrl]);
 export default app;
