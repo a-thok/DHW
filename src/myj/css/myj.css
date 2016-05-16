@@ -43,3 +43,11 @@
 .up i {
   background-position: 0 -15px;
 }
+/*底部logo*/
+.footer-l .logo {
+  height: 56px;
+  background: url('../img/myj_main_logo.png') 0px -56px no-repeat;
+}
+.footer-l:hover .logo {
+  background-position: 0px 0px;
+}

@@ -150,6 +150,9 @@
 .fuwu_sbcs i {
   background: url(../img/sbcs-2.png) no-repeat;
 }
+.fuwu_myj i {
+  background: url(../img/myj-icon.png) no-repeat;
+}
 /*中间部分*/
 .person_middle {
   float: left;

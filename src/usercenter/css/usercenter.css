@@ -186,6 +186,9 @@ body {
   &.sbcs {
     background: url(../img/sbcs.png) no-repeat;
   }
+  &.myj {
+    background: url(../img/myj.png) no-repeat;
+  }
 }
 .ucNav_list_item--all_list_item_text {
   
