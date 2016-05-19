@@ -9,6 +9,7 @@ export default function listItem() {
             <i class="list_item_del" ng-if="${attrs.del}" ng-click="vm.delItem(${attrs.delkey})"></i>
             <i class="list_item_del" ng-if="${attrs.delytjl}" ng-click="vm.delYtjl(${attrs.delkey})"></i>
             <i class="list_item_del" ng-if="${attrs.delresume}" ng-click="vm.delResume(${attrs.userid},${attrs.jobid})"></i>
+            <i class="list_item_del" ng-if="${attrs.delzb}" ng-click="vm.delZb(${attrs.id},${attrs.state})"></i>
             <span ng-show="${attrs.toptxt}">${attrs.datekeytxt} : {{item.${attrs.datekey}}}</span>
             <span ng-if="${attrs.return}"><a href="${attrs.returnurl}">sdfsdf</a></span>
           </div>
@@ -58,6 +59,13 @@ export default function listItem() {
               <span ng-if="${attrs.operate4}">
                  <a ng-if=" item.status < 2" href="javascript:;" ng-click="${attrs.vm}.${attrs.func4}">资金拖管<br/></a>
               </span>
+              <span ng-if="${attrs.operate5}">
+                 <a ng-if=" item.states === 2" href="javascript:;" ng-click="${attrs.vm}.${attrs.func5}">完成<br/></a>
+              </span>
+              <span ng-if="${attrs.operate6}">
+                 <a ng-if=" item.state === 0 && item.refundstate === 0 || item.refundstate === 2" href="javascript:;" ng-click="${attrs.vm}.${attrs.func6}">退款<br/></a>
+                 <span ng-if=" item.refundstate === 1" href="javascript:;">已申请<br/></span>
+              </span>
             </li>
             <li ng-if="${attrs.orderstate}" class="list_item_box" style="width:15%">
               <a href='/pay2/{{item.number}}' ng-if="item['state']===0">去付款</a>
@@ -67,16 +75,16 @@ export default function listItem() {
         </li>
       `;
     },
-    controller: [function() {
+    controller: [function () {
       var vm = this;
-      vm.isArray = (function() {
+      vm.isArray = (function () {
         if (Array.isArray) {
           return Array.isArray;
         }
         var objectToStringFn = Object.prototype.toString,
           arrayToStringResult = objectToStringFn.call([]);
 
-        return function(subject) {
+        return function (subject) {
           return objectToStringFn.call(subject) === arrayToStringResult;
         };
       } ());

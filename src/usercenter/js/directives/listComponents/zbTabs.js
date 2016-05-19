@@ -9,7 +9,7 @@ export default function zbTabs() {
             <li class="titleTab"
             data-url="{{item}}"
             ng-class="{ active: vm.isActive($index) }"
-            ng-click="vm.tabChanged($index,item.id)"
+            ng-click="vm.tabChanged($index,item.id,item.name)"
              >{{item.name}}</li>
           </a>
         </ul>
@@ -30,11 +30,14 @@ export default function zbTabs() {
       // 用$index判断每个标签是不是当前标签
       vm.isActive = index => index === currentTab;
       // 点击标签时，根据当前标签的$index改变currentTab的值
-      vm.tabChanged = (index, id) => {
+      vm.tabChanged = (index, id, name) => {
         currentTab = index;
         $scope.$parent[$attrs.vm].id = id;
+        if ($attrs.vm === 'jxgyzVm') {
+          $scope.$parent[$attrs.vm].tradeName = name;
+        }
         $scope.$parent[$attrs.vm].getData(1);
-        console.log(id);
+        console.log(name);
       };
     }],
     controllerAs: 'vm'

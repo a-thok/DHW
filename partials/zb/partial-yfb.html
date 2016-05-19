@@ -1,4 +1,4 @@
-<div list
+<!--<div list
      data-vm="yfbVm"
      data-api="/Zbfb/List"
      data-datekeytxt="发布时间"
@@ -14,4 +14,11 @@
      data-editurl3="#/gyz/{{item.id}}"
      data-projectname="false"
      data-link="{{ vm.dhw.urlzb }}detail/"
-></div>
+></div>-->
+<div list-tabs 
+     data-repeat="item in yfbVm.listTabs"
+     data-vm="yfbVm"
+     class="zblistTabs"
+>
+</div>
+<div ui-view></div>
