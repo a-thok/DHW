@@ -92,6 +92,13 @@
     data-repeatitem="photo"
     ng-model="photo.url"
     ></div>
-    <button class="formSet_input_btn addphoto_del_btn" ng-hide="$index===0" ng-click="detailVm.delphoto($index)">删除</button>
+    <button class="formSet_input_btn addphoto_del_btn" ng-click="detailVm.delphoto($index)">删除</button>
+    <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="detailVm.addphoto()" type="button">添加新图片</button>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <button class="formBtn formBtn--submit" type="button" ng-click="detailVm.submit()">保存</button>
+      <button class="formBtn formBtn--submit" style="margin-left: 10px;background: red;" type="button" ng-disabled="detailVm.isDisabled" ng-click="detailVm.proOff()">下架</button>
+    </div>
   </div>
 </form>

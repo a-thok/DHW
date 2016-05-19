@@ -151,3 +151,14 @@
   margin-top: 10px;
   margin-bottom: 15px;
 }
+/*列表公司名字截断*/
+.commodity_item_area_l_text {
+  display: inline-block;
+  max-width: 152px;
+  padding: 0 5px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}

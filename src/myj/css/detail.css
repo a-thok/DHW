@@ -34,7 +34,7 @@
   width: 60px;
   height: 60px;
 }
-.commodityImg_item:hover,
+/*.commodityImg_item:hover,*/
 .commodityImg_item-current {
   outline: 1px solid #ee163f;
 }

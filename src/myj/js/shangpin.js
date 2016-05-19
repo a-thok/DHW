@@ -9,7 +9,7 @@ export default function shangpin() {
     pageIndex: 1,
     pageSize: 15,
     orderby: '综合排序',
-    asc: 1
+    asc: 0
   }
   // 解析url
   function getQueryString(name) {
@@ -52,12 +52,12 @@ export default function shangpin() {
     para.orderby = '价格'
     if ($(this).hasClass('orderBy_item-current')) {
       $(this).removeClass('orderBy_item-current').addClass('up');
-      para.asc = 0;
+      para.asc = 1;
       loadData('/product/list', para, 'shangpin', '.commodity_l');
     } else {
       $('.orderBy_item').removeClass('orderBy_item-current up');
       $(this).addClass('orderBy_item-current')
-      para.asc = 1;
+      para.asc = 0;
       loadData('/product/list', para, 'shangpin', '.commodity_l');
     }
   });
@@ -66,12 +66,12 @@ export default function shangpin() {
     para.orderby = '发布时间'
     if ($(this).hasClass('orderBy_item-current')) {
       $(this).removeClass('orderBy_item-current').addClass('up');
-      para.asc = 0;
+      para.asc = 1;
       loadData('/product/list', para, 'shangpin', '.commodity_l');
     } else {
       $('.orderBy_item').removeClass('orderBy_item-current up');
       $(this).addClass('orderBy_item-current')
-      para.asc = 1;
+      para.asc = 0;
       loadData('/product/list', para, 'shangpin', '.commodity_l');
     }
   });
@@ -81,7 +81,7 @@ export default function shangpin() {
     $('.orderBy_item').removeClass('orderBy_item-current up');
     $(this).addClass('orderBy_item-current')
     para.orderby = '综合排序';
-    para.asc = 1;
+    para.asc = 0;
     loadData('/product/list', para, 'shangpin', '.commodity_l');
   })
 

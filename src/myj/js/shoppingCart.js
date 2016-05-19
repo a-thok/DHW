@@ -14,6 +14,20 @@ export default function shoppingCart() {
     $('.selectedCommodity span').text(totalCount);
     $('.totalCount span').text(Math.round(totalPrice * 100) / 100);
   })
+  // 直接输入数量的价格
+  $('.shoppingCrat_commodity_input').on('keyup', function() {
+    var count = parseInt($(this).val(), 10);
+    if (count < 0) {
+      return false;
+    } else {
+      $(this).parents('.shoppingCrat_commodity').find('.totalPrice').text(($(this).parents('.shoppingCrat_commodity').find('.simplePrice').text() * count).toFixed(2));
+      $(this).siblings('.shoppingCrat_commodity_input').val(count)
+      if ($(this).parents('.shoppingCrat_commodity').find('.commoditySelect').is(':checked')) {
+        totalPrice = Math.round((totalPrice - parseFloat($(this).parents('.shoppingCrat_commodity').find('.simplePrice').text())) * 100) / 100;
+        $('.totalCount span').text(Math.round(totalPrice * 100) / 100);
+      }
+    }
+  })
   // 点击减数量和价格
   $('.shoppingCrat_commodity_reduce').on('click', function () {
     var count = parseInt($(this).siblings('.shoppingCrat_commodity_input').val(), 10);

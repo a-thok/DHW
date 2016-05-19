@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="//cdn.dreamhiway.com/fonts/iconfont.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
   
+  <script>
+    pagekey = 'product'
+  </script>
   <script type="text/html" id="shangpin">
     {{each data as sp}}
     <li class="commodity_item">
@@ -18,7 +21,7 @@
         <p class="commodity_item_price clearfix"><span class="commodity_item_price_l">¥<span>{{sp.price}}</span></span><span class="commodity_item_price_r">门店价: ¥<span>{{sp.storePrice}}</span></span>
         </p>
         <p class="commodity_item_ttl">{{sp.name}}</p>
-        <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span>{{sp.compay}}</span>]</span> <span class="commodity_item_area_r"><span>{{sp.cityName}} </span> <span> {{sp.districtName}}</span></span>
+        <p class="commodity_item_area clearfix"><span class="commodity_item_area_l">[<span class="commodity_item_area_l_text">{{sp.compay}}</span>]</span> <span class="commodity_item_area_r"><span>{{sp.cityName}} </span> <span> {{sp.districtName}}</span></span>
         </p>
       </div>
     </li>
@@ -146,7 +149,7 @@
     <!--分类栏 结束-->
     <div class="filter-orderBy clearfix">
       <ul class="orderBy_ul clearfix">
-        <li class="orderBy_item orderBy_item_default  orderBy_item-current">综合排序</li>
+        <li class="orderBy_item orderBy_item_default orderBy_item-current">综合排序</li>
         <li class="orderBy_item orderBy_item_price">价格<i></i></li>
         <li class="orderBy_item orderBy_item_time">发布时间<i></i></li>
       </ul>

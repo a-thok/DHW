@@ -3,8 +3,7 @@ export default function FbCtrl($http) {
   vm.data = {};
   vm.secType;
   vm.photos = [{}];
-  vm.data.images = [];
-  vm.data.content = [];
+  vm.isDisabled = false;
   vm.addphoto = function () {
     if (vm.photos.length < 5) {
       vm.photos.push({});
@@ -27,6 +26,9 @@ export default function FbCtrl($http) {
     }
   }
   vm.submit = function () {
+    vm.isDisabled = true;
+    vm.data.images = [];
+    vm.data.content = [];
     vm.data.images.push(vm.data.img1)
     if (vm.data.img2) {
       vm.data.images.push(vm.data.img2)
@@ -35,7 +37,7 @@ export default function FbCtrl($http) {
       vm.data.images.push(vm.data.img3)
     }
     if (vm.data.img4) {
-      vm.data.images.push(vm.data.img3)
+      vm.data.images.push(vm.data.img4)
     }
     for (var i = 0, len = vm.photos.length; i < len; i++) {
       if (vm.photos[i].url) {
@@ -44,7 +46,7 @@ export default function FbCtrl($http) {
     }
     var para = Object.assign({}, vm.data);
     delete para.img1, para.img2, para.img3, para.img4, para.firType;
-    para.imagesize = '60x60_400x400';
+    para.imagesize = '400x400';
     $http.post('/Sys/o2o/Product/add', para).success((data) => {
       if (data.success === true) {
         location.href = '#/yfb/all'

@@ -17,5 +17,9 @@ export default function YfbCtrl() {
       name: '审核不通过',
       url: '.btg',
     },
+    {
+      name: '已下架',
+      url: '.yxj',
+    },
   ]
 }

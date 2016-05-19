@@ -36,7 +36,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'buyer',
+      url: 'buyer.all',
       text: '买家订单',
       active: false
     }

@@ -20,6 +20,7 @@ import YfbAllCtrl from './controllers/yfb/YfbAllCtrl.js'
 import YfbBtgCtrl from './controllers/yfb/YfbBtgCtrl.js'
 import YfbDshCtrl from './controllers/yfb/YfbDshCtrl.js'
 import YfbTgCtrl from './controllers/yfb/YfbTgCtrl.js'
+import YfbYxjCtrl from './controllers/yfb/YfbYxjCtrl.js'
 // 买家订单
 import BuyerCtrl from './controllers/BuyerCtrl.js'
 import BuyerallCtrl from './controllers/buyercontrollers/BuyerallCtrl.js'
@@ -49,7 +50,7 @@ app
         logintype = cookie.indexOf('1') !== -1 ? 1 : 2;
       }
     });
-    $urlRouterProvider.otherwise(logintype === 1 ? '/buyer.all' : '/fb');
+    $urlRouterProvider.otherwise(logintype === 1 ? '/sc' : '/fb');
     $stateProvider
       .state('fb', {
         url: '/fb',
@@ -90,6 +91,11 @@ app
         url: '/tg',
         templateUrl: '/partials/myj/yfb/partial-yfb-tg.html',
         controller: 'YfbTgCtrl as yfbTgVm'
+      })
+      .state('yfb.yxj', {
+        url: '/yxj',
+        templateUrl: '/partials/myj/yfb/partial-yfb-yxj.html',
+        controller: 'YfbYxjCtrl as yfbYxjVm'
       })
       .state('buyer', {
         url: '/buyer',
@@ -162,6 +168,7 @@ app
   .controller('YfbBtgCtrl', [YfbBtgCtrl])
   .controller('YfbDshCtrl', [YfbDshCtrl])
   .controller('YfbTgCtrl', [YfbTgCtrl])
+  .controller('YfbYxjCtrl', [YfbYxjCtrl])
   // 买家订单
   .controller('BuyerCtrl', [BuyerCtrl])
   .controller('BuyerallCtrl', ['$http', BuyerallCtrl])

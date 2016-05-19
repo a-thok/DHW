@@ -2,7 +2,8 @@
 data-vm="dfkVm"
 data-params='{"state":0}'
 data-api="/Sys/o2o/OrderBuyer/list"
-data-fun="cancel(item.number)"
+data-operate="true"
+data-func="cancel(item.number)"
 data-del="del(item.number)"
-data-editurl="/order/o2o/Alipay?number="
+data-editurl="/order/o2o/Alipay?number={{item.number}}"
 ></div>

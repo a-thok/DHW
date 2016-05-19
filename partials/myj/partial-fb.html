@@ -105,7 +105,7 @@
   </div>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid" ng-click="fbVm.submit()">提交</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="fbForm.$invalid || fbVm.isDisabled" ng-click="fbVm.submit()">提交</button>
     </div>
   </div>
 </form>
