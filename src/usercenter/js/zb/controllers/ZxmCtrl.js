@@ -24,8 +24,10 @@ export default function ZxmCtrl($http, $stateParams) {
     $http.post('/Zbfb/Refund', para).success((d) => {
       if (d.success) {
         alert('操作成功');
+        location.reload();
       } else {
         alert('网路原因操作失败，请刷新后重试');
+        location.reload();
       }
     });
   };

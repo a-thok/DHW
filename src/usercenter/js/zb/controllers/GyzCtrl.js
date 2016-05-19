@@ -27,8 +27,10 @@ export default function GyzCtrl($http, $stateParams) {
     $http.post('/zbfb/ZbStateEdit', { id: id }).success((d) => {
       if (d.success) {
         alert('雇佣成功');
+        location.reload();
       } else {
         alert('您已经雇佣过了');
+        location.reload();
       }
     });
   };
