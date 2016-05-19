@@ -8,7 +8,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'yfb',
+      url: 'yfb.shz',
       text: '已发布项目查询',
       active: false
     },
@@ -18,7 +18,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'cyjd',
+      url: 'cmydz.cyjd',
       text: '我的单子',
       active: false
     }
@@ -31,7 +31,7 @@ export default function MainCtrl() {
       active: false
     },
     {
-      url: 'yjd',
+      url: 'mydz.yjd',
       text: '我的单子',
       active: false
     }
@@ -43,6 +43,7 @@ export default function MainCtrl() {
   });
   if (cookies.accountType) {
     vm.accountType = cookies.accountType;
+    console.log(cookies.logintype);
     vm.logintype = cookies.logintype;
   }
   vm.routes = {

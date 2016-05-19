@@ -23,6 +23,9 @@ export default function list() {
                 data-delytjl="${attrs.delytjl}"
                 data-delresume="${attrs.delresume}"
                 data-del="${attrs.del}"
+                data-delzb="${attrs.delzb}"
+                data-id="${attrs.id}"
+                data-state="${attrs.state}"
                 data-editurl="${attrs.editurl}"
                 data-datekey="${attrs.datekey}"
                 data-datekeytxt="${attrs.datekeytxt}"
@@ -38,8 +41,12 @@ export default function list() {
                 data-editurl3="${attrs.editurl3}"
                 data-operation3="${attrs.operation3}"
                 data-operate4="${attrs.operate4}"
+                data-operate5="${attrs.operate5}"
+                data-operate6="${attrs.operate6}"
                 data-func3="${attrs.func3}"
                 data-func4="${attrs.func4}"
+                data-func5="${attrs.func5}"
+                data-func6="${attrs.func6}"
                 data-link="${attrs.link}"
                 data-area="${attrs.area}"
                 data-addre="${attrs.addre}"
@@ -87,7 +94,7 @@ export default function list() {
       } else {
         params = JSON.parse($attrs.params);
       }
-      if ($attrs.vm === 'gyzVm') {
+      if ($attrs.vm === 'gyzVm' || $attrs.vm === 'jxgyzVm' || $attrs.vm === 'zxmVm') {
         setTimeout(() => {
           $scope.$parent[$attrs.vm].getData = (pageIndex) => {
             $http.post($attrs.api, Object.assign({}, {
@@ -124,7 +131,7 @@ export default function list() {
       }
 
       // getData(1);
-      if ($attrs.vm === 'gyzVm') {
+      if ($attrs.vm === 'gyzVm' || $attrs.vm === 'jxgyzVm' || $attrs.vm === 'zxmVm') {
         vm.pageChanged = () => {
           $scope.$parent[$attrs.vm].getData(vm.currentPage);
           $window.scrollTo(0, 0);
@@ -152,6 +159,19 @@ export default function list() {
       vm.delResume = (useridkey, jobidkey) => {
         if (confirm('您真的确定要删除此条数据吗？')) {
           $http.post($attrs.delapi, { userid: useridkey, jobid: jobidkey }).success((d) => {
+            if (d.success) {
+              alert('您已删除成功');
+              getData(1);
+            } else {
+              alert('因网络原因无法进行及时删除');
+            }
+          });
+        };
+      };
+      // 众包删除功能
+      vm.delZb = (id, state) => {
+        if (confirm('您真的确定要删除此条数据吗？')) {
+          $http.post($attrs.delapi, { id: id, state: state }).success((d) => {
             if (d.success) {
               alert('您已删除成功');
               getData(1);

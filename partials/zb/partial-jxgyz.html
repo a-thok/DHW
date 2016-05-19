@@ -1,0 +1,19 @@
+<!--众包雇佣者管理页面-->
+<div zb-tabs 
+     data-repeat="item in jxgyzVm.listTabs"
+     data-vm="jxgyzVm"
+>
+</div>
+<!--<div ui-view></div>-->
+<div list
+     data-vm="jxgyzVm"
+     data-api="/zbfb/ZbDetail"
+     data-params='{"state": 2}'
+     data-operate="true"
+     data-operate5="true"
+     data-func5="hasdone(item.id, item.duid, item.unitprice, item.name)"
+     data-link="{{ vm.dhw.urlfj }}"
+     data-operate2="true"
+     data-operation2="联系威客"
+     data-editurl2="{{vm.dhw.mainurl}}apphome#/email/write?to={{item.name}}"
+></div>
