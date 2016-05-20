@@ -1,15 +1,18 @@
 .mptm {
   width: 1190px;
-  margin: 0 auto 100px;
+  margin: 0 auto 65px;
+  margin-top: 45px;
 }
 .mptm_ttl {
   height: 39px;
+  margin-bottom: 15px;
   background: url(../img/tmttl.png) no-repeat;
 }
 .mptm_l {
   position: relative;
   float: left;
-  width: 390px;
+  width: 388px;
+  overflow: hidden;
 }
 .mptm_l_big {
   width: 390px;
@@ -109,10 +112,13 @@
 .secondType {
   width: 1190px;
   margin: 0 auto;
+  margin-bottom: 45px;
+  overflow: hidden;
 }
 .secondType_l {
   float: left;
-  width: 230px;
+  width: 236px;
+  overflow: hidden;
 }
 .secondType_ttl {
   height: 80px;
@@ -169,8 +175,10 @@
   float: left;
   width: 950px;
   height: 530px;
+  overflow: hidden;
 }
 .secondType_r_t {
+  width: 980px;
   height: 344px;
 }
 .secondType_r_t img {
@@ -192,7 +200,16 @@
 .secondType_r_item {
   float: left;
   width: 228px;
+  margin-right: 10px;
+  overflow: hidden;
+  color: black;
   border: 1px solid #eee;
+}
+.secondType_r_item:hover {
+  border: 1px solid #aaa;
+}
+.secondType_r_item_last {
+  margin-right: 0;
 }
 .secondType_r_item a {
   text-decoration: none;

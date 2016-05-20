@@ -46,4 +46,13 @@ export default function index() {
   $('.fixDiv span').on('click', function () {
     document.body.scrollTop = 0;
   })
+  // 列表图片上移
+  $('.expand_img img').on('mouseover', function () {
+    $(this).animate({
+      top: -47 + 'px'
+    });
+  })
+  $('.expand_img img').on('mouseleave', function () {
+    $(this).animate({ top: 0 + 'px' });
+  })
 }

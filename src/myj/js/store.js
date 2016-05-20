@@ -10,15 +10,15 @@ export default function store() {
     pageSize: 10
   }
   // 解析url
-  function getQueryString(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) return unescape(r[2]); return null;
-  }
-  var word = getQueryString('keyword');
+  // function getQueryString(name) {
+  //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  //   var r = window.location.search.substr(1).match(reg);
+  //   if (r != null) return unescape(r[2]); return null;
+  // }
+  var word = $('.search_input').val();
   if (word) {
-    para.keyword = decodeURI(escape(word));
-    $('.search_input').val(word);
+    para.keyword = word;
+    // $('.search_input').val(word);
   }
   $.post('/store/list', para).success((data) => {
     $('.store_rsult_num').text(data.result.total)

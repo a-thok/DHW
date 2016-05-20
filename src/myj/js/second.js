@@ -1,10 +1,10 @@
 export default function second() {
-  $('.myjnav_l').mouseenter(function () {
-    $('.myjnav_area').show();
-  })
-  $('.myjnav_l').mouseleave(function () {
-    $('.myjnav_area').hide();
-  })
+  // $('.myjnav_l').mouseenter(function () {
+  //   $('.myjnav_area').show();
+  // })
+  // $('.myjnav_l').mouseleave(function () {
+  //   $('.myjnav_area').hide();
+  // })
   var index = 0;
   function slide() {
     var left = parseInt($('.slide').css('left'));

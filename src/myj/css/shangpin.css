@@ -90,9 +90,12 @@
   width: 260px;
   height: 425px;
   padding: 0 5px;
-  border: 1px solid #beabbb;
+  border: 1px solid #e5e5e5;
   margin-right: 25px;
   margin-bottom: 20px;
+}
+.commodity_item:hover {
+  border: 1px solid #ccc;
 }
 .commodity_item_t {
   margin-bottom: 25px;
@@ -118,11 +121,15 @@
 }
 .commodity_item_ttl {
   width: 260px;
-  margin-bottom: 45px;
+  margin: 6px 0 28px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 18px;
+}
+.commodity_item_ttl a {
+  text-decoration: none;
+  color: #333;
 }
 .commodity_item_area {
   font-size: 14px;

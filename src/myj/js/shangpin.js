@@ -12,15 +12,16 @@ export default function shangpin() {
     asc: 0
   }
   // 解析url
-  function getQueryString(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) return unescape(r[2]); return null;
-  }
-  var word = getQueryString('keyword');
+  // function getQueryString(name) {
+  //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  //   var r = window.location.search.substr(1).match(reg);
+  //   if (r != null) return unescape(r[2]); return null;
+  // }
+  // var word = getQueryString('keyword');
+  var word = $('.search_input').val();
   if (word) {
-    para.keyword = decodeURI(escape(word));
-    $('.search_input').val(word);
+    para.keyword = word;
+    // $('.search_input').val(word);
   }
   // 类型的选择
   $('.filterBox_dl-last dd').on('click', function () {

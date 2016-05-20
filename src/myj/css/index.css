@@ -385,9 +385,18 @@
   border-right: 1px solid #dac9d5;
   border-bottom: 1px solid #dac9d5;
 }
-.myj_content_item img {
-  width: 239px;
-  height: 190px;
+.myj_content_item .expand_img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 192px;
+  overflow: hidden;
+}
+.myj_content_item img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .myj_content_item h1 {
   width: 239px;
@@ -486,4 +495,7 @@
   background: rgba(255, 255, 255, 0.4);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ffffff',endColorstr='#66ffffff');
   z-index: 10;
+}
+.expand_title {
+  text-decoration: none;
 }
