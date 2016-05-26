@@ -9,6 +9,7 @@ import '../directives/modalComponents.js';   // 表单信息提示弹框
 
 import '../directives/formComponents.js';
 import '../directives/pagination.js';
+import '../directives/jcrop.js';
 // 指令
 
 import showAllModules from '../directives/userCenter/showAllModules.js';
@@ -82,7 +83,7 @@ import WzxqCtrl from './controllers/WzxqCtrl.js';
 
 let app = angular.module('userCenter', ['ngAnimate', 'ui.router', 'listComponents', 'formComponents', 'modalComponents', 'ngJcrop', 'ui.bootstrap.pagination']);
 app
-  .config(function (ngJcropConfigProvider) {
+  .config(['ngJcropConfigProvider', function (ngJcropConfigProvider) {
     // Used to differ the uplaod example
     ngJcropConfigProvider.setJcropConfig('upload', {
       bgColor: 'black',
@@ -91,7 +92,7 @@ app
       maxWidth: 300,
       maxHeight: 300
     });
-  })
+  }])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // 从cookie获取当前个人中心类型（企业或个人）
     let logintype;

@@ -82,6 +82,16 @@
   data-part="text"
   data-options="item.id as item.name for item in fbVm.secType"
   ></div>
+  
+  <div myj-sku
+    data-vm="fbVm"
+    data-form="fbForm"
+    data-label="产品规格"
+    data-name="sku"
+    data-required="true"
+  >
+  </div>
+  
   <div ng-repeat="photo in fbVm.photos" class="addphoto">
     <div web-uploader 
     data-vm="fbVm"

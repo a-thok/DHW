@@ -481,20 +481,24 @@
   background-position: 0 -228px;
   border-bottom: 0;
 }
-.zxdt {
+/*.zxdt {
   position: absolute;
   top: 30px;
   left: 50%;
   width: 1200px;
   margin-left: -600px;
-}
+}*/
 .myjnews {
-  float: right;
+  /*float: right;*/
+  position: relative;
+  left: 50%;
+  width: 235px;
   height: 400px;
   padding: 0 10px;
-  background: rgba(255, 255, 255, 0.4);
+  margin-left: 345px;
+  background: rgba(255, 255, 255, 0.6);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66ffffff',endColorstr='#66ffffff');
-  z-index: 10;
+  overflow: hidden;
 }
 .expand_title {
   text-decoration: none;

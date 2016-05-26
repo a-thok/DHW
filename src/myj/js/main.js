@@ -5,6 +5,9 @@ import second from './second.js';
 import detail from './detail.js';
 import shoppingCart from './shoppingCart.js';
 
+// 样式
+import '../css/myj.css';
+
 // 图片
 import '../img/yun-logo.png'
 import '../img/gouwuche.png'

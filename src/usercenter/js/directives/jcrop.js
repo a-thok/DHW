@@ -1,14 +1,24 @@
-// import $ from 'jquery';
 import angular from 'angular';
+import $ from 'jquery';
 
-let app = angular.module('ngJcrop', []);
+/**
+ * @typedef {object} Coords
+ * @property {number} x
+ * @property {number} y
+ * @property {number} x2
+ * @property {number} y2
+ * @property {number} w
+ * @property {number} h
+ */
 
-  // app.constant('FileReader', FileReader)
+export default angular.module('ngJcrop', [])
 
-  app.constant('ngJcroptDefaultConfig', {
+  // .constant('FileReader', FileReader)
+
+  .constant('ngJcroptDefaultConfig', {
     widthLimit: 1000,
     heightLimit: 1000,
-    previewImgStyle: { 'width': '100px', 'height': '100px', 'overflow': 'hidden', 'margin-left': '5px' },
+    previewImgStyle: { width: '100px', height: '100px', overflow: 'hidden', 'margin-left': '5px' },
     jcrop: {
       aspectRatio: 1,
       maxWidth: 300,
@@ -27,7 +37,7 @@ let app = angular.module('ngJcrop', []);
   '</div>'
   )
 
-  .provider('ngJcropConfig', ['ngJcroptDefaultConfig', 'ngJcropTemplate', function(ngJcroptDefaultConfig, ngJcropTemplate) {
+  .provider('ngJcropConfig', ['ngJcroptDefaultConfig', 'ngJcropTemplate', function (ngJcroptDefaultConfig, ngJcropTemplate) {
     // All configs
     var _configs = {};
 
@@ -50,36 +60,36 @@ let app = angular.module('ngJcrop', []);
     _getConfig('default');
 
     return {
-      setConfig: function(name, objConfig) {
+      setConfig: function (name, objConfig) {
         var config = _getConfig(name);
         angular.extend(config, typeof name === 'object' ? name : objConfig);
       },
-      setJcropConfig: function(name, objConfig) {
+      setJcropConfig: function (name, objConfig) {
         var config = _getConfig(name);
         angular.extend(config.jcrop, typeof name === 'object' ? name : objConfig);
       },
-      setPreviewStyle: function(name, styleObject) {
+      setPreviewStyle: function (name, styleObject) {
         var config = _getConfig(name);
         angular.extend(config.previewImgStyle, typeof name === 'object' ? name : styleObject);
       },
-      $get: function() {
+      $get: function () {
         return _configs;
       }
     };
 
   }])
 
-  .run(['$window', function($window) {
-    if (!$window.jQuery) {
-      throw new Error("jQuery isn't included");
-    }
+  // .run(['$window', function ($window) {
+  //   if (!$window.jQuery) {
+  //     throw new Error("jQuery isn't included");
+  //   }
 
-    if (!$window.jQuery.Jcrop) {
-      throw new Error("Jcrop isn't included");
-    }
-  }])
+  //   if (!$window.jQuery.Jcrop) {
+  //     throw new Error("Jcrop isn't included");
+  //   }
+  // }])
 
-  .directive('ngJcrop', ['ngJcropConfig', function(ngJcropConfig) {
+  .directive('ngJcrop', ['ngJcropConfig', function (ngJcropConfig) {
     ngJcropConfig = ngJcropConfig['default'];
 
     return {
@@ -91,44 +101,44 @@ let app = angular.module('ngJcrop', []);
 
   }])
 
-  // .directive('ngJcropInput', function() {
+  // .directive('ngJcropInput', function(){
 
-  //   return {
-  //     restrict: 'A',
-  //     controller: 'JcropInputController'
-  //   };
+  //     return {
+  //         restrict: 'A',
+  //         controller: 'JcropInputController'
+  //     };
 
   // })
 
   // .controller('JcropInputController', ['$rootScope', '$element', '$scope', 'FileReader',
-  //   function($rootScope, $element, $scope, FileReader) {
+  // function($rootScope, $element, $scope, FileReader){
 
-  //     if ($element[0].type !== 'file') {
-  //       throw new Error('ngJcropInput directive must be placed with an input[type="file"]');
+  //     if( $element[0].type !== 'file' ){
+  //         throw new Error('ngJcropInput directive must be placed with an input[type="file"]');
   //     }
 
-  //     $scope.onFileReaderLoad = function(ev) {
-  //       $rootScope.$broadcast('JcropChangeSrc', ev.target.result);
-  //       $element[0].value = '';
+  //     $scope.onFileReaderLoad = function(ev){
+  //         $rootScope.$broadcast('JcropChangeSrc', ev.target.result);
+  //         $element[0].value = '';
   //     };
 
-  //     $scope.setImage = function(image) {
-  //       var reader = new FileReader();
-  //       reader.onload = $scope.onFileReaderLoad;
-  //       reader.readAsDataURL(image);
+  //     $scope.setImage = function(image){
+  //         var reader = new FileReader();
+  //         reader.onload = $scope.onFileReaderLoad;
+  //         reader.readAsDataURL(image);
   //     };
 
-  //     $scope.onChange = function(ev) {
-  //       var image = ev.currentTarget.files[0];
-  //       $scope.setImage(image);
+  //     $scope.onChange = function(ev){
+  //         var image = ev.currentTarget.files[0];
+  //         $scope.setImage(image);
   //     };
 
   //     $element.on('change', $scope.onChange);
 
-  //   }])
+  // }])
 
   .controller('JcropController', ['$scope', '$element', 'ngJcropConfig',
-    function($scope, $element, ngJcropConfig) {
+    function ($scope, $element, ngJcropConfig) {
       if (!$scope.ngJcropConfigName) {
         $scope.ngJcropConfigName = 'default';
       }
@@ -176,7 +186,7 @@ let app = angular.module('ngJcrop', []);
        * Updates the `imgStyle` with width and height
        * @param  {Image} img
        */
-      $scope.updateCurrentSizes = function(img) {
+      $scope.updateCurrentSizes = function (img) {
         var widthShrinkRatio = img.width / ngJcropConfig.jcrop.maxWidth,
           heightShrinkRatio = img.height / ngJcropConfig.jcrop.maxHeight,
           widthConstraining = img.width > ngJcropConfig.jcrop.maxWidth && widthShrinkRatio > heightShrinkRatio,
@@ -197,7 +207,7 @@ let app = angular.module('ngJcrop', []);
       /**
        * get the current shrink ratio
        */
-      $scope.getShrinkRatio = function() {
+      $scope.getShrinkRatio = function () {
         var img = $('<img>').attr('src', $scope.mainImg[0].src)[0];
 
         if (ngJcropConfig.jcrop.maxWidth > img.width && ngJcropConfig.jcrop.maxHeight > img.height) {
@@ -219,7 +229,7 @@ let app = angular.module('ngJcrop', []);
        * set the `$scope.selection` and `$scope.originalSelection` variables
        * @param {Coords} coords An object like this: {x: 1, y: 1, x2: 1, y2: 1, w: 1, h: 1}
        */
-      $scope.setSelection = function(coords) {
+      $scope.setSelection = function (coords) {
         if (!angular.isArray($scope.coords)) {
           $scope.coords = [];
         }
@@ -248,9 +258,9 @@ let app = angular.module('ngJcrop', []);
        * Updates the preview regarding the coords form jCrop
        * @param {Coords} coords
        */
-      $scope.showPreview = function(coords) {
+      $scope.showPreview = function (coords) {
         if (!$scope.selectionWatcher) {
-          $scope.$apply(function() {
+          $scope.$apply(function () {
             $scope.setSelection(coords);
           });
         }
@@ -275,7 +285,7 @@ let app = angular.module('ngJcrop', []);
       /**
        * @event
        */
-      $scope.onMainImageLoad = function() {
+      $scope.onMainImageLoad = function () {
         $scope.mainImg.off('load', $scope.onMainImageLoad);
         $scope.updateCurrentSizes($('<img>').attr('src', $scope.mainImg[0].src)[0]);
 
@@ -288,13 +298,13 @@ let app = angular.module('ngJcrop', []);
           config.setSelect = $scope.selection;
         }
 
-        $scope.jcrop = jQuery.Jcrop($scope.mainImg[0], config);
+        $scope.jcrop = $.Jcrop($scope.mainImg[0], config);
       };
 
       /**
        * Destroys the current jcrop instance
        */
-      $scope.destroy = function() {
+      $scope.destroy = function () {
         if ($scope.jcrop) {
           if ($scope.mainImg) { $scope.mainImg.off('load'); }
           $scope.jcrop.destroy();
@@ -306,7 +316,7 @@ let app = angular.module('ngJcrop', []);
       /**
        * @init main image
        */
-      $scope.initMainImage = function(src) {
+      $scope.initMainImage = function (src) {
         $scope.mainImg = $('<img>').addClass('ng-jcrop-image');
         $scope.mainImg.on('load', $scope.onMainImageLoad);
         $scope.mainImg.css({ maxWidth: ngJcropConfig.jcrop.maxWidth, maxHeight: ngJcropConfig.jcrop.maxHeight });
@@ -316,7 +326,7 @@ let app = angular.module('ngJcrop', []);
       /**
        * @init
        */
-      $scope.init = function(src) {
+      $scope.init = function (src) {
         $scope.destroy();
 
         $scope.initMainImage(src);
@@ -330,9 +340,9 @@ let app = angular.module('ngJcrop', []);
 
       $scope.$on('$destroy', $scope.destroy);
 
-      $scope.$on('JcropChangeSrc', function(ev, src) {
+      $scope.$on('JcropChangeSrc', function (ev, src) {
 
-        $scope.$apply(function() {
+        $scope.$apply(function () {
           $scope.setSelection({
             x: 0,
             y: 0,
@@ -346,17 +356,16 @@ let app = angular.module('ngJcrop', []);
         });
       });
 
-      $scope.$watch('ngJcrop', function(newValue, oldValue, scope) {
+      $scope.$watch('ngJcrop', function (newValue, oldValue, scope) {
         scope.init(newValue);
       });
 
-      $scope.$watch('thumbnail', function(newValue, oldValue, scope) {
+      $scope.$watch('thumbnail', function (newValue, oldValue, scope) {
         if (scope.thumbnail) {
           scope.previewImg.show();
         } else {
           scope.previewImg.hide();
         }
       });
+
     }]);
-    
-export default app;

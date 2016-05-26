@@ -1,11 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const postcssImporter = require('postcss-import');
+const postcssOpacity = require('postcss-opacity');
+const postcssCssnext = require('postcss-cssnext');
 
 module.exports = {
   entry: {
     usercenter: [path.join(__dirname, './src/usercenter/css/usercenter.css')],
-    mengyunjie: [path.join(__dirname, './src/myj/css/myj.css')],
     'uc.account': [path.join(__dirname, './src/usercenter/js/account/account.js')],
     'uc.rczp': [path.join(__dirname, './src/usercenter/js/rczp/rczp.js')],
     'uc.cysj': [path.join(__dirname, './src/usercenter/js/cysj/cysj.js')],
@@ -36,10 +37,6 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
-      },
-      {
         test: /\.js$/,
         loader: 'babel',
         exclude: path.resolve(__dirname, 'node_modules')
@@ -52,23 +49,15 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         loaders: ['url?limit=10000&name=img/uc/[name].[ext]?[hash:7]']
       }
-    ],
-    // noParse: ['./src/usercenter/js/directives/jcrop.js']
+    ]
   },
-  plugins: [
-    new ExtractTextPlugin('css/[name].css'),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-  postcss() {
+  postcss(webpack) {
     return [
-      require('postcss-import')({
+      postcssImporter({
         addDependencyTo: webpack
       }),
-      require('postcss-opacity'),
-      require('postcss-cssnext')({
-        sourcemap: true
-      })
+      postcssOpacity,
+      postcssCssnext()
     ];
   }
 };

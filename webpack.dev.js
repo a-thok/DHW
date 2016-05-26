@@ -1,25 +1,23 @@
 const webpack = require('webpack');
 const config = require('./webpack.base.js');
 
-// const polyfill = 'eventsource-polyfill';
 const hotClient = 'webpack-hot-middleware/client?noInfo=true&reload=true';
-Object.keys(config.entry).forEach((name, i) => {
-  // const extras = i === 0 ? [polyfill, hotClient] : [hotClient];
-  const extras = [hotClient];
-  config.entry[name] = extras.concat(config.entry[name]);
+Object.keys(config.entry).forEach((name) => {
+  config.entry[name] = [hotClient].concat(config.entry[name]);
 });
 
 config.output.publicPath = '/';
 
-config.devtool = 'source-map';
+config.devtool = 'eval-source-map';
 
-config.plugins = (config.plugins || []).concat([
+config.module.loaders.unshift({
+  test: /\.css$/,
+  loader: 'style!css?sourceMap!postcss'
+});
+
+config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
-  // new webpack.optimize.UglifyJsPlugin({
-  //   compress: {
-  //     warnings: false
-  //   }
-  // })
-]);
+  new webpack.NoErrorsPlugin()
+];
 
 module.exports = config;
