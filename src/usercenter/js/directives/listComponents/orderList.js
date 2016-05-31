@@ -1,5 +1,3 @@
-import { dhw } from '../../data/data.js';
-
 export default function orderList() {
   return {
     replace: true,
@@ -39,7 +37,7 @@ export default function orderList() {
                 <tbody class="commodity_tbody">
                   <tr ng-repeat="items in item.items">
                     <td><a href="{{ items.url }}"><img src="{{ items.image }}" alt=""></a></td>
-                    <td>{{ items.name }}</td>
+                    <td>{{ items.name }} {{ items.skuName ? '(' + items.skuName + ')' : '' }}</td>
                     <td>{{ items.price }}</td>
                     <td>{{ items.count }}</td>
                     <td ng-if="$index === 0">{{ item.totalFee }}</td>

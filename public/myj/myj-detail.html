@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
   <link rel="stylesheet" href="/css/mengyunjie.css">
   <script>
+    var productid = 230;
     var pagekey = 'detail';
-    var dhw = {mainurl: '//localhost:8085/'};
+    var dhw = {mainurl: '//localhost:8085/', isLogined: true};
+    var product={skus:{"0,0":{"id":3,"price":2100.00},"0,1":{"id":4,"price":201.00},"1,0":{"id":5,"price":212.10},"1,1":{"id":6,"price":212.11}}};
   </script>
 </head>
 
@@ -27,7 +29,7 @@
         </ul>
       </div>
       <div class="detail_content_t_r">
-        <h1 class="commodity_ttl">这是一个测试</h1>
+        <h1 class="commodity_ttl">这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试</h1>
         <div class="commodity_content clearfix">
           <div class="commodityDetail">
             <div class="commodityPrice">
@@ -35,7 +37,20 @@
               <p class="commodityPrice_cxj">促销价<span>¥1200</span></p>
             </div>
             <div class="commodityBuy">
-              <p><label class="commodityBuy_label">运费 : </label><span>免运费</span></p>
+              <dl class="commodityBuy_sku">
+                <dt class="commodityBuy_label">颜色 : </dt>
+                <div class="commodityBuy_list">
+                  <dd title="深红1">红色1</dd>
+                  <dd title="蓝色2">蓝色11</dd>
+                </div>
+              </dl>
+              <dl class="commodityBuy_sku">
+                <dt class="commodityBuy_label">大小 : </dt>
+                <div class="commodityBuy_list">
+                  <dd title="1">1wL</dd>
+                  <dd title="d2">2wL</dd>
+                </div>
+              </dl>
               <p><label class="commodityBuy_label">购买数量 : </label><span class="commodityBuy_reduce">-</span><input class="commodityBuy_count" type="text" value="1"><span class="commodityBuy_add">+</span></p>
               <p><label class="commodityBuy_label">保障 : </label><span class="commodity_guarantee"><i></i>正品保障</span><span class="commodity_guarantee"><i></i>假一赔三</span><span class="commodity_guarantee"><i></i>按时发货</span></p>
               <div class="buyButton">

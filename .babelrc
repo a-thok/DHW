@@ -1,4 +1,4 @@
 {
-  "plugins": ["transform-object-assign"],
+  "plugins": ["transform-runtime"],
   "presets": ["es2015"]
 }

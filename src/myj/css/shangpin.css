@@ -31,7 +31,7 @@
 .filterBox_item a {
   color: #000;
 }
-.filterBox_item-current {
+.filterBox_item.is_active {
   background-color: #2aa899;
   color: #fff;
 }
@@ -55,16 +55,16 @@
   cursor: pointer;
   font-size: 14px;
 }
-.orderBy_item i{
+.orderBy_item i {
   position: absolute;
   top: 10px;
   right: 15px;
   width: 10px;
   height: 15px;
-  background: url(../img/arrow.png) no-repeat;
+  background: url("../img/arrow.png") no-repeat;
 }
-.orderBy_item-current i {
-  background: url(../img/arrow.png) no-repeat;
+.orderBy_item.up i {
+  background: url("../img/arrow.png") 0 -15px no-repeat;
 }
 .spTotal {
   float: right;
@@ -76,7 +76,7 @@
 .spTotal span {
   color: #ff0000;
 }
-.orderBy_item-current {
+.orderBy_item.is_active {
   color: #2aa899;
   background-color: #fff;
 }
@@ -168,4 +168,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   vertical-align: bottom;
+}
+
+.myjListTip {
+  font-size: 30px;
+  line-height: 10;
+  text-align: center;
 }

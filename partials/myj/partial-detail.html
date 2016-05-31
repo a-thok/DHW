@@ -73,7 +73,7 @@
   ></div>
   <div select-simple
   data-vm="detailVm"
-  data-form="fbForm"
+  data-form="detailForm"
   data-label="二级分类"
   data-name="type"
   data-required="true"
@@ -81,8 +81,16 @@
   data-part="text"
   data-options="item.id as item.name for item in detailVm.secType"
   ></div>
+
+  <div myj-sku
+    data-vm="detailVm"
+    data-form="detailForm"
+    data-label="产品规格"
+  >
+  </div>
+
   <div ng-repeat="photo in detailVm.photos" class="addphoto">
-    <div web-uploader 
+    <div web-uploader
     data-vm="detailVm"
     data-label="产品描述"
     data-name="url"
@@ -97,7 +105,7 @@
   </div>
   <div class="formSet clearfix">
     <div class="formSetWrap">
-      <button class="formBtn formBtn--submit" type="button" ng-click="detailVm.submit()">保存</button>
+      <button class="formBtn formBtn--submit" type="button" ng-disabled="detailForm.$invalid || detailVm.isDisabled" ng-click="detailVm.submit()">保存</button>
       <button class="formBtn formBtn--submit" style="margin-left: 10px;background: red;" type="button" ng-disabled="detailVm.isDisabled" ng-click="detailVm.proOff()">下架</button>
     </div>
   </div>

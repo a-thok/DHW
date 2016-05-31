@@ -49,6 +49,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "art-template": "^3.0.3",
     "is-array": "^1.0.1"
   }
 }

@@ -1,7 +1,11 @@
 export default function FbCtrl($http) {
   var vm = this;
-  vm.data = {};
-  vm.secType;
+  vm.data = {
+    // props: [{ lev: 0, name: '规格1', propEnum: [{ index: 0 }] }],
+    props: [],
+    sku: []
+  };
+  // vm.secType;
   vm.photos = [{}];
   vm.isDisabled = false;
   vm.addphoto = function () {
@@ -45,6 +49,12 @@ export default function FbCtrl($http) {
       }
     }
     var para = Object.assign({}, vm.data);
+    para.props.forEach((prop, i) => {
+      prop.lev = i;
+      prop.propEnum.forEach((item, _i) => {
+        item.index = _i;
+      });
+    });
     delete para.img1, para.img2, para.img3, para.img4, para.firType;
     para.imagesize = '400x400';
     $http.post('/Sys/o2o/Product/add', para).success((data) => {

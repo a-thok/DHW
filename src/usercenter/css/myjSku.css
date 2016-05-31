@@ -1,0 +1,50 @@
+.myjSku_prop_item {
+  overflow: hidden;
+}
+.myjSku_prop {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1em;
+}
+.myjSku_porp_title {
+  margin-bottom: 2em;
+}
+.myjSku_porp_title input {
+  width: 100px;
+  margin-right: 1.4em;
+}
+.myjSku_prop_item input {
+  width: 180px;
+  margin-right: 1.4em;
+  margin-bottom: 1em;
+}
+.myjSku_prop_item input:first-child {
+  width: 240px;
+}
+.myjSku_prop_addItem {
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+.myjSku_table_title {
+  border-top: 1px solid #eee;
+  margin-top: 1em;
+  color: #999;
+  line-height: 3;
+}
+.myjSku_table {
+  width: 100%;
+}
+.myjSku_table th {
+  font-size: 16px;
+  font-weight: normal;
+  color: #999;
+}
+.myjSku_table td,
+.myjSku_table th {
+  border: 1px solid #ccc;
+  padding: .5em;
+  text-align: center;
+}
+.myjSku_table input {
+  width: 80px;
+}

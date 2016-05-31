@@ -14,8 +14,9 @@
 }
 .search_input {
   float: left;
-  width: 378px;
+  width: 346px;
   height: 38px;
+  padding: 0 16px;
   border: 1px solid #2aa899;
 }
 .search_btn {

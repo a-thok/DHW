@@ -82,6 +82,12 @@ export default function DetailCtrl($http, $stateParams) {
       }
     }
     var para = Object.assign({}, vm.data);
+    para.props.forEach((prop, i) => {
+      prop.lev = i;
+      prop.propEnum.forEach((item, _i) => {
+        item.index = _i;
+      });
+    });
     delete para.img1, para.img2, para.img3, para.img4, para.firType;
     para.imagesize = '400x400';
     $http.post('/Sys/o2o/Product/edit', para).success((data) => {

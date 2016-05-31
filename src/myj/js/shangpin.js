@@ -1,16 +1,88 @@
+import $ from 'jquery';
+import loadList from './loaddata.js';
+
 export default function shangpin() {
-  $('.myjnav_l').mouseenter(function () {
-    $('.myjnav_area').show();
-  })
-  $('.myjnav_l').mouseleave(function () {
-    $('.myjnav_area').hide();
-  })
-  var para = {
-    pageIndex: 1,
-    pageSize: 15,
-    orderby: '综合排序',
-    asc: 0
+  $('.myjnav_l').mouseenter(() => $('.myjnav_area').show()).
+    mouseleave(() => $('.myjnav_area').hide());
+
+  const config = {
+    api: '/product/list',
+    templateId: 'shangpin',
+    container: '.commodity_l',
+    params: {
+      pageIndex: 1,
+      pageSize: 15,
+      orderby: '综合排序',
+      asc: 0,
+    },
+    cbAfter(data) { $('.spTotal span').text(data.result.total); }
+  };
+
+  // 搜索关键字
+  const keyword = $.trim($('.search_input').val());
+  if (keyword) config.params.keyword = keyword;
+
+  const activeCity = $('.filterBox_item.is_active[data-city]').attr('data-city');
+  const activeType = $('.filterBox_item.is_active[data-type]').attr('data-type');
+  const container = $('.commodity_l');
+  if (activeCity === '00') {
+    container.html('<div class="myjListTip">请选择城市范围</div>');
+    return;
+  } else if (activeType === '0') {
+    container.html('<div class="myjListTip">请选择类型</div>');
+    return;
+  } else {
+    // 首次加载
+    config.params.city = activeCity;
+    config.params.type = activeType;
+    loadList(config);
   }
+
+  // 选择 城市 和 类型
+  $('.filterBox_dl').on('click', 'dd', (e) => {
+    const active = $(e.target);
+    active.parent().find('dd').removeClass('is_active');
+    active.addClass('is_active');
+
+    const prop = active.parent().index() === 0 ? 'city' : 'type';
+    config.params[prop] = active.attr(`data-${prop}`);
+    loadList(config);
+  });
+
+  // 排序
+  const orderbyItems = $('.orderBy_item');
+  orderbyItems.on('click', (e) => {
+    const target = $(e.target);
+
+    if (target.hasClass('is_active')) {
+      if (target.hasClass('noAsc')) return;
+      config.params.asc = +!!!config.params.asc;
+      if (config.params.asc) {
+        target.addClass('up');
+      } else {
+        target.removeClass('up');
+      }
+    } else {
+      orderbyItems.removeClass('is_active');
+      orderbyItems.removeClass('up');
+      target.addClass('is_active');
+
+      const text = target.text();
+      config.params.orderby = text;
+      config.params.asc = 0;
+    }
+    loadList(config);
+  });
+
+  // 搜索
+  $('.search_sp').on('click', () => {
+    const keyword = $.trim($('.search_input').val());
+    if (!keyword) return;
+    config.params.keyword = keyword;
+    loadList(config);
+  });
+}
+
   // 解析url
   // function getQueryString(name) {
   //   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -18,82 +90,3 @@ export default function shangpin() {
   //   if (r != null) return unescape(r[2]); return null;
   // }
   // var word = getQueryString('keyword');
-  var word = $('.search_input').val();
-  if (word) {
-    para.keyword = word;
-    // $('.search_input').val(word);
-  }
-  // 类型的选择
-  $('.filterBox_dl-last dd').on('click', function () {
-    var index = $(this).index();
-    if (index === 0) {
-      return false;
-    }
-    $('.filterBox_dl-last dd').removeClass('filterBox_item-current').eq(index - 1).addClass('filterBox_item-current')
-    var type = $(this).attr('data-type')
-    para.type = type;
-    loadData('/product/list', para, 'shangpin', '.commodity_l');
-  })
-  // 地区选择
-  $('.areaSelect dd').on('click', function () {
-    var index = $(this).index();
-    if (index === 0) {
-      return false;
-    }
-    $('.areaSelect dd').removeClass('filterBox_item-current').eq(index - 1).addClass('filterBox_item-current')
-    var city = $(this).attr('data-city')
-    para.city = city;
-    loadData('/product/list', para, 'shangpin', '.commodity_l');
-  })
-  // 默认排序
-  loadData('/product/list', para, 'shangpin', '.commodity_l');
-
-  // 价格排序
-  $('.orderBy_item_price').on('click', function () {
-    para.orderby = '价格'
-    if ($(this).hasClass('orderBy_item-current')) {
-      $(this).removeClass('orderBy_item-current').addClass('up');
-      para.asc = 1;
-      loadData('/product/list', para, 'shangpin', '.commodity_l');
-    } else {
-      $('.orderBy_item').removeClass('orderBy_item-current up');
-      $(this).addClass('orderBy_item-current')
-      para.asc = 0;
-      loadData('/product/list', para, 'shangpin', '.commodity_l');
-    }
-  });
-  // 时间排序
-  $('.orderBy_item_time').on('click', function () {
-    para.orderby = '发布时间'
-    if ($(this).hasClass('orderBy_item-current')) {
-      $(this).removeClass('orderBy_item-current').addClass('up');
-      para.asc = 1;
-      loadData('/product/list', para, 'shangpin', '.commodity_l');
-    } else {
-      $('.orderBy_item').removeClass('orderBy_item-current up');
-      $(this).addClass('orderBy_item-current')
-      para.asc = 0;
-      loadData('/product/list', para, 'shangpin', '.commodity_l');
-    }
-  });
-
-  // 综合排序
-  $('.orderBy_item_default').on('click', function () {
-    $('.orderBy_item').removeClass('orderBy_item-current up');
-    $(this).addClass('orderBy_item-current')
-    para.orderby = '综合排序';
-    para.asc = 0;
-    loadData('/product/list', para, 'shangpin', '.commodity_l');
-  })
-
-  // 关键字搜索
-  $('.search_sp').on('click', function () {
-    var keyword = $('.search_input').val();
-    if (keyword === '') {
-      return false;
-    }
-    para.keyword = keyword;
-    loadData('/product/list', para, 'shangpin', '.commodity_l');
-  });
-}
-

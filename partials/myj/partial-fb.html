@@ -82,18 +82,16 @@
   data-part="text"
   data-options="item.id as item.name for item in fbVm.secType"
   ></div>
-  
+
   <div myj-sku
     data-vm="fbVm"
     data-form="fbForm"
     data-label="产品规格"
-    data-name="sku"
-    data-required="true"
   >
   </div>
-  
+
   <div ng-repeat="photo in fbVm.photos" class="addphoto">
-    <div web-uploader 
+    <div web-uploader
     data-vm="fbVm"
     data-label="产品描述"
     data-name="url"
@@ -110,7 +108,7 @@
     <label class="formLabel"><span class="formSet_required">*</span></label>
     <p class="formGroup_edit">
       <input class="agreement" ng-model="fbvm.data.agree" type="checkbox" required>
-      <label>是否同意《<a href="http://www.dreamhiway.com/Xieyi/cysjxieyi.html">梦高速创意设计服务协议</a>》</label>
+      <label>是否同意《<a href="http://www.dreamhiway.com/Xieyi/myjxieyi.html">梦高速创意设计服务协议</a>》</label>
     </p>
   </div>
   <div class="formSet clearfix">

@@ -36,13 +36,13 @@
 .pagination span.disabled {
   color: #aaa;
 }
-.up {
+/*.up {
   color: #2aa899;
-  background-color: #fff 
+  background-color: #fff
 }
 .up i {
   background-position: 0 -15px;
-}
+}*/
 /*底部logo*/
 .footer-l .logo {
   height: 56px;

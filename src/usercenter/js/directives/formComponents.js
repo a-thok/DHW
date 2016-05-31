@@ -26,6 +26,9 @@ import colpickDirective from './formComponents/colpickDirective.js';
 import fileUploader from './formComponents/fileUploader.js';
 // 百度地图
 import baidumap from './formComponents/baidumap.js';
+// 梦云街SKU
+import myjSku from './formComponents/myjSku.js';
+
 let app = angular.module('formComponents', []);
 app
   // input text类型
@@ -63,6 +66,7 @@ app
   // 百度地图
   .directive('baidumap', baidumap)
   .directive('passWord', passWord)
+  .directive('myjSku', myjSku)
 
   // 个人中心企业上传图片指令--有新增功能
   .directive('addPhoto', addPhoto)
