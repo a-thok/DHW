@@ -99,7 +99,7 @@ export default function avatarDirective() {
             $scope.avatar = data.path + '100x100.jpg';
             $scope.data.logo = '';
           });
-          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar }).success((d) => {
+          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar, imagesize: '100x100_200x200' }).success((d) => {
             if (d.success) {
               console.log(1);
             }
