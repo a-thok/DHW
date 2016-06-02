@@ -203,8 +203,9 @@
   text-align: center;
 }
 .storeName a {
-  color: #000;
+  color: #333;
   font-size: 18px;
+  text-decoration: none;
 }
 .storeDetail_letter {
   display: inline-block;
@@ -319,4 +320,19 @@
   width: 18px;
   height: 15px;
   background: url("../img/selected.png") no-repeat;
+}
+
+.storeDetail_links {
+  text-align: center;
+  margin-bottom: .5em;
+}
+.storeDetail_link {
+  padding: .2em .5em;
+  border: 1px solid #f74b0c;
+  font-size: 12px;
+  color: #f74b0c;
+  text-decoration: none;
+}
+.storeDetail_link:first-child {
+  margin-right: .5em;
 }

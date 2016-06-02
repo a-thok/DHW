@@ -87,11 +87,18 @@ export default function shoppingCart() {
 
   // 点击单个删除
   $('.cart_delete').on('click', (e) => {
-    const item = $(e.target).parents('tr');
+    const self = $(e.target);
+    const store = self.parents('.cart_store');
+    const allItemCount = store.find('tbody tr').length;
+    const item = self.parents('tr');
     const id = item.attr('data-id');
     $.post('/ShopCart/del', { id }).success((data) => {
       if (data.success) {
-        item.remove();
+        if (allItemCount <= 1) {
+          store.remove();
+        } else {
+          item.remove();
+        }
       } else {
         alert('服务器错误，请稍后重试');
       }

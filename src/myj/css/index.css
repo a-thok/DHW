@@ -327,6 +327,10 @@
   margin: 0 20px 0 5px;
   background: url(../img/icon.png) no-repeat 0 -60px;
 }
+.myj_content_ttl_l a {
+  color: #4b7fcf;
+  text-decoration: none;
+}
 .myj_content_ttl_r {
   float: right;
   height: 43px;
@@ -379,6 +383,10 @@
   width: 100px;
   margin-bottom: 15px;
   font-size: 14px;
+}
+.myj_content_cont_l li a {
+  color: #333;
+  text-decoration: none;
 }
 .myj_content_item {
   float: left;

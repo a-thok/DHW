@@ -20,6 +20,9 @@ textarea {
   display: block;
   clear: both;
 }
+button {
+  cursor: pointer;
+}
 
 
 .pagination {
