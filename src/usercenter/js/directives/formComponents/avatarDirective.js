@@ -91,7 +91,7 @@ export default function avatarDirective() {
         var params = $.extend({}, $scope.data);
 
         params.logo = (params.logo);
-        params.t = '100x100';
+        params.t = '100x100_200x200';
         params.action = 'cut';
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
           // console.log('我是后台返回的数据' + data);
@@ -99,7 +99,7 @@ export default function avatarDirective() {
             $scope.avatar = data.path + '100x100.jpg';
             $scope.data.logo = '';
           });
-          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar }).success((d) => {
+          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar, imagesize: '100x100_200x200' }).success((d) => {
             if (d.success) {
               console.log(1);
             }
