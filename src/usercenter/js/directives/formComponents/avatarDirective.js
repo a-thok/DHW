@@ -91,7 +91,7 @@ export default function avatarDirective() {
         var params = $.extend({}, $scope.data);
 
         params.logo = (params.logo);
-        params.t = '100x100';
+        params.t = '100x100_200x200';
         params.action = 'cut';
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
           // console.log('我是后台返回的数据' + data);
