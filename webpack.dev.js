@@ -15,9 +15,9 @@ config.module.loaders.unshift({
   loader: 'style!css?sourceMap!postcss'
 });
 
-config.plugins = [
+config.plugins = (config.plugins || []).concat([
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin()
-];
+]);
 
 module.exports = config;

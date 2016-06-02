@@ -1,5 +1,6 @@
 const webpack = require('webpack');
-const config = require('./webpack.dev.js');
+const IE8 = process.env.NODE_ENV === 'ie8';
+const config = IE8 ? require('./webpack.dev.ie.js') : require('./webpack.dev.js');
 const compiler = webpack(config);
 
 const express = require('express');
@@ -17,8 +18,10 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 
-const webpackHotMiddleware = require('webpack-hot-middleware');
-app.use(webpackHotMiddleware(compiler));
+if (!IE8) {
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  app.use(webpackHotMiddleware(compiler));
+}
 
 const proxy = require('proxy-middleware');
 const url = require('url');
