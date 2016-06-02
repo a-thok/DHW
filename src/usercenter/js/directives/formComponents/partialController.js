@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 export default function partialController($scope, $attrs, $http, $stateParams, vm) {
   vm.isPlain = $scope.$eval($attrs.switch);
 

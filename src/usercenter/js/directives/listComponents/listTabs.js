@@ -2,7 +2,7 @@ export default function listTabs() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
+    template(elem, attrs) {
       return `
         <ul class="titleTabs clearfix">
           <a  ng-repeat="${attrs.repeat}" ui-sref="{{item.url}}">
@@ -15,7 +15,7 @@ export default function listTabs() {
         </ul>
       `;
     },
-    controller: ['$location', '$attrs', '$scope', function ($location, $attrs, $scope) {
+    controller: ['$location', '$attrs', '$scope', function Ctrl($location, $attrs, $scope) {
       let vm = this;
       // 当前选中标签，默认第一个
       let currentTab = 0;

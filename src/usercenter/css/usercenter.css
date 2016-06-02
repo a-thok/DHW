@@ -3,16 +3,15 @@
 /*通用底部*/
 @import 'footer.css';
 /*取色器插件*/
-@import 'colpick.css';
+@import 'angular-color-picker/angular-color-picker.css';
 /*富文本插件*/
-@import 'wangEditor.css';
+@import 'wangEditor/dist/css/wangEditor.css';
 /*头像裁剪*/
 @import 'jquery.Jcrop.min.css';
 /* 表单页控件 */
 @import 'form.css';
 @import 'calender.css';
 @import 'webuploader.css';
-@import 'richText.css';
 @import 'modal.css';
 /* 列表页 */
 @import 'listTabs.css';
@@ -53,7 +52,7 @@
  */
 body {
   background-color: var(--bodyColor);
-  font-size:10px;
+  font-size:10px; /* 有问题！！！ */
 }
 
 .ucNav_wrap,
@@ -62,10 +61,10 @@ body {
   margin: 0 auto;
 }
 
-/* 
+/*
  * 个人中心导航栏
  */
- 
+
 .ucNav {
   background-color: var(--emColor);
 }
@@ -193,7 +192,7 @@ body {
   }
 }
 .ucNav_list_item--all_list_item_text {
-  
+
   line-height: 1.5;
 }
 
@@ -258,7 +257,7 @@ body {
   text-align: center;
   cursor: pointer;
 }
- 
+
 /* * 侧边栏 * */
 .ucSidebar {
   float: left;
@@ -386,7 +385,7 @@ body {
   margin-right: 10px;
   text-align: right;
   float: left;
-  font-size: 16px; 
+  font-size: 16px;
 }
 .comment_col .comment_content {
   float: left;
@@ -422,7 +421,7 @@ body {
 }
 .comment_content .stars {
   float: right;
-  margin-left: 13px; 
+  margin-left: 13px;
 }
 .star {
   display: inline-block;
@@ -487,7 +486,7 @@ body {
 .box_close {
   position: absolute;
   top: 12px;
-  right: 14px; 
+  right: 14px;
   width: 15px;
   height: 15px;
   background: url('../img/closeBtn.png') no-repeat 0px 0px;

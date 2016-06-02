@@ -1,5 +1,4 @@
 // 个人关注项目列表控制器
-import { dhw } from '../../data/data.js';
 export default function PgzCtrl($http) {
   var vm = this;
   vm.dhw = dhw;

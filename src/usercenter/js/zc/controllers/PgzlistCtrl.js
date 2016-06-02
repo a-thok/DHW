@@ -1,5 +1,4 @@
 // 个人关注列表控制器
-import { dhw } from '../../data/data.js';
 export default function PgzlistCtrl($http) {
   var vm = this;
   vm.dhw = dhw;

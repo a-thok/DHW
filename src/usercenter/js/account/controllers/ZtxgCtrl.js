@@ -1,4 +1,3 @@
-// // import colpick from 'colpick';
 import $ from 'jquery';
 import angular from 'angular';
 export default function ZtxgCtrl($scope, $http) {

@@ -1,5 +1,4 @@
 import template from 'art-template/dist/template.js';
-import { dhw } from '../data/data.js';
 
 export default function loadData(params) {
   $.post(params.path, params.para, function(data) {

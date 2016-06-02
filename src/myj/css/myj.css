@@ -5,6 +5,23 @@
 @import './detail.css';
 @import './orderdetail.css';
 @import './shoppingCart.css';
+
+/* 临时，为了覆盖旧general里的代码，迁移到新general.cssh后可删除 */
+body,
+input,
+select,
+button,
+textarea {
+  font: menu;
+  font-size: 16px;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
 .pagination {
   margin-top: 24px;
   margin-bottom: 100px;

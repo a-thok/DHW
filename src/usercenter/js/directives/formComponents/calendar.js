@@ -4,65 +4,63 @@ export default function calendar() {
   return {
     replace: true,
     scope: true,
-    template: function(elem, attrs) {
-      return `
-        <div class="formGourp clearfix">
-          <div class="formGourp_wrap">
-            <label class="formLabel" for="${attrs.name}">
-              <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
-            </label>
-            <div class="formGroup_display" ng-show="vm.isPlain">
-              {{${attrs.vm}.data.${attrs.name}}}
-              <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
-            </div>
-            <div class="formGroup_edit"  ng-show="!vm.isPlain">
-              <input class="formInput formInput--readonly" id="${attrs.name}" name="${attrs.name}" type="text"
-                ng-model="${attrs.vm}.data.${attrs.name}"
-                ng-focus="vm.show()"
-                ng-required="${attrs.required}"
-                ng-change="${attrs.change}"
-                ng-disabled="${!!attrs.issecond}"
-              readonly>
-              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
-              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
-            </div>
+    template(elem, attrs) {
+      return `<div class="formGourp clearfix">
+        <div class="formGourp_wrap">
+          <label class="formLabel" for="${attrs.name}">
+            <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
+          </label>
+          <div class="formGroup_display" ng-show="vm.isPlain">
+            {{${attrs.vm}.data.${attrs.name}}}
+            <button class="formSwitch" type="button" ng-click="vm.edit(${attrs.vm}.data.${attrs.name})">修改</button>
           </div>
-          <div class="clndr" ng-show="vm.isShow">
-            <div class="clndr_close" ng-click="vm.hide()">×</div>
-            <div class="clndr_y">
-              <button class="clndr_y_btn" type="button" ng-click="vm.prevYear()">-</button>
-              <span>{{vm.year}}</span>
-              <button class="clndr_y_btn" type="button" ng-click="vm.nextYear()">+</button>
-            </div>
-            <div class="clndr_body clearfix">
-              <ul class="clndr_m">
-                <li class="clndr_m_item"
-                  ng-repeat="month in vm.months"
-                  ng-class="{
-                    current:vm.isCurrentMonth(month),
-                    disabled:vm.isLessThanMonth(month),
-                    active: vm.isSelectedMonth(month)
-                  }"
-                  ng-click="vm.selectMonth($event, month)"
-                >{{month}}月</li>
-              </ul>
-              <ul class="clndr_d">
-                <li class="clndr_d_item"
-                  ng-repeat="date in vm.dates"
-                  ng-class="{
-                    current:vm.isCurrentDate(date),
-                    disabled:vm.isEarlierDate(date),
-                    active: vm.isSelectedDate(date)
-                  }"
-                  ng-click="vm.selectDate($event, date);${attrs.vm}.data.${attrs.name}=vm.result"
-                >{{date}}</li>
-              </ul>
-            </div>
+          <div class="formGroup_edit"  ng-show="!vm.isPlain">
+            <input class="formInput formInput--readonly" id="${attrs.name}" name="${attrs.name}" type="text"
+              ng-model="${attrs.vm}.data.${attrs.name}"
+              ng-focus="vm.show()"
+              ng-required="${attrs.required}"
+              ng-change="${attrs.change}"
+              ng-disabled="${!!attrs.issecond}"
+            readonly>
+            <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
+            <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
           </div>
         </div>
-      `;
+        <div class="clndr" ng-show="vm.isShow">
+          <div class="clndr_close" ng-click="vm.hide()">×</div>
+          <div class="clndr_y">
+            <button class="clndr_y_btn" type="button" ng-click="vm.prevYear()">-</button>
+            <span>{{vm.year}}</span>
+            <button class="clndr_y_btn" type="button" ng-click="vm.nextYear()">+</button>
+          </div>
+          <div class="clndr_body clearfix">
+            <ul class="clndr_m">
+              <li class="clndr_m_item"
+                ng-repeat="month in vm.months"
+                ng-class="{
+                  current:vm.isCurrentMonth(month),
+                  disabled:vm.isLessThanMonth(month),
+                  active: vm.isSelectedMonth(month)
+                }"
+                ng-click="vm.selectMonth($event, month)"
+              >{{month}}月</li>
+            </ul>
+            <ul class="clndr_d">
+              <li class="clndr_d_item"
+                ng-repeat="date in vm.dates"
+                ng-class="{
+                  current:vm.isCurrentDate(date),
+                  disabled:vm.isEarlierDate(date),
+                  active: vm.isSelectedDate(date)
+                }"
+                ng-click="vm.selectDate($event, date);${attrs.vm}.data.${attrs.name}=vm.result"
+              >{{date}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>`;
     },
-    controller: ['$scope', '$attrs', '$http', '$stateParams', function($scope, $attrs, $http, $stateParams) {
+    controller: ['$scope', '$attrs', '$http', '$stateParams', function Ctrl($scope, $attrs, $http, $stateParams) {
       let vm = this;
       partialController($scope, $attrs, $http, $stateParams, vm);
       // 日历显示切换
@@ -113,7 +111,7 @@ export default function calendar() {
           return true;
         }
       };
-      
+
       // 是否小于当前月
       // vm.isLessThanMonth = (month) => {
       //   if (vm.year <= vm._year && (month - 1) < vm._month) {
@@ -167,19 +165,18 @@ export default function calendar() {
 
       if ($attrs.issecond) {
         $scope.$parent.$watch('date', (newV) => {
-          vm.year = newV
-        })
+          vm.year = newV;
+        });
       }
 
       if ($attrs.issecond) {
         $scope.$parent.$watch('date', (newV) => {
-          vm.year = newV
-        })
+          vm.year = newV;
+        });
       }
 
       // 计算不同月的合法日期
       vm.setDates = (month) => {
-
         function calDates(last) {
           let arr = [];
           for (let i = 1; i <= last; i++) {
@@ -208,12 +205,14 @@ export default function calendar() {
           // 2月
           case '02':
             // 是否是闰年
-            if (0 == vm.year % 4 && ((vm.year % 100 != 0) || (vm.year % 400 == 0))) {
+            if (vm.year % 4 === 0 && ((vm.year % 100 !== 0) || (vm.year % 400 === 0))) {
               calDates(29);
             } else {
               calDates(28);
             }
             break;
+          default:
+            return null;
         }
       };
 

@@ -1,29 +1,27 @@
 import WebUploader from 'web-uploader';
-import { dhw } from '../../data/data.js';
 import $ from 'jquery';
+
 export default function fileUpLoader() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
-      return `
-        <div class="formGourp clearfix">
-          <div class="formGourp_wrap">
-            <label class="formLabel" for="${attrs.name}">
-              <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
-            </label>
-            <div class="wu-example formUploadImg">
-              <!--用来存放文件信息-->
-              <div class="uploader-list" style="float:right"></div>
-              <div class="btns">
-                  <div class="picker">选择文件</div>
-              </div>
+    template(elem, attrs) {
+      return `<div class="formGourp clearfix">
+        <div class="formGourp_wrap">
+          <label class="formLabel" for="${attrs.name}">
+            <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
+          </label>
+          <div class="wu-example formUploadImg">
+            <!--用来存放文件信息-->
+            <div class="uploader-list" style="float:right"></div>
+            <div class="btns">
+                <div class="picker">选择文件</div>
             </div>
           </div>
         </div>
-      `;
+      </div>`;
     },
-    link: function (scope, elem, attrs) {
+    link(scope, elem, attrs) {
       var uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',

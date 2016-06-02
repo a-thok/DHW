@@ -1,5 +1,4 @@
 // 企业已发布项目
-import { dhw } from '../../data/data.js';
 export default function YfbCtrl() {
   var vm = this;
   vm.dhw = dhw;

@@ -1,5 +1,3 @@
-import { dhw } from '../../data/data.js';
-
 // 个人已发项目查询
 export default function PyfbCtrl($http) {
   var vm = this;

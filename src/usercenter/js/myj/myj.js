@@ -122,6 +122,11 @@ app
         templateUrl: '/partials/myj/buyer/partial-buyer-jywc.html',
         controller: 'BuyerjywcCtrl as jywcVm'
       })
+      .state('buyer.close', {
+        url: '/close',
+        templateUrl: '/partials/myj/buyer/partial-buyer-close.html',
+        controller: 'BuyercloseCtrl as closeVm'
+      })
       .state('seller', {
         url: '/seller',
         templateUrl: '/partials/myj/partial-seller.html',
@@ -158,7 +163,7 @@ app
   .directive('navSlide', navSlide)
   .directive('sideBar', sideBar)
   .directive('switchType', switchType)
-  
+
   .controller('MainCtrl', ['$location', MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl])
   .controller('ScCtrl', ['$http', ScCtrl])

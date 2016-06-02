@@ -1,52 +1,48 @@
-import {
-  dhw
-} from '../../data/data.js';
 import $ from 'jquery';
+
 export default function avatarDirective() {
   return {
     scope: true,
     replace: true,
-    template: function () {
-      return `
-        <form>
-      <div class="avatarWrap">
-        <img ng-src="{{avatar ? dhw.imgurl + avatar : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}">
-        <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传100*100规格的图片</div>
-      </div>
-      <div class="avatarWrap_upload_btn">
-        <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
-      </div>
-      <div ng-show="data.logo">
-        <div class="avatarUpload clearfix"
-           ng-jcrop="obj.src"
-           ng-jcrop-config-name="upload"
-           selection="obj.selection"
-           thumbnail="obj.thumbnail">
-          <div class="avatarPre">
-            <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
+    template() {
+      return `<form>
+        <div class="avatarWrap">
+          <img ng-src="{{avatar ? dhw.imgurl + avatar : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}">
+          <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传100*100规格的图片</div>
+        </div>
+        <div class="avatarWrap_upload_btn">
+          <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
+        </div>
+        <div ng-show="data.logo">
+          <div class="avatarUpload clearfix"
+            ng-jcrop="obj.src"
+            ng-jcrop-config-name="upload"
+            selection="obj.selection"
+            thumbnail="obj.thumbnail">
+            <div class="avatarPre">
+              <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
+            </div>
+          </div>
+          <div class="formSet formSet-avatar clearfix">
+            <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
           </div>
         </div>
-        <div class="formSet formSet-avatar clearfix">
-          <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
-        </div>
-      </div>
-    </form>
-      `;
+      </form>`;
     },
-    controller: ['$scope', '$http', function (s, h) {
-      s.dhw = dhw;
+    controller: ['$scope', '$http', function Ctrl($scope, $http) {
+      $scope.dhw = dhw;
       // var ieMode = document.documentMode;
       // var isIE = !!window.ActiveXObject;
       // var isIE8 = isIE && ieMode == 8;
       // var isIE9 = isIE && ieMode == 9;
-      s.data = {
+      $scope.data = {
         x: 0,
         y: 0,
         w: 100,
         h: 100
       };
-      h.post('/UserAccount/Img').success((data) => {
-        s.avatar = data.result.logo;
+      $http.post('/UserAccount/Img').success((data) => {
+        $scope.avatar = data.result.logo;
       });
       // $(function () {
       //   $('#avatarImg').Jcrop({
@@ -72,39 +68,38 @@ export default function avatarDirective() {
       //     });
       //   }
       // });
-      s.obj = { src: '', selection: [], thumbnail: true };
+      $scope.obj = { src: '', selection: [], thumbnail: true };
 
       // console.log(s.obj.selection);
 
-      s.$watch('data.logo', (oldValue, newValue) => {
-        var url = dhw.imgurl + s.data.logo + '.jpg';
-        if (s.data.logo) {
+      $scope.$watch('data.logo', (newValue) => {
+        var url = dhw.imgurl + newValue + '.jpg';
+        if ($scope.data.logo) {
           $('.jcrop-holder').find('img').attr('ng-src', url);
           $('.jcrop-holder').find('img').attr('src', url);
-          s.obj.src = url;
+          $scope.obj.src = url;
         }
       });
 
-      s.submit = function () {
-        console.log(1);
-        if (s.obj.selection[0] && s.obj.selection[1] && s.obj.selection[4] && s.obj.selection[5]) {
-          s.data.x = s.obj.selection[0];
-          s.data.y = s.obj.selection[1];
-          s.data.w = s.obj.selection[4];
-          s.data.h = s.obj.selection[5];
+      $scope.submit = () => {
+        if ($scope.obj.selection[0] && $scope.obj.selection[1] && $scope.obj.selection[4] && $scope.obj.selection[5]) {
+          $scope.data.x = $scope.obj.selection[0];
+          $scope.data.y = $scope.obj.selection[1];
+          $scope.data.w = $scope.obj.selection[4];
+          $scope.data.h = $scope.obj.selection[5];
         }
-        var params = $.extend({}, s.data);
+        var params = $.extend({}, $scope.data);
 
         params.logo = (params.logo);
         params.t = '100x100';
         params.action = 'cut';
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
           // console.log('我是后台返回的数据' + data);
-          s.$apply(() => {
-            s.avatar = data.path + '100x100.jpg';
-            s.data.logo = '';
+          $scope.$apply(() => {
+            $scope.avatar = data.path + '100x100.jpg';
+            $scope.data.logo = '';
           });
-          h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
+          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar }).success((d) => {
             if (d.success) {
               console.log(1);
             }

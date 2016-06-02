@@ -1,6 +1,5 @@
 import $ from 'jquery';
 export default function JlylCtrl(s, h, $location) {
-  s.dhw = window.dhw;
   s.intentTemp = {};
   s.evaluations = [];
   s.show = {};

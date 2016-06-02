@@ -1,5 +1,8 @@
 import angular from 'angular';
 
+// 依赖模块
+import 'angular-color-picker';
+
 import inputText from './formComponents/inputText.js';
 import emailInput from './formComponents/emailInput.js';
 import textArea from './formComponents/textArea.js';
@@ -21,7 +24,7 @@ import passWord from './formComponents/passWord.js';
 // 头像上传裁剪指令
 import avatarDirective from './formComponents/avatarDirective.js';
 // 取色器指令
-import colpickDirective from './formComponents/colpickDirective.js';
+import colorPick from './formComponents/colorPick.js';
 // 测试指令省市三级联动
 import fileUploader from './formComponents/fileUploader.js';
 // 百度地图
@@ -29,7 +32,7 @@ import baidumap from './formComponents/baidumap.js';
 // 梦云街SKU
 import myjSku from './formComponents/myjSku.js';
 
-let app = angular.module('formComponents', []);
+let app = angular.module('formComponents', ['mp.colorPicker']);
 app
   // input text类型
   .directive('inputText', inputText)
@@ -60,7 +63,7 @@ app
   .directive('startendYear', startendYear)
   .directive('eduhomeList', eduhomeList)
   // 取色器指令
-  .directive('colpickDirective', colpickDirective)
+  .directive('colorPick', colorPick)
   // 详情页只读指令
   .directive('readOnly', readOnly)
   // 百度地图

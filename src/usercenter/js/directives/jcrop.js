@@ -1,5 +1,5 @@
 import angular from 'angular';
-import $ from 'jquery';
+import '../data/jquery.Jcrop.min.js';
 
 /**
  * @typedef {object} Coords

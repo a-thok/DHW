@@ -1,11 +1,11 @@
 import $ from 'jquery';
+
 export default function commentmodal() {
   return {
     scope: true,
     replace: true,
-    template: function (elem, attrs) {
-      return `
-       <form name="replayForm">
+    template(elem, attrs) {
+      return `<form name="replayForm">
         <div class="comment_modal" ng-show="${attrs.vm}.isshow">
           <div class="comment_bg"></div>
           <div class="comment_area">
@@ -18,14 +18,14 @@ export default function commentmodal() {
                 <label for="" class="comment_label">职位信息 :</label>
                 <div class="comment_content">
                   <p style="
-    width: 374px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: -webkit-baseline-middle;
-    height: 24px;
-    line-height: 24px;
-">
+                    width: 374px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    vertical-align: -webkit-baseline-middle;
+                    height: 24px;
+                    line-height: 24px;
+                  ">
                     <span class="comment_jobtitle">{{ ${attrs.vm}.data.${attrs.jobname} }}</span>/<span class="comment_comyname">{{ ${attrs.vm}.data.${attrs.comyname} }}</span>
                   </p>
                   <p class="comment_salarypart">
@@ -90,45 +90,44 @@ export default function commentmodal() {
               </div>
             </div>
           </div>
-         </form>
-      `;
+        </form>`;
     },
     controller: ['$scope', '$attrs', function ($scope, $attrs) {
-      $('.starone .star').on('click', function() {
+      $('.starone .star').on('click', function () {
         var currentindex = $(this).index();
         $scope.$parent[$attrs.vm].para.star1 = currentindex;
-         $('.starone .star').each(function (index, element) {
-          $(element).removeClass('star-5'); 
+        $('.starone .star').each((index, element) => {
+          $(element).removeClass('star-5');
           if (currentindex >= index) {
             $(element).addClass('star-5');
           }
         });
-      });  
+      });
       $('.startwo .star').on('click', function () {
         var currentindex = $(this).index();
         $scope.$parent[$attrs.vm].para.star2 = currentindex;
-         $('.startwo .star').each(function (index, element) {
-          $(element).removeClass('star-5'); 
+        $('.startwo .star').each(function (index, element) {
+          $(element).removeClass('star-5');
           if (currentindex >= index) {
             $(element).addClass('star-5');
           }
         });
-      });   
+      });
       $('.starthree .star').on('click', function () {
         var currentindex = $(this).index();
-         $scope.$parent[$attrs.vm].para.star3 = currentindex;
-         $('.starthree .star').each(function (index, element) {
-          $(element).removeClass('star-5'); 
+        $scope.$parent[$attrs.vm].para.star3 = currentindex;
+        $('.starthree .star').each(function (index, element) {
+          $(element).removeClass('star-5');
           if (currentindex >= index) {
             $(element).addClass('star-5');
           }
         });
-      });  
+      });
       $('.startfour .star').on('click', function () {
         var currentindex = $(this).index();
-         $scope.$parent[$attrs.vm].para.star4 = currentindex;
-         $('.startfour .star').each(function (index, element) {
-          $(element).removeClass('star-5'); 
+        $scope.$parent[$attrs.vm].para.star4 = currentindex;
+        $('.startfour .star').each(function (index, element) {
+          $(element).removeClass('star-5');
           if (currentindex >= index) {
             $(element).addClass('star-5');
           }

@@ -4,6 +4,7 @@ import store from './store.js';
 import second from './second.js';
 import detail from './detail.js';
 import shoppingCart from './shoppingCart.js';
+import order from './order.js';
 
 // 样式
 import '../css/myj.css';
@@ -51,5 +52,6 @@ if (pagekey === 'index') {
   detail();
 } else if (pagekey === 'shoppingCart') {
   shoppingCart();
+} else if (pagekey === 'order') {
+  order();
 }
-

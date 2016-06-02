@@ -1,5 +1,3 @@
-import { dhw } from '../../data/data.js';
-
 export default function KsfbCtrl($http) {
   var vm = this;
   vm.dhw = dhw;

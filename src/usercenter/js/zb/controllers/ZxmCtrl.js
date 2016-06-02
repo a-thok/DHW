@@ -1,6 +1,3 @@
-import {
-  dhw
-} from '../../data/data.js';
 export default function ZxmCtrl($http, $stateParams) {
   var vm = this;
   vm.dhw = dhw;

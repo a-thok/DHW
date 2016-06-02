@@ -1,5 +1,4 @@
 // 投稿者列表
-import { dhw } from '../../../data/data.js';
 export default function CytglistCtrl($stateParams) {
   var vm = this;
   vm.dhw = dhw;

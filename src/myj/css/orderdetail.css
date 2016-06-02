@@ -1,4 +1,59 @@
-/*订单确认页面*/
+.cart_order {
+  margin-bottom: .5em;
+}
+.cart_order_ttl {
+  padding-left: .1em;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 2.6;
+  border-bottom: 1px solid #ccc;
+}
+.paymethod_list {
+  padding: 2em 0;
+}
+.paymethod_item {
+  float: left;
+  margin: 0 2em;
+  font-size: 14px;
+}
+.paymethod_item label {
+  margin: 0 .4em;
+}
+.paymethod_item span {
+  color: #999;
+}
+
+.cart_account_p {
+  text-align: right;
+  font-size: 14px;
+  margin: 1.8em 0;
+}
+.cart_account_p .cart_emp {
+  margin: 0 .2em;
+}
+
+.cart_back,
+.order_submit {
+  display: inline-block;
+  width: 125px;
+  height: 40px;
+  border: 1px solid #06c1ae;
+  margin-left: 13px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cart_back {
+  color: #06c1ae;
+}
+.order_submit {
+  margin-left: .8em;
+  color: #fff;;
+  background-color: #06c1ae;
+}
+/*
+
 .order_detail {
   width: 1181px;
   margin: 20px auto;
@@ -32,7 +87,7 @@
   line-height: 42px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  margin-top: 28px; 
+  margin-top: 28px;
 }
 .order_pay_list_title li {
   float: left;
@@ -43,11 +98,11 @@
 }
 .order_pay_list_money {
   width: 112px;
-} 
+}
 .order_pay_list_num {
   width: 93px;
 }
-/*订单商品列表*/
+
 .dp {
   display: block;
   font-weight: bold;
@@ -58,8 +113,8 @@
 .commodity_list {
   height: 90px;
   line-height: 90px;
-  border-top: 1px solid #ccc; 
-  border-bottom: 1px solid #ccc; 
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .commodity_list dl dd {
   float: left;
@@ -112,34 +167,12 @@
 }
 .pay_to_money {
   font-size: 14px;
-  color: #c51e04; 
+  color: #c51e04;
 }
 .pay_to_finance {
   font-size: 14px;
-  color: #c51e04;  
+  color: #c51e04;
 }
 .pay_to_btn {
   margin-top: 30px;
-}
-.back_shopcart {
-  float: right;
-  width: 123px;
-  height: 41px;
-  line-height: 41px;
-  color: #06c1ae;
-  margin-left: 13px;
-  border: 1px solid #06c1ae;
-  text-align: center;
-  text-decoration: none;
-}
-.submit_order {
-  float: right;
-  width: 123px;
-  height: 41px;
-  line-height: 41px;
-  margin-left:  26px;
-  color: #fff;;
-  background-color: #06c1ae;
-  text-align: center;
-  text-decoration: none;
-} 
+}*/

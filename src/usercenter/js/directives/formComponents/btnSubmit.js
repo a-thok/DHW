@@ -3,16 +3,14 @@ export default function btnSubmit() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
-      return `
-        <div class="formGourp formGourp--submit clearfix">
-          <input class="formBtn formBtn--submit" type="submit" value="{{vm.submitText}}"
-            ng-disabled="${attrs.form}.$invalid || vm.isDisabled"
-          >
-        </div>
-      `;
+    template(elem, attrs) {
+      return `<div class="formGourp formGourp--submit clearfix">
+        <input class="formBtn formBtn--submit" type="submit" value="{{vm.submitText}}"
+          ng-disabled="${attrs.form}.$invalid || vm.isDisabled"
+        >
+      </div>`;
     },
-    controller: ['$scope', '$http', '$attrs', function ($scope, $http, $attrs) {
+    controller: ['$scope', '$http', '$attrs', function Ctrl($scope, $http, $attrs) {
       var vm = this;
       vm.submitText = '提交';
       vm.isDisabled = false;

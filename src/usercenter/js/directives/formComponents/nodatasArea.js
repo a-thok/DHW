@@ -4,9 +4,8 @@ export default function nodatasArea() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
-      return `
-       <div class="formSet">
+    template(elem, attrs) {
+      return `<div class="formSet">
         <div class="formSet-doubleWrap" class="clearfix">
           <label class="formLabel" for="${attrs.name}.province">
               <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
@@ -30,103 +29,96 @@ export default function nodatasArea() {
             </ul>
           </div>
         </div>
-      </div>
-      `;
+      </div>`;
     },
-    controller: ['$scope', '$http', '$attrs', function (s, $http, $attrs) {
-      s.data = {};
+    controller: ['$scope', '$http', '$attrs', function Ctrl($scope, $http, $attrs) {
+      $scope.data = {};
       // 获取省份的数据
-      s.provs;
-      s.provinces = (function () {
-        $http.post('/Dict/city').success((res) => {
-          s.areaData = res.result;
-
-          s.provs = s.areaData.filter((item) => {
-            return item.type === 'province';
-          });
-        });
-      }());
+      $http.post('/Dict/city').success((res) => {
+        $scope.areaData = res.result;
+        $scope.provs = $scope.areaData.filter((item) => item.type === 'province');
+      });
       // 提交成功之后获取后台返回给我们的数据
-      s.$parent[$attrs.vm].getDraft((draft) => {
+      $scope.$parent[$attrs.vm].getDraft((draft) => {
         if (draft) {
-          s.prov = draft.province.name;
-          s.citym = draft.city.name;
-          s.country = draft.district.name;
-          s.area = draft;
+          $scope.prov = draft.province.name;
+          $scope.citym = draft.city.name;
+          $scope.country = draft.district.name;
+          $scope.area = draft;
         }
       });
       // 将数据保存到跟作用域上
-      s.$parent[$attrs.vm].draft.basic = function () {
+      $scope.$parent[$attrs.vm].draft.basic = () => {
         var draft = {};
-        draft.area = s.area;
+        draft.area = $scope.area;
         return draft;
       };
       // 取得城市的数据
-      s.getCitys = function (provinces) {
+      $scope.getCitys = (provinces) => {
         // 获取城市的数据
-        s.citys = s.areaData.filter((item) => {
-          return item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2);
-        });
+        $scope.citys = $scope.areaData.filter((item) =>
+          item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2)
+        );
 
         // 初始化城市的第一个数据选择
-        s.citym = s.citys[0].name;
-        s.prov = provinces.name;
+        $scope.citym = $scope.citys[0].name;
+        $scope.prov = provinces.name;
         // 清空县区的数据
-        s.country = '';
+        $scope.country = '';
         // 此操作为用户只进行选择省份的操作
-        s.province = { code: provinces.code, name: provinces.name };
-        s.city = { code: s.citys[0].code, name: s.citym };
-        s.district = { code: '', name: '' };
-        s.area = {
-          province: s.province,
-          city: s.city,
-          district: s.district
+        $scope.province = { code: provinces.code, name: provinces.name };
+        $scope.city = { code: $scope.citys[0].code, name: $scope.citym };
+        $scope.district = { code: '', name: '' };
+        $scope.area = {
+          province: $scope.province,
+          city: $scope.city,
+          district: $scope.district
         };
         $('.selectCont').hide();
       };
       // 取得县区的信息
-      s.setCity = function (citys) {
+      $scope.setCity = (citys) => {
         // 获取区县的数据
-        s.countrys = s.areaData.filter((item) => {
-          return item.type === 'district' && item.code.slice(0, 4) === citys.code.slice(0, 4);
-        });
+        $scope.countrys = $scope.areaData.filter((item) => (
+          item.type === 'district' && item.code.slice(0, 4) === citys.code.slice(0, 4)
+        ));
 
-        s.country = s.countrys[0].name;
-        s.citym = citys.name;
+        $scope.country = $scope.countrys[0].name;
+        $scope.citym = citys.name;
         if ($attrs.map) {
-          s.$parent[$attrs.vm].mapcity = s.citym;
+          $scope.$parent[$attrs.vm].mapcity = $scope.citym;
         }
-        s.city = { code: citys.code, name: citys.name };
-        s.district = { code: s.countrys[0].code, name: s.country };
+        $scope.city = { code: citys.code, name: citys.name };
+        $scope.district = { code: $scope.countrys[0].code, name: $scope.country };
 
-        s.area = {
-          province: s.province,
-          city: s.city,
-          district: s.district
+        $scope.area = {
+          province: $scope.province,
+          city: $scope.city,
+          district: $scope.district
         };
         $('.selectCont').hide();
       };
       // 设置县 区的model值
-      s.setCountry = function (countrys) {
-        s.country = countrys.name;
-        s.district = { code: countrys.code, name: s.country };
-        s.area = {
-          province: s.province,
-          city: s.city,
-          district: s.district
+      $scope.setCountry = (countrys) => {
+        $scope.country = countrys.name;
+        $scope.district = { code: countrys.code, name: $scope.country };
+        $scope.area = {
+          province: $scope.province,
+          city: $scope.city,
+          district: $scope.district
         };
         if ($attrs.map) {
-          s.$parent[$attrs.vm].mapcity = s.country;
-          s.$parent[$attrs.vm].getAddress();
+          $scope.$parent[$attrs.vm].mapcity = $scope.country;
+          $scope.$parent[$attrs.vm].getAddress();
         }
         $('.selectCont').hide();
       };
       // 显示下拉框的行为
-      s.showSelectCont = function (event) {
+      $scope.showSelectCont = (event) => {
         event.stopPropagation();
         $('.selectCont').hide();
         $(event.target).next().show();
       };
     }]
-  }
+  };
 }

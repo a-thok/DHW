@@ -1,40 +1,40 @@
+import BMap from 'b-map';
+
 export default function baidumap() {
   return {
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
-      return `
-      <div class="formGourp clearfix" style="position:relative">
-          <div class="formGourp_wrap">
-            <label class="formLabel" for="">
-              <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
-            </label>
-            <div class="formGroup_edit">
-              <input class="formInput" id="detailaddress" name="${attrs.name}" type="text" ng-disabled="${attrs.disabled}"
-                ng-model="${attrs.vm}.data.${attrs.name}"
-                ng-pattern="${attrs.pattern}"
-                ng-required="${attrs.required}"
-                ng-keyup="${attrs.vm}.getAddress()"
-              >
-              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
-              <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
-            </div>
+    template(elem, attrs) {
+      return `<div class="formGourp clearfix" style="position:relative">
+        <div class="formGourp_wrap">
+          <label class="formLabel" for="">
+            <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
+          </label>
+          <div class="formGroup_edit">
+            <input class="formInput" id="detailaddress" name="${attrs.name}" type="text" ng-disabled="${attrs.disabled}"
+              ng-model="${attrs.vm}.data.${attrs.name}"
+              ng-pattern="${attrs.pattern}"
+              ng-required="${attrs.required}"
+              ng-keyup="${attrs.vm}.getAddress()"
+            >
+            <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
+            <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
           </div>
-          <label class="formTip formTip--error"
-            ng-show="${attrs.form}.${attrs.name}.$invalid && !${attrs.form}.${attrs.name}.$error.required"
-          >
-            <span class="formTip_text">${attrs.error}</span>
-          </label>
-          <label class="formTip formTip--error"
-            ng-show="${attrs.form}.${attrs.name}.$dirty && ${attrs.form}.${attrs.name}.$error.required"
-          >
-            <span class="formTip_text">${attrs.label}不能为空</span>
-          </label>
-          <div id="allmap" style="position:absoulte;top:20px;left:274px;width:500px;height:300px;"></div>
-      </div>
-      `;
+        </div>
+        <label class="formTip formTip--error"
+          ng-show="${attrs.form}.${attrs.name}.$invalid && !${attrs.form}.${attrs.name}.$error.required"
+        >
+          <span class="formTip_text">${attrs.error}</span>
+        </label>
+        <label class="formTip formTip--error"
+          ng-show="${attrs.form}.${attrs.name}.$dirty && ${attrs.form}.${attrs.name}.$error.required"
+        >
+          <span class="formTip_text">${attrs.label}不能为空</span>
+        </label>
+        <div id="allmap" style="position:absoulte;top:20px;left:274px;width:500px;height:300px;"></div>
+      </div>`;
     },
-    controller: ['$scope', '$attrs', '$http', function ($scope, $attrs, $http) {
+    controller: ['$scope', '$attrs', '$http', function Ctrl($scope, $attrs) {
       // var vm = this;
       var pointall;
       var mapcity1;
@@ -45,8 +45,8 @@ export default function baidumap() {
       var point = new BMap.Point(116.331398, 39.897445);
       map.centerAndZoom(point, 12);
       var options = {
-        renderOptions: { map: map },
-        onSearchComplete: function (result) {
+        renderOptions: { map },
+        onSearchComplete(result) {
            // 将搜索的结果给后台数据
           if (result.wr.length !== 0) {
             var resutltpoint = result.wr[0].point;
@@ -65,7 +65,7 @@ export default function baidumap() {
         local.search(newAddress);
       }, 800);
 
-      $scope.$parent[$attrs.vm].getAddress = function () {
+      $scope.$parent[$attrs.vm].getAddress = () => {
         // 读取详细地址
         address = $scope.$parent[$attrs.vm].data.addr;
         if (address) {

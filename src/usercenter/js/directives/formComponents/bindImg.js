@@ -1,10 +1,10 @@
 import WebUploader from 'web-uploader';
-import { dhw } from '../../data/data.js';
+
 export default function bindImg() {
   return {
     require: 'ngModel',
     scope: true,
-    link: function (scope, element, attr, ngModel) {
+    link(scope, element, attr, ngModel) {
       let uploader = WebUploader.create({
         auto: true,
         swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',

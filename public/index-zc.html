@@ -8,28 +8,20 @@
   <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/babel-polyfill/6.3.14/polyfill.min.js"></script>
   <![endif]-->
-  <script>
-  var dhw = {
-    imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
-    mainurl: '//localhost:8085/', staticurl: 'http://192.168.2.10:81',
-    urlmain: '//localhost:8085/', urlcdn: '//192.168.2.10:81/', urlzc: '//localhost:8088/', urlkj: '//localhost:8087/', urlhr: '//localhost:8086/', urlzckj: '//localhost:8091/',
-    urlzb: '//localhost:8090/', urldiy: '//localhost:8092/', urlsrdz: '//localhost:8093/', urlcqbh: '//localhost:8094/', urlzxsj: '//localhost:8095/', urlgsss: '//localhost:8096/'
-  };
-  </script>
 </head>
 <body>
-  
+
   <!--通用顶栏 开始-->
   <div class="siteNav">
-    
+
   </div>
   <!--通用顶栏 结束-->
-  
+
   <!--个人中心导航栏 开始-->
   <div class="ucNav">
     <div class="ucNav_wrap clearfix">
       <div class="ucNav_logo">
- 
+
       </div>
       <ul class="ucNav_list" nav-slide>
         <li class="ucNav_list_item ucNav_list_item--slider"></li>
@@ -103,7 +95,7 @@
           </ul>
         </li>
       </ul>
-      
+
       <div class="ucNav_search">
         <label class="ucNav_search_select">搜索
           <!--<ul class="ucNav_search_select_list">
@@ -116,26 +108,26 @@
         <input class="ucNav_search_input" id="ucSearch" name="ucSearch" type="text">
         <label class="ucNav_search_btn"></label>
       </div>
-      
+
       <div switch-type></div>
     </div>
   </div>
   <!--个人中心导航栏 结束-->
-  
+
   <!--个人中心主内容 开始-->
   <div class="ucMain clearfix" ng-cloak>
     <!--侧边栏 开始-->
     <div side-bar></div>
     <!--侧边栏 结束-->
-    
+
     <!--内容 开始-->
     <div class="ucContent" ng-cloak ui-view>
-      
+
     </div>
     <!--内容 结束-->
   </div>
   <!--个人中心主内容 结束-->
-  
+
   <!--通用底栏 开始-->
  <div class="footer">
     <div class="footer_content">
@@ -157,11 +149,12 @@
     </div>
   </div>
   <!--通用底栏 结束-->
-  
+
   <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
   <script src="//cdn.dreamhiway.com/static/lib/webuploader.nolog.min.js"></script>
-  <script src="//cdn.dreamhiway.com/static/js/angular.js"></script>
-  <!--<script src="/js/common.js"></script>-->
+  <!--<script src="//cdn.dreamhiway.com/static/js/angular.js"></script>-->
+  <script src="/js/angular.js"></script>
+  <script src="/js/common.js"></script>
   <script src="/js/uc.zc.js"></script>
   <script src="/js/usercenter.js"></script>
 </body>

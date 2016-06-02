@@ -1,5 +1,3 @@
-import { dhw } from '../../../data/data.js';
-
 export default function dfkCtrl() {
   var vm = this;
   vm.list = [

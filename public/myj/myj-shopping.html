@@ -5,103 +5,183 @@
   <meta charset="UTF-8">
   <title>云梦街 - 购物车</title>
   <link rel="stylesheet" href="//cdn.dreamhiway.com/static/css/general.css">
-  <link rel="stylesheet" href="/css/mengyunjie.css">
   <script>
     pagekey = 'shoppingCart'
   </script>
 </head>
 
 <body>
-  <div class="shoppingCrat">
+  <div class="cart">
     <!--购物车头部 开始-->
-    <div class="shoppingCrat_ttl clearfix">
-      <h1>我的购物车</h1>
-      <ul class="shoppingStep clearfix">
-        <li class="shoppingStep_item shoppingStep_item-current">1.放入购物车</li>
-        <li class="shoppingStep_item">2.填写订单信息</li>
-        <li class="shoppingStep_item">3.支付/确认订单</li>
+    <div class="cart_header clearfix">
+      <h2 class="cart_title">我的购物车</h2>
+      <ul class="cartStep clearfix">
+        <li class="cartStep_item is_active">1.放入购物车</li>
+        <li class="cartStep_item">2.填写订单信息</li>
+        <li class="cartStep_item">3.支付/确认订单</li>
       </ul>
     </div>
     <!--购物车头部 结束-->
-    <div class="shoppingCrat_cont">
-      <ul class="shoppingCrat_store">
-        <li class="shoppingCrat_store_item" data-ddid="10">
-          <ul class="shoppingCrat_store_ttl clearfix">
-            <li class="shoppingCrat_store_ttl_item" style="width: 70px;"><a class="selectAll" href="javascript:;">全选</a></li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 70px;">商品图片</li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 528px;">商品名称</li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 100px;">单价</li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 80px;">数量</li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 100px;">金额</li>
-            <li class="shoppingCrat_store_ttl_item" style="width: 110px;">操作</li>
-          </ul>
-          <div class="shoppingCrat_storeName clearfix">
-            <p>店铺 : <span>测试</span></p>
-            <span class="deleteAll">全部删除</span>
-          </div>
-          <ul>
-            <li class="shoppingCrat_item" data-id="1">
-              <ul class="shoppingCrat_commodity clearfix">
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
-                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
-                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item" style="width: 80px;">
-                  <div class="shoppingCrat_commodity_count">
-                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
-                      value="1"><span class="shoppingCrat_commodity_add">+</span>
-                  </div>
-                </li>
-                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
-              </ul>
-            </li>
-            <li class="shoppingCrat_item" data-id="1">
-              <ul class="shoppingCrat_commodity clearfix">
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
-                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
-                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item" style="width: 80px;">
-                  <div class="shoppingCrat_commodity_count">
-                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
-                      value="1"><span class="shoppingCrat_commodity_add">+</span>
-                  </div>
-                </li>
-                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
-              </ul>
-            </li>
-            <li class="shoppingCrat_item" data-id="1">
-              <ul class="shoppingCrat_commodity clearfix">
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><input class="commoditySelect" type="checkbox"></li>
-                <li class="shoppingCrat_commodity_item" style="width: 70px;"><img src="../../src/myj/img/shangpin2.png" alt=""></li>
-                <li class="shoppingCrat_commodity_item" style="width: 528px;">这只是个测试</li>
-                <li class="shoppingCrat_commodity_item" style="width: 100px;">¥<span class="simplePrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item" style="width: 80px;">
-                  <div class="shoppingCrat_commodity_count">
-                    <span class="shoppingCrat_commodity_reduce">-</span><input class="shoppingCrat_commodity_input" type="text"
-                      value="1"><span class="shoppingCrat_commodity_add">+</span>
-                  </div>
-                </li>
-                <li class="shoppingCrat_commodity_item redWord" style="width: 100px;">¥<span class="totalPrice">2222.22</span></li>
-                <li class="shoppingCrat_commodity_item delete" style="width: 110px;">删除</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="clearfix">
-            <a class="toPay" href="">立即结算</a>
-            <p class="totalCount">商品总金额 : <span class="redWord">0</span> 元</p>
-            <p class="selectedCommodity">已选择商品 <span class="redWord"> 0</span> 件</p>
-          </div>
-        </li>
-      </ul>
+
+    <div class="cart_body">
+      <table class="cart_store" data-ddid="301">
+        <caption>
+          <h4 class="cart_store_ttl">店铺：测试</h4>
+          <span class="cart_deleteAll">全部删除</span>
+        </caption>
+        <colgroup>
+          <col width="8%">
+          <col width="65px">
+          <col>
+          <col width="12%">
+          <col width="15%">
+          <col width="12%">
+          <col width="8%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>
+              <input class="cart_selectAll" id="cart_selectAll" type="checkbox">
+              <label for="cart_selectAll">全选</label>
+            </th>
+            <th colspan="2">商品信息</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>金额</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-skuid="0" data-productid="181" data-id="142">
+            <td><input class="cart_check" type="checkbox"></td>
+            <td class="cart_img">
+              <a href="#"><img src="../../src/myj/img/shangpin2.png" alt="这只是个测试"></a>
+            </td>
+            <td class="cart_name"><a href="#">这只是个测试</a></td>
+            <td>¥<span class="cart_unitPrice">2222.22</span></td>
+            <td>
+              <div class="cart_count clearfix">
+                <button class="cart_count_btn decr">-</button>
+                <input class="cart_count_input" type="text" value="1">
+                <button class="cart_count_btn incr">+</button>
+              </div>
+            </td>
+            <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
+            <td><span class="cart_delete">删除</span></td>
+          </tr>
+          <tr>
+            <td><input class="cart_check" type="checkbox"></td>
+            <td class="cart_img">
+              <a href="#"><img src="../../src/myj/img/shangpin2.png" alt="这只是个测试"></a>
+            </td>
+            <td class="cart_name"><a href="#">这只是个测试</a></td>
+            <td>¥<span class="cart_unitPrice">2222.22</span></td>
+            <td>
+              <div class="cart_count clearfix">
+                <button class="cart_count_btn decr">-</button>
+                <input class="cart_count_input" type="text" value="1">
+                <button class="cart_count_btn incr">+</button>
+              </div>
+            </td>
+            <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
+            <td><span class="cart_delete">删除</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">
+              <button class="cart_payment_btn" type="button">立即结算</button>
+              <p class="cart_totalCost">商品总金额<span class="cart_emp">0</span>元</p>
+              <p class="cart_totalCount">已选择商品<span class="cart_emp">0</span>件</p>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+            <table class="cart_store" data-ddid="301">
+        <caption>
+          <h4 class="cart_store_ttl">店铺：测试</h4>
+          <span class="cart_deleteAll">全部删除</span>
+        </caption>
+        <colgroup>
+          <col width="8%">
+          <col width="65px">
+          <col>
+          <col width="12%">
+          <col width="15%">
+          <col width="12%">
+          <col width="8%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>
+              <input class="cart_selectAll" id="cart_selectAll" type="checkbox">
+              <label for="cart_selectAll">全选</label>
+            </th>
+            <th colspan="2">商品信息</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>金额</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-skuid="0" data-productid="181" data-id="142">
+            <td><input class="cart_check" type="checkbox"></td>
+            <td class="cart_img">
+              <a href="#"><img src="../../src/myj/img/shangpin2.png" alt="这只是个测试"></a>
+            </td>
+            <td class="cart_name"><a href="#">这只是个测试</a></td>
+            <td>¥<span class="cart_unitPrice">2222.22</span></td>
+            <td>
+              <div class="cart_count clearfix">
+                <button class="cart_count_btn decr">-</button>
+                <input class="cart_count_input" type="text" value="1">
+                <button class="cart_count_btn incr">+</button>
+              </div>
+            </td>
+            <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
+            <td><span class="cart_delete">删除</span></td>
+          </tr>
+          <tr>
+            <td><input class="cart_check" type="checkbox"></td>
+            <td class="cart_img">
+              <a href="#"><img src="../../src/myj/img/shangpin2.png" alt="这只是个测试"></a>
+            </td>
+            <td class="cart_name"><a href="#">这只是个测试</a></td>
+            <td>¥<span class="cart_unitPrice">2222.22</span></td>
+            <td>
+              <div class="cart_count clearfix">
+                <button class="cart_count_btn decr">-</button>
+                <input class="cart_count_input" type="text" value="1">
+                <button class="cart_count_btn incr">+</button>
+              </div>
+            </td>
+            <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
+            <td><span class="cart_delete">删除</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">
+              <button class="cart_payment_btn" type="button">立即结算</button>
+              <p class="cart_totalCost">商品总金额<span class="cart_emp">0</span>元</p>
+              <p class="cart_totalCount">已选择商品<span class="cart_emp">0</span>件</p>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
-    <div class="shoppingCart_return">
-      <button class="returnBtn">返回购物</button>
+
+    <div class="cart_return">
+      <a href="#" class="cart_back">返回购物</a>
     </div>
   </div>
-  
+
+  <form id="payForm" action="/ShopCart/confirm" method="post" style="display:none">
+    <input name="p" type="text">
+  </form>
+
   <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
   <script src="/js/myj.js"></script>
 </body>

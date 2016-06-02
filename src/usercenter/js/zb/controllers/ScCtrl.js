@@ -1,4 +1,3 @@
-import { dhw } from '../../data/data.js';
 export default function ScCtrl($http) {
   var vm = this;
   vm.dhw = dhw;

@@ -1,5 +1,4 @@
 import WebUploader from 'web-uploader';
-import { dhw } from '../../data/data.js';
 
 export default function webUploader() {
   // 模板中的图片地址需要修改！
@@ -7,35 +6,33 @@ export default function webUploader() {
     require: 'ngModel',
     replace: true,
     scope: true,
-    template: function (elem, attrs) {
-      return `
-        <div class="formGourp clearfix">
-          <div class="formGourp_wrap">
-            <label class="formLabel" for="${attrs.name}">
-              <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
-            </label>
-            <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="hidden"
-               ${
-                  attrs.repeatitem ?
-                  'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
-                  :
-                  'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
-                }
-              ng-required="${attrs.required}"
-            >
-            <div class="formUploadImg clearfix">
-              <div class="formUploadImg_preview">
-                <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="!${attrs.isrepeatitem}">
-                <img ng-src="{{${attrs.repeatitem}.${attrs.name} ? dhw.imgurl + ${attrs.repeatitem}.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="${attrs.isrepeatitem}">
-                <span class="formUploadImg_result"></span>
-              </div>
-              <div class="filePicker" id="filePicker">选择图片</div>
+    template(elem, attrs) {
+      return `<div class="formGourp clearfix">
+        <div class="formGourp_wrap">
+          <label class="formLabel" for="${attrs.name}">
+            <span class="formRequired" ng-show="${attrs.required}">*</span>${attrs.label}
+          </label>
+          <input class="formInput" id="${attrs.name}" name="${attrs.name}" type="hidden"
+            ${
+              attrs.repeatitem ?
+              'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
+              :
+              'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
+            }
+            ng-required="${attrs.required}"
+          >
+          <div class="formUploadImg clearfix">
+            <div class="formUploadImg_preview">
+              <img ng-src="{{${attrs.vm}.data.${attrs.name} ? dhw.imgurl + ${attrs.vm}.data.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="!${attrs.isrepeatitem}">
+              <img ng-src="{{${attrs.repeatitem}.${attrs.name} ? dhw.imgurl + ${attrs.repeatitem}.${attrs.name} + '_${attrs.size}' + '.jpg' : '//cdn.dreamhiway.com/static/dimg/updefaultlogo.png'}}" ng-if="${attrs.isrepeatitem}">
+              <span class="formUploadImg_result"></span>
             </div>
+            <div class="filePicker" id="filePicker">选择图片</div>
           </div>
         </div>
-      `;
+      </div>`;
     },
-    link: function (scope, elem, attrs, ngModel) {
+    link(scope, elem, attrs, ngModel) {
       scope.dhw = dhw;
       let $pick = elem.find('.filePicker');
       let $img = elem.find('img');

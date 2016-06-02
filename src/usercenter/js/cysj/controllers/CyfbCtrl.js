@@ -1,5 +1,4 @@
 // 已发项目查询
-import { dhw } from '../../data/data.js';
 export default function CyfbCtrl($http) {
   var vm = this;
   vm.list = [
