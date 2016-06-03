@@ -8,7 +8,7 @@ export default function avatarDirective() {
       return `<form>
         <div class="avatarWrap">
           <img ng-src="{{avatar ? dhw.imgurl + avatar : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}">
-          <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传100*100规格的图片</div>
+          <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传200*200规格的图片</div>
         </div>
         <div class="avatarWrap_upload_btn">
           <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
