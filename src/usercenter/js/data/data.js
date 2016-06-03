@@ -80,7 +80,18 @@ export const typeids = [
       { id: 8, text: '其他' }
 ];
 // 私人定制
-export const category = [{ id: '4', name: '礼品定制' }, { id: '5', name: 'logo定制' }, { id: '6', name: '制服定制' }, { id: '7', name: '3D打印设备定制' }, { id: '8', name: '智能设备硬件加工' }];
+export const category = [
+  { id: '20', name: '互联网+' },
+  { id: '21', name: '创业和投融资' },
+  { id: '22', name: '生活休闲' },
+  { id: '23', name: '心理' },
+  { id: '24', name: '职场发展' },
+  { id: '25', name: '行业经验' },
+  { id: '26', name: '投资理财' },
+  { id: '27', name: '教育学习' },
+  { id: '28', name: '其他' }
+];
+
 // 创意设计品牌
 export const brand = [
   { id: '2', name: 'logo设计' },

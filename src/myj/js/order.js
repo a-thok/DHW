@@ -13,8 +13,12 @@ export default function order() {
     $.post('/shopcart/GenOrder', {
       payment,
       p: window.p
-    }).success(() => {
-      window.location.href = dhw.urlmain + 'appo2o#/buyer/dfk';
+    }).success((data) => {
+      if (data.result) {
+        window.location.href = dhw.urlmain + 'appo2o#/buyer/dfk';
+      } else {
+        alert('订单生成失败！');
+      }
     });
   });
 }
