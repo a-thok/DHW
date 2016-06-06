@@ -5,7 +5,7 @@
 <form name="fbForm" ng-submit="fbVm.submit()" ng-if="fbVm.isfuws" ng-cloak>
    <div web-uploader
       data-vm="fbVm"
-      data-label="项目封面"
+      data-label="个人头像"
       data-name="img"
       data-key="uc"
       data-size='310x310'
@@ -14,12 +14,12 @@
    <div input-text
       data-switch="false"
       data-vm="fbVm"
-      data-label="产品标题"
+      data-label="话题名称"
       data-name="title"
       data-required="true"
       data-form="fbForm"
       data-pattern="/^.{2,50}$/"
-      data-tip='请填写此产品标题'
+      data-tip='请填写此话题名称'
       data-error="职位名称必须在2-25个字之间"
   ></div>
    <div select-area
@@ -28,28 +28,18 @@
       data-label="所在地"
       data-name="area"
       data-required="false"
-    ></div>  
-   <div input-text
+    ></div>
+    <div text-area
       data-switch="false"
       data-vm="fbVm"
-      data-label="详细地址"
-      data-name="address"
-      data-required="true"
-      data-form="fbForm"
-      data-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{2,30}$/"
-      data-tip='请填写此详细地址'
-      data-error="职位名称必须在2-30个字符之间"
-  ></div>
-   <div text-area
-      data-switch="false"
-      data-vm="fbVm"
-      data-label="产品卖点"
+      data-label="个人头衔"
       data-name="desc"
       data-required="true"
       data-form="fbForm"
       data-pattern="/^.{4,200}$/"
-      data-tip='请输入此产品卖点'
-      data-error="产品卖点必须在4-200个字符之间,不能包含特殊字符"
+      data-tip='请输入此个人头衔'
+      data-error="个人头衔必须在4-200个字符之间,不能包含特殊字符"
+      data-placeholder="一句话描述您的公司职位或从业经历。"
   ></div>
    <div input-text
       data-switch="false"
@@ -70,36 +60,14 @@
       data-options="item.name for item in fbVm.category"
       data-required="true"
     ></div>
-   <div class="formSet clearfix">
-      <label class="formLabel">规格</label>
-       <span class="skuTip">填写类型，如颜色。填写分类，多个分类用空格隔开，如：白色 绿色 黑色。</span>
-       <ul class="formSetWrap formSetWrap-sku clearfix">
-         <li class="skuItem clearfix formGourp_wrap" ng-repeat="sku in fbVm.skuTemp">
-           <input class="formSet_input formSet_input-extrasmall" type="text" ng-model="sku.name" required>
-           <input class="formSet_input" type="text" ng-model="sku.content" required>
-           <button class="formSet_input_btn del formBtn" type="button" ng-click="fbVm.skuTemp.splice($index, 1)">删除</button>
-         </li>
-        </ul>
-        <button class="formSet_input_btn formSet_input_btn-sku formBtn" type="button" ng-click="fbVm.addSku()">添加规格类型</button>
-   </div>
-   <div input-text
-      data-switch="false"
-      data-vm="fbVm"
-      data-label="库存数量"
-      data-name="inventory"
-      data-required="true"
-      data-form="fbForm"
-      data-pattern="/^[1-9]\d*$/"
-      data-tip='请填写库存数量'
-      data-error="请填写大于0的数字"
-  ></div>
    <div rich-text
       data-vm="fbVm"
-      data-label="产品描述"
+      data-label="话题描述"
       data-name="text"
      data-required="true"
      data-keyname="srdz"
      data-size="800x800"
+     data-placeholder="描述您的话题概要，以及个人简介。"
       ng-model="fbVm.data.text"
    ></div>
    <div class="formSet formSet-agreement clearfix">
