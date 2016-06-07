@@ -1,4 +1,4 @@
-export default function switchType() {
+export default function switchType2() {
   return {
     replace: true,
     scope: true,
@@ -17,20 +17,18 @@ export default function switchType() {
       vm.switch = type => {
         document.cookie = 'logintype=' + type + '; path=/';
         mainVm.logintype = type;
-        // 切换菜单
-        mainVm.routes.items = type === 1 ? mainVm.routes_p : mainVm.routes_c;
-        // 更改菜单第一项为高亮项
-        mainVm.routes.items.forEach((route, i) => {
-          route.active = i === 0 ? true : false;
-        });
+
+
         // 路由定位到菜单第一项
-        if ($attrs.curl && $attrs.purl && mainVm.logintype === 2 ) {
+        if ($attrs.curl && $attrs.purl && mainVm.logintype === 2) {
           $location.path($attrs.curl);
         } else if ($attrs.curl && $attrs.purl && mainVm.logintype === 1) {
           $location.path($attrs.purl);
         } else {
-          $location.path(mainVm.routes.items[0].url);
+          $location.path(mainVm.routesArr[0].items[0].url);
         }
+        $scope.$parent.$emit('logintypechange', { type })
+
       };
     }],
     controllerAs: 'vm'
