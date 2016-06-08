@@ -4,31 +4,26 @@ export default function MainCtrl() {
   vm.routes_p = [
     {
       url: 'sc',
-      text: '收藏列表',
-      active: false
+      text: '收藏列表'
     },
     {
       url: 'buyer.all',
-      text: '买家订单',
-      active: false
+      text: '买家订单'
     }
   ];
   // 公司账号
   vm.routes_c = [
     {
       url: 'fb',
-      text: '发布商品',
-      active: false
+      text: '发布商品'
     },
     {
       url: 'yfb.all',
-      text: '已发布商品',
-      active: false
+      text: '已发布商品'
     },
     {
       url: 'seller.all',
-      text: '卖家订单',
-      active: false
+      text: '卖家订单'
     }
   ];
   vm.routesArrBuild = function () {

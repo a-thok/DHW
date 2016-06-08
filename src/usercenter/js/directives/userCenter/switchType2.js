@@ -18,6 +18,7 @@ export default function switchType2() {
         document.cookie = 'logintype=' + type + '; path=/';
         mainVm.logintype = type;
 
+        mainVm.routesArrBuild();
 
         // 路由定位到菜单第一项
         if ($attrs.curl && $attrs.purl && mainVm.logintype === 2) {
@@ -27,8 +28,6 @@ export default function switchType2() {
         } else {
           $location.path(mainVm.routesArr[0].items[0].url);
         }
-        $scope.$parent.$emit('logintypechange', { type })
-
       };
     }],
     controllerAs: 'vm'
