@@ -11,8 +11,8 @@ config.module.loaders.unshift({
   test: /\.css$/,
   loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
 });
-config.module.loaders[2].loader = 'url';
-config.module.loaders[3].loader = 'url';
+config.module.loaders[2].loader = 'file';
+config.module.loaders[3].loader = 'file';
 
 config.plugins = (config.plugins || []).concat([
   new CleanPlugin('dist'),
