@@ -8,8 +8,8 @@ import '../directives/modalComponents.js';
 // 指令
 import showAllModules from '../directives/userCenter/showAllModules.js';
 import navSlide from '../directives/userCenter/navSlide.js';
-import sideBar from '../directives/userCenter/sideBar.js';
-import switchType from '../directives/userCenter/switchType.js';
+import sideBars from '../directives/userCenter/sideBars.js';
+import switchType2 from '../directives/userCenter/switchType2.js';
 
 import MainCtrl from './controllers/MainCtrl.js'
 import FbCtrl from './controllers/FbCtrl.js'
@@ -161,8 +161,8 @@ app
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
-  .directive('sideBar', sideBar)
-  .directive('switchType', switchType)
+  .directive('sideBars', sideBars)
+  .directive('switchType2', switchType2)
 
   .controller('MainCtrl', ['$location', MainCtrl])
   .controller('FbCtrl', ['$http', FbCtrl])
