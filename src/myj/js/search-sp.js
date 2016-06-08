@@ -5,14 +5,14 @@ export default function shangpin() {
   list({
     api: '/product/list',
     templateId: 'shangpin',
-    container: '.commodity_l',
+    container: '.sresult_list',
     params: {
       pageIndex: 1,
       pageSize: 15,
       orderby: '综合排序',
       asc: 0,
     },
-    cbAfter(data) { $('.spTotal span').text(data.result.total); }
+    cbAfter(data) { $('.orderby_count span').text(data.result.total); }
   });
 }
 

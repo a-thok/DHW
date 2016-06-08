@@ -1,11 +1,3 @@
-import shangpin from './shangpin.js';
-import index from './index.js';
-import store from './store.js';
-import second from './second.js';
-import detail from './detail.js';
-import shoppingCart from './shoppingCart.js';
-import order from './order.js';
-
 // 样式
 import '../css/myj.css';
 
@@ -34,24 +26,33 @@ import '../img/146209680138713720.jpg'
 import '../img/146192885765133682.jpg'
 import '../img/146192894505842590.jpg'
 import '../img/146193066525328754.jpg'
+import '../img/tmlogo.png';
 
 
 // import home from './js/home.js';
 // import detail from './js/detail.js';
+import goSearch from './goSearch.js';
+goSearch();
 
-
-if (pagekey === 'index') {
+import searchSp from './search-sp.js';
+import index from './index.js';
+import searchDp from './search-dp.js';
+import subindex from './subindex.js';
+import detail from './detail.js';
+import shoppingCart from './shoppingCart.js';
+import order from './order.js';
+if (window.pagekey === 'index') {
   index();
-} else if (pagekey === 'product') {
-  shangpin();
-} else if (pagekey === 'store') {
-  store();
-} else if (pagekey === 'index2') {
-  second();
-} else if (pagekey === 'detail') {
+} else if (window.pagekey === 'product') {
+  searchSp();
+} else if (window.pagekey === 'store') {
+  searchDp();
+} else if (window.pagekey === 'index2') {
+  subindex();
+} else if (window.pagekey === 'detail') {
   detail();
-} else if (pagekey === 'shoppingCart') {
+} else if (window.pagekey === 'shoppingCart') {
   shoppingCart();
-} else if (pagekey === 'order') {
+} else if (window.pagekey === 'order') {
   order();
 }

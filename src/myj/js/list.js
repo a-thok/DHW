@@ -2,22 +2,15 @@ import $ from 'jquery';
 import loadList from './loaddata.js';
 
 export default function list(config) {
-  $('.myjnav_l').mouseenter(() => $('.myjnav_area').show()).
-    mouseleave(() => $('.myjnav_area').hide());
-
   // 搜索关键字
-  const keyword = $.trim($('.search_input').val());
+  const keyword = $.trim($('#su').val());
   if (keyword) config.params.keyword = keyword;
 
-  const activeCity = $('.filterBox_item.is_active[data-city]').attr('data-city');
-  const activeType = $('.filterBox_item.is_active[data-type]').attr('data-type');
+  const activeCity = $('.filter_item.is_active[data-city]').attr('data-city');
+  const activeType = $('.filter_item.is_active[data-type]').attr('data-type');
   const container = $(config.container);
   if (activeCity === '00') {
     container.html('<div class="myjListTip">请选择城市范围</div>');
-    return;
-  } else if (activeType === '0') {
-    container.html('<div class="myjListTip">请选择类型</div>');
-    return;
   } else {
     // 首次加载
     if (window.ddid) {
@@ -30,7 +23,7 @@ export default function list(config) {
   }
 
   // 选择 城市 和 类型
-  $('.filterBox_dl').on('click', 'dd', (e) => {
+  $('.filter_list').on('click', 'dd', (e) => {
     const active = $(e.target);
     active.parent().find('dd').removeClass('is_active');
     active.addClass('is_active');
@@ -41,9 +34,9 @@ export default function list(config) {
   });
 
   // 排序
-  const orderbyItems = $('.orderBy_item');
+  const orderbyItems = $('.orderby_item');
   orderbyItems.on('click', (e) => {
-    const target = $(e.target);
+    const target = $(e.currentTarget);
 
     if (target.hasClass('is_active')) {
       if (target.hasClass('noAsc')) return;

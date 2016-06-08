@@ -1,0 +1,164 @@
+/* 过滤栏 */
+.filter_list {
+  padding: 1.5em 0;
+  border: 1px solid var(--light);
+  font-size: 13px;
+}
+.filter_list:last-child {
+  border-top: 0;
+}
+.filter_item {
+  float: left;
+  padding: .4em .6em;
+  margin-right: .5em;
+  border-radius: 2px;
+  transition: all .3s ease-in-out;
+}
+.filter_item a {
+  color: #333;
+  transition: all .3s ease-in-out;
+}
+dd.filter_item:hover,
+dd.filter_item.is_active {
+  background: #2aa899;
+  color: #fff;
+}
+dd.filter_item:hover a,
+dd.filter_item.is_active a {
+  color: #fff;
+}
+.filter_list dt {
+  width: 90px;
+  margin-right: 1.5em;
+  text-align: right;
+}
+.filter_list dd {
+  cursor: pointer;
+}
+/* 排序栏 */
+.orderby {
+  padding: 1px;
+  margin: 30px 0 15px;
+  background: var(--light);
+  font-size: 12px;
+}
+.orderby_list {
+  float: left;
+}
+.orderby_item {
+  position: relative;
+  float: left;
+  padding: 0 30px;
+  line-height: 34px;
+  cursor: pointer;
+}
+.orderby_item.is_active {
+  color: #2aa899;
+  background-color: #fff;
+}
+.orderby_item i {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 10px;
+  height: 15px;
+  background: url("../img/arrow.png") no-repeat;
+}
+.orderby_item.up i {
+  background: url("../img/arrow.png") 0 -15px no-repeat;
+}
+
+.orderby_count {
+  float: right;
+  margin-right: 1em;
+  line-height: 34px;
+}
+.orderby_count span {
+  margin: 0 .4em;
+  color: #ff7a00;
+}
+
+.sresult_list-sp {
+  float: left;
+  width: 900px;
+}
+.sresult_item {
+  float: left;
+  width: 260px;
+  padding: 5px 5px 15px;
+  border: 1px solid var(--light);
+  margin: 0 25px 25px 0;
+  transition: border .5s ease-in-out;
+}
+.sresult_item:hover {
+  border-color: #000;
+}
+.sresult_item_img img,
+.commodity_r img {
+  width: 260px;
+  height: 260px;
+}
+.sresult_item_price {
+  margin: 5px 5px;
+}
+.sresult_item_sprice {
+  float: left;
+  font-size: 36px;
+  /*color: #c17d06;*/
+  color: #ff7a00;
+}
+.sresult_item_oprice {
+  float: right;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #999;
+}
+.sresult_item_ttl {
+  width: 100%;
+  margin: 0 5px 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.sresult_item_ttl a {
+  color: #333;
+  text-decoration: none;
+}
+.sresult_item_addr {
+  font-size: 12px;
+  color: #666;
+}
+.sresult_item_addr_l {
+  float: left;
+}
+.sresult_item_addr_l span {
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: text-bottom;
+}
+.sresult_item_addr_r {
+  float: right;
+}
+
+.sresult_aside {
+  float: right;
+  width: 270px;
+  padding: 10px;
+  border: 1px solid var(--light);
+}
+.sresult_aside_ttl {
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* 未选择提示 */
+.myjListTip {
+  font-size: 30px;
+  line-height: 10;
+  text-align: center;
+}

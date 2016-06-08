@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦云街 - 店铺搜索</title>
+  <link rel="stylesheet" href="//cdn.dreamhiway.com/styles/general.css">
+  <script>
+    var pagekey = 'store';
+  </script>
+
+  <script type="text/html" id="store">
+    {{each data as store}}
+    <li class="sresult_dpitem clearfix">
+      <div class="sresult_dpitem_logo">
+        <img src="{{store.logo}}" alt="logo">
+      </div>
+      <div class="sresult_dpitem_detail">
+        <p class="sresult_dpitem_name">{{store.name}}</p>
+        <p class="sresult_dpitem_rz">商家认证：
+          <i class="store_approve_icon"></i>
+          <i class="store_approve_pic"></i>
+        </p>
+        <dl class="sresult_dpitem_service clearfix">
+          <dt></dt>
+          <dd>
+            <a class="dinfo_link" href="{{store.storeurl}}">进入店铺</a>
+            <a class="dinfo_link" href="{{store.siteurl}}">进入官网</a>
+          </dd>
+        </dl>
+        <p class="sresult_dpitem_addr">店铺地址：<span>{{store.cityName}}</span><span>{{store.addr}}</span></p>
+      </div>
+      <div class="sresult_dpitem_imgs">
+        {{each store.images as img}}
+        <a target="_blank" href="/{{img.id}}.html"><img src="{{img.image}}" alt=""></a>
+        {{/each}}
+      </div>
+    </li>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <!--头部 开始-->
+  <div class="header clearfix">
+    <div class="header_logo">
+      <a href="#"><img src="../../src/myj/img/yun-logo.png" alt="梦云街"></a>
+    </div>
+    <div class="header_cart">
+      <a href="#"><span class="header_cart_count">0</span></a>
+    </div>
+    <div class="header_search">
+      <div class="header_searchbox clearfix">
+        <input type="search">
+        <button type="button">搜商品</button>
+        <button type="button">搜店铺</button>
+      </div>
+      <div class="header_searchHot">
+        <a href="#">连衣裙</a>
+        <a href="#">智能手机</a>
+        <a href="#">T恤男</a>
+        <a href="#">商务包</a>
+        <a href="#">女鞋</a>
+        <a href="#">茶具</a>
+        <a href="#">丝袜</a>
+        <a href="#">实木床</a>
+      </div>
+    </div>
+  </div>
+  <!--头部 开始-->
+
+  <!--导航 开始-->
+  <div class="naviWrap">
+    <div class="navi clearfix">
+      <div class="navi_area">
+        <i></i>全国
+        <ul class="navi_area_list">
+          <li><a href="#">北京</li><li><a href="#">浙江</a></li><li><a href="#">海南</a></li>
+          <li><a href="#">天津</a></li><li><a href="#">安徽</a></li><li><a href="#">重庆</a></li>
+          <li><a href="#">河北</a></li><li><a href="#">福建</a></li><li><a href="#">四川</a></li>
+          <li><a href="#">山西</a></li><li><a href="#">江西</a></li><li><a href="#">贵州</a></li>
+          <li><a href="#">内蒙古</a></li><li><a href="#">山东</a></li><li><a href="#">云南</a></li>
+          <li><a href="#">辽宁</a></li><li><a href="#">河南</a></li><li><a href="#">西藏</a></li>
+          <li><a href="#">吉林</a></li><li><a href="#">湖北</a></li><li><a href="#">陕西</a></li>
+          <li><a href="#">黑龙江</a></li><li><a href="#">湖南</a></li><li><a href="#">甘肃</a></li>
+          <li><a href="#">上海</a></li><li><a href="#">广东</a></li><li><a href="#">青海</a></li>
+          <li><a href="#">江苏</a></li><li><a href="#">广西</a></li><li><a href="#">宁夏</a></li>
+          <li><a href="#">香港</a></li><li><a href="#">澳门</a></li><li><a href="#">新疆</a></li>
+          <li><a href="#">台湾</a></li>
+        </ul>
+      </div>
+      <ul class="navi_main clearfix">
+        <li class="navi_main_item"><a href="#">首页</a></li>
+        <li class="navi_main_item hot"><a href="#">服饰街</a></li>
+        <li class="navi_main_item new"><a href="#">数码电器城</a></li>
+        <li class="navi_main_item"><a href="#">文化艺术馆</a></li>
+        <li class="navi_main_item"><a href="#">美食街</a></li>
+        <li class="navi_main_item"><a href="#">日用商超</a></li>
+        <li class="navi_main_item"><a href="#">辅料街</a></li>
+      </ul>
+      <div class="navi_enter">
+        <a href="#"><img src="../../src/myj/img/ruzhu.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <!--导航 结束-->
+
+  <div class="content">
+    <!--分类栏 开始-->
+    <div class="filter">
+      <dl class="filter_list areaSelect clearfix">
+        <dt class="filter_item">选择区域 :</dt>
+        <dd data-city="00" class="filter_item is_active">全部</dd>
+        <dd datacity="3035" class="filter_item">沈阳</dd>
+        <dd class="filter_item">大连</dd>
+      </dl>
+      <dl class="filter_list clearfix">
+        <dt class="filter_item">类型 :</dt>
+        <dd data-type="0" class="filter_item is_active">全部</dd>
+        <dd data-type="1" class="filter_item">服饰街</dd>
+        <dd data-type="2" class="filter_item">数码电器城</dd>
+        <dd data-type="3" class="filter_item">艺术文化馆</dd>
+        <dd data-type="4" class="filter_item">美食街</dd>
+        <dd data-type="5" class="filter_item">日用超市</dd>
+        <dd data-type="6" class="filter_item">辅料街</dd>
+      </dl>
+    </div>
+    <!--分类栏 结束-->
+    <!--排序 开始-->
+    <div class="orderby clearfix">
+      <ul class="orderby_list clearfix">
+        <li class="orderby_item is_active noAsc">综合排序</li>
+      </ul>
+      <p class="orderby_count">找到相关商品<span>0</span>件</p>
+    </div>
+    <!--排序 结束-->
+
+    <!--搜索结果 开始-->
+    <div class="sresult">
+      <ul class="sresult_list">
+      </ul>
+    </div>
+    <!--搜索结果 结束-->
+
+    <div class="pagination"></div>
+  </div>
+
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="/js/myj.js"></script>
+</body>
+
+</html>

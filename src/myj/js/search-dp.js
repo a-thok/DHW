@@ -5,11 +5,11 @@ export default function store() {
   list({
     api: '/store/list',
     templateId: 'store',
-    container: '.myj_content',
+    container: '.sresult_list',
     params: {
       pageIndex: 1,
       pageSize: 15
     },
-    cbAfter(data) { $('.store_rsult_num').text(data.result.total); }
+    cbAfter(data) { $('.orderby_count span').text(data.result.total); }
   });
 }

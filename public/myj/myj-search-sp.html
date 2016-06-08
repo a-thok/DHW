@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦云街 - 商品搜索</title>
+  <link rel="stylesheet" href="//cdn.dreamhiway.com/styles/general.css">
+  <!--<link rel="stylesheet" href="/css/myj.css">-->
+  <script>
+    pagekey = 'product'
+  </script>
+  <script type="text/html" id="shangpin">
+    {{each data as item}}
+    <li class="sresult_item">
+      <div class="sresult_item_img">
+        <a href="/{{item.id}}.html" target="_blank"><img src="{{item.image}}" alt=""></a>
+      </div>
+      <div class="sresult_item_text">
+        <p class="sresult_item_price clearfix">
+          <span class="sresult_item_sprice">¥<span>{{item.price}}</span></span>
+          <span class="sresult_item_oprice">门店价: ¥<span>{{item.storePrice}}</span></span>
+        </p>
+        <p class="sresult_item_ttl"><a href="#">{{item.name}}</a></p>
+        <p class="sresult_item_addr clearfix">
+          <span class="sresult_item_addr_l">[<span>{{item.compay}}</span>]</span>
+          <span class="sresult_item_addr_r"><span>{{item.cityName}} </span> <span> {{item.districtName}}</span></span>
+        </p>
+      </div>
+    </li>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <!--头部 开始-->
+  <div class="header clearfix">
+    <div class="header_logo">
+      <a href="#"><img src="../../src/myj/img/yun-logo.png" alt="梦云街"></a>
+    </div>
+    <div class="header_cart">
+      <a href="#"><span class="header_cart_count">0</span></a>
+    </div>
+    <div class="header_search">
+      <div class="header_searchbox clearfix">
+        <input type="search">
+        <button type="button">搜商品</button>
+        <button type="button">搜店铺</button>
+      </div>
+      <div class="header_searchHot">
+        <a href="#">连衣裙</a>
+        <a href="#">智能手机</a>
+        <a href="#">T恤男</a>
+        <a href="#">商务包</a>
+        <a href="#">女鞋</a>
+        <a href="#">茶具</a>
+        <a href="#">丝袜</a>
+        <a href="#">实木床</a>
+      </div>
+    </div>
+  </div>
+  <!--头部 开始-->
+
+  <!--导航 开始-->
+  <div class="naviWrap">
+    <div class="navi clearfix">
+      <div class="navi_area">
+        <i></i>全国
+        <ul class="navi_area_list">
+          <li><a href="#">北京</li><li><a href="#">浙江</a></li><li><a href="#">海南</a></li>
+          <li><a href="#">天津</a></li><li><a href="#">安徽</a></li><li><a href="#">重庆</a></li>
+          <li><a href="#">河北</a></li><li><a href="#">福建</a></li><li><a href="#">四川</a></li>
+          <li><a href="#">山西</a></li><li><a href="#">江西</a></li><li><a href="#">贵州</a></li>
+          <li><a href="#">内蒙古</a></li><li><a href="#">山东</a></li><li><a href="#">云南</a></li>
+          <li><a href="#">辽宁</a></li><li><a href="#">河南</a></li><li><a href="#">西藏</a></li>
+          <li><a href="#">吉林</a></li><li><a href="#">湖北</a></li><li><a href="#">陕西</a></li>
+          <li><a href="#">黑龙江</a></li><li><a href="#">湖南</a></li><li><a href="#">甘肃</a></li>
+          <li><a href="#">上海</a></li><li><a href="#">广东</a></li><li><a href="#">青海</a></li>
+          <li><a href="#">江苏</a></li><li><a href="#">广西</a></li><li><a href="#">宁夏</a></li>
+          <li><a href="#">香港</a></li><li><a href="#">澳门</a></li><li><a href="#">新疆</a></li>
+          <li><a href="#">台湾</a></li>
+        </ul>
+      </div>
+      <ul class="navi_main clearfix">
+        <li class="navi_main_item"><a href="#">首页</a></li>
+        <li class="navi_main_item hot"><a href="#">服饰街</a></li>
+        <li class="navi_main_item new"><a href="#">数码电器城</a></li>
+        <li class="navi_main_item"><a href="#">文化艺术馆</a></li>
+        <li class="navi_main_item"><a href="#">美食街</a></li>
+        <li class="navi_main_item"><a href="#">日用商超</a></li>
+        <li class="navi_main_item"><a href="#">辅料街</a></li>
+      </ul>
+      <div class="navi_enter">
+        <a href="#"><img src="../../src/myj/img/ruzhu.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+  <!--导航 结束-->
+
+  <div class="content">
+    <!--分类栏 开始-->
+    <div class="filter">
+      <dl class="filter_list areaSelect clearfix">
+        <dt class="filter_item">选择区域 :</dt>
+        <dd data-city="00" class="filter_item is_active">全部</dd>
+        <dd datacity="3035" class="filter_item">沈阳</dd>
+        <dd class="filter_item">大连</dd>
+      </dl>
+      <dl class="filter_list clearfix">
+        <dt class="filter_item">类型 :</dt>
+        <dd data-type="0" class="filter_item is_active">全部</dd>
+        <dd data-type="1" class="filter_item">服饰街</dd>
+        <dd data-type="2" class="filter_item">数码电器城</dd>
+        <dd data-type="3" class="filter_item">艺术文化馆</dd>
+        <dd data-type="4" class="filter_item">美食街</dd>
+        <dd data-type="5" class="filter_item">日用超市</dd>
+        <dd data-type="6" class="filter_item">辅料街</dd>
+      </dl>
+    </div>
+    <!--分类栏 结束-->
+    <!--排序 开始-->
+    <div class="orderby clearfix">
+      <ul class="orderby_list clearfix">
+        <li class="orderby_item is_active noAsc">综合排序</li>
+        <li class="orderby_item">价格<i></i></li>
+        <li class="orderby_item">发布时间<i></i></li>
+      </ul>
+      <p class="orderby_count">找到相关商品<span>0</span>件</p>
+    </div>
+    <!--排序 结束-->
+
+    <!--搜索结果 开始-->
+    <div class="sresult clearfix">
+      <ul class="sresult_list sresult_list-sp clearfix">
+      </ul>
+      <div class="sresult_aside">
+        <h4 class="sresult_aside_ttl">热卖商品</h4>
+        <ul>
+          <li class="sresult_item">
+            <div class="sresult_item_img">
+              <a href="#"></a><img src="../../src/myj/img/shangpin2.png" alt="">
+            </div>
+            <p class="sresult_item_price clearfix">
+              <span class="sresult_item_sprice">¥<span>550</span></span>
+              <span class="sresult_item_oprice">门店价: ¥<span>500</span></span>
+            </p>
+            <p class="sresult_item_ttl"><a href="#">海鲜大餐</a></p>
+            <p class="sresult_item_addr clearfix">
+              <span class="sresult_item_addr_l">[<span>五鑫海鲜酒楼</span>]</span>
+              <span class="sresult_item_addr_r"><span>泉州市</span> <span>石狮市</span></span>
+            </p>
+          </li>
+          <li class="sresult_item">
+            <div class="sresult_item_img">
+              <a href="#"></a><img src="../../src/myj/img/shangpin2.png" alt="">
+            </div>
+            <p class="sresult_item_price clearfix">
+              <span class="sresult_item_sprice">¥<span>550</span></span>
+              <span class="sresult_item_oprice">门店价: ¥<span>500</span></span>
+            </p>
+            <p class="sresult_item_ttl"><a href="#">海鲜大餐</a></p>
+            <p class="sresult_item_addr clearfix">
+              <span class="sresult_item_addr_l">[<span>五鑫海鲜酒楼</span>]</span>
+              <span class="sresult_item_addr_r"><span>泉州市</span> <span>石狮市</span></span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--搜索结果 结束-->
+
+    <div class="pagination"></div>
+  </div>
+
+  <script src="//cdn.dreamhiway.com/static/lib/jquery.min.js"></script>
+  <script src="/js/myj.js"></script>
+</body>
+
+</html>
