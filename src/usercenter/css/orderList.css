@@ -35,7 +35,12 @@
 .commodity_tbody .blueWord span {
   cursor: pointer;
 }
-.blueWord a {
+.commodity_tbody a {
+  color: #000;
+  text-decoration: none;
+}
+.blueWord a,
+.shopItem_ttl a {
   color: #337ab7;
   text-decoration: none;
 }

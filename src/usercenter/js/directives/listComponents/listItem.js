@@ -14,8 +14,9 @@ export default function listItem() {
         <ul class="list_item_boxes clearfix">
           <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">
             <a ng-if="box.link" href="${attrs.link}{{ item[box.linkkey] }}" target="_blank">{{ item[box.key] }}</a>
+            <a ng-if="box.link2" href="{{ item[box.linkkey] }}" target="_blank">{{ item[box.key] }}</a>
             <a ng-if="box.resumlink" href="${attrs.editurl}">{{ item[box.key] }}</a>
-            <span ng-if="!box.link && !box.img && !box.resumlink && !box.addre && !vm.isArray(item[box.key])" title="{{ item[box.key] }}">{{ item[box.key] }}</span>
+            <span ng-if="!box.link && !box.link2 && !box.img && !box.resumlink && !box.addre && !vm.isArray(item[box.key])" title="{{ item[box.key] }}">{{ item[box.key] }}</span>
             <img ng-if="box.img && !vm.isArray(box.key) && box.rczp" ng-src="{{vm.dhw.imgurl}}{{item[box.key]}}">
             <img ng-if="box.img && !vm.isArray(box.key) && !box.rczp" ng-src="{{vm.dhw.imgurl}}{{item[box.key]}}.jpg">
             <span ng-if="box.addre">
