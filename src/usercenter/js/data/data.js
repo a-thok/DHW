@@ -89,7 +89,9 @@ export const category = [
   { id: '25', name: '行业经验' },
   { id: '26', name: '投资理财' },
   { id: '27', name: '教育学习' },
-  { id: '28', name: '其他' }
+  { id: '28', name: '医疗保健' },
+  { id: '29', name: '个人形象' },
+  { id: '30', name: '其他' }
 ];
 
 // 创意设计品牌
