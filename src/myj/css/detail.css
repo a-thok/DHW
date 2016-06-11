@@ -157,10 +157,18 @@
 }
 .dinfo_ensure i {
   display: inline-block;
-  width: 11px;
+  width: 13px;
   height: 13px;
   margin-right: .4em;
-  background: url("../img/detailicon.png") no-repeat 0 -62px;
+}
+.bz i {
+background: url("../img/myj_bzicon1.png") no-repeat;
+}
+.pc i {
+background: url("../img/myj_bzicon2.png") no-repeat;
+}
+.fh i {
+background: url("../img/myj_bzicon3.png") no-repeat;
 }
 
 .dinfo_btns {

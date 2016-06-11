@@ -38,12 +38,17 @@
 }
 .store_approve_icon {
   left: 70px;
-  background: url('../../../src/myj/img/icon_dp.png') no-repeat;
 }
-.store_approve_pic {
+.Auth {
+  background: url('../../../src/myj/img/auth_1.png') no-repeat;
+}
+.noAuth {
+  background: url('../../../src/myj/img/auth_2.png') no-repeat;
+}
+/*.store_approve_pic {
   left: 100px;
-  background: url('../../../src/myj/img/icon_dp.png') no-repeat 0 -20px;
-}
+  background: url('../../../src/myj/img/auth_2.png') no-repeat 0 -20px;
+}*/
 
 .sresult_dpitem_service dt,
 .sresult_dpitem_service dd {

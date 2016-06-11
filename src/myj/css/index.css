@@ -521,6 +521,15 @@
   display: block;
   background: url("../img/shouye-icon.png") no-repeat;
 }
+
+/*浮动栏背景显隐*/
+a.bg-hide {
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  background: none;
+}
+
 .fsj a {
   background-position: 0 -38px;
 }
@@ -543,7 +552,6 @@
   background-position: 0 -228px;
   border-bottom: 0;
 }
-
 /* 底栏 */
 .baozhang img {
   width: 100%;

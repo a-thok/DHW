@@ -18,8 +18,12 @@
       <div class="sresult_dpitem_detail">
         <p class="sresult_dpitem_name">{{store.name}}</p>
         <p class="sresult_dpitem_rz">商家认证：
-          <i class="store_approve_icon"></i>
-          <i class="store_approve_pic"></i>
+          {{if store.auth}}
+          <i class="store_approve_icon Auth"></i>
+          {{/if}}
+          {{if !store.auth}}
+          <i class="store_approve_icon noAuth"></i>
+          {{/if}}
         </p>
         <dl class="sresult_dpitem_service clearfix">
           <dt></dt>

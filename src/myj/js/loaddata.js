@@ -13,7 +13,11 @@ export default function loadList({ api, params, templateId, container, cbBefore,
     const html = template(templateId, data.result);
     $(container).html(html);
 
-    if (data.result.total === 0) return;
+    if (data.result.total === 0) {
+      if (cbAfter) cbAfter(data, params.pageIndex);
+      $((pager || '.pagination')).html('');
+      return;
+    }
 
     // 分页模块
     $((pager || '.pagination')).paging(data.result.total, {
