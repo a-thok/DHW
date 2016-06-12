@@ -2,21 +2,21 @@ import $ from 'jquery';
 
 export default function detail() {
   // 图片切换
-  const img = $('.dinfo_img img');
-  const imgs = $('.dinfo_imgItem img');
+  var img = $('.dinfo_img img');
+  var imgs = $('.dinfo_imgItem img');
   imgs.on('mouseenter', (e) => {
-    const self = $(e.target);
+    var self = $(e.target);
     imgs.parent().removeClass('is_active');
     self.parent().addClass('is_active');
-    const url = self.attr('src');
+    var url = self.attr('src');
     img.prop('src', url);
   });
 
   // 商品数量
-  const countElem = $('.dinfo_count');
+  var countElem = $('.dinfo_count');
   $('.dinfo_option_cont button').on('click', (e) => {
-    const self = $(e.target);
-    const count = +countElem.val();
+    var self = $(e.target);
+    var count = +countElem.val();
     if (self.hasClass('decr')) {
       if (count <= 1) return;
       countElem.val(count - 1);
@@ -26,13 +26,13 @@ export default function detail() {
   });
 
   // sku
-  const price = $('.dinfo_sprice span');
-  const skuList = $('.dinfo_option.sku');
-  let skuid;
+  var price = $('.dinfo_sprice span');
+  var skuList = $('.dinfo_option.sku');
+  var skuid;
   skuList.on('click', 'dd', (e) => {
-    let point = [];
-    let pointCompleted = true;
-    let sku;
+    var point = [];
+    var pointCompleted = true;
+    var sku;
 
     $(e.target).parent().find('dd').removeClass('is_selected');
     $(e.target).addClass('is_selected');
@@ -50,15 +50,15 @@ export default function detail() {
   });
 
   // 立即购买 和 加入购物车
-  const cart = $('.header_cart_count');
+  var cart = $('.header_cart_count');
   $('.dinfo_btns button').on('click', (e) => {
-    const self = $(e.target);
+    var self = $(e.target);
     if (!window.dhw.isLogined) {
       window.login();
     } else if (window.product.skus && !skuid) {
       alert('请选择完整的规格');
     } else {
-      const count = +countElem.val();
+      var count = +countElem.val();
       $.post('/ShopCart/add', {
         productid: window.productid,
         count,
@@ -68,7 +68,18 @@ export default function detail() {
           if (self.hasClass('buy')) {
             location.href = '/ShopCart';
           } else {
-            cart.text(data.result);
+            // 加入购物车缩放提示
+            var slide = $('.dinfo_slide').clone().appendTo('.dinfo_clone');
+            slide.animate({
+              opacity: '1',
+              width: '147px',
+              height: '36px',
+              left: '649px',
+              top: '-164px',
+            }, 500, () => {
+              slide.remove();
+              cart.text(data.result);
+            });
           }
         } else {
           alert('服务器错误，请稍后重试！');
@@ -151,7 +162,7 @@ export default function detail() {
   // 收藏
   $('.dinfo_star').click((e) => {
     e.preventDefault();
-    const self = $(e.target);
+    var self = $(e.target);
     if (self.hasClass('stared')) {
       alert('已收藏');
     } else {

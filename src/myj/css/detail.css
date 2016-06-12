@@ -15,6 +15,7 @@
   border-right: 1px solid var(--light);
 }
 .dinfo_r {
+  position: relative;
   width: 799px;
 }
 
@@ -348,4 +349,12 @@ background: url("../img/myj_bzicon3.png") no-repeat;
   color: #666;
   line-height: 2;
   text-decoration: none;
+}
+.dinfo_slide {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border:2px solid #2aa899;
 }
