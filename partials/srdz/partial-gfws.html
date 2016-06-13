@@ -67,6 +67,14 @@
       data-name="area"
       data-required="true"
   ></div>
+  <div select-simple
+      data-switch="false"
+      data-vm="gfwsVm"
+      data-label="所属专家库"
+      data-name="type"
+      data-options="item.type as item.name for item in gfwsVm.expertku"
+      data-required="true"
+    ></div>
       <div class="formGourp formGourp--submit clearfix">
      <input class="formBtn formBtn--submit" type="submit" value="{{gfwsVm.submitText}}"
       ng-disabled="gfwsForm.$invalid || gfwsVm.isDisabled">
