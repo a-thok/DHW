@@ -82,11 +82,12 @@ export default function avatarDirective() {
       });
 
       $scope.submit = () => {
-        if ($scope.obj.selection[0] && $scope.obj.selection[1] && $scope.obj.selection[4] && $scope.obj.selection[5]) {
+        if ($scope.obj.selection[0] || $scope.obj.selection[1] || $scope.obj.selection[4] || $scope.obj.selection[5]) {
           $scope.data.x = $scope.obj.selection[0];
           $scope.data.y = $scope.obj.selection[1];
           $scope.data.w = $scope.obj.selection[4];
           $scope.data.h = $scope.obj.selection[5];
+          console.log($scope.obj.selection[0]);
         }
         var params = $.extend({}, $scope.data);
 
