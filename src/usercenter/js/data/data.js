@@ -95,7 +95,7 @@ export const category = [
 ];
 export const expertku = [
   { type: 0, name: '无' },
-  { type: 1, name: '石狮轻纺成园区' },
+  { type: 1, name: '石狮轻纺城园区' },
 ];
 // 创意设计品牌
 export const brand = [
