@@ -58,6 +58,7 @@ export default function richText() {
         'redo',
         // 'fullscreen'
       ];
+      editor.config.uploadImgFileName = 'file';
       // onchange 事件
       editor.config.uploadImgUrl = dhw.imguploadurl + '?key=' + attrs.keyname + '&t=' + attrs.size;
       editor.config.uploadImgFns.onload = (resultText) => {
