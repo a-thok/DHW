@@ -47,6 +47,22 @@ export default function nodatasArea() {
           $scope.area = draft;
         }
       });
+      if ($attrs.vm === 'addfdVm') {
+        $scope.$parent[$attrs.vm].getEditdata = (draft) => {
+          if (draft) {
+            $scope.prov = draft.province.name;
+            $scope.citym = draft.city.name;
+            $scope.country = draft.district.name;
+            $scope.area = draft;
+          }
+        };
+        // $scope.$parent[$attrs.vm].clearEditdata = () => {
+        //   $scope.prov = '';
+        //   $scope.citym = '';
+        //   $scope.country = '';
+        //   $scope.area = {};
+        // }
+      }
       // 将数据保存到跟作用域上
       $scope.$parent[$attrs.vm].draft.basic = () => {
         var draft = {};

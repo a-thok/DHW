@@ -48,7 +48,8 @@ import EducationCtrl from './controllers/ZhxxControllers/EducationCtrl.js';
 import WorkCtrl from './controllers/ZhxxControllers/WorkCtrl.js';
 import CompanyCtrl from './controllers/ZhxxControllers/CompanyCtrl.js';
 import avatarCtrl from './controllers/ZhxxControllers/avatarCtrl.js';  // 上传头像
-import SettingCtrl from './controllers/ZhxxControllers/SettingCtrl.js'; //个人账户设置
+import SettingCtrl from './controllers/ZhxxControllers/SettingCtrl.js'; // 账户设置
+import AddfdCtrl from './controllers/ZhxxControllers/AddfdCtrl.js'; // 添加分店
 import GsdtCtrl from './controllers/GsdtCtrl.js';
 import YqljCtrl from './controllers/YqljCtrl.js';
 import GsdtFbCtrl from './controllers/GsdtControllers/GsdtFbCtrl.js';
@@ -131,6 +132,11 @@ app
         url: '/setting',
         templateUrl: '/partials/account/partial-zhxx-setting.html',  // 公司账号--账户设置
         controller: 'SettingCtrl as settingVm'
+      })
+      .state('zhxx.addfd', {
+        url: '/addfd',
+        templateUrl: '/partials/account/partial-zhxx-addfd.html',  // 公司账号--添加分店
+        controller: 'AddfdCtrl as addfdVm'
       })
       .state('pzhxx', {
         url: '/pzhxx',
@@ -394,6 +400,7 @@ app
   .controller('SettingCtrl', ['$http', SettingCtrl])
   .controller('CompanyCtrl', ['$http', CompanyCtrl])
   .controller('YqljCtrl', ['$http', YqljCtrl])
+  .controller('AddfdCtrl', ['$http', AddfdCtrl])
   // 站内信
   .controller('EmailCtrl', ['$http', '$stateParams', '$scope', EmailCtrl])
   .controller('OutboxCtrl', ['$http', '$scope', OutboxCtrl])

@@ -536,3 +536,7 @@ body {
 .zblistTabs li {
   width: 137px;
 }
+/*account 头部切换样式*/
+.account-tabs li {
+  width: 146px;
+}

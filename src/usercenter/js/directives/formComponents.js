@@ -31,6 +31,9 @@ import fileUploader from './formComponents/fileUploader.js';
 import baidumap from './formComponents/baidumap.js';
 // 梦云街SKU
 import myjSku from './formComponents/myjSku.js';
+// 添加分店地址
+import addFd from './formComponents/addFd.js';
+import addFdlist from './formComponents/addFdlist.js';
 
 let app = angular.module('formComponents', ['mp.colorPicker']);
 app
@@ -74,6 +77,9 @@ app
   // 个人中心企业上传图片指令--有新增功能
   .directive('addPhoto', addPhoto)
   // 头像上传裁剪功能
-  .directive('avatarDirective', avatarDirective);
+  .directive('avatarDirective', avatarDirective)
+  // 添加分店地址
+  .directive('addFd', addFd)
+  .directive('addFdlist', addFdlist);
 
 export default app;

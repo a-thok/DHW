@@ -21,6 +21,10 @@ export default function ZhxxCtrl() {
     {
       name: '账户设置',
       url: '.setting'
+    },
+    {
+      name: '添加分店',
+      url: '.addfd'
     }
   ];
 }
