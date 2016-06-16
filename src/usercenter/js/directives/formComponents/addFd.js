@@ -19,9 +19,6 @@ export default function addFd() {
     },
     controller: ['$scope', '$http', '$attrs', function Ctrl($scope, $http, $attrs) {
       var vm = this;
-      // function fail() {
-      //   $scope[$attrs.vm].isSubmitSuccess = false;
-      // }
       var dataApi;
       var para = {
 
@@ -29,10 +26,11 @@ export default function addFd() {
       var editdata = {
 
       };
-      // $scope[$attrs.vm].showModal = false;
       $scope[$attrs.vm].submit = () => {
+        // 得到省市区数据
         var content = $scope[$attrs.vm].draft.basic();
         para = $.extend(vm.data, content);
+        // 判断用户是新增还是保存修改操作
         if ($scope[$attrs.vm].index) {
           // 修改功能
           editdata.company = $scope[$attrs.vm].data.company;
@@ -47,7 +45,6 @@ export default function addFd() {
           // 新增功能
           var newdata = $.extend({}, $scope[$attrs.vm].data);
           para.child = newdata;
-          console.log(para);
           // $scope[$attrs.vm].listdata.push(para);
           dataApi = $attrs.addapi;
         }
@@ -64,10 +61,11 @@ export default function addFd() {
               }
             });
           } else {
-            alert('提交失败,请检查信息是否填写完整（包括地图信息）');
+            alert('提交失败,请检查信息是否填写完整（包括地图坐标信息）');
           }
         });
       };
+      // 取消编辑
       vm.cancelEdit = () => {
         $scope.$parent[$attrs.vm].index = 0;
         $scope.$parent[$attrs.vm].data = {};
