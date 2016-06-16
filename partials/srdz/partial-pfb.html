@@ -27,7 +27,7 @@
       data-vm="fbVm"
       data-label="所在地"
       data-name="area"
-      data-required="false"
+      data-required="true"
     ></div>
     <div text-area
       data-switch="false"
@@ -52,7 +52,7 @@
       data-tip='请填写价格'
       data-error="价格格式错误或超出限制"
   ></div>
-    <div select-simple
+  <div select-simple
       data-switch="false"
       data-vm="fbVm"
       data-label="分类"
@@ -60,15 +60,20 @@
       data-options="item.name for item in fbVm.category"
       data-required="true"
     ></div>
+   <div myj-sku
+     data-vm="fbVm"
+     data-form="fbForm"
+     data-label="产品规格"
+  ></div>
    <div rich-text
-      data-vm="fbVm"
-      data-label="话题描述"
-      data-name="text"
+     data-vm="fbVm"
+     data-label="话题描述"
+     data-name="text"
      data-required="true"
      data-keyname="srdz"
      data-size="800x800"
      data-placeholder="描述您的话题概要，以及个人简介。"
-      ng-model="fbVm.data.text"
+     ng-model="fbVm.data.text"
    ></div>
    <div class="formSet formSet-agreement clearfix">
      <div class="formSetWrap">
@@ -84,7 +89,7 @@
       ng-disabled="fbForm.$invalid || fbVm.isDisabled">
    </div>
 </form>
-    <div modal
-      data-vm = "fbVm"
-      data-url="/pyfb"
-    ></div>
+<div modal
+  data-vm = "fbVm"
+  data-url="/pyfb"
+></div>

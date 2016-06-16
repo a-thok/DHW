@@ -4,7 +4,10 @@ import {
 import angular from 'angular';
 export default function FbCtrl($http) {
   var vm = this;
-  vm.data = {};
+  vm.data = {
+    props: [],
+    sku: []
+  };
   vm.skuTemp = [];
   vm.submitText = '提交';
   vm.isDisabled = false;
@@ -14,7 +17,7 @@ export default function FbCtrl($http) {
     vm.isDisabled = false;
   }
   vm.category = category;
-  vm.hideModal = () => {vm.showModal = false; setTimeout(function(){location.reload();}, 500); };
+  vm.hideModal = () => { vm.showModal = false; setTimeout(function(){location.reload();}, 500); };
   vm.addSku = function () {
     vm.skuTemp.push({});
   };
@@ -24,7 +27,12 @@ export default function FbCtrl($http) {
   vm.submit = function () {
     var para = $.extend({}, vm.data);
     para.type = vm.data.type.id;
-    
+    para.props.forEach((prop, i) => {
+      prop.lev = i;
+      prop.propEnum.forEach((item, _i) => {
+        item.index = _i;
+      });
+    });
 
 
     vm.submitText = '提交中';

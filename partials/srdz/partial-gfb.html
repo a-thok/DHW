@@ -27,7 +27,7 @@
       data-vm="gfbVm"
       data-label="所在地"
       data-name="area"
-      data-required="false"
+      data-required="true"
     ></div>     
    <div text-area
       data-switch="false"
@@ -59,7 +59,12 @@
       data-name="type"
       data-options="item.name for item in gfbVm.category"
       data-required="true"
-    ></div>   
+    ></div>
+    <div myj-sku
+     data-vm="gfbVm"
+     data-form="gfbForm"
+     data-label="产品规格"
+  ></div>   
    <div rich-text
       data-vm="gfbVm"
       data-label="话题描述"
