@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import template from 'art-template/dist/template.js';
 
 export default function detail() {
   // 图片切换
@@ -181,4 +182,72 @@ export default function detail() {
   //   let url = e.target.getAttribute('src');
   //   $('.commodityPic_img').attr('src', url);
   // });
+
+  // 信息切换
+  var spans = $('.ddetail_ttl span');
+  var con = $('.ddetail_l_cont');
+  $.each(spans, (i, span) => {
+    $(span).on('click', () => {
+      $(spans).removeClass('has-borderBut');
+      $(span).addClass('has-borderBut');
+      $(con).hide();
+      $(con[i]).show();
+    });
+  });
+
+  // 渲染城市模板
+  var html = template('province', window);
+  var city = $('.city');
+  city.html(html);
+
+  // 选择地区
+
+  // 获取页面数据
+  var res = window.companychildselect;
+  var dist = $('.area');
+  var options;
+  function getSecondOptions(result) { // 渲染第二个select的option
+    options = '';
+    $.each(result.items, (k, item) => {
+      // 循环出地区
+      options += `<option value="${item}" class="area">${item}</option>`;
+      dist.html(options);
+    });
+  }
+
+  var distName;
+  function switchList() { // 显示分店列表
+    $.each($('.ddetail_cont_list_item'), (i, list) => {
+      $(list).hide();
+      if ($(list).attr('list-type') === distName) {
+        $(list).show();
+      }
+    });
+  }
+  getSecondOptions(res[0]);
+
+  // 分店列表切换显示
+  distName = city.val() + dist.val(); // 第一次进入页面时获取城市和区域
+  switchList();
+
+  $.each($('.ddetail_cont_select select'), (i, select) => {
+    $(select).on('change', () => {
+      var cityValue;
+      cityValue = city.val();
+
+      if ($(select).hasClass('city')) {
+        options = '';
+        $.each(res, (i, result) => {
+          if (result.cityName === cityValue) {
+            // 传入存在相应值的result
+            getSecondOptions(result);
+          }
+        });
+      }
+
+      distName = cityValue + dist.val();
+      // 切换显示列表
+      switchList();
+    });
+  });
 }

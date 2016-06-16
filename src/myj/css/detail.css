@@ -358,3 +358,52 @@ background: url("../img/myj_bzicon3.png") no-repeat;
   z-index: -1;
   border:2px solid #2aa899;
 }
+
+/*详情信息切换*/
+.ddetail_ttl span {
+  display: inline-block;
+  height: 100%;
+  cursor: pointer;
+}
+.has-borderBut {
+  border-bottom: 1px solid #666;
+}
+.ddetail_ttl_text {
+  margin-left: 20px;
+}
+.no-align {
+  padding: 0 20px;
+  text-align: left;
+}
+
+/*商家信息*/
+.ddetail_cont_select {
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  border-bottom: 1px dotted #ccc;
+}
+.ddetail_cont_select select {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.ddetail_cont_list li {
+  display: inline-block;
+  width: 40%;
+  margin: 10px 24px;
+  padding: 10px 20px;
+  border: 1px solid var(--light);
+}
+.ddetail_cont_list li:hover {
+  border: 2px solid #666;
+}
+.ddetail_cont_list li p {
+  padding: 5px 0;
+}
+.ddetail_cont_list_item_name {
+  font-weight: bold;
+}
+.ddetail_cont_list_item_info {
+  font-size: 14px;
+  color: #666;
+}

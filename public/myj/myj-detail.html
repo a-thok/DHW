@@ -10,6 +10,16 @@
     var pagekey = 'detail';
     var dhw = {mainurl: '//localhost:8085/', isLogined: true};
     var product={skus:{"0,0":{"id":3,"price":2100.00},"0,1":{"id":4,"price":201.00},"1,0":{"id":5,"price":212.10},"1,1":{"id":6,"price":212.11}}};
+    // var companychild = [
+    //   {"compayName":"创企（北京分公司）","addr":"a","AddrBDMap":"11,11","provinceName":"福建","cityName":"泉州","districtName":"石狮","phone":"12345678"},
+    //   {"compayName":"创企（北京分公司）","addr":"a","AddrBDMap":"11,11","provinceName":"福建","cityName":"南安","districtName":"石狮2","phone":"12345678"},
+    //   {"compayName":"创企（北京分公司）","addr":"a","AddrBDMap":"11,11","provinceName":"北京","cityName":"南安","districtName":"石狮2","phone":"12345678"}];
+    var companychildselect=[{"cityName":"泉州","items":["石狮"]},{"cityName":"南安","items":["石狮2","石狮3"]}];
+  </script>
+  <script type="text/html" id="province">
+    {{each companychildselect as item}}
+      <option value="{{item.cityName}}">{{item.cityName}}</option>
+    {{/each}}
   </script>
 </head>
 
@@ -172,11 +182,24 @@
     <!--详情 开始-->
     <div class="ddetail clearfix">
       <div class="ddetail_l">
-        <h4 class="ddetail_ttl">商品详情</h4>
+        <h4 class="ddetail_ttl"><span class="has-borderBut">商品详情</span><span class="ddetail_ttl_text">商家信息</span></h4>
         <div class="ddetail_l_cont">
           <img src="../../src/myj/img/2(1).png" alt="">
           <img src="../../src/myj/img/2(1).png" alt="">
           <img src="../../src/myj/img/2(1).png" alt="">
+        </div>
+        <div class="ddetail_l_cont no-align is-hide">
+          <div class="ddetail_cont_select">
+            <span>商家筛选：</span>
+            <select name="city" class="city">
+              <!--渲染城市-->
+            </select>
+            <select name="area" class="area">
+              <!--渲染地区-->
+            </select>
+          </div>
+          <ul class="ddetail_cont_list">
+          </ul>
         </div>
       </div>
       <div class="ddetail_r">
