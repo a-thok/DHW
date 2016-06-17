@@ -215,26 +215,32 @@ export default function detail() {
     });
   }
 
-  var distName;
-  function switchList() { // 显示分店列表
-    $.each($('.ddetail_cont_list_item'), (i, list) => {
+  var items = $('.ddetail_cont_list_item');
+  function switchList(cityValue, distValue) { // 显示分店列表
+    if (cityValue === '全部市区') {
+      items.show();
+      return;
+    }
+
+    $.each(items, (i, list) => {
       $(list).hide();
-      if ($(list).attr('list-type') === distName) {
+      var type = $(list).attr('list-type');
+      if (!distValue && type.indexOf(cityValue) !== -1) {
+        $(list).show();
+      } else if (distValue && type === `${cityValue}${distValue}`) {
         $(list).show();
       }
     });
   }
   getSecondOptions(res[0]);
 
-  // 分店列表切换显示
-  distName = city.val() + dist.val(); // 第一次进入页面时获取城市和区域
-  switchList();
+  // 第一次进入页面，分店列表切换显示
+  switchList(city.val(), dist.val());
 
   $.each($('.ddetail_cont_select select'), (i, select) => {
     $(select).on('change', () => {
       var cityValue;
       cityValue = city.val();
-
       if ($(select).hasClass('city')) {
         options = '';
         $.each(res, (i, result) => {
@@ -244,10 +250,13 @@ export default function detail() {
           }
         });
       }
-
-      distName = cityValue + dist.val();
-      // 切换显示列表
-      switchList();
+      var distValue = dist.val();
+      if (distValue === '全部城区') {
+        switchList(cityValue);
+      } else {
+        // 切换显示列表
+        switchList(cityValue, distValue);
+      }
     });
   });
 }
