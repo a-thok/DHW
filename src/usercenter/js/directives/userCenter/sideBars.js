@@ -2,7 +2,7 @@ export default function sideBars() {
   return {
     replace: true,
     scope: true,
-    template: function () {
+    template: function (elem, attrs) {
       return `
       <div style="width:170px;">
       <div ng-repeat="routes in mainVm.routesArr" class="ucSidebar">
@@ -13,9 +13,12 @@ export default function sideBars() {
           <dd class="ucSidebar_menu_list" ng-cloak>
             <a ng-repeat="route in routes.items"
               class="ucSidebar_menu_list_item"
-              ng-class="{'ucSidebar_menu_list_item--active': vm.isactive(route.url)}"              
+              ng-class="{'ucSidebar_menu_list_item--active': vm.isactive(route.url)}"
               ui-sref="{{route.url}}"
             >{{route.text}}</a>
+            <a ng-if="routes.isSeller" ng-repeat="link in mainVm.normal"  href="{{link.href}}" class="ucSidebar_menu_list_item">
+             {{link.text}}
+            </a>
           </dd>
         </dl>
         </div>
@@ -26,7 +29,7 @@ export default function sideBars() {
       let vm = this;
       vm.isactive = (name) => {
         return $state.is(name);
-      }
+      };
     }],
     controllerAs: 'vm'
   };
