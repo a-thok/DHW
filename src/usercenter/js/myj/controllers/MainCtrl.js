@@ -43,11 +43,16 @@ export default function MainCtrl() {
     if (vm.logintype != 1) {
       vm.routesArr.push({
         title: '卖家功能',
-        items: vm.routes_c
-      })
-
+        items: vm.routes_c,
+        isSeller: true
+      });
     }
-  }
+  };
   vm.routesArrBuild();
-
+  vm.normal = [
+    {
+      href: 'http://www.dreamhiway.com/apphome#/zhxx/addfd',
+      text: '添加分店'
+    }
+  ];
 }
