@@ -10,18 +10,27 @@ export default function myjSku() {
             </label>
             <div class="formGroup_display">
               <div class="myjSku_prop" ng-repeat="prop in ${attrs.vm}.data.props">
-                <h4 class="myjSku_porp_title">
-                  <input class="formInput" type="text" ng-model="prop.name" ng-required="true">
-                  <button class="formBtn" type="button" ng-click="vm.delProp($index)">删除</button>
-                </h4>
-                <div class="myjSku_prop_item" ng-repeat="item in prop.propEnum">
-                  <input class="formInput" type="text" placeholder="请输入产品的固有属性" ng-model="item.name" ng-required="$first || !$last">
-                  <input class="formInput" type="text" placeholder="备注（如偏深或偏浅）" ng-model="item.remark">
-                  <button ng-hide="$first" class="formBtn" type="button" ng-click="vm.delPropItem($index, $parent.$index)">删除</button>
-                </div>
-                <div class="myjSku_prop_addItem">
-                  <button class="formBtn" type="button" ng-click="vm.addPropItem($index)">添加属性</button>
-                </div>
+                <ng-form name="innerForm">
+                  <h4 class="myjSku_porp_title">
+                    <input ng-pattern="/^.{1,10}$/" class="formInput" type="text" name="sizes" ng-model="prop.name" ng-required="true">
+                    <button class="formBtn" type="button" ng-click="vm.delProp($index)">删除</button>
+                    <span class="myjSku_error_info error-font" ng-show="innerForm.sizes && (innerForm.sizes.$invalid || innerForm.sizes.$error.required)">规格名称长度必须在1-10字符之间</span>
+                  </h4>
+                  <div class="myjSku_prop_item" ng-repeat="item in prop.propEnum">
+                    <ng-form name="innerForm">
+                      <input ng-pattern="/^.{1,10}$/" class="formInput" type="text" name="prop" placeholder="请输入产品的固有属性" ng-model="item.name" ng-required="$first || !$last">
+                      <input ng-pattern="/^.{1,10}$/" class="formInput" type="text" name="remark" placeholder="备注（如偏深或偏浅）" ng-model="item.remark">
+                      <button ng-hide="$first" class="formBtn" type="button" ng-click="vm.delPropItem($index, $parent.$index)">删除</button>
+                      <p class="myjSku_error">
+                        <span class="myjSku_error_info error-position" ng-show="innerForm.prop.$dirty && (innerForm.prop.$invalid || innerForm.prop.$error.required)">规格的值长度必须在1-10字符之间</span>
+                        <span class="myjSku_error_info error-position remark_text" ng-show="innerForm.remark.$dirty && innerForm.remark.$invalid">备注长度必须在1-10字符之间</span>
+                      </p>
+                    </ng-form>
+                  </div>
+                  <div class="myjSku_prop_addItem">
+                    <button class="formBtn" type="button" ng-click="vm.addPropItem($index)">添加属性</button>
+                  </div>
+                <ng-form>
               </div>
               <button ng-show="${attrs.vm}.data.props.length < 4" class="formBtn" type="button" ng-click="vm.addProp()">添加规格</button>
               <h4 class="myjSku_table_title" ng-show="${attrs.vm}.data.sku.length">价格</h4>
