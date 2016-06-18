@@ -48,3 +48,34 @@
 .myjSku_table input {
   width: 80px;
 }
+
+/*sku验证提示*/
+.myjSku_error {
+  position: relative;
+  clear: both;
+  top: -12px;
+}
+.myjSku_error:after {
+  display: table;
+  clear: both;
+  height: 18px;
+  content: '';
+}
+.myjSku_error_info {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #f00;
+  border: 1px solid #ffbdbe;
+  background-color: #ffebeb;
+}
+.error-position {
+  position: absolute;
+}
+/*去除字体加粗*/
+.error-font {
+  font-weight: normal;
+}
+.remark_text {
+  right: 31px;;
+}

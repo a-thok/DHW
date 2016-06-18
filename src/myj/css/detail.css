@@ -377,15 +377,20 @@ background: url("../img/myj_bzicon3.png") no-repeat;
 }
 
 /*商家信息*/
+.ddetail_cont_select,
+.ddetail_cont_select select,
+.ddetail_cont_list_item_info {
+  font-size: 14px;
+}
 .ddetail_cont_select {
   height: 36px;
   line-height: 36px;
-  font-size: 14px;
   border-bottom: 1px dotted #ccc;
 }
 .ddetail_cont_select select {
   margin-right: 10px;
-  font-size: 14px;
+  
+  color: #555;
 }
 .ddetail_cont_list li {
   display: inline-block;
@@ -404,6 +409,5 @@ background: url("../img/myj_bzicon3.png") no-repeat;
   font-weight: bold;
 }
 .ddetail_cont_list_item_info {
-  font-size: 14px;
   color: #666;
 }
