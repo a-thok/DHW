@@ -9,7 +9,7 @@ export default function listItem() {
           <i class="list_item_del" ng-if="${attrs.delresume}" ng-click="vm.delResume(${attrs.userid},${attrs.jobid})"></i>
           <i class="list_item_del" ng-if="${attrs.delzb}" ng-click="vm.delZb(${attrs.id},${attrs.state})"></i>
           <span ng-show="${attrs.toptxt}">${attrs.datekeytxt} : {{item.${attrs.datekey}}}</span>
-          <span ng-if="${attrs.return}"><a href="${attrs.returnurl}">sdfsdf</a></span>
+          <span ng-show="${attrs.ordertime}">下单时间 : {{item.${attrs.ordertimekey}}}</span>
         </div>
         <ul class="list_item_boxes clearfix">
           <li ng-repeat="box in ${attrs.vm}.list" class="list_item_box" ng-style="{width: box.width}">

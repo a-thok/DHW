@@ -1,7 +1,7 @@
 export default function sellerDfhCtrl() {
   var vm = this;
   vm.list = [
-    { name: '产品名称', key: 'subject', width: '20%' },
+    { name: '产品名称', key: 'subject', width: '20%', link: true, linkkey: 'productid' },
     { name: '买家名称', key: 'receiveName', width: '20%' },
     { name: '状态', key: 'stateName', width: '10%' },
     { name: '下单时间', key: 'date', width: '20%' },
