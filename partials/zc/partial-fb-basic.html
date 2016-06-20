@@ -100,7 +100,7 @@
     <ul class="serviceItems">
       <li class="serviceItem">
         <input type="hidden" ng-model="dataP.sercont" required>
-        <i class="active" ng-click="setSercont($event)"></i> 渠道费 1.5% ＋ 服务费 0% <a href="#">《服务内容》</a>
+        <i class="active" ng-click="setSercont($event)"></i><a href="http://www.dreamhiway.com/Xieyi/zcxieyi.html">《服务内容》</a>
       </li>
     </ul>
   </div>
@@ -157,19 +157,19 @@
         <span class="materialItem_label">营业执照</span>
         <input type="hidden" ng-model="dataC.licpic" required>
         <div class="materialItem_img"><img ng-show="!!dataC.licpic" ng-src='{{(!dataC.licpic) ? "" : (dhw.imgurl + dataC.licpic + "_64x64" + ".jpg")}}'></div>
-        <div class="materialItem_btn"><div  id="browseYYZZ" type="button" ng-model="dataC.licpic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
+        <div class="materialItem_btn"><div  id="browseYYZZ"  ng-model="dataC.licpic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
       </div>
       <div class="materialItem clearfix">
         <span class="materialItem_label">组织机构代码证</span>
         <input type="hidden" ng-model="dataC.codepic" required>
         <div class="materialItem_img"><img ng-show="!!dataC.licpic" ng-src='{{(!dataC.codepic) ? "" : (dhw.imgurl + dataC.codepic + "_64x64" + ".jpg")}}'></div>
-        <div class="materialItem_btn"><div  id="browseZZJGDM" type="button" ng-model="dataC.codepic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
+        <div class="materialItem_btn"><div  id="browseZZJGDM"  ng-model="dataC.codepic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
       </div>
       <div class="materialItem clearfix">
         <span class="materialItem_label">税务登记证</span>
         <input type="hidden" ng-model="dataC.regpic" required>
         <div class="materialItem_img"><img ng-show="!!dataC.regpic" ng-src='{{(!dataC.regpic) ? "" : (dhw.imgurl + dataC.regpic + "_64x64" + ".jpg")}}'></div>
-        <div class="materialItem_btn"><div id="browseSWDJZ" type="button" ng-model="dataC.regpic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
+        <div class="materialItem_btn"><div id="browseSWDJZ"  ng-model="dataC.regpic" data-keyname="cpzc" data-size="64x64" bind-img>上传</div></div>
       </div>
     </div>
     <div class="formTitle clearfix">
