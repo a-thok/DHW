@@ -23,7 +23,7 @@ if (!IE8) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-const proxy = require('proxy-middleware');
+const proxy = require('proxy-middleware'); 
 const url = require('url');
 app.use('/', proxy(url.parse('http://192.168.2.17:8085/')));
 

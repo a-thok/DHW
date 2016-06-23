@@ -1,4 +1,4 @@
-export default function ScCtrl() {
+export default function ScCtrl($http) {
   var vm = this;
   vm.list = [
     { name: '商标图片', key: 'img', width: '20%', img: true },
@@ -7,4 +7,9 @@ export default function ScCtrl() {
     { name: '使用范围', key: 'type', width: '20%' },
     { name: '购买价格', key: 'price', width: '15%' },
   ];
+  vm.cancelAttention = (id) => {
+    console.log(id);
+    $http.post('/Sys/rshop/TrademarkCollect/CollectDel', { ttid: id }).success(() => {
+    });
+  };
 }

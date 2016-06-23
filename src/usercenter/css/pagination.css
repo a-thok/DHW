@@ -21,9 +21,14 @@
   background-color: #fff;
   font-size: 14px;
   color: var(--pageColor);
+  min-width: 10px;
+  height: 20px;
   line-height: 20px;
   text-decoration: none;
   cursor: pointer;
+}
+.pagination > li > a:hover {
+  color: var(--pageColor);
 }
 .pagination-page.active a {
   border-color: var(--pageColor);

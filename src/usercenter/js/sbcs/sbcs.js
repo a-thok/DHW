@@ -62,7 +62,7 @@ app
     });
     // 根据个人中心类型，判断默认加载哪个路由
     $urlRouterProvider.otherwise(logintype === 1 ? '/sc' : '/sc');
-    $urlRouterProvider.otherwise('/fb/basic');
+    // $urlRouterProvider.otherwise('/fb/basic');
     $stateProvider
            .state('splb', {
              url: '/splb',
@@ -221,7 +221,7 @@ app
   .directive('switchType', switchType)
   .controller('MainCtrl', [MainCtrl]) // 主控制器
   .controller('SplbCtrl', [SplbCtrl])
-  .controller('ScCtrl', [ScCtrl])
+  .controller('ScCtrl', ['$http', ScCtrl])
   .controller('FbCtrl', ['$http', '$scope', FbCtrl])
   .controller('JyzCtrl', [JyzCtrl])
   .controller('YjyCtrl', [YjyCtrl])
