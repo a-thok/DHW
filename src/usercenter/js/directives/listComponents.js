@@ -9,6 +9,8 @@ import replaylist from './listComponents/replaylist.js';
 import replaylistItem from './listComponents/replaylistItem.js';
 import zbTabs from './listComponents/zbTabs.js';
 import orderList from './listComponents/orderList.js';
+// 梦云街销售地区
+import provCheck from './listComponents/provCheck.js';
 
 
 let app = angular.module('listComponents', []);
@@ -22,7 +24,8 @@ app
   .directive('checkListitem', checkListitem)
   .directive('replaylist', replaylist)
   .directive('replaylistItem', replaylistItem)
-  .directive('orderList', orderList);
+  .directive('orderList', orderList)
+  .directive('provCheck', provCheck);
 
 
 export default app;

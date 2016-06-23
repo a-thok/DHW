@@ -90,3 +90,111 @@
   color: var(--emColor);
   text-decoration: none;
 }
+
+/*云街地区列表*/
+.checkBox {
+  float: left;
+  width: 710px;
+  padding: 0 5px 0 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+.checkBox_header {
+  padding-bottom: 10px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.checkBox_header span {
+  display: inline-block;
+  padding-left: 10px;
+  margin: 10px 0 0 10px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #337ab7;
+}
+.checkBox_header span i {
+  float: right;
+  margin: 8px 8px 0;
+}
+.checkBox_content {
+  margin: 10px 0;
+}
+.checkBox_content_header {
+  border-bottom: 1px solid #ccc;
+}
+.checkBox_content_header span {
+  top: 1px;
+  display: inline-block;
+  width: 70px;
+  margin-bottom: -1px;
+  line-height: 25px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #fff;
+}
+.checkBox_content_header span i {
+  float: right;
+  margin: 5px 5px 0 0;
+}
+.checkBox_content_title {
+  margin: 10px;
+  line-height: 30px;
+}
+.checkBox_content_list:after {
+  display: block;
+  content: '';
+}
+.checkBox_content_list_item {
+  float: left;
+  width: 70px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px 5px;
+  color: #ccc;
+}
+.checkBox_content_list_item.is_active {
+  color: #333;
+}
+.checkBox_content_list_item.is_active:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #337ab7;
+}
+span.is-hide {
+  display: none;
+}
+/*.areaList {
+  float: left;
+  padding: 0 5px 0 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ccc;
+}*/
+/*
+.areaList li {
+  line-height: 40px;
+  border-bottom: 1px dotted #ccc;
+}
+.areaList li:after {
+  display: block;
+  height: 40px;
+  content: '';
+}
+.areaList_item {
+  float: left;
+} 
+.areaList_item_input {
+  margin: 0 10px;
+}
+.areaList_item_text {
+  display: inline-block;
+  width: 50px;
+  margin-right: 35px;
+}
+.text-font {
+  font-weight: bold;
+}*/
