@@ -6,12 +6,12 @@ export default function shoppingCart() {
     let totalCount = 0;
     let totalPrice = 0;
 
-    const sotre = elem.parents('.cart_store');
+    const sotre = elem.parents('.cart_body').find('.cart_store');
     const checkItems = sotre.find('.cart_check');
     const countItems = sotre.find('.cart_count_input');
     const priceItems = sotre.find('.cart_unitPrice');
-    const totalCountElem = sotre.find('.cart_totalCount span');
-    const totalPriceElem = sotre.find('.cart_totalCost span');
+    const totalCountElem = $('.cart_totalCount span');
+    const totalPriceElem = $('.cart_totalCost span');
 
     checkItems.each((i, el) => {
       // 只计算选中的
@@ -121,15 +121,16 @@ export default function shoppingCart() {
 
 // 结算
 $('.cart_payment_btn').on('click', (e) => {
-  const store = $(e.target).parents('.cart_store');
+  const store = $(e.target).parents('.cart_body').find('.cart_store');
   let data = [];
 
-  const checkedItems = store.find('.cart_check:checked');
+  const checkedItems = $(store).find('.cart_check:checked');
   // 没有选中的商品
   if (!checkedItems.length) {
     alert('请选择要生成订单的商品');
     return;
   }
+
   // 生成订单
   checkedItems.each((i, checkedItem) => {
     const item = $(checkedItem).parents('tr');
@@ -142,7 +143,6 @@ $('.cart_payment_btn').on('click', (e) => {
       count
     });
   });
-
   const form = $('#payForm');
   form[0].p.value = JSON.stringify(data);
   form.submit();

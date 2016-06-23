@@ -60,15 +60,26 @@ export default function detail() {
       alert('请选择完整的规格');
     } else {
       var count = +countElem.val();
+      var productid = window.productid;
+      var para = [];
+      para.push({
+        productid,
+        skuid,
+        count
+      });
+      var form = $('#payForm');
+      if (self.hasClass('buy')) {
+        // location.href = '/ShopCart/confirm';
+        form[0].p.value = JSON.stringify(para);
+        form.submit();
+      }
       $.post('/ShopCart/add', {
         productid: window.productid,
         count,
         skuid
       }).success((data) => {
         if (data.success) {
-          if (self.hasClass('buy')) {
-            location.href = '/ShopCart';
-          } else {
+          if (!self.hasClass('buy')) {
             // 加入购物车缩放提示
             var slide = $('.dinfo_slide').clone().appendTo('.dinfo_clone');
             slide.animate({
