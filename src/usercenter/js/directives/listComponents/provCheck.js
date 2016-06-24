@@ -37,7 +37,7 @@ export default function provCheck() {
       // </di>`;
       return `<div class="formGourp clearfix">
       <label class="formLabel" for="">
-        <span class="formRequired" ng-show="${attrs.required}">*</span>地区选择
+        <span class="formRequired" ng-show="${attrs.required}">*</span>销售范围
       </label>
       <div class="checkBox">
         <div class="checkBox_header">
@@ -122,7 +122,7 @@ export default function provCheck() {
         provTag.addClass('is-hide');
         provList.show();
         cityList.hide();
-        vm.provint = { text: '全部省份', code: '0' };
+        vm.provint = { text: '全国', code: '00' };
       };
 
       // 添加城市

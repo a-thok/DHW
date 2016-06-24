@@ -25,7 +25,7 @@ export default function inputText() {
               ng-pattern="${attrs.pattern}"
               ng-required="${attrs.required}"
               ng-blur=""
-              placeholder="${attrs.placeholder}"
+              placeholder="${attrs.placeholder || ''}"
             >
             <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.save()" ng-disabled="${attrs.form}.${attrs.name}.$invalid">保存</button>
             <button class="formSwitch" type="button" ng-show="${attrs.switch}" ng-click="vm.cancle()">取消</a>
