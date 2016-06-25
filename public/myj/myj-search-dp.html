@@ -32,7 +32,19 @@
             <a class="dinfo_link" href="{{store.siteurl}}">进入官网</a>
           </dd>
         </dl>
-        <p class="sresult_dpitem_addr">店铺地址：<span>{{store.cityName}}</span><span>{{store.addr}}</span></p>
+        <div class="sresult_dpitem_addr">
+          <p class="sresult_dpitem_addr">店铺地址：<span>{{store.addrs[0].cityName}}</span><span>{{store.addrs[0].addr}}</span>
+          {{if store.addrs.length > 1}}
+          <span class="sresult_dpitem_addr_more">更多</span>
+          {{/if}}
+          </p>
+          <dl class="sresult_dpitem_addr_list">
+            {{each store.addrs as addrs}}
+            <dd><span>{{addrs.cityName}}</span><span>{{addrs.addr}}</span></dd>
+            {{/each}}
+          </dl>
+        </div>
+        
       </div>
       <div class="sresult_dpitem_imgs">
         {{each store.images as img}}

@@ -56,14 +56,30 @@
   margin-right: 18px;
 }
 .sresult_dpitem_addr {
+  position: relative;
+  width: 250px;
   color: #666;
+}
+.sresult_dpitem_addr_list {
+  position: absolute;
+  display: none;
+  top: 20px;
+  left: 60px;
+  z-index: 1;
+  padding: 5px 5px 5px 0;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.sresult_dpitem_addr_list dd {
+  padding-right: 5px;
 }
 .sresult_dpitem_addr span {
   padding-left: 4px;
 }
-
-
-
+.sresult_dpitem_addr_more {
+  float: right;
+  color: #06c1ae;
+}
 .sresult_dpitem_imgs {
   float: right;
   margin: 15px;

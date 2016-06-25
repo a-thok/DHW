@@ -10,6 +10,17 @@ export default function store() {
       pageIndex: 1,
       pageSize: 15
     },
-    cbAfter(data) { $('.orderby_count span').text(data.result.total); }
+    cbAfter(data) {
+      $('.orderby_count span').text(data.result.total);
+      $('.sresult_dpitem_addr_more').mouseenter((e) => {
+        $(e.currentTarget).parents('.sresult_dpitem_addr')
+        .find('.sresult_dpitem_addr_list')
+        .show();
+      }).mouseleave((e) => {
+        $(e.currentTarget).parents('.sresult_dpitem_addr')
+        .find('.sresult_dpitem_addr_list')
+        .hide();
+      });
+    }
   });
 }
