@@ -52,8 +52,254 @@
   color: #fff;;
   background-color: #06c1ae;
 }
-/*
 
+/*订单填写*/
+.order_ttl {
+  padding: 20px;
+  border-bottom: 1px solid #ededed;
+  font-size: 22px;
+  background-color: #fafafa;
+}
+.orderfill {
+  padding: 20px;
+}
+.orderfill_ttl {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 55px;
+}
+.areaSelect {
+  position: relative;
+  height: 30px;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  line-height: 30px;
+}
+.areaSelect i {
+  vertical-align: middle;
+}
+.selected_addr {
+  border: 1px solid #ffc38a;
+  background-color: #fffcf5;
+}
+.sendFor {
+  display: none;
+  float: left;
+  width: 100px;
+  margin-right: 10px;
+  color: #ff7901;
+  text-align: right;
+}
+.sendFor i {
+  display: inline-block;
+  width: 14px;
+  height: 19px;
+  margin-right: 5px;
+  background: url(../img/002.png) -5px -19px no-repeat;
+}
+.selected_addr .sendFor {
+  display: block;
+}
+.select_icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: -2px;
+  margin-right: 5px;
+  background: url(../img/002.png) -39px -2px no-repeat;
+  cursor: pointer;
+}
+.selected_addr .select_icon,
+.selected_icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url(../img/002.png) -22px -2px no-repeat;
+}
+.user_infor {
+  position: absolute;
+  left: 110px;
+  width: 800px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.operate {
+  display: none;
+  float: right;
+}
+.selected_addr .operate {
+  display: block;
+}
+.orderfill_name,
+.orderfill_phone {
+  margin-right: 10px;
+}
+.operate_items {
+  float: left;
+  height: 13px;
+  padding: 0 15px;
+  color: #0091e6;
+  cursor: pointer;
+}
+.operate_items_grey {
+  color: #999;
+}
+.newAddr {
+  margin: 25px 0 25px 110px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.invoice_div {
+  margin-bottom: 25px;
+}
+.invoiceLabel {
+  height: 35px;
+  margin-right: 10px;
+  line-height: 35px;
+  font-size: 14px;
+}
+.invoiceInput_long {
+  width: 480px;
+  height: 33px;
+  padding-left: 10px;
+  border: 1px solid #ededed;
+}
+
+/*详情页支持弹出框*/
+.model_bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  z-index: 11;
+}
+.model {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 690px;
+  height: 542px;
+  border: 5px solid #676767;
+  margin-top: -267px;
+  margin-left: -345px;
+  z-index: 12;
+  background-color: #fff;
+}
+.model_ttl {
+  position: relative;
+  padding: 25px 20px;
+  font-size: 16px;
+  color: #333;
+}
+.model_cancel {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.model_cont {
+  height: 430px;
+  padding: 20px;
+  border-top: 1px solid #ececec;
+  overflow-y: scroll;
+}
+
+/*添加地址弹出框*/
+.newaddr_model {
+  width: 940px;
+  height: 550px;
+  margin-left: -470px;
+}
+.newaddr_model .model_cont {
+  overflow-y: visible;
+}
+.addrForm {
+  position: relative;
+}
+.newaddrForm {
+  margin-bottom: 15px;
+}
+.newaddr_ttl {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.newaddr_ttl span {
+  margin-right: 10px;
+  color: #fc6210;
+}
+.newaddrForm_label {
+  display: inline-block;
+  width: 90px;
+  margin-right: 5px;
+  text-align: right;
+}
+.newaddrForm_label_required {
+  color: #fc6210;
+}
+.newaddrForm_input {
+  width: 190px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  font-size: 12px;
+}
+.newaddrForm_textarea {
+  width: 380px;
+  height: 70px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  vertical-align: top;
+}
+.newaddrForm_input-short {
+  width: 50px;
+}
+.newaddrForm_btn {
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 98px;
+  background-color: #ff4001;
+  color: #fff;
+  cursor: pointer;
+}
+.order_addr {
+  display: none;
+  position: absolute;
+  top: 30px;
+  max-height: 150px;
+  min-width: 70px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+.addr_province {
+  left: 100px;
+}
+.addr_city {
+  left: 175px;
+}
+.addr_county {
+  left: 253px;
+}
+.addr_province li:hover,
+.addr_county li:hover,
+.addr_city li:hover {
+  color: #fff;
+  background-color: #fc6210;
+}
+/*
 .order_detail {
   width: 1181px;
   margin: 20px auto;
