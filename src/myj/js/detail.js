@@ -72,6 +72,7 @@ export default function detail() {
         // location.href = '/ShopCart/confirm';
         form[0].p.value = JSON.stringify(para);
         form.submit();
+        return;
       }
       $.post('/ShopCart/add', {
         productid: window.productid,
