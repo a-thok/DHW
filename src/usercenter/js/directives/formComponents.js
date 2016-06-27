@@ -27,6 +27,8 @@ import avatarDirective from './formComponents/avatarDirective.js';
 import colorPick from './formComponents/colorPick.js';
 // 测试指令省市三级联动
 import fileUploader from './formComponents/fileUploader.js';
+// 梦云街多文件上传指令
+import multipleUploader from './formComponents/multipleUploader.js';
 // 百度地图
 import baidumap from './formComponents/baidumap.js';
 // 梦云街SKU
@@ -50,6 +52,8 @@ app
   .directive('selectArea', selectArea)
   // 图片上传
   .directive('webUploader', webUploader)
+  // 梦云街多文件上传指令
+  .directive('multipleUploader', multipleUploader)
   // 日历
   .directive('calendar', calendar)
   // 富文本
