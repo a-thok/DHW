@@ -93,9 +93,17 @@
     data-vm="fbVm"
     data-form="fbForm"
     data-label="产品规格"
-  >
-  </div>
-
+  ></div>
+  <div rich-text
+      data-vm="fbVm"
+      data-label="商品文字描述"
+      data-name="desc"
+      data-required="true"
+      data-keyname="o2o"
+      data-size="400x400"
+      data-ismyj="true"
+      ng-model="fbVm.data.desc"
+  ></div>
   <div ng-repeat="photo in fbVm.photos" class="addphoto">
     <div web-uploader
     data-vm="fbVm"

@@ -95,7 +95,16 @@
     data-label="产品规格"
   >
   </div>
-
+  <div rich-text
+      data-vm="detailVm"
+      data-label="商品文字描述"
+      data-name="desc"
+      data-required="true"
+      data-keyname="o2o"
+      data-size="400x400"
+      data-ismyj="true"
+      ng-model="detailVm.data.desc"
+  ></div>
   <div ng-repeat="photo in detailVm.photos" class="addphoto">
     <div web-uploader
     data-vm="detailVm"
@@ -109,6 +118,7 @@
     ></div>
     <button class="formSet_input_btn addphoto_del_btn" ng-click="detailVm.delphoto($index)">删除</button>
   </div>
+
   <div>
     <button class="formBtn formBtn--submit addphoto_add_btn" ng-click="detailVm.addphoto()" type="button">添加新图片</button>
   </div>

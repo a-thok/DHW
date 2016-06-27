@@ -15,11 +15,11 @@ export default function richText() {
           <div class="formGourp_editor_text">
             <textarea id="editor"
             ${
-              attrs.repeatitem ?
-              'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
-              :
-              'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
-            }
+        attrs.repeatitem ?
+          'ng-model="' + attrs.repeatitem + '.' + attrs.name + '"'
+          :
+          'ng-model="' + attrs.vm + '.data.' + attrs.name + '"'
+        }
             ng-required="${attrs.required}" style="min-height:400px;max-height:500px;"></textarea>
           </div>
         </div>
@@ -27,37 +27,63 @@ export default function richText() {
     },
     link(scope, elem, attrs, ngModel) {
       var editor = new WangEditor('editor');
-      editor.config.menus = [
-        'source',
-        '|',
-        'bold',
-        'underline',
-        'italic',
-        'strikethrough',
-        'eraser',
-        'forecolor',
-        'bgcolor',
-        '|',
-        'quote',
-        'fontfamily',
-        'fontsize',
-        'head',
-        'unorderlist',
-        'orderlist',
-        'alignleft',
-        'aligncenter',
-        'alignright',
-        '|',
-        'link',
-        'unlink',
-        'table',
-        '|',
-        'img',
-        '|',
-        'undo',
-        'redo',
-        // 'fullscreen'
-      ];
+      if (!attrs.ismyj) {
+        editor.config.menus = [
+          'source',
+          '|',
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+          'eraser',
+          'forecolor',
+          'bgcolor',
+          '|',
+          'quote',
+          'fontfamily',
+          'fontsize',
+          'head',
+          'unorderlist',
+          'orderlist',
+          'alignleft',
+          'aligncenter',
+          'alignright',
+          '|',
+          'link',
+          'unlink',
+          'table',
+          '|',
+          'img',
+          '|',
+          'undo',
+          'redo',
+          // 'fullscreen'
+        ];
+      } else {
+        editor.config.menus = [
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+          'eraser',
+          'forecolor',
+          'bgcolor',
+          '|',
+          'quote',
+          'fontfamily',
+          'fontsize',
+          'head',
+          'unorderlist',
+          'orderlist',
+          'alignleft',
+          'aligncenter',
+          'alignright',
+          '|',
+          'undo',
+          'redo',
+        ];
+      }
+      editor.config.menuFixed = false;
       editor.config.uploadImgFileName = 'file';
       // onchange 事件
       editor.config.uploadImgUrl = dhw.imguploadurl + '?key=' + attrs.keyname + '&t=' + attrs.size;
