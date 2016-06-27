@@ -11,30 +11,31 @@ import navSlide from '../directives/userCenter/navSlide.js';
 import sideBars from '../directives/userCenter/sideBars.js';
 import switchType2 from '../directives/userCenter/switchType2.js';
 
-import MainCtrl from './controllers/MainCtrl.js'
-import FbCtrl from './controllers/FbCtrl.js'
-import DetailCtrl from './controllers/DetailCtrl.js'
-import ScCtrl from './controllers/ScCtrl.js'
-import YfbCtrl from './controllers/YfbCtrl.js'
-import YfbAllCtrl from './controllers/yfb/YfbAllCtrl.js'
-import YfbBtgCtrl from './controllers/yfb/YfbBtgCtrl.js'
-import YfbDshCtrl from './controllers/yfb/YfbDshCtrl.js'
-import YfbTgCtrl from './controllers/yfb/YfbTgCtrl.js'
-import YfbYxjCtrl from './controllers/yfb/YfbYxjCtrl.js'
+import MainCtrl from './controllers/MainCtrl.js';
+import FbCtrl from './controllers/FbCtrl.js';
+import DetailCtrl from './controllers/DetailCtrl.js';
+import ScCtrl from './controllers/ScCtrl.js';
+import YfbCtrl from './controllers/YfbCtrl.js';
+import YfbAllCtrl from './controllers/yfb/YfbAllCtrl.js';
+import YfbBtgCtrl from './controllers/yfb/YfbBtgCtrl.js';
+import YfbDshCtrl from './controllers/yfb/YfbDshCtrl.js';
+import YfbTgCtrl from './controllers/yfb/YfbTgCtrl.js';
+import YfbYxjCtrl from './controllers/yfb/YfbYxjCtrl.js';
 // 买家订单
-import BuyerCtrl from './controllers/BuyerCtrl.js'
-import BuyerallCtrl from './controllers/buyercontrollers/BuyerallCtrl.js'
-import BuyercloseCtrl from './controllers/buyercontrollers/BuyercloseCtrl.js'
-import BuyerdfkCtrl from './controllers/buyercontrollers/BuyerdfkCtrl.js'
-import BuyerdshCtrl from './controllers/buyercontrollers/BuyerdshCtrl.js'
-import BuyerjywcCtrl from './controllers/buyercontrollers/BuyerjywcCtrl.js'
+import BuyerCtrl from './controllers/BuyerCtrl.js';
+import BuyerallCtrl from './controllers/buyercontrollers/BuyerallCtrl.js';
+import BuyercloseCtrl from './controllers/buyercontrollers/BuyercloseCtrl.js';
+import BuyerdfkCtrl from './controllers/buyercontrollers/BuyerdfkCtrl.js';
+import BuyerdshCtrl from './controllers/buyercontrollers/BuyerdshCtrl.js';
+import BuyerjywcCtrl from './controllers/buyercontrollers/BuyerjywcCtrl.js';
 // 卖家订单
-import SellerCtrl from './controllers/SellerCtrl.js'
-import SellerallCtrl from './controllers/sellercontrollers/SellerallCtrl.js'
-import SellercloseCtrl from './controllers/sellercontrollers/SellercloseCtrl.js'
-import SellerdfkCtrl from './controllers/sellercontrollers/SellerdfkCtrl.js'
-import SellerdshCtrl from './controllers/sellercontrollers/SellerdshCtrl.js'
-import SellerjywcCtrl from './controllers/sellercontrollers/SellerjywcCtrl.js'
+import SellerCtrl from './controllers/SellerCtrl.js';
+import SellerallCtrl from './controllers/sellercontrollers/SellerallCtrl.js';
+import SellercloseCtrl from './controllers/sellercontrollers/SellercloseCtrl.js';
+import SellerdfkCtrl from './controllers/sellercontrollers/SellerdfkCtrl.js';
+import SellerdshCtrl from './controllers/sellercontrollers/SellerdshCtrl.js';
+import SellerjywcCtrl from './controllers/sellercontrollers/SellerjywcCtrl.js';
+import SellerdetailCtrl from './controllers/sellercontrollers/SellerdetailCtrl.js'; // 显示买家订单详情
 
 
 
@@ -157,7 +158,11 @@ app
         templateUrl: '/partials/myj/seller/partial-seller-close.html',
         controller: 'SellercloseCtrl as closeVm'
       })
-
+      .state('sellerdetail', {
+        url: '/sellerdetail/:id/:number',
+        templateUrl: '/partials/myj/seller/partial-seller-detail.html',
+        controller: 'SellerdetailCtrl as SellerdetailVm'
+      });
   }])
   .directive('showAllModules', showAllModules)
   .directive('navSlide', navSlide)
@@ -187,6 +192,7 @@ app
   .controller('SellercloseCtrl', ['$http', SellercloseCtrl])
   .controller('SellerdfkCtrl', ['$http', SellerdfkCtrl])
   .controller('SellerdshCtrl', ['$http', SellerdshCtrl])
-  .controller('SellerjywcCtrl', ['$http', SellerjywcCtrl]);
+  .controller('SellerjywcCtrl', ['$http', SellerjywcCtrl])
+  .controller('SellerdetailCtrl', ['$http', '$stateParams', SellerdetailCtrl]); // 显示买家订单详情
 
 export default app;
