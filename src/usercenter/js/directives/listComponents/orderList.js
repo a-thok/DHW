@@ -20,7 +20,8 @@ export default function orderList() {
             <div class="shopItem_ttl">
               <span class="shopItem_ttl_date">{{ item.date }}</span>
               <span class="orderNumber">订单号 ：<span>{{ item.number }}</span></span>
-              <span class="companyName"><a href="{{item.storeurl}}" target="_blank">{{ item.compayName }}</a></span>
+              <span class="companyName"><a href="/apphome#/email/inbox">{{ item.${attrs.name} }}</a></span>
+              <span class="checkDetail" ng-show="${attrs.detail}"><a href="#/sellerdetail/{{item.${attrs.id}}}/{{item.number}}">查看详情</a><span>
               <span class="prderDelete" ng-click="${attrs.vm}.${attrs.del}">删除</span>
             </div>
             <table>
@@ -36,7 +37,7 @@ export default function orderList() {
               <tbody class="commodity_tbody">
                 <tr ng-repeat="items in item.items">
                   <td><a href="{{ items.url }}" target="_blank"><img src="{{ items.image }}" alt=""></a></td>
-                  <td><a href="{{ items.url }}" target="_blank">{{ items.name }}</a></td>
+                  <td><a href="{{ items.url }}" target="_blank">{{ items.name }}<span class="skuProp">{{items.skuName}}<span></a></td>
                   <td>{{ items.price }}</td>
                   <td>{{ items.count }}</td>
                   <td ng-if="$index === 0">{{ item.totalFee }}</td>
