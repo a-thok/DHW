@@ -69,8 +69,6 @@ export default function richText() {
           'forecolor',
           'bgcolor',
           '|',
-          'quote',
-          'fontfamily',
           'fontsize',
           'head',
           'unorderlist',

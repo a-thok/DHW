@@ -5,36 +5,6 @@ export default function provCheck() {
     replace: true,
     scope: true,
     template(elem, attrs) {
-      //   return `<div class="formGourp clearfix">
-      //   <label class="formLabel" for="">
-      //     <span class="formRequired" ng-show="${attrs.required}">*</span>地区选择
-      //   </label>
-      //   <ul class="areaList">
-      //     <li ng-repeat="area in vm.data">
-      //       <div class="areaList_item">
-      //         <input
-      //           class="areaList_item_input checkedAll"
-      //           type="checkbox"
-      //           ng-click="vm.listCheck($event, area)"
-      //         >
-      //         <span class="areaList_item_text text-font" name="areaText">{{area.name}}</span>
-      //       </div>
-      //       <dl class="areaList_item">
-      //         <dd class="areaList_item" ng-repeat="prov in area.items">
-      //           <input
-      //             class="areaList_item_input"
-      //             type="checkbox"
-      //             data-code="{{prov.code}}"
-      //             ng-model="${attrs.vm}.provs[prov.code]"
-      //             ng-click="vm.listCheck($event, prov)"
-      //           >
-      //           <span class="areaList_item_text">{{prov.name}}</span>
-      //         </dd>
-      //       </dl>
-      //     </li>
-      //   </ul>
-      //   {{ ${attrs.vm}.provs | json }}
-      // </di>`;
       return `<div class="formGourp clearfix">
       <label class="formLabel" for="">
         <span class="formRequired" ng-show="${attrs.required}">*</span>销售范围
@@ -105,7 +75,7 @@ export default function provCheck() {
                 if (item) break;
               }
             } else {
-              item = vm.filter(vm.data, code);
+              item = code === '00' ? { name: '全国', code: '00' } : vm.filter(vm.data, code);
             }
             vm.selectedItems.push({
               name: item.name,
@@ -141,6 +111,7 @@ export default function provCheck() {
             const initialCode = code.slice(0, 2);
             for (let i = 0; i < vm.selectedItems.length; i++) {
               if (vm.selectedItems[i].code === initialCode) return;
+              if (vm.selectedItems[i].code === '00') return; // 全国选中时，阻止省份点击
             }
           }
           vm.provint.text = elemText;
@@ -172,52 +143,9 @@ export default function provCheck() {
       };
       // 改变已选项的样式
       vm.disable = (code) => {
-        const isDisabled = vm.selectedItems.some(item => item.code === code || item.code === code.slice(0, 2));
+        const isDisabled = vm.selectedItems.some(item => item.code === code || item.code === code.slice(0, 2) || item.code === '00');
         return !isDisabled;
       };
-      // vm.listCheck = (event, earaData) => {
-      //   let elem = event.target;
-      //   const arrayData = $scope.$parent[$attrs.vm].data.sellprov;
-      //   const parent = $(elem).parent().parent();
-
-      // 添加和删除
-      // function arrOperate(boolenType, code) {
-      //   if (boolenType === true) {
-      //     arrayData.push(code);
-      //   } else {
-      //     arrayData.forEach((elem, index) => {
-      //       if (elem === code) {
-      //         arrayData.splice(index, 1);
-      //       }
-      //     });
-      //   }
-      // }
-      // let checkBoolen;
-      // if ($(elem).hasClass('checkedAll')) { // 全选和取消全选
-      //   checkBoolen = $(elem)[0].checked;
-      //   $.each(parent.find('dd'), (i, dd) => {
-      //     const code = $(dd).find('input').attr('data-code');
-      //     $scope.$parent[$attrs.vm].provs[code] = checkBoolen;
-      //   });
-      // parent.find('dd').find('input').prop('checked', checkBoolen);
-
-      //   $.each(earaData.items, (i, el) => {
-      //     // 调用函数
-      //     arrOperate(checkBoolen, el.code);
-      //   });
-      // } else { // 单选和取消
-      // let checkedAll = true;
-      // // 一个地区的省份都选中时，显示全选
-      // $.each($(parent).find('input'), (i, el) => {
-      //   if ($(el).prop('checked') !== true) {
-      //     checkedAll = false;
-      //   }
-      // });
-      // checkBoolen = checkedAll ? true : false;
-      // parent.prev().find('input').prop('checked', checkBoolen);
-      //     $scope.$parent[$attrs.vm].isCheckedAll();
-      //   }
-      // };
     }],
     controllerAs: 'vm'
   };

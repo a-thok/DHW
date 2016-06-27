@@ -111,6 +111,7 @@ export default function DetailCtrl($http, $stateParams) {
         location.href = '#/yfb/all';
       } else {
         alert(data.msg);
+        vm.isDisabled = false;
       }
     });
   };
