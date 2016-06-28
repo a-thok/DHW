@@ -317,9 +317,11 @@ background: url("../img/myj_bzicon3.png") no-repeat;
   line-height: 36px;
 }
 .ddetail_l_cont {
-  text-align: center;
+  /*text-align: center;*/
 }
 .ddetail_l_cont img {
+  display: block;
+  margin: 0 auto;
   width: 960px;
   margin-bottom: 30px;
 }
