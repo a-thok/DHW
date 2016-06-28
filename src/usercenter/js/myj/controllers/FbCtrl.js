@@ -69,7 +69,8 @@ export default function FbCtrl($http) {
       if (data.success === true) {
         location.href = '#/yfb/all';
       } else {
-        alert(data.msg);
+        vm.isDisabled = false;
+        alert(data.msg);        
       }
     });
   };
