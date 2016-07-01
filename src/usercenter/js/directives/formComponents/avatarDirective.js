@@ -19,9 +19,6 @@ export default function avatarDirective() {
             ng-jcrop-config-name="upload"
             selection="obj.selection"
             thumbnail="obj.thumbnail">
-            <div class="avatarPre">
-              <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
-            </div>
           </div>
           <div class="formSet formSet-avatar clearfix">
             <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
@@ -40,34 +37,8 @@ export default function avatarDirective() {
       $http.post('/UserAccount/Img').success((data) => {
         $scope.avatar = data.result.logo;
       });
-      // $(function () {
-      //   $('#avatarImg').Jcrop({
-      //     allowSelect: true,
-      //     allowMove: true,
-      //     allowResize: true,
-      //     onChange: showPreview,
-      //     onSelect: showPreview,
-      //     aspectRatio: 1
-      //   });
-      //   function showPreview(coords) {
-      //     s.data.x = coords.x;
-      //     s.data.y = coords.y;
-      //     s.data.w = coords.h;
-      //     s.data.h = coords.w;
-      //     var rx = 100 / coords.w;
-      //     var ry = 100 / coords.h;
-      //     $('#preview').css({
-      //       width: Math.round(rx * 600) + 'px',
-      //       height: Math.round(ry * 600) + 'px',
-      //       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-      //       marginTop: '-' + Math.round(ry * coords.y) + 'px'
-      //     });
-      //   }
-      // });
-
       $scope.obj = { src: '', selection: [], thumbnail: true };
-      $scope.obj.coords = [100, 100, 200, 200, 100, 100];
-      console.log($scope.obj);
+      // $scope.obj.selection = [0, 0, 200, 200, 200, 200];
 
       $scope.$watch('data.logo', (newValue) => {
         var url = dhw.imgurl + newValue + '.jpg';
@@ -79,20 +50,19 @@ export default function avatarDirective() {
       });
 
       $scope.submit = () => {
-        if ($scope.obj.selection[0] || $scope.obj.selection[1] || $scope.obj.selection[4] || $scope.obj.selection[5]) {
-          $scope.data.x = $scope.obj.selection[0];
-          $scope.data.y = $scope.obj.selection[1];
-          $scope.data.w = $scope.obj.selection[4];
-          $scope.data.h = $scope.obj.selection[5];
-          console.log($scope.obj.selection[0]);
-        }
+        $scope.data.x = $scope.obj.selection[0];
+        $scope.data.y = $scope.obj.selection[1];
+        $scope.data.w = $scope.obj.selection[4];
+        $scope.data.h = $scope.obj.selection[5];
+        console.log($scope.obj.selection);
+
         var params = $.extend({}, $scope.data);
 
         params.logo = (params.logo);
         params.t = '100x100_200x200';
         params.action = 'cut';
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
-          // console.log('我是后台返回的数据' + data);
+
           $scope.$apply(() => {
             $scope.avatar = data.path + '100x100.jpg';
             $scope.data.logo = '';
@@ -103,17 +73,6 @@ export default function avatarDirective() {
             }
           });
         });
-        // $.post(dhw.imgcuturl, params, (data) => {
-        //   s.$apply(() => {
-        //     s.avatar = data.path + '100x100.jpg';
-        //     s.data.logo = '';
-        //   });
-        //   h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
-        //     if (d.success) {
-        //       console.log(1);
-        //     }
-        //   });
-        // }, 'json');
       };
     }]
   };

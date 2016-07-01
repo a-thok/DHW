@@ -90,7 +90,7 @@ app
       maxWidth: 300,
       maxHeight: 300,
       allowSelect: true,
-      allowMove: true
+      allowMove: true,
     });
   }])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
