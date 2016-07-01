@@ -1,3 +1,4 @@
+import $ from 'jquery';
 export default function FbCtrl($http) {
   var vm = this;
   vm.selectedItems = {};
@@ -7,6 +8,8 @@ export default function FbCtrl($http) {
     sku: [],
     sellprov: []
   };
+  // 判断是否需要库存 必填
+  vm.needkc = false;
   // vm.secType;
   vm.photos = [{}];
   vm.isDisabled = false;
@@ -57,6 +60,11 @@ export default function FbCtrl($http) {
     });
 
     var para = Object.assign({}, vm.data);
+    if (para.props.length === 0) {
+      vm.needkc = true;
+    } else {
+      vm.needkc = false;
+    }
     para.props.forEach((prop, i) => {
       prop.lev = i;
       prop.propEnum.forEach((item, _i) => {
@@ -67,10 +75,11 @@ export default function FbCtrl($http) {
     para.imagesize = '400x400';
     $http.post('/Sys/o2o/Product/add', para).success((data) => {
       if (data.success === true) {
+        alert('提交成功');
         location.href = '#/yfb/all';
       } else {
         vm.isDisabled = false;
-        alert(data.msg);        
+        alert(data.msg);
       }
     });
   };
