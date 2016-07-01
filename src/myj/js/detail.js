@@ -28,13 +28,15 @@ export default function detail() {
 
   // sku
   var price = $('.dinfo_sprice span');
-  var skuList = $('.dinfo_option.sku');
+  var propList = $('.dinfo_option.prop');
   var skuid;
-  skuList.on('click', 'dd', (e) => {
+  var sendmode;
+  propList.on('click', 'dd', (e) => {
     var point = [];
     var pointCompleted = true;
+    var skuList = $('.dinfo_option.sku');
     var sku;
-
+    var stock = $('.dinfo_option_count').find('span');
     $(e.target).parent().find('dd').removeClass('is_selected');
     $(e.target).addClass('is_selected');
 
@@ -43,9 +45,15 @@ export default function detail() {
       point[i] = $(el).find('.is_selected').index();
     });
 
+    // 获取配送方式id
+    if ($(e.target).hasClass('sendmode')) {
+      sendmode = $(e.target).attr('data-sendmode');
+    }
+
     if (pointCompleted) {
       sku = window.product.skus[point.toString()];
       price.text(`¥${sku.price.toFixed(2)}`);
+      stock.text(sku.count); // 库存
       skuid = sku.id;
     }
   });
@@ -58,6 +66,8 @@ export default function detail() {
       window.login();
     } else if (window.product.skus && !skuid) {
       alert('请选择完整的规格');
+    } else if (!sendmode) {
+      alert('请选择配送方式');
     } else {
       var count = +countElem.val();
       var productid = window.productid;
@@ -65,7 +75,8 @@ export default function detail() {
       para.push({
         productid,
         skuid,
-        count
+        count,
+        sendmode
       });
       var form = $('#payForm');
       if (self.hasClass('buy')) {
@@ -77,7 +88,8 @@ export default function detail() {
       $.post('/ShopCart/add', {
         productid: window.productid,
         count,
-        skuid
+        skuid,
+        sendmode
       }).success((data) => {
         if (data.success) {
           if (!self.hasClass('buy')) {
