@@ -11,7 +11,7 @@ export default function avatarDirective() {
           <div style="text-align:center;color:#000;font-size:16px;margin:20px;">请上传200*200规格的图片</div>
         </div>
         <div class="avatarWrap_upload_btn">
-          <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
+          <span class="avatarBtn" id="accountAvatar" ng-model="data.logo"  data-keyname="uc"  bind-img>上传头像</span>
         </div>
         <div ng-show="data.logo">
           <div class="avatarUpload clearfix"
@@ -31,10 +31,6 @@ export default function avatarDirective() {
     },
     controller: ['$scope', '$http', function Ctrl($scope, $http) {
       $scope.dhw = dhw;
-      // var ieMode = document.documentMode;
-      // var isIE = !!window.ActiveXObject;
-      // var isIE8 = isIE && ieMode == 8;
-      // var isIE9 = isIE && ieMode == 9;
       $scope.data = {
         x: 0,
         y: 0,
@@ -68,9 +64,10 @@ export default function avatarDirective() {
       //     });
       //   }
       // });
-      $scope.obj = { src: '', selection: [], thumbnail: true };
 
-      // console.log(s.obj.selection);
+      $scope.obj = { src: '', selection: [], thumbnail: true };
+      $scope.obj.coords = [100, 100, 200, 200, 100, 100];
+      console.log($scope.obj);
 
       $scope.$watch('data.logo', (newValue) => {
         var url = dhw.imgurl + newValue + '.jpg';

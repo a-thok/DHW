@@ -88,7 +88,9 @@ app
       bgOpacity: 0.4,
       aspectRatio: 1,
       maxWidth: 300,
-      maxHeight: 300
+      maxHeight: 300,
+      allowSelect: true,
+      allowMove: true
     });
   }])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
