@@ -62,6 +62,23 @@
   data-tip='请填写价格'
   data-pattern=""
   ></div>
+  <div input-text
+  data-form="fbForm"
+  data-vm="fbVm"
+  data-label="库存"
+  data-name="count"
+  data-required="fbVm.needkc"
+  data-switch="false"
+  data-tip='请填写库存'
+  data-pattern="/^[0-9]{1,4}$/"
+  ></div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 产品配送方式</label>
+    <input type="hidden" ng-model="fbVm.data.sendmode" required>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="fbVm.data.sendmode" value="1"> 到店自提</span>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="fbVm.data.sendmode" value="2"> 商品包邮</span>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="fbVm.data.sendmode" value="3"> 到店自提和商品包邮</span>
+  </div>
   <div select-simple
   data-vm="fbVm"
   data-form="fbForm"
