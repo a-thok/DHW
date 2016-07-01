@@ -45,16 +45,17 @@ export default function detail() {
       point[i] = $(el).find('.is_selected').index();
     });
 
-    // 获取配送方式id
-    if ($(e.target).hasClass('sendmode')) {
-      sendmode = $(e.target).attr('data-sendmode');
-    }
-
     if (pointCompleted) {
-      sku = window.product.skus[point.toString()];
-      price.text(`¥${sku.price.toFixed(2)}`);
-      stock.text(sku.count); // 库存
-      skuid = sku.id;
+      // 获取配送方式id
+      if ($(e.target).hasClass('sendmode')) {
+        sendmode = +$(e.target).attr('data-sendmode');
+      }
+      if (window.product.skus != null) {
+        sku = window.product.skus[point.toString()];
+        price.text(`¥${sku.price.toFixed(2)}`);
+        skuid = sku.id;
+        stock.text(sku.count); // 库存
+      }
     }
   });
 
@@ -227,9 +228,9 @@ export default function detail() {
   // 选择地区
 
   // 获取页面数据
-  var res = window.companychildselect;
-  var dist = $('.area');
+  var res;
   var options;
+  var dist = $('.area');
   function getSecondOptions(result) { // 渲染第二个select的option
     options = '';
     $.each(result.items, (k, item) => {
@@ -256,7 +257,11 @@ export default function detail() {
       }
     });
   }
-  getSecondOptions(res[0]);
+  // 分店数据存在时，加载地区
+  if (window.companychildselect) {
+    res = window.companychildselect;
+    getSecondOptions(res[0]);
+  }
 
   // 第一次进入页面，分店列表切换显示
   switchList(city.val(), dist.val());
