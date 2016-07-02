@@ -47,6 +47,9 @@ export default function orderList() {
                     <a ng-if="item.state === 0" href="${ attrs.editurl}">去付款</a></br>
                     <span ng-if="item.state === 1" ng-click="${attrs.vm}.${attrs.func2}">确认收货</span>
                   </td>
+                  <td class="blueWord" ng-if="$index === 0 && ${attrs.operate2}">
+                    <span  ng-click="${attrs.vm}.${attrs.func}">${attrs.operatename}</span></br>
+                  </td>
                 </tr>
               </tbody>
             </table>

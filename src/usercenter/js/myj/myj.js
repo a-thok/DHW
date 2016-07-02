@@ -27,6 +27,7 @@ import BuyerallCtrl from './controllers/buyercontrollers/BuyerallCtrl.js';
 import BuyercloseCtrl from './controllers/buyercontrollers/BuyercloseCtrl.js';
 import BuyerdfkCtrl from './controllers/buyercontrollers/BuyerdfkCtrl.js';
 import BuyerdshCtrl from './controllers/buyercontrollers/BuyerdshCtrl.js';
+import BuyerdfhCtrl from './controllers/buyercontrollers/BuyerdfhCtrl.js';
 import BuyerjywcCtrl from './controllers/buyercontrollers/BuyerjywcCtrl.js';
 // 卖家订单
 import SellerCtrl from './controllers/SellerCtrl.js';
@@ -34,6 +35,7 @@ import SellerallCtrl from './controllers/sellercontrollers/SellerallCtrl.js';
 import SellercloseCtrl from './controllers/sellercontrollers/SellercloseCtrl.js';
 import SellerdfkCtrl from './controllers/sellercontrollers/SellerdfkCtrl.js';
 import SellerdshCtrl from './controllers/sellercontrollers/SellerdshCtrl.js';
+import SellerdfhCtrl from './controllers/sellercontrollers/SellerdfhCtrl.js';
 import SellerjywcCtrl from './controllers/sellercontrollers/SellerjywcCtrl.js';
 import SellerdetailCtrl from './controllers/sellercontrollers/SellerdetailCtrl.js'; // 显示买家订单详情
 
@@ -118,6 +120,11 @@ app
         templateUrl: '/partials/myj/buyer/partial-buyer-dsh.html',
         controller: 'BuyerdshCtrl as dshVm'
       })
+      .state('buyer.dfh', {
+        url: '/dfh',
+        templateUrl: '/partials/myj/buyer/partial-buyer-dfh.html',
+        controller: 'BuyerdfhCtrl as dfhVm'
+      })
       .state('buyer.jywc', {
         url: '/jywc',
         templateUrl: '/partials/myj/buyer/partial-buyer-jywc.html',
@@ -142,6 +149,11 @@ app
         url: '/dfk',
         templateUrl: '/partials/myj/seller/partial-seller-dfk.html',
         controller: 'SellerdfkCtrl as dfkVm'
+      })
+      .state('seller.dfh', {
+        url: '/dfh',
+        templateUrl: '/partials/myj/seller/partial-seller-dfh.html',
+        controller: 'SellerdfhCtrl as dfhVm'
       })
       .state('seller.dsh', {
         url: '/dsh',
@@ -185,6 +197,7 @@ app
   .controller('BuyercloseCtrl', ['$http', BuyercloseCtrl])
   .controller('BuyerdfkCtrl', ['$http', BuyerdfkCtrl])
   .controller('BuyerdshCtrl', ['$http', BuyerdshCtrl])
+  .controller('BuyerdfhCtrl', ['$http', BuyerdfhCtrl])
   .controller('BuyerjywcCtrl', ['$http', BuyerjywcCtrl])
   // 卖家订单
   .controller('SellerCtrl', [SellerCtrl])
@@ -192,6 +205,7 @@ app
   .controller('SellercloseCtrl', ['$http', SellercloseCtrl])
   .controller('SellerdfkCtrl', ['$http', SellerdfkCtrl])
   .controller('SellerdshCtrl', ['$http', SellerdshCtrl])
+  .controller('SellerdfhCtrl', ['$http', SellerdfhCtrl])
   .controller('SellerjywcCtrl', ['$http', SellerjywcCtrl])
   .controller('SellerdetailCtrl', ['$http', '$stateParams', SellerdetailCtrl]); // 显示买家订单详情
 

@@ -26,3 +26,6 @@
   background: linear-gradient(to bottom, #f2f2f2, #fff);
   color: #333;
 }
+.myjtabs li {
+  width: 148px;
+}

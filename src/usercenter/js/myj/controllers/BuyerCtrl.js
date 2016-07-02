@@ -14,6 +14,10 @@ export default function BuyerCtrl() {
       url: '.dsh',
     },
     {
+      name: '待发货',
+      url: '.dfh',
+    },
+    {
       name: '交易完成',
       url: '.jywc',
     },
@@ -21,5 +25,5 @@ export default function BuyerCtrl() {
       name: '交易关闭',
       url: '.close',
     },
-  ]
+  ];
 }

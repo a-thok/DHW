@@ -10,6 +10,10 @@ export default function SellerCtrl() {
       url: '.dfk',
     },
     {
+      name: '待发货',
+      url: '.dfh',
+    },
+    {
       name: '待收货',
       url: '.dsh',
     },
