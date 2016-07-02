@@ -13,7 +13,7 @@ export default function avatarDirective() {
         <div class="avatarWrap_upload_btn">
           <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc"  bind-img>上传头像</span>
         </div>
-        <div ng-show="data.logo">
+        <div ng-show="data.logo" style="position:relative">
           <div class="avatarUpload clearfix"
             ng-jcrop="obj.src"
             ng-jcrop-config-name="upload"
@@ -23,6 +23,7 @@ export default function avatarDirective() {
               <img ng-src="{{data.logo ? dhw.imgurl + data.logo  + '.jpg' : ''}}" id="preview">
             </div>
           </div>
+          <div  class="wait_load" ng-show="visible"></div>
           <div class="formSet formSet-avatar clearfix">
             <button class="submitBtn" type="button" ng-disabled="!data.logo" ng-click="submit()">保存修改</button>
           </div>
@@ -35,7 +36,7 @@ export default function avatarDirective() {
       // var isIE = !!window.ActiveXObject;
       // var isIE8 = isIE && ieMode == 8;
       // var isIE9 = isIE && ieMode == 9;
-
+      $scope.visible = false;
       // 读取头像
       $http.post('/UserAccount/Img').success((data) => {
         $scope.avatar = data.result.logo;
@@ -49,6 +50,7 @@ export default function avatarDirective() {
       };
       // 监听图像上传，检测到新上传图像后，处理好配置然后把图像地址写入剪裁插件配置对象
       $scope.$watch('data.logo', (newValue) => {
+        $scope.visible = true;
         var url = dhw.imgurl + newValue + '.jpg';
         $('<img>').prop('src', url).on('load', (e) => {
           const width = e.target.width;
@@ -57,6 +59,7 @@ export default function avatarDirective() {
           $scope.obj.selection = [0, 0, minSize, minSize, minSize, minSize];
           // console.log($scope.obj.selection);
           $scope.$apply(() => { $scope.obj.src = url; });
+          $scope.visible = false;
         });
       });
 

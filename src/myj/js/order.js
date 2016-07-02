@@ -304,7 +304,7 @@ export default function order() {
       contentType: 'application/json',
       data: JSON.stringify(para),
       success: (data) => {
-        if (data.result) {
+        if (data.result && data.result.length) {
           window.location.href = dhw.urlmain + 'appo2o#/buyer/dfk';
         } else {
           alert('订单生成失败！');

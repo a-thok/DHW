@@ -31,6 +31,12 @@ export default function detail() {
   var propList = $('.dinfo_option.prop');
   var skuid;
   var sendmode;
+
+  if ($('.sendmode').length === 1) { // 如果配送方式只有一种，默认选中
+    $('.sendmode').addClass('is_selected');
+    sendmode = +$('.sendmode').attr('data-sendmode');
+  }
+
   propList.on('click', 'dd', (e) => {
     var point = [];
     var pointCompleted = true;
@@ -45,11 +51,11 @@ export default function detail() {
       point[i] = $(el).find('.is_selected').index();
     });
 
+    // 获取配送方式id
+    if ($(e.target).hasClass('sendmode')) {
+      sendmode = +$(e.target).attr('data-sendmode');
+    }
     if (pointCompleted) {
-      // 获取配送方式id
-      if ($(e.target).hasClass('sendmode')) {
-        sendmode = +$(e.target).attr('data-sendmode');
-      }
       if (window.product.skus != null) {
         sku = window.product.skus[point.toString()];
         price.text(`¥${sku.price.toFixed(2)}`);
