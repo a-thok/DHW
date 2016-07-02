@@ -35,88 +35,66 @@ export default function avatarDirective() {
       // var isIE = !!window.ActiveXObject;
       // var isIE8 = isIE && ieMode == 8;
       // var isIE9 = isIE && ieMode == 9;
+
+      // 读取头像
+      $http.post('/UserAccount/Img').success((data) => {
+        $scope.avatar = data.result.logo;
+      });
+
+      // 剪裁插件配置对象
+      $scope.obj = {
+        src: '',
+        selection: [0, 0, 500, 500, 500, 500],
+        thumbnail: true
+      };
+      // 监听图像上传，检测到新上传图像后，处理好配置然后把图像地址写入剪裁插件配置对象
+      $scope.$watch('data.logo', (newValue) => {
+        var url = dhw.imgurl + newValue + '.jpg';
+        $('<img>').prop('src', url).on('load', (e) => {
+          const width = e.target.width;
+          const height = e.target.height;
+          const minSize = Math.min(width, height, 500);
+          $scope.obj.selection = [0, 0, minSize, minSize, minSize, minSize];
+          // console.log($scope.obj.selection);
+          $scope.$apply(() => { $scope.obj.src = url; });
+        });
+      });
+
+      // 剪裁后提交
       $scope.data = {
         x: 0,
         y: 0,
         w: 100,
         h: 100
       };
-      $http.post('/UserAccount/Img').success((data) => {
-        $scope.avatar = data.result.logo;
-      });
-      // $(function () {
-      //   $('#avatarImg').Jcrop({
-      //     allowSelect: true,
-      //     allowMove: true,
-      //     allowResize: true,
-      //     onChange: showPreview,
-      //     onSelect: showPreview,
-      //     aspectRatio: 1
-      //   });
-      //   function showPreview(coords) {
-      //     s.data.x = coords.x;
-      //     s.data.y = coords.y;
-      //     s.data.w = coords.h;
-      //     s.data.h = coords.w;
-      //     var rx = 100 / coords.w;
-      //     var ry = 100 / coords.h;
-      //     $('#preview').css({
-      //       width: Math.round(rx * 600) + 'px',
-      //       height: Math.round(ry * 600) + 'px',
-      //       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
-      //       marginTop: '-' + Math.round(ry * coords.y) + 'px'
-      //     });
-      //   }
-      // });
-      $scope.obj = { src: '', selection: [], thumbnail: true };
-
-      // console.log(s.obj.selection);
-
-      $scope.$watch('data.logo', (newValue) => {
-        var url = dhw.imgurl + newValue + '.jpg';
-        if ($scope.data.logo) {
-          $('.jcrop-holder').find('img').attr('ng-src', url);
-          $('.jcrop-holder').find('img').attr('src', url);
-          $scope.obj.src = url;
-        }
-      });
 
       $scope.submit = () => {
-        if ($scope.obj.selection[0] || $scope.obj.selection[1] || $scope.obj.selection[4] || $scope.obj.selection[5]) {
-          $scope.data.x = $scope.obj.selection[0];
-          $scope.data.y = $scope.obj.selection[1];
-          $scope.data.w = $scope.obj.selection[4];
-          $scope.data.h = $scope.obj.selection[5];
-          console.log($scope.obj.selection[0]);
-        }
-        var params = $.extend({}, $scope.data);
+        // 准备参数
+        $scope.data.x = $scope.obj.selection[0];
+        $scope.data.y = $scope.obj.selection[1];
+        $scope.data.w = $scope.obj.selection[4];
+        $scope.data.h = $scope.obj.selection[5];
 
+        var params = $.extend({}, $scope.data);
         params.logo = (params.logo);
         params.t = '100x100_200x200';
         params.action = 'cut';
+
+        // 调用接口
         $.getJSON(dhw.imgcuturl + '?callback=?', params, (data) => {
-          // console.log('我是后台返回的数据' + data);
           $scope.$apply(() => {
             $scope.avatar = data.path + '100x100.jpg';
             $scope.data.logo = '';
           });
-          $http.post('/UserAccount/ImgEdit', { logo: $scope.avatar, imagesize: '100x100_200x200' }).success((d) => {
-            if (d.success) {
-              console.log(1);
+          $http.post('/UserAccount/ImgEdit', {
+            logo: $scope.avatar,
+            imagesize: '100x100_200x200'
+          }).success((d) => {
+            if (!d.success) {
+              console.log('头像保存失败！');
             }
           });
         });
-        // $.post(dhw.imgcuturl, params, (data) => {
-        //   s.$apply(() => {
-        //     s.avatar = data.path + '100x100.jpg';
-        //     s.data.logo = '';
-        //   });
-        //   h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success((d) => {
-        //     if (d.success) {
-        //       console.log(1);
-        //     }
-        //   });
-        // }, 'json');
       };
     }]
   };

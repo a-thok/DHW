@@ -87,8 +87,13 @@ app
       bgColor: 'black',
       bgOpacity: 0.4,
       aspectRatio: 1,
-      maxWidth: 300,
-      maxHeight: 300
+      maxWidth: 500,
+      maxHeight: 500
+    });
+    ngJcropConfigProvider.setPreviewStyle({
+      width: '100px',
+      height: '100px',
+      overflow: 'hidden',
     });
   }])
   .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
