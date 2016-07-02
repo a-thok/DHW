@@ -256,12 +256,24 @@ export default function order() {
 
     const payment = $('input[name=paymethod]:checked').val();
     var confirm_addr = $('.confirm');
-    var remark = $('.invoiceInput_long').val();
     var requireAddr = window.requireAddr;
     var receiveName = '';
     var receivePhone = '';
     var receiveAddress = '';
     var districtCode = '';
+
+    // 添加备注
+    $.each($('table'), (i, item) => {
+      $(window.p).each((index, pitem) => {
+        const ddid = $(item).attr('data-ddid');
+        const sendmode = $(item).attr('data-sendmode');
+        if (+ddid === pitem.ddid && +sendmode === pitem.sendmode) {
+          let remark = $(item).find('tfoot').find('input');
+          pitem.remark = remark.val();
+        }
+      });
+    });
+
     if (requireAddr) {
       receiveName = confirm_addr.find('.orderfill_name').html();
       receivePhone = confirm_addr.find('.orderfill_phone').html();
@@ -281,7 +293,6 @@ export default function order() {
         receivePhone,
         receiveAddress,
         districtCode,
-        remark,
         requireAddr
       }
     };

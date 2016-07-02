@@ -54,7 +54,12 @@ export default function detail() {
         sku = window.product.skus[point.toString()];
         price.text(`¥${sku.price.toFixed(2)}`);
         skuid = sku.id;
-        stock.text(sku.count); // 库存
+        // 库存
+        if (sku.count === null) {
+          stock.text(0);
+        } else {
+          stock.text(sku.count);
+        }
       }
     }
   });

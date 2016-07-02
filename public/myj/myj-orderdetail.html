@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="//cdn.dreamhiway.com/styles/general.css">
   <script>
     var pagekey = 'order';
-    // var p = [{"ddid":216,"items":[{"productid":226,"skuid":0,"count":1}]}]; //测试代码
-    // var requireAddr = false;
+    //测试代码
+    var p = [
+      {"ddid":48,"sendmode":1,"remark":null,"items":[{"productid":279,"skuid":0,"count":1,"sendmode":1}]},
+      {"ddid":49,"sendmode":1,"remark":null,"items":[{"productid":279,"skuid":0,"count":1,"sendmode":1}]},
+      ];
+    var requireAddr = false;
   </script>
   <script type="text/html" id="addressTem">
     {{each result as addr}}
@@ -116,15 +120,13 @@
       </div>
     </div>
     <!--弹出层 结束-->
-    <div class="invoice_div">
-      <label class="invoiceLabel">备注 :</label>
-      <input class="invoiceInput_long" type="text" placeholder="请填写备注">
-    </div>
     <div class="cart_order">
       <h3 class="cart_order_ttl">商品清单</h3>
-      <table class="cart_store">
+      <table class="cart_store" data-ddid="48" data-sendmode="1">
         <caption>
-          <h4 class="cart_store_ttl">店铺：测试</h4>
+          <h4 class="cart_store_ttl">店铺：测试
+            <span class="cart_store_model">配送方式：商品包邮</span>
+          </h4>
         </caption>
         <colgroup>
           <col width="8%">
@@ -152,6 +154,55 @@
             <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
           </tr>
         </tbody>
+        <tfoot>
+            <tr>
+              <td colspan="5" class="invoice_remark">
+                <label class="invoiceLabel">备注 :</label>
+                <input class="invoiceInput_long" type="text" placeholder="请填写备注">
+              </td>
+            </tr>
+        </tfoot>
+      </table>
+      <table class="cart_store" data-ddid="49" data-sendmode="1">
+        <caption>
+          <h4 class="cart_store_ttl">店铺：测试
+            <span class="cart_store_model">配送方式：商品包邮</span>
+          </h4>
+        </caption>
+        <colgroup>
+          <col width="8%">
+          <col width="65px">
+          <col width="12%">
+          <col width="15%">
+          <col width="12%">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="2">商品信息</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>金额</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-skuid="0" data-productid="181" data-id="142">
+            <td class="cart_img">
+              <a href="#"><img src="../../src/myj/img/shangpin2.png" alt="这只是个测试"></a>
+            </td>
+            <td class="cart_name"><a href="#">这只是个测试</a></td>
+            <td>¥<span class="cart_unitPrice">2222.22</span></td>
+            <td>1</td>
+            <td class="cart_emp">¥<span class="cart_cost">2222.22</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+              <td colspan="5" class="invoice_remark">
+                <label class="invoiceLabel">备注 :</label>
+                <input class="invoiceInput_long" type="text" placeholder="请填写备注">
+              </td>
+            </tr>
+        </tfoot>
       </table>
     </div>
 

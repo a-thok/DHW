@@ -8,6 +8,9 @@
   line-height: 2.6;
   border-bottom: 1px solid #ccc;
 }
+.cart_store_model {
+  margin-left: 50px;
+}
 .paymethod_list {
   padding: 2em 0;
 }
@@ -152,8 +155,9 @@
   font-size: 14px;
   cursor: pointer;
 }
-.invoice_div {
-  margin-bottom: 25px;
+.cart_store td.invoice_remark {
+  padding-left: 10px;
+  text-align: left;
 }
 .invoiceLabel {
   height: 35px;

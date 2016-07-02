@@ -136,11 +136,13 @@ $('.cart_payment_btn').on('click', (e) => {
     const item = $(checkedItem).parents('tr');
     const productid = item.attr('data-productid');
     const skuid = item.attr('data-skuid');
+    const sendmode = item.attr('data-sendmode');
     const count = item.find('.cart_count_input').val();
     data.push({
       productid,
       skuid,
-      count
+      count,
+      sendmode
     });
   });
   const form = $('#payForm');
