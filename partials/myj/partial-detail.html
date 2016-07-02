@@ -66,6 +66,23 @@
   data-tip='请填写价格'
   data-pattern=""
   ></div>
+  <div input-text
+  data-form="detailForm"
+  data-vm="detailVm"
+  data-label="库存"
+  data-name="count"
+  data-required="detailVm.needkc"
+  data-switch="false"
+  data-tip='请填写库存'
+  data-error="请输入大于0的库存数量，最多四位数"
+  data-pattern="/^[0-9]{1,4}$/"
+  ></div>
+  <div class="formSet clearfix">
+    <label class="formLabel"><span class="formSet_required">*</span> 产品配送方式</label>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="detailVm.data.sendmode" value="1"> 到店自提</span>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="detailVm.data.sendmode" value="2"> 商品包邮</span>
+    <span class="formInputSet_radioWrap"><input type="radio" ng-model="detailVm.data.sendmode" value="3"> 到店自提和商品包邮</span>
+  </div>
   <div select-simple
   data-vm="detailVm"
   data-form="detailForm"

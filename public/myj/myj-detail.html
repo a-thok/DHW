@@ -9,7 +9,8 @@
     var productid = 230;
     var pagekey = 'detail';
     var dhw = {mainurl: '//localhost:8085/', isLogined: true};
-    var product={skus:{"0,0":{"id":3,"price":2100.00},"0,1":{"id":4,"price":201.00},"1,0":{"id":5,"price":212.10},"1,1":{"id":6,"price":212.11}}};
+    // var product={skus:{"0,0":{"id":3,"price":2100.00,"count": 88},"0,1":{"id":4,"price":201.00,"count": 99},"1,0":{"id":5,"price":212.10,"count": 100},"1,1":{"id":6,"price":212.11,"count": 88}}};
+    var product={skus: null};
     // var companychildselect=[{"cityName":"全部市区","items":["全部城区"]},{"cityName":"泉州","items":["全部城区","石狮"]},{"cityName":"南安","items":["全部城区","石狮2","石狮3"]}];
   </script>
   <script type="text/html" id="province">
@@ -111,14 +112,14 @@
             </div>
             <div class="dinfo_options">
               <!--规格 开始-->
-              <dl class="dinfo_option sku clearfix">
+              <dl class="dinfo_option prop sku clearfix">
                 <dt class="dinfo_option_name">颜色：</dt>
                 <div class="dinfo_option_cont">
                   <dd title="深红1">红色1</dd>
                   <dd title="蓝色2">蓝色11</dd>
                 </div>
               </dl>
-              <dl class="dinfo_option sku clearfix">
+              <dl class="dinfo_option prop sku clearfix">
                 <dt class="dinfo_option_name">大小：</dt>
                 <div class="dinfo_option_cont">
                   <dd title="1">1wL</dd>
@@ -126,6 +127,15 @@
                 </div>
               </dl>
               <!--规格 结束-->
+              <!-- 物流方式 开始-->
+              <dl class="dinfo_option prop clearfix">
+                <dt class="dinfo_option_name">配送方式：</dt>
+                <div class="dinfo_option_cont">
+                  <dd class="sendmode" data-sendmode="1">到店自提</dd>
+                  <dd class="sendmode" data-sendmode="2">商品包邮</dd>
+                </div>
+              </dl>
+              <!-- 物流方式 结束-->
               <div class="dinfo_option clearfix">
                 <span class="dinfo_option_name">购买数量：</span>
                 <div class="dinfo_option_cont clearfix">
@@ -133,6 +143,7 @@
                   <input class="dinfo_count" type="number" min="1" value="1">
                   <button type="button">+</button>
                 </div>
+                <div class="dinfo_option_count">(库存：<span>111</span>)</div>
               </div>
               <div class="dinfo_option ensure clearfix">
                 <span class="dinfo_option_name">保障：</span>

@@ -37,7 +37,8 @@ export default function myjSku() {
               <table class="myjSku_table" ng-show="${attrs.vm}.data.sku.length">
                 <thead>
                   <th ng-repeat="prop in ${attrs.vm}.data.props">{{prop.name}}</th>
-                  <th width="90">价格</th>
+                  <th width="140">价格</th>
+                  <th width="140">库存</th>
                 </thead>
                 <tbody>
                   <tr ng-repeat="sku in ${attrs.vm}.data.sku">
@@ -45,7 +46,10 @@ export default function myjSku() {
                       {{${attrs.vm}.data.props[$index].propEnum[point].name}}
                     </td>
                     <td>
-                      <input class="formInput" type="text" ng-model="sku.price" ng-required="true">
+                      <input class="formInput" type="text" ng-model="sku.price" ng-required="true" placeholder="价格不能超过四位数" style="width:140px" ng-pattern="/^[0-9]{1,4}$/">
+                    </td>
+                    <td>
+                      <input class="formInput" type="text" ng-model="sku.count" ng-required="true" placeholder="库存不能超过四位数" style="width:140px" ng-pattern="/^[0-9]{1,4}$/">
                     </td>
                   </tr>
                 </tbody>
@@ -104,6 +108,7 @@ export default function myjSku() {
           parentVm.data.sku.forEach((sku) => {
             if (item.point.toString() === sku.point.toString()) {
               item.price = sku.price;
+              item.count = sku.count;
             }
           });
         });

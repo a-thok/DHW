@@ -28,13 +28,15 @@ export default function detail() {
 
   // sku
   var price = $('.dinfo_sprice span');
-  var skuList = $('.dinfo_option.sku');
+  var propList = $('.dinfo_option.prop');
   var skuid;
-  skuList.on('click', 'dd', (e) => {
+  var sendmode;
+  propList.on('click', 'dd', (e) => {
     var point = [];
     var pointCompleted = true;
+    var skuList = $('.dinfo_option.sku');
     var sku;
-
+    var stock = $('.dinfo_option_count').find('span');
     $(e.target).parent().find('dd').removeClass('is_selected');
     $(e.target).addClass('is_selected');
 
@@ -44,9 +46,21 @@ export default function detail() {
     });
 
     if (pointCompleted) {
-      sku = window.product.skus[point.toString()];
-      price.text(`¥${sku.price.toFixed(2)}`);
-      skuid = sku.id;
+      // 获取配送方式id
+      if ($(e.target).hasClass('sendmode')) {
+        sendmode = +$(e.target).attr('data-sendmode');
+      }
+      if (window.product.skus != null) {
+        sku = window.product.skus[point.toString()];
+        price.text(`¥${sku.price.toFixed(2)}`);
+        skuid = sku.id;
+        // 库存
+        if (sku.count === null) {
+          stock.text(0);
+        } else {
+          stock.text(sku.count);
+        }
+      }
     }
   });
 
@@ -58,6 +72,8 @@ export default function detail() {
       window.login();
     } else if (window.product.skus && !skuid) {
       alert('请选择完整的规格');
+    } else if (!sendmode) {
+      alert('请选择配送方式');
     } else {
       var count = +countElem.val();
       var productid = window.productid;
@@ -65,7 +81,8 @@ export default function detail() {
       para.push({
         productid,
         skuid,
-        count
+        count,
+        sendmode
       });
       var form = $('#payForm');
       if (self.hasClass('buy')) {
@@ -77,7 +94,8 @@ export default function detail() {
       $.post('/ShopCart/add', {
         productid: window.productid,
         count,
-        skuid
+        skuid,
+        sendmode
       }).success((data) => {
         if (data.success) {
           if (!self.hasClass('buy')) {
@@ -215,9 +233,9 @@ export default function detail() {
   // 选择地区
 
   // 获取页面数据
-  var res = window.companychildselect;
-  var dist = $('.area');
+  var res;
   var options;
+  var dist = $('.area');
   function getSecondOptions(result) { // 渲染第二个select的option
     options = '';
     $.each(result.items, (k, item) => {
@@ -244,7 +262,11 @@ export default function detail() {
       }
     });
   }
-  getSecondOptions(res[0]);
+  // 分店数据存在时，加载地区
+  if (window.companychildselect) {
+    res = window.companychildselect;
+    getSecondOptions(res[0]);
+  }
 
   // 第一次进入页面，分店列表切换显示
   switchList(city.val(), dist.val());

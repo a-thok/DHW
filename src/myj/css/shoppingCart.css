@@ -84,6 +84,7 @@
   margin: 0 auto;
 }
 td.cart_name {
+  width: 380px;
   text-align: left;
   line-height: 1.5;
 }
