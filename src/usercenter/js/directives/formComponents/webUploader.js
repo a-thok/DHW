@@ -53,7 +53,11 @@ export default function webUploader() {
           mimeTypes: 'image/*'
         },
         resize: false,
-        compress: false
+        compress: attrs.compress ? {
+          width: 1600,
+          height: 1600,
+          quality: 90
+        } : false
       });
       // 添加图片
       uploader.on('fileQueued', (file) => {
