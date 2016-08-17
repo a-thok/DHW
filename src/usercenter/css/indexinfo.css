@@ -120,6 +120,17 @@
 .formSet-avatar {
   text-align: center;
 }
+.wait_load {
+  position: absolute;
+  top: 20px;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  background: url('../img/headpic_load.gif') no-repeat;
+}
 .submitBtn {
   width: 270px;
   height: 36px;
@@ -135,6 +146,7 @@
 submitBtn[disabled] {
   background-color: #ccc;
 }
-.jcrop-holder {
+.ng-jcrop-image-wrapper {
   float: left;
+  margin-right: 10px;
 }

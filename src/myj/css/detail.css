@@ -94,12 +94,16 @@
   display: inline-block;
   vertical-align: top;
 }
-.dinfo_option_count,
 .dinfo_option_name {
   width: 95px;
   margin-right: 15px;
   line-height: 28px;
   text-align: right;
+}
+.dinfo_option_count {
+  width: 120px;
+  margin-left: 15px;
+  line-height: 28px;
 }
 .dinfo_option dd {
   float: left;

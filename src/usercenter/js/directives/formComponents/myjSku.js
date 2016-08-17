@@ -3,6 +3,7 @@ export default function myjSku() {
     replace: true,
     scope: true,
     template(elem, attrs) {
+      const reg = new RegExp('^[1-9]\\d{1,4}(\\.\\d{1,2}$|$)');
       return `<div class="formGourp clearfix">
           <div class="formGourp_wrap">
             <label class="formLabel" for="${attrs.name}">
@@ -46,7 +47,7 @@ export default function myjSku() {
                       {{${attrs.vm}.data.props[$index].propEnum[point].name}}
                     </td>
                     <td>
-                      <input class="formInput" type="text" ng-model="sku.price" ng-required="true" placeholder="价格不能超过四位数" style="width:140px" ng-pattern="/^[0-9]{1,4}$/">
+                      <input class="formInput" type="text" ng-model="sku.price" ng-required="true" placeholder="价格不能超过四位数" style="width:140px" ng-pattern=${reg}>
                     </td>
                     <td>
                       <input class="formInput" type="text" ng-model="sku.count" ng-required="true" placeholder="库存不能超过四位数" style="width:140px" ng-pattern="/^[0-9]{1,4}$/">
