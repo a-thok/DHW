@@ -172,6 +172,9 @@
 .navi_main_item a:hover {
   color: var(--theme);
 }
+.navi_main_item.red a {
+  color: red;
+}
 .navi_main_item.hot::after,
 .navi_main_item.new::after {
   content: "";
