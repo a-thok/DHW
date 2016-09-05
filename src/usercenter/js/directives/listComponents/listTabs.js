@@ -4,7 +4,7 @@ export default function listTabs() {
     scope: true,
     template(elem, attrs) {
       return `
-        <ul class="titleTabs clearfix">
+        <ul class="myjtabs clearfix">
           <a  ng-repeat="${attrs.repeat}" ui-sref="{{item.url}}">
             <li class="titleTab"
             data-url="{{item}}"
