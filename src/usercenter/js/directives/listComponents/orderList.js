@@ -21,6 +21,7 @@ export default function orderList() {
               <span class="shopItem_ttl_date">{{ item.date }}</span>
               <span class="orderNumber">订单号 ：<span>{{ item.number }}</span></span>
               <span class="companyName"><a href="/apphome#/email/inbox">{{ item.${attrs.name} }}</a></span>
+              <span class="sendmodeName">{{ item.${attrs.sendmode} }}</span>
               <span class="checkDetail" ng-show="${attrs.detail}"><a href="#/sellerdetail/{{item.${attrs.id}}}/{{item.number}}">查看详情</a><span>
               <span class="prderDelete" ng-click="${attrs.vm}.${attrs.del}">删除</span>
             </div>

@@ -22,6 +22,9 @@
 .companyName {
   color: #337ab7;
 }
+.sendmodeName {
+  margin-left: 50px;
+}
 .prderDelete {
   float: right;
   color: #337ab7;
