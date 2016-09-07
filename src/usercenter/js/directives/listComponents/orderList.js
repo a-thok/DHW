@@ -44,9 +44,9 @@ export default function orderList() {
                   <td ng-if="$index === 0">{{ item.totalFee }}</td>
                   <td ng-if="$index === 0">{{ item.stateName }}</td>
                   <td class="blueWord" ng-if="$index === 0 && ${attrs.operate}">
-                    <span ng-if="item.state === 0" ng-click="${attrs.vm}.${attrs.func}">取消订单</span></br>
+                    <span ng-if="item.state === 0 || item.state === 2" ng-click="${attrs.vm}.${attrs.func}">取消订单</span></br>
                     <a ng-if="item.state === 0" href="${ attrs.editurl}">去付款</a></br>
-                    <span ng-if="item.state === 1" ng-click="${attrs.vm}.${attrs.func2}">确认收货</span>
+                    <span ng-if="item.state === 1 || item.state === 2" ng-click="${attrs.vm}.${attrs.func2}">确认收货</span>
                   </td>
                   <td class="blueWord" ng-if="$index === 0 && ${attrs.operate2}">
                     <span  ng-click="${attrs.vm}.${attrs.func}">${attrs.operatename}</span></br>
