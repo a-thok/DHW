@@ -40,24 +40,13 @@ export default function myjmodal() {
             <div input-text
               data-form="myjmodal"
               data-vm="${attrs.vm}"
-              data-label="订单编号"
+              data-label="快递单号"
               data-name="logisticcode"
               data-required="true"
               data-switch="false"
               data-tip='请填写订单编号'
               data-pattern="/^[0-9]{1,50}$/"
               data-error="订单编号长度必须在1-50个数字之间"
-            ></div>
-            <div input-text
-              data-form="myjmodal"
-              data-vm="${attrs.vm}"
-              data-label="卖家备注"
-              data-name="sellernote"
-              data-required="true"
-              data-switch="false"
-              data-tip='请填写卖家备注'
-              data-pattern=""
-              data-error="卖家备注长度必须在1-50个数字之间"
             ></div>
             <div class="formSet clearfix">
             <div class="formSetWrap">
