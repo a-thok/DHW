@@ -20,28 +20,23 @@ export default function myjmodal() {
         z-index:105">
           <span class="box_close" ng-click="${attrs.vm}.close()"></span>
           <form name="myjmodal">
-           <div input-text
+           <div read-only
               data-form="myjmodal"
               data-vm="${attrs.vm}"
               data-label="订单号"
               data-name="number"
               data-required="true"
               data-switch="false"
-              data-tip='请填写订单编号'
-              data-pattern="/^[0-9]{1,50}$/"
-              data-error="订单号长度必须在1-50个数字之间"
             ></div>
-            <div input-text
+            <div select-simple
               data-form="myjmodal"
               data-vm="${attrs.vm}"
-              data-label="快递公司代码"
+              data-label="物流选择"
               data-name="shippercode"
               data-required="true"
               data-switch="false"
-              data-tip='请填写快递公司代码'
-              data-pattern="/^[0-9]{1,50}$/"
-              data-error="快递公司代码长度必须在1-50个数字之间"
-            ></div>
+              data-options="item.id as item.name for item in ${attrs.codings}"
+              ></div>
             <div input-text
               data-form="myjmodal"
               data-vm="${attrs.vm}"
@@ -61,7 +56,7 @@ export default function myjmodal() {
               data-required="true"
               data-switch="false"
               data-tip='请填写卖家备注'
-              data-pattern="/^[0-9]{1,50}$/"
+              data-pattern=""
               data-error="卖家备注长度必须在1-50个数字之间"
             ></div>
             <div class="formSet clearfix">
