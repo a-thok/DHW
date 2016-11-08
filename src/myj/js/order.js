@@ -305,8 +305,8 @@ export default function order() {
       data: JSON.stringify(para),
       success: (data) => {
         if (data.result && data.result.length) {
-          window.location.href = dhw.urlmain + '/uc#/buyerorder';
-          // window.location.href = 'http://www.mengyunjie.com/uc#/buyerorder';
+          // window.location.href = dhw.urlmain + '/uc#/buyerorder';
+          location.href = 'http://www.mengyunjie.com/uc#/buyerorder';
         } else {
           alert('订单生成失败！');
         }
